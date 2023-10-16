@@ -17,6 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/footer.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/footer.tsx"],
   "exclude": ["node_modules"]
 }

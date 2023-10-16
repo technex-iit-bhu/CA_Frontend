@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { FC } from 'react'
 import Link from 'next/link'
 
-function Footer() {
+const Footer: FC = () => {
   return (
     <div className='flex flex-col sm:flex-row items-center justify-center bg-[#2F2F2F] space-x-0'>
         <div className=''>
@@ -48,4 +48,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default Footer;
