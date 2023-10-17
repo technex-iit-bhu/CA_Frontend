@@ -12,6 +12,7 @@ const Navbar = () => {
         <Logo/>
         <Button/>
         <Login/>
+        
         </div>
       </div>
     </>
