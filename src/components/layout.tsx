@@ -11,9 +11,10 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
       {/* add <Navbar /> here */}
+      
       <main>{children}</main>
-      <Contactus/>
-      <Footer />
+      {/* <Contactus/> */}
+      {/* <Footer /> */}
     </>
   );
 }
