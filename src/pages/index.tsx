@@ -1,7 +1,7 @@
-import { Inter } from 'next/font/google'
-import OurReach from './ourReach'
+import { Inter } from 'next/font/google';
+import OurReach from './ourReach';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
@@ -10,5 +10,5 @@ export default function Home() {
         <OurReach />
       </div>
     </main>
-  )
+  );
 }

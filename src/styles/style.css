@@ -1,11 +1,11 @@
-.whiteText,.redText {
-    font-size: 100px;
-    font-weight: 200;
+.whiteText,
+.redText {
+  font-size: 100px;
+  font-weight: 200;
 }
 
 .circularText {
-    font-weight: 400;
-    text-align: center;
-    font-size: 1.2rem;
-    
+  font-weight: 400;
+  text-align: center;
+  font-size: 1.2rem;
 }
