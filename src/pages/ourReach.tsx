@@ -19,7 +19,7 @@ const pxToRem = (px: number) => `${px / 16}rem`;
  * Main component to display the reach.
  */
 const OurReach = () => (
-  <Box>
+  <Box p={pxToRem(50)}>
     <VStack>
       <Container maxW='container.xl'>
         <HeadingComponent />
@@ -61,8 +61,8 @@ const Line = ({ align }: LineProps) => {
   }
 
   return (
-    <Box display='flex' justifyContent={justifyContent}>
-      <Box height={pxToRem(2)} width='40%' bg='red' />
+    <Box display='flex' justifyContent={justifyContent} py={pxToRem(20)}>
+      <Box height={pxToRem(2)} width='60%' bg='red' />
     </Box>
   );
 };
@@ -81,9 +81,18 @@ type HeadingTextsProps = {
  * Component to render a heading with two different text colors.
  */
 const HeadingTexts = ({ whiteText, redText, align }: HeadingTextsProps) => (
-  <Box display='flex' flexDirection='column' justifyContent={align}>
+  <Box
+    display='flex'
+    flexDirection='column'
+    alignItems={align === 'right' ? 'flex-end' : 'flex-start'}
+  >
     <Heading>
-      <Text as='span' color='white' className='whiteText'>
+      <Text
+        as='span'
+        color='white'
+        className='whiteText'
+        fontSize={{ base: '100px', md: '100px', sm: '100px' }}
+      >
         {whiteText}
       </Text>{' '}
       <Text as='span' color='red' className='redText'>
@@ -101,7 +110,7 @@ const HeadingComponent = () => (
     whiteText='Our'
     redText='Reach'
     align='right'
-    fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
+    fontSize={{ base: 'md', md: 'lg', lg: 'xl', xl: '2xl' }}
   />
 );
 
@@ -135,24 +144,36 @@ const CircularProgressWithText = ({
  */
 const EllipseSection = () => (
   <Box
+    className='circularComponent'
     display='flex'
-    flexDirection={{ base: 'column', md: 'row' }}
-    justifyContent='space-between'
+    flexDirection={{ base: 'row', sm: 'column' }}
+    justifyContent='space-around'
     mt={pxToRem(16)}
     py={pxToRem(50)}
-    gap={pxToRem(4)}
+    gap={pxToRem(14)}
+    flexWrap='wrap'
   >
-    <CircularProgressWithText
-      percent={34}
-      value={69}
-      text='College Ambassadors'
-    />
-    <CircularProgressWithText percent={52} value={234} text='Indian College' />
-    <CircularProgressWithText
-      percent={87}
-      value={987}
-      text='International College'
-    />
+    <div>
+      <CircularProgressWithText
+        percent={34}
+        value={69}
+        text='College Ambassadors'
+      />
+    </div>
+    <div>
+      <CircularProgressWithText
+        percent={52}
+        value={234}
+        text='Indian College'
+      />
+    </div>
+    <div>
+      <CircularProgressWithText
+        percent={87}
+        value={987}
+        text='International College'
+      />
+    </div>
   </Box>
 );
 
@@ -164,6 +185,7 @@ const RenderCircularProgress: React.FC<{ percent: number; value: number }> = ({
   value,
 }) => {
   const [progressValue, setProgressValue] = useState(0);
+  const theme = useTheme();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -177,7 +199,7 @@ const RenderCircularProgress: React.FC<{ percent: number; value: number }> = ({
 
   return (
     <Circle
-      size={[pxToRem(130), pxToRem(210)]}
+      size={['80px', '130px', '210px'].map((size) => pxToRem(parseInt(size)))}
       border={`${pxToRem(4)} solid red`}
       display='flex'
       alignItems='center'
@@ -185,7 +207,11 @@ const RenderCircularProgress: React.FC<{ percent: number; value: number }> = ({
     >
       <CircularProgress
         value={progressValue}
-        size={pxToRem(210)}
+        size={
+          ['80px', '130px', '210px'].map((size) =>
+            pxToRem(parseInt(size))
+          ) as unknown as string | number | undefined
+        }
         thickness={pxToRem(8)}
         color='red'
         trackColor='black'
@@ -201,9 +227,14 @@ const RenderCircularProgress: React.FC<{ percent: number; value: number }> = ({
  * Component to render the lower section with a heading and a text.
  */
 const LowerSection = () => (
-  <Box mt={pxToRem(28)} textAlign='left' width={['100%', '60%']}>
+  <Box mt={pxToRem(28)} textAlign='left' width={['100%', '80%', '100%']}>
     <HeadingTexts whiteText='Why' redText='CA' align='left' />
-    <Text pb={pxToRem(28)} mt={pxToRem(12)}>
+    <Text
+      pb={pxToRem(28)}
+      mt={pxToRem(12)}
+      width={['100%', '70%', '80%']}
+      fontSize={pxToRem(15)}
+    >
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio
       aperiam magnam excepturi modi amet. Rerum provident soluta libero incidunt
       nulla dignissimos laudantium earum, voluptate officiis accusantium. Sed
