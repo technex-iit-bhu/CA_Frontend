@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Footer: FC = () => {
   return (
-    <div className='flex flex-col sm:flex-row items-center justify-center bg-[#2F2F2F] space-x-0'>
+    <div className='flex flex-col absolute w-full sm:flex-row items-center justify-center bg-[#2F2F2F] space-x-0'>
         <div className=''>
             <Image 
             src={"/sntc_logo.webp"}
@@ -21,7 +21,7 @@ const Footer: FC = () => {
         height={50}/>
         </div>
         <div className='font-bold text-center sm:pr-10 pb-3'>
-            <h1 className='pb-4'>Social Links</h1>
+            <h1 className='pb-4 pt-2'>Social Links</h1>
             <div className='flex space-x-5 p-1 justify-center items-center'>
                 <Link href={""}>
                     <Image src={"/facebook.webp"} alt='facebook' width={53} height={50}/>
@@ -39,7 +39,7 @@ const Footer: FC = () => {
                     <Image src={"/youtube.webp"} alt='YT' width={45} height={40}/>
                 </Link>
             </div>
-            <div className='text-sm flex pt-4 pl-2'>
+            <div className='text-sm flex pt-4 pl-4'>
                 For more queries: 
                 <p className='text-red-500 text-center'>&nbsp;&nbsp;publicity@technex.in</p>
                 </div>
