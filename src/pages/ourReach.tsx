@@ -12,14 +12,13 @@ import {
   ResponsiveValue,
 } from '@chakra-ui/react';
 
-
 /**
  * Main component to display the reach.
  */
 const OurReach = () => (
   <Box>
     <VStack>
-      <Container maxW='1120px'>
+      <Container maxW='md'>
         <HeadingComponent />
         <EllipseSection />
         <Line align='right' />
@@ -78,7 +77,7 @@ type HeadingTextsProps = {
  * Component to render a heading with two different text colors.
  */
 const HeadingTexts = ({ whiteText, redText, align }: HeadingTextsProps) => (
-  <Box display='flex' flexDirection='column' alignItems={align}>
+  <Box display='flex' flexDirection='column' justifyContent={align}>
     <Heading>
       <Text as='span' color='white' className='whiteText'>
         {whiteText}
@@ -126,7 +125,14 @@ const CircularProgressWithText = ({
  * Component to render a section with three circular progress indicators.
  */
 const EllipseSection = () => (
-  <Box display='flex' justifyContent='space-between' mt={4} py={50}>
+  <Box
+    display='flex'
+    flexDirection={['column', 'row']}
+    justifyContent='space-between'
+    mt={4}
+    py={50}
+    gap={4}
+  >
     <CircularProgressWithText
       percent={34}
       value={69}
@@ -159,7 +165,7 @@ const renderCircularProgress = (percent: number, value: number) => {
 
   return (
     <Circle
-      size='230px'
+      size={['130px', '210px']}
       border='4px solid red'
       display='flex'
       alignItems='center'
@@ -183,7 +189,7 @@ const renderCircularProgress = (percent: number, value: number) => {
  * Component to render the lower section with a heading and a text.
  */
 const LowerSection = () => (
-  <Box mt='1.8rem' textAlign='left' width='60%'>
+  <Box mt='1.8rem' textAlign='left' width={['100%', '60%']}>
     <HeadingTexts whiteText='Why' redText='CA' align='left' />
     <Text pb='2.8rem' mt='1.2rem'>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio
