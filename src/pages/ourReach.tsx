@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useState, useEffect } from 'react';
 import {
   Container,
@@ -10,7 +9,11 @@ import {
   Circle,
   VStack,
   ResponsiveValue,
+  useTheme,
 } from '@chakra-ui/react';
+
+// Custom pxToRem function
+const pxToRem = (px: number) => `${px / 16}rem`;
 
 /**
  * Main component to display the reach.
@@ -18,7 +21,7 @@ import {
 const OurReach = () => (
   <Box>
     <VStack>
-      <Container maxW='md'>
+      <Container maxW='container.xl'>
         <HeadingComponent />
         <EllipseSection />
         <Line align='right' />
@@ -59,7 +62,7 @@ const Line = ({ align }: LineProps) => {
 
   return (
     <Box display='flex' justifyContent={justifyContent}>
-      <Box height='2px' width='40%' bg='red' />
+      <Box height={pxToRem(2)} width='40%' bg='red' />
     </Box>
   );
 };
@@ -71,6 +74,7 @@ type HeadingTextsProps = {
   whiteText: string;
   redText: string;
   align?: ResponsiveValue<TextAlign>;
+  fontSize?: ResponsiveValue<string>;
 };
 
 /**
@@ -93,7 +97,12 @@ const HeadingTexts = ({ whiteText, redText, align }: HeadingTextsProps) => (
  * Component to render the main heading.
  */
 const HeadingComponent = () => (
-  <HeadingTexts whiteText='Our' redText='Reach' align='right' />
+  <HeadingTexts
+    whiteText='Our'
+    redText='Reach'
+    align='right'
+    fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
+  />
 );
 
 /**
@@ -114,8 +123,8 @@ const CircularProgressWithText = ({
   text,
 }: CircularProgressWithTextProps) => (
   <Box display='flex' flexDirection='column' alignItems='center'>
-    {renderCircularProgress(percent, value)}
-    <Text className='circularText' mt='1.2rem'>
+    <RenderCircularProgress percent={percent} value={value} />
+    <Text className='circularText' mt={pxToRem(12)}>
       {text}
     </Text>
   </Box>
@@ -127,11 +136,11 @@ const CircularProgressWithText = ({
 const EllipseSection = () => (
   <Box
     display='flex'
-    flexDirection={['column', 'row']}
+    flexDirection={{ base: 'column', md: 'row' }}
     justifyContent='space-between'
-    mt={4}
-    py={50}
-    gap={4}
+    mt={pxToRem(16)}
+    py={pxToRem(50)}
+    gap={pxToRem(4)}
   >
     <CircularProgressWithText
       percent={34}
@@ -150,7 +159,10 @@ const EllipseSection = () => (
 /**
  * Function to render a circular progress with animation.
  */
-const renderCircularProgress = (percent: number, value: number) => {
+const RenderCircularProgress: React.FC<{ percent: number; value: number }> = ({
+  percent,
+  value,
+}) => {
   const [progressValue, setProgressValue] = useState(0);
 
   useEffect(() => {
@@ -165,19 +177,19 @@ const renderCircularProgress = (percent: number, value: number) => {
 
   return (
     <Circle
-      size={['130px', '210px']}
-      border='4px solid red'
+      size={[pxToRem(130), pxToRem(210)]}
+      border={`${pxToRem(4)} solid red`}
       display='flex'
       alignItems='center'
       justifyContent='center'
     >
       <CircularProgress
         value={progressValue}
-        size='210px'
-        thickness='8px'
+        size={pxToRem(210)}
+        thickness={pxToRem(8)}
         color='red'
         trackColor='black'
-        px={10}
+        px={pxToRem(10)}
       >
         <CircularProgressLabel>{value}</CircularProgressLabel>
       </CircularProgress>
@@ -189,9 +201,9 @@ const renderCircularProgress = (percent: number, value: number) => {
  * Component to render the lower section with a heading and a text.
  */
 const LowerSection = () => (
-  <Box mt='1.8rem' textAlign='left' width={['100%', '60%']}>
+  <Box mt={pxToRem(28)} textAlign='left' width={['100%', '60%']}>
     <HeadingTexts whiteText='Why' redText='CA' align='left' />
-    <Text pb='2.8rem' mt='1.2rem'>
+    <Text pb={pxToRem(28)} mt={pxToRem(12)}>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio
       aperiam magnam excepturi modi amet. Rerum provident soluta libero incidunt
       nulla dignissimos laudantium earum, voluptate officiis accusantium. Sed
