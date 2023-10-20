@@ -1,13 +1,13 @@
-import { Inter } from 'next/font/google';
-import OurReach from './ourReach';
-
-const inter = Inter({ subsets: ['latin'] });
+import LandingPage from './landingPage';
+import Footer from '@/components/footer';
 
 export default function Home() {
   return (
     <main>
       <div>
-        <OurReach />
+        {/* <Navbar /> */}
+        <LandingPage />
+        <Footer />
       </div>
     </main>
   );
