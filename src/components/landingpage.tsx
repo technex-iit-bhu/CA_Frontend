@@ -4,7 +4,7 @@ import AboutTechnex from './abouttechnex'
 
 const Landingpage: FC = () => {
   return (
-    <div className=''>
+    <div className='scroll-smooth'>
         <div className="bg-[url('/bg_landing_page.webp')] bg-no-repeat bg-cover pb-48">
             <div className='pb-96'>
                 <Navbar/>
