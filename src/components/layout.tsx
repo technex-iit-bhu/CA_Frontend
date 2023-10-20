@@ -1,4 +1,3 @@
-
 import React, { FC, ReactNode } from 'react';
 import Footer from './footer';
 import Contactus from './contactus';
@@ -11,11 +10,12 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
       {/* add <Navbar /> here */}
+
       <main>{children}</main>
-      <Contactus/>
-      <Footer />
+      {/* <Contactus/> */}
+      {/* <Footer /> */}
     </>
   );
-}
+};
 
 export default Layout;
