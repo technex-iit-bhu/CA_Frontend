@@ -15,7 +15,7 @@ export default function profilet() {
             <Image src="/profile-user.webp" alt='image not found' height={230} width={230} className=' border-[5px] border-red rounded-full absolute left-0 -top-[200px]'/>
           </div>
           <div className='mt-[100px]'>
-          <h1 className='text-5xl mb-4 '>AmuseBoucheSharma</h1>
+          <h1 className='text-5xl mb-4 flex flex-wrap '>AmuseBoucheSharma</h1>
           <p className=''>Hello I am a keen enthusiast in Machine Learning, Meko IG mein lelo plz I do bohot saara machine learning with my machine. </p>
           </div>
         </div>
