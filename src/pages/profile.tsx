@@ -20,7 +20,7 @@ export default function profilet() {
           </div>
         </div>
         {/* middle line */}
-        <div className='h-[400px] w-[1px] sm:block md:block  bg-red mr-8 ml-44 justify-center'></div>
+        <div className='h-[400px] w-[1px] sm:hidden md:hidden lg:block  bg-red mr-8 ml-44 justify-center'></div>
         {/* <div className='mt mb pl-8 pr-8 hidden sm:block '>
         
         <Image 
