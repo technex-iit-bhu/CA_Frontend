@@ -21,18 +21,18 @@ const Dashboard = () => {
                             </div>
                         </div>
                         <div className='lg:h-[250px] lg:w-[2px] h-[2px] w-auto bg-red'></div>
-                        <div className='flex md:flex-row flex-col px-[10px] lg: lg:pb-[100px] md:pb-[30px] justify-center self-center grow lg:pt-0 md:pt-[30px] py-[30px]'>
-                            <div className='h-[200px] w-[200px] bg-[#000000] rounded-[50px] flex flex-col mr-[10px]'>
-                                <p className='select-none text-white font-bold text-[20px] self-center mt-[30px]'>Tasks Done</p>
-                                <p className='select-none text-white font-bold text-[80px] self-center'>69</p>
+                        <div className='flex sm:flex-row flex-col px-[10px] lg: lg:pb-[100px] md:pb-[30px] justify-center self-center grow lg:pt-0 md:pt-[30px] py-[30px]'>
+                            <div className='md:h-[200px] md:w-[200px] h-[100px] w-[100px] bg-[#000000] md:rounded-[50px] rounded-[25px] flex flex-col mr-[10px]'>
+                                <p className='select-none text-white font-bold md:text-[20px] text-[10px] self-center md:mt-[30px] mt-[15px]'>Tasks Done</p>
+                                <p className='select-none text-white font-bold md:text-[80px] text-[40px] self-center'>69</p>
                             </div>
-                            <div className='h-[200px] w-[200px] bg-[#000000] rounded-[50px] flex flex-col mr-[10px] md:mt-0 mt-[10px]'>
-                                <p className='select-none text-white font-bold text-[20px] self-center mt-[30px]'>Total Tasks</p>
-                                <p className='select-none text-white font-bold text-[80px] self-center'>200</p>
+                            <div className='md:h-[200px] md:w-[200px] h-[100px] w-[100px] bg-[#000000] md:rounded-[50px] rounded-[25px] flex flex-col mr-[10px] sm:mt-0 mt-[10px]'>
+                                <p className='select-none text-white font-bold md:text-[20px] text-[10px] self-center md:mt-[30px] mt-[15px]'>Total Tasks</p>
+                                <p className='select-none text-white font-bold md:text-[80px] text-[40px] self-center'>200</p>
                             </div>
-                            <div className='h-[200px] w-[200px] bg-[#000000] rounded-[50px] flex flex-col md:mt-0 mt-[10px]' >
-                                <p className='select-none text-white font-bold text-[20px] self-center mt-[30px] '>Points</p>
-                                <p className='select-none text-white font-bold text-[80px] self-center'>232</p>
+                            <div className='md:h-[200px] md:w-[200px] h-[100px] w-[100px] bg-[#000000] md:rounded-[50px] rounded-[25px] flex flex-col mr-[10px] sm:mt-0 mt-[10px]' >
+                                <p className='select-none text-white font-bold md:text-[20px] text-[10px] self-center md:mt-[30px] mt-[15px]'>Points</p>
+                                <p className='select-none text-white font-bold md:text-[80px] text-[40px] self-center'>232</p>
                             </div>
                         </div>
                     </div>
