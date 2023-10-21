@@ -13,7 +13,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 
       <main>{children}</main>
       {/* <Contactus/> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
