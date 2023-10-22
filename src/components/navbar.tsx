@@ -17,7 +17,7 @@ const Navbar: FC = () => {
       height={75}/>
       <p className='text-[#A81F25] text-xs sm:text-sm sm:font-semibold lg:text-base ml-36 sm:ml-56'>15-17 MAR 2024</p>
       </div>
-      <div className='hidden md:block space-x-10 p-3 pr-5 font-bold text-xl lg:text-2xl text-center'>
+      <div className='hidden ab:block space-x-10 p-3 pr-5 font-bold text-xl text-center'>
         <Link href={"/about"} className="text-[#A81F25]
                 relative
                 transition-all
@@ -96,7 +96,7 @@ const Navbar: FC = () => {
                 hover:before:opacity-100">FAQs</Link>
         <Link href={"/login"} className='border-2 hover:border-[#A81F25] hover:text-[#A81F25] hover:bg-[#191919] sm:py-1 px-5 sm:px-7 rounded-e-full rounded-s-full'>Login</Link>
       </div>
-      <div className='flex md:hidden p-1 sm:p-5'>
+      <div className='flex ab:hidden p-1 sm:p-5'>
           <Hamburger />
       </div>
     </div>)

@@ -6,7 +6,7 @@ import Link from 'next/link'
 const Landingpage: FC = () => {
   return (
     <div className='scroll-smooth'>
-        <div className="bg-[url('/bg_landing_page.webp')] bg-no-repeat bg-cover pb-4 xl:pb-16  2xl:pb-48">
+        <div className="bg-[url('/bg_landing_page.webp')] bg-no-repeat bg-auto xl:bg-cover pb-8 xl:pb-16  2xl:pb-48">
             <div className='pb-96 lg:pb-64 xl:pb-96 z-10'>
                 <Navbar/>
             </div>
