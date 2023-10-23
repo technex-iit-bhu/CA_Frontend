@@ -10,8 +10,8 @@ export default function profile ()  {
           </div>
         </div>
         <div className='px-[30px] md:px-[50px] '>
-                <div className='bg-grey px-[50px] md:px-[30px] py-[30px] rounded-[50px] mb-20 z-0'>
-                    <div className='flex lg:flex-row flex-col  lg:pl-[100px]'>
+                <div className='bg-grey px-[50px] md:px-[30px]  py-[30px] rounded-[50px] mb-20 z-0'>
+                    <div className='flex lg:flex-row flex-col  lg:pl-[50px] '>
                         <div className='flex flex-col mt-[-80px]'>
                             <div className='select-none bg-background w-[300px] h-[300px] rounded-full border-4 border-red lg:self-start self-center'></div>
                             <div className='flex flex-col lg:pl-[20px] lg:pr-[60px] pt-[20px] pb-[30px] lg:w-[500px]'>
@@ -21,7 +21,7 @@ export default function profile ()  {
                             </div>
                         </div>
                         <div className='lg:h-[800px] lg:w-[2px] h-[2px] w-auto bg-red'></div>
-                        <div className='flex flex-col lg:pl-[100px] lg:pr-[100px]  lg:w-[400px] justify-center  self-center grow pt-[50px] gap-20 '>
+                        <div className='flex flex-col lg:pl-[50px] lg:pr-[100px]  lg:w-[400px] justify-center  self-center grow pt-[50px] gap-20 '>
                             <div className='  lg:h-[80px] lg:w-[500px]   md:rounded-[50px] bg-black2 p-4 rounded-[25px] flex flex-row   mr-[10px] gap-[20px]'>
                                 <p className='select-none text-white font-bold sm:text-[25px] text-[10px] self-center '>College:</p>
                                 <p className='select-none text-white sm:text-[25px] text-[10px] self-center   '>IIT BHU, they hate your guts</p>
