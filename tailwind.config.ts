@@ -13,6 +13,7 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'custom-gradient': 'linear-gradient(180deg, rgba(100, 100, 100, 0.40) 0%, rgba(100, 100, 100, 0.35) 18.35%, rgba(100, 100, 100, 0.29) 35.18%, rgba(100, 100, 100, 0.20) 50.96%, rgba(100, 100, 100, 0.10) 68.32%, rgba(100, 100, 100, 0.05) 83.58%, rgba(100, 100, 100, 0.00) 100%)',
+        'custom-gradient-2':'linear-gradient(180deg, rgba(100, 100, 100, 0.40) 0%, rgba(100, 100, 100, 0.20) 100%)',
       },
     },
     screens: {

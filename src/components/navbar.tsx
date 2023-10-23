@@ -94,6 +94,25 @@ const Navbar: FC = () => {
                 before:to-[#A81F25]
                 hover:before:w-full
                 hover:before:opacity-100">FAQs</Link>
+        <Link href={"/leaderboard"} className="
+                relative
+                transition-all
+                duration-500
+                before:content-['']
+                before:absolute
+                before:-bottom-2
+                before:left-0
+                before:w-0
+                before:h-1
+                before:rounded-3xl
+                before:opacity-0
+                before:transition-all
+                before:duration-500
+                before:bg-gradient-to-r
+                before:from-[#0087FF]
+                before:to-[#A81F25]
+                hover:before:w-full
+                hover:before:opacity-100">Leaderboard</Link>
         <Link href={"/login"} className='border-2 hover:border-[#A81F25] hover:text-[#A81F25] hover:bg-[#191919] sm:py-1 px-5 sm:px-7 rounded-e-full rounded-s-full'>Login</Link>
       </div>
       <div className='flex ab:hidden p-1 sm:p-5'>

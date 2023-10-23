@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+
 
 const Dashboard = () => {
     return (
@@ -38,7 +38,7 @@ const Dashboard = () => {
                     </div>
                     <div className='h-auto bg-background z-10 mb-[20px] rounded-[50px] p-[20px] px-[30px] flex flex-col'>
                         <p className='select-none text-white font-bold text-[20px] md:self-start self-center'>Next Milestone</p>
-                        <p className='select-none text-white text-[15px] md:w-4/6 w-fit md:self-start self-center'>Go and find a girl you virgin.  Go and earn some money, so that atleast someone is attracted to your money if not YOU !</p>
+                        <p className='select-none text-white text-[15px] md:w-4/6 w-fit md:self-start self-center'>Go and find a girl you virgin.  Go and earn some money, so that atleast someone is attracted to your money if not YOU ! NO !bros before hoes</p>
                         <button className='select-none text-white font-bold text-[20px] bg-red md:w-[200px] w-[150px] h-[40px] rounded-[50px] md:self-end self-center mt-[10px] mb-[10px]'>Courses</button>
                     </div>
                     <div className='h-auto bg-background z-10 mb-[20px] rounded-[50px] p-[20px] px-[30px] flex flex-col'>
