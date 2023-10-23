@@ -5,11 +5,11 @@ const Leaderboard = () => {
     <>
       <div className='md:ml-22 ml-1 -space-y-10 sm:ml-10 sm:-space-y-20 md:-space-y-16 lg:ml-28 lg:-space-y-24 xl:ml-40'>
         <div className='-z-100 overflow-hidden'>
-          <span className='text-4xl font-bold text-[#A81F25] opacity-30 sm:text-[7rem] lg:text-[11rem] xl:text-[13rem]  '>
+          <span className='text-6xl font-bold text-[#A81F25] opacity-30 sm:text-[7rem] lg:text-[11rem] xl:text-[13rem]  '>
             Leaderboard
           </span>
         </div>
-        <div className='z-0 ml-3 pb-10 sm:ml-8 lg:ml-12 xl:ml-14'>
+        <div className='z-0 ml-1 pb-10 sm:ml-4 lg:ml-8 xl:ml-10'>
           <span className='text-3xl font-extrabold sm:text-6xl md:text-5xl lg:text-7xl'>
             Leaderboard
           </span>

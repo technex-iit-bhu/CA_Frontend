@@ -3,6 +3,7 @@ const inter = Inter({ subsets: ['latin'] });
 import LandingPage from './landingPage';
 import DashboardPage from './dashboardPage';
 import Navbar from '@/components/navbar';
+import LeaderboardPage from './leaderboard';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <div>
         <LandingPage />
         <DashboardPage />
+        <LeaderboardPage/>
       </div>
     </main>
   );
