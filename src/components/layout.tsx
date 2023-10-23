@@ -10,7 +10,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <main>{children}</main>
-      <Contactus />
+      {/* <Contactus/> */}
       <Footer />
     </>
   );
