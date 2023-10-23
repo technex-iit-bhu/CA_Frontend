@@ -2,9 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import Head from "next/head";
 import IncentiveCard from "./incentive_card";
+import { v4 as uuidv4 } from 'uuid';
 
 
-const titletext = ["Paisa Hi ",  <span style={{color: "#C70039"}}>Paisa</span>, " Hoga"];
+const titletext = ["Paisa Hi ",  <span key={uuidv4()} style={{color: "#C70039"}}>Paisa</span>, " Hoga"];
 const lor = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque animi nihil deleniti modi hic voluptatibus dolorem. Ea eaque repellendus odio rem illo perferendis eveniet? Molestias doloremque id pariatur reiciendis iste!`
 
 const IncentivesCarousel = () => {
