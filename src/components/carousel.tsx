@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import Head from "next/head";
 import IncentiveCard from "./incentive_card";
-import "src/styles/Incentive.module.css";
+
 
 const titletext = ["Paisa Hi ",  <span style={{color: "#C70039"}}>Paisa</span>, " Hoga"];
 const lor = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque animi nihil deleniti modi hic voluptatibus dolorem. Ea eaque repellendus odio rem illo perferendis eveniet? Molestias doloremque id pariatur reiciendis iste!`
@@ -51,10 +51,46 @@ const IncentivesCarousel = () => {
 </Head>
         <Slider {...settings}>
             
-            <IncentiveCard title={titletext} text={lor}/>
-            <IncentiveCard title={titletext} text={lor}/>
-            <IncentiveCard title={titletext} text={lor}/>
-            <IncentiveCard title={titletext} text={lor}/>
+            <div>
+            <IncentiveCard title={titletext} text={lor} />
+            <div style={{marginLeft: "20vw"}}>
+            <IncentiveCard title={titletext} text={lor} />
+            </div>
+
+            </div>
+
+
+            <div>
+            <IncentiveCard title={titletext} text={lor} />
+            <div style={{marginLeft: "20vw"}}>
+            <IncentiveCard title={titletext} text={lor} />
+            </div>
+
+            </div>
+
+            <div>
+            <IncentiveCard title={titletext} text={lor} />
+            <div style={{marginLeft: "20vw"}}>
+            <IncentiveCard title={titletext} text={lor} />
+            </div>
+
+            </div>
+
+            <div>
+            <IncentiveCard title={titletext} text={lor} />
+            <div style={{marginLeft: "20vw"}}>
+            <IncentiveCard title={titletext} text={lor} />
+            </div>
+
+            </div>
+
+            
+
+
+
+
+            
+     
 
             
 

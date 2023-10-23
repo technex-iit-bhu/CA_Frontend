@@ -2,7 +2,7 @@
     
     width: 400px;
     height: 150px;
-    display: flex;
+    display: block;
     border: 10px solid #C70039;
     border-radius: 30px;
     border-width: 3px;
@@ -14,10 +14,7 @@
 
 }
 
-.flex-container {
-    display: flex;
-   
-  }
+
   
 
   
