@@ -1,13 +1,13 @@
 import FAQ from '@/components/faq';
 import OurReach from '../components/ourReach';
-import Contactus from '@/components/contactus';
+import Landingpage from '@/components/landingpage';
 
 export default function LandingPage(){
     return(
         <>
+            <Landingpage />
             <OurReach />
             <FAQ />
-            <Contactus />
         </>
     )
 }
