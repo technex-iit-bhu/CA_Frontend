@@ -9,22 +9,22 @@ export default function profile ()  {
             <span className='text-white select-none'>Profile</span>
           </div>
         </div>
-        <div className='px-[30px] md:px-[50px] '>
+        <div className='px-[50px] md:px-[70px] '>
                 <div className='bg-grey px-[50px] md:px-[30px]  py-[30px] rounded-[50px] mb-20 z-0'>
                     <div className='flex lg:flex-row flex-col  lg:pl-[50px] '>
-                        <div className='flex flex-col mt-[-80px]'>
+                        <div className='flex flex-col mt-[-110px]'>
                             <div className='select-none bg-background w-[300px] h-[300px] rounded-full border-4 border-red lg:self-start self-center'></div>
-                            <div className='flex flex-col lg:pl-[20px] lg:pr-[60px] pt-[20px] pb-[30px] lg:w-[500px]'>
+                            <div className='flex flex-col lg:pl-[70px] lg:pr-[100px] pt-[20px] pb-[30px] lg:w-[500px]'>
                                 <p className='select-none lg:self-start text-white font-bold text-[60px] self-center flex flex-wrap lg:text-left text-center'>Amuse Bouche Sharma</p>
                                 <p className='select-none lg:self-start text-white text-[25px] self-center flex flex-wrap'>Hello I am a keen enthusiast in Machine Learning, Meko IG mein lelo plz
                                 I do bohot saara machine learning with my machine. </p>
                             </div>
                         </div>
                         <div className='lg:h-[800px] lg:w-[2px] h-[2px] w-auto bg-red'></div>
-                        <div className='flex flex-col lg:pl-[50px] lg:pr-[100px]  lg:w-[400px] justify-center  self-center grow pt-[50px] gap-20 '>
+                        <div className='flex flex-col lg:pl-[100px] lg:pr-[100px]  lg:w-[400px] justify-center  self-center grow pt-[50px] gap-20 '>
                             <div className='  lg:h-[80px] lg:w-[500px]   md:rounded-[50px] bg-black2 p-4 rounded-[25px] flex flex-row   mr-[10px] gap-[20px]'>
                                 <p className='select-none text-white font-bold sm:text-[25px] text-[10px] self-center '>College:</p>
-                                <p className='select-none text-white sm:text-[25px] text-[10px] self-center   '>IIT BHU, they hate your guts</p>
+                                <p className='select-none text-white sm:text-[25px] text-[10px] self-center   '> IIT BHU, they hate your guts</p>
                             </div>
                             <div className='  lg:h-[80px] lg:w-[500px]   md:rounded-[50px] bg-black2 p-4 rounded-[25px] flex flex-row   mr-[10px] gap-[20px]'>
                                 <p className='select-none text-white font-bold sm:text-[25px] text-[10px] self-center '>Email-id:</p>
