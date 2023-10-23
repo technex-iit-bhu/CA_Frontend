@@ -5,7 +5,7 @@ const Leaderboard = () => {
     <>
       <div className='md:ml-22 ml-1 -space-y-10 sm:ml-10 sm:-space-y-20 md:-space-y-16 lg:ml-28 lg:-space-y-24 xl:ml-40'>
         <div className='-z-100 overflow-hidden'>
-          <span className='text-6xl font-bold text-[#A81F25] opacity-30 sm:text-[10rem] lg:text-[14rem] xl:text-[16rem]  '>
+          <span className='text-4xl font-bold text-[#A81F25] opacity-30 sm:text-[7rem] lg:text-[11rem] xl:text-[13rem]  '>
             Leaderboard
           </span>
         </div>
@@ -56,10 +56,10 @@ const Leaderboard = () => {
                   <div className='mr-2 h-[100px] w-[100px] select-none self-center rounded-full border-4 border-red bg-background lg:self-start'></div>
                   <div className='flex flex-col'>
                     <p className='text-white mr-3 select-none self-center text-[40px] font-bold md:self-start'>
-                      Vaibhav
+                      Eshaan
                     </p>
                     <p className='text-white mr-3 select-none self-center text-[40px] font-bold md:self-start'>
-                      Awasthi
+                      Aggarwal
                     </p>
                   </div>
                 </div>
@@ -79,10 +79,10 @@ const Leaderboard = () => {
                   <div className='mr-2 h-[100px] w-[100px] select-none self-center rounded-full border-4 border-red bg-background lg:self-start'></div>
                   <div className='flex flex-col'>
                     <p className='text-white mr-3 select-none self-center text-[40px] font-bold md:self-start'>
-                      Vaibhav
+                      Aakash
                     </p>
                     <p className='text-white mr-3 select-none self-center text-[40px] font-bold md:self-start'>
-                      Awasthi
+                      Sharma
                     </p>
                   </div>
                 </div>
