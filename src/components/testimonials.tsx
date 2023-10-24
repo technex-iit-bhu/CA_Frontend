@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Box, Button, Center, Text,
-  useMediaQuery } from '@chakra-ui/react';
+import React, { useState, useEffect } from 'react';
+import { Box, Button, Center, Text, useMediaQuery } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Testes from './testes';
 
@@ -38,10 +37,17 @@ const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
   const [isLargerThan500] = useMediaQuery('(min-width: 500px)');
-  const fontSize = isLargerThan500? '80px':'49px';
-  const fontSize1= isLargerThan500?'20px':'10px';
-  const height1= isLargerThan900?'420px':'70vw';
-  const height2= isLargerThan900?'400px':'62vw';
+  const fontSize = isLargerThan500 ? '80px' : '12vw';
+  const fontSize1 = isLargerThan500 ? '20px' : '10px';
+  const height1 = isLargerThan900 ? '420px' : '70vw';
+  const height2 = isLargerThan900 ? '400px' : '62vw';
+  const padding = isLargerThan900 ? '5vw':'10vw';
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselData.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   const slideVariants: {
     enter: {
@@ -66,7 +72,7 @@ const Testimonials: React.FC = () => {
       opacity: 0.9,
     },
     exit: {
-      y: '-100%', // Slide out to the left
+      y: '-100%',
       opacity: 0.5,
     },
   };
@@ -84,14 +90,25 @@ const Testimonials: React.FC = () => {
           <Text fontSize={fontSize}>Testimonials</Text>
         </Box>
       </Center>
-      <div style={{ position: 'relative', height:`${height1}`, width: '100%' }}>
-        <Box position='relative' height={height2} width='auto' overflow='hidden'>
+      <div
+        style={{ position: 'relative', height: `${height1}`, width: '90%' }}
+      >
+        <Box
+          position='relative'
+          height={height2}
+          width='auto'
+          overflow='hidden'
+          id="box"
+          paddingLeft={padding}
+
+        >
           <motion.div
             key={currentIndex}
             variants={slideVariants}
             initial='enter'
             animate='center'
             exit='exit'
+            id="motion"
             transition={{ ease: 'easeInOut', duration: 1 }}
             custom={
               (currentIndex + 1) % carouselData.length === 0 ? 'prev' : 'next'
@@ -114,20 +131,6 @@ const Testimonials: React.FC = () => {
             zIndex: 1,
           }}
         >
-          <Button
-            onClick={nextSlide}
-            fontSize={fontSize1}
-            bg='#444444'
-            borderRadius='2vw'
-            padding='0px 1vw'
-            _hover={{
-              transition: 'transform 0.3s ease-in-out',
-              backgroundColor: 'gray',
-              transform: 'scale(1.1)',
-            }}
-          >
-            Next
-          </Button>
         </div>
       </div>
       <div

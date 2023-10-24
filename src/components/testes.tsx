@@ -22,9 +22,9 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
 
   const [isLargerThan1000] = useMediaQuery('(min-width: 900px)');
   const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
-  const cardWidth = isLargerThan1000 ? '550px' : '80vw';
-  const cardHeight = isLargerThan1000 ? '275px' : '40vw';
-  const fontSize = isLargerThan1000 ? '15px' : '3vw';
+  const cardWidth = isLargerThan1000 ? '550px' : '70vw';
+  const cardHeight = isLargerThan1000 ? '275px' : '35vw';
+  const fontSize = isLargerThan1000 ? '13px' : '2.5vw';
   const fontSize1 = isLargerThan1000 ? '45px' : '6vw';
   return (
     <div style={{ margin: '50px' }}>
