@@ -1,12 +1,12 @@
-import Link from "next/link";
-import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 const navLinks = [
-  { title: "Incentives", href: "/incentives" },
-  { title: "Contact Us", href: "/contactus" },
-  { title: "FAQs", href: "/faqs" },
+  { title: 'Incentives', href: '/incentives' },
+  { title: 'Contact Us', href: '/contactus' },
+  { title: 'FAQs', href: '/faqs' },
 ];
 const Hamburger = () => {
   const [open, setOpen] = useState(false);
@@ -51,40 +51,40 @@ const Hamburger = () => {
 
   return (
     <header>
-        <div
-          className="cursor-pointer lg:hidden text-md text-white"
-          onClick={toggleMenu}>
-          <HamburgerIcon boxSize={28}/>
-        </div>
+      <div
+        className='text-md text-white cursor-pointer lg:hidden'
+        onClick={toggleMenu}
+      >
+        <HamburgerIcon boxSize={28} />
+      </div>
       <AnimatePresence>
         {open && (
           <motion.div
             variants={menuVars}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className="fixed left-0 top-0 w-full h-screen origin-top bg-[#191919] text-white p-10 z-10"
+            initial='initial'
+            animate='animate'
+            exit='exit'
+            className='text-white fixed left-0 top-0 z-10 h-screen w-full origin-top bg-[#191919] p-10'
           >
-            <div className="flex h-full flex-col">
-                <p
-                  className="cursor-pointer"
-                  onClick={toggleMenu}
-                >
-                  <CloseIcon boxSize={28}/>
-                </p>
+            <div className='flex h-full flex-col'>
+              <p className='cursor-pointer' onClick={toggleMenu}>
+                <CloseIcon boxSize={28} />
+              </p>
               <motion.div
                 variants={containerVars}
-                initial="initial"
-                animate="open"
-                exit="initial"
-                className="flex flex-col h-full justify-center items-center gap-5 "
+                initial='initial'
+                animate='open'
+                exit='initial'
+                className='flex h-full flex-col items-center justify-center gap-5 '
               >
                 <motion.div variants={mobileLinkVars}>
-                <Link href={"/about"} className='text-[#A81F25] text-4xl'>About</Link>
+                  <Link href={'/about'} className='text-4xl text-[#A81F25]'>
+                    About
+                  </Link>
                 </motion.div>
                 {navLinks.map((link, index) => {
                   return (
-                    <div className="overflow-hidden" key={index}>
+                    <div className='overflow-hidden' key={index}>
                       <MobileNavLink
                         key={index}
                         title={link.title}
@@ -93,7 +93,12 @@ const Hamburger = () => {
                     </div>
                   );
                 })}
-                <Link href={"/login"} className='border-2 text-3xl py-1 px-5 sm:px-7 rounded-e-full border-[#A81F25] rounded-s-full'>Login</Link>
+                <Link
+                  href={'/login'}
+                  className='rounded-e-full rounded-s-full border-2 border-[#A81F25] px-5 py-1 text-3xl sm:px-7'
+                >
+                  Login
+                </Link>
               </motion.div>
             </div>
           </motion.div>
@@ -107,7 +112,7 @@ export default Hamburger;
 
 const mobileLinkVars = {
   initial: {
-    y: "30vh",
+    y: '30vh',
     transition: {
       duration: 0.5,
       ease: [0.37, 0, 0.63, 1],
@@ -121,11 +126,11 @@ const mobileLinkVars = {
     },
   },
 };
-const MobileNavLink = ({ title, href }: { title: string, href: string }) => {
+const MobileNavLink = ({ title, href }: { title: string; href: string }) => {
   return (
     <motion.div
       variants={mobileLinkVars}
-      className="text-3xl uppercase text-white"
+      className='text-white text-3xl uppercase'
     >
       <Link href={href}>{title}</Link>
     </motion.div>

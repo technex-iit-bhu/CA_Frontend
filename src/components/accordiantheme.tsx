@@ -1,9 +1,9 @@
 //Still not implemented in real code so please don't remove this file
-import { accordionAnatomy } from '@chakra-ui/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+import { accordionAnatomy } from '@chakra-ui/anatomy';
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react';
 
 const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(accordionAnatomy.keys)
+  createMultiStyleConfigHelpers(accordionAnatomy.keys);
 
 const baseStyle = definePartsStyle({
   // define the part you're going to style
@@ -26,7 +26,7 @@ const baseStyle = definePartsStyle({
       textDecorationColor: '#a81f25',
       textDecorationThickness: '2px',
       textUnderlineOffset: '15px',
-    }
+    },
   },
   panel: {
     textColor: 'white',
@@ -34,6 +34,6 @@ const baseStyle = definePartsStyle({
     textSize: '18px',
     alignContent: 'center',
   },
-})
+});
 
-export const accordionTheme = defineMultiStyleConfig({baseStyle})
+export const accordionTheme = defineMultiStyleConfig({ baseStyle });
