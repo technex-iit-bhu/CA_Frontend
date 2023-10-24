@@ -32,6 +32,8 @@ const config: Config = {
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
       ab: '965px',
+      cd: '1125px',
+      // => @media (min-width: 1125px) { ... }
     },
     colors: {
       red: '#A81F25',
