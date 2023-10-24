@@ -22,7 +22,7 @@ const IncentivesCarousel = () => {
 
           responsive: [
             {
-              breakpoint: 1200,
+              breakpoint: 1268,
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
