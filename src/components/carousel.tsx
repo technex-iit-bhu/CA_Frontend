@@ -31,7 +31,7 @@ const IncentivesCarousel = () => {
               },
             },
             {
-              breakpoint: 900,
+              breakpoint: 866,
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -39,6 +39,16 @@ const IncentivesCarousel = () => {
           autoplaySpeed: 5000,
               },
             },
+            {
+                breakpoint: 500,
+                settings: {
+                    infinite: false,
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  autoplay: true,
+            autoplaySpeed: 5000,
+                },
+              },
             
           ],
 
@@ -54,7 +64,7 @@ const IncentivesCarousel = () => {
             
             <div>
             <IncentiveCard title={titletext} text={lor} />
-            <div style={{marginLeft: "20vw"}}>
+            <div style={{marginLeft: "15vw"}}>
             <IncentiveCard title={titletext} text={lor} />
             </div>
 
@@ -63,7 +73,7 @@ const IncentivesCarousel = () => {
 
             <div>
             <IncentiveCard title={titletext} text={lor} />
-            <div style={{marginLeft: "20vw"}}>
+            <div style={{marginLeft: "15vw"}}>
             <IncentiveCard title={titletext} text={lor} />
             </div>
 
@@ -71,7 +81,7 @@ const IncentivesCarousel = () => {
 
             <div>
             <IncentiveCard title={titletext} text={lor} />
-            <div style={{marginLeft: "20vw"}}>
+            <div style={{marginLeft: "15vw"}}>
             <IncentiveCard title={titletext} text={lor} />
             </div>
 
@@ -79,7 +89,7 @@ const IncentivesCarousel = () => {
 
             <div>
             <IncentiveCard title={titletext} text={lor} />
-            <div style={{marginLeft: "20vw"}}>
+            <div style={{marginLeft: "15vw"}}>
             <IncentiveCard title={titletext} text={lor} />
             </div>
 
