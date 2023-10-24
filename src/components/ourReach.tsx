@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/no-unescaped-entities */
+import { useState, useEffect, useRef } from 'react';
 import {
   Container,
   Box,
@@ -9,7 +11,6 @@ import {
   Circle,
   VStack,
   ResponsiveValue,
-  useTheme,
 } from '@chakra-ui/react';
 
 // Custom pxToRem function
@@ -169,7 +170,7 @@ const EllipseSection = () => (
     </div>
     <div>
       <CircularProgressWithText
-        percent={87}
+        percent={77}
         value={987}
         text='International College'
       />
@@ -185,20 +186,40 @@ const RenderCircularProgress: React.FC<{ percent: number; value: number }> = ({
   value,
 }) => {
   const [progressValue, setProgressValue] = useState(0);
-  const theme = useTheme();
+  const ref = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setProgressValue(percent);
-    }, 700);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // When the element is on screen
+        if (entry.isIntersecting) {
+          const timer = setTimeout(() => {
+            setProgressValue(percent);
+          }, 800);
+          return () => {
+            clearTimeout(timer);
+          };
+        }
+      },
+      {
+        threshold: 0.1, // Adjust this value to control when the observer's callback should be executed
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
 
     return () => {
-      clearTimeout(timer);
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
     };
   }, [percent]);
 
   return (
     <Circle
+      ref={ref}
       size={['80px', '130px', '210px'].map((size) => pxToRem(parseInt(size)))}
       border={`${pxToRem(4)} solid red`}
       display='flex'
@@ -235,20 +256,20 @@ const LowerSection = () => (
       width={['100%', '70%', '80%']}
       fontSize={pxToRem(15)}
     >
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio
-      aperiam magnam excepturi modi amet. Rerum provident soluta libero incidunt
-      nulla dignissimos laudantium earum, voluptate officiis accusantium. Sed
-      impedit in molestiae. Lorem ipsum, dolor sit amet consectetur adipisicing
-      elit. Distinctio aperiam magnam excepturi modi amet. Rerum provident
-      soluta libero incidunt nulla dignissimos laudantium earum, voluptate
-      officiis accusantium. Sed impedit in molestiae. Lorem ipsum, dolor sit
-      amet consectetur adipisicing elit. Distinctio aperiam magnam excepturi
-      modi amet. Rerum provident soluta libero incidunt nulla dignissimos
-      laudantium earum, voluptate officiis accusantium. Sed impedit in
-      molestiae. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-      Distinctio aperiam magnam excepturi modi amet. Rerum provident soluta
-      libero incidunt nulla dignissimos laudantium earum, voluptate officiis
-      accusantium. Sed impedit in molestiae.
+      The Campus Ambassador Program for Technex'23 offers an exciting chance to
+      become an essential part of the organizing team behind India's premier
+      technical and innovation fest. As a Campus Ambassador, you'll lead your
+      college's contingent at Technex, promoting the event within your
+      institution. This role allows you to develop communication and managerial
+      skills by interacting with students from diverse backgrounds. You'll also
+      showcase your leadership abilities, inspiring and motivating your peers to
+      participate. As a Campus Ambassador, you can organize workshops and
+      events, gaining hands-on experience in event planning. You'll be the face
+      of Technex'23 in your college, serving as a source of information,
+      motivation, and a connector. This program is an incredible opportunity to
+      grow both personally and professionally while playing a pivotal role in
+      promoting technology and innovation at your college. Seize this chance to
+      be a leader and influencer in your college's journey towards Technex'23.
     </Text>
   </Box>
 );
