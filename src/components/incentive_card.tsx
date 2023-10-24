@@ -11,8 +11,8 @@ interface CardProps {
 const IncentiveCard: FC<CardProps> = ({title, text}) => {
     return(
     <div style={{
-        width: "400px",
-        height: "150px",
+        width: "max(300px,30vw)",
+        height: "max(150px,20vh)",
         display: "block",
         border: "10px solid #C70039",
         borderRadius: "30px",
@@ -27,7 +27,7 @@ const IncentiveCard: FC<CardProps> = ({title, text}) => {
 
 
     }}>
-        <div style={{margin: "10px"}}>
+        <div style={{margin: "1vw"}}>
         <h2 style={{padding: "10px", color:"white"}} >{title}</h2>
         <p style={{marginLeft:"5px", fontSize:"10px", color:"white"}}>{text}</p>
         </div>

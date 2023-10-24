@@ -22,7 +22,7 @@ const IncentivesCarousel = () => {
 
           responsive: [
             {
-              breakpoint: 1268,
+              breakpoint: 1100,
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
@@ -31,7 +31,7 @@ const IncentivesCarousel = () => {
               },
             },
             {
-              breakpoint: 900,
+              breakpoint: 668,
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -39,6 +39,15 @@ const IncentivesCarousel = () => {
           autoplaySpeed: 5000,
               },
             },
+            {
+                breakpoint: 400,
+                settings: {
+                    slidesToShow: 0,
+                    slidesToScroll: 0,
+                    autoplay: true,
+                    autoplaySpeed: 5000,
+                },
+            }
             
           ],
 
