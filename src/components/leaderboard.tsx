@@ -21,72 +21,82 @@ const Leaderboard = () => {
       <br />
       <br />
 
-      <div className='px-[30px] md:px-[50px]'>
+      <div className=' mx-9'>
+      <div className='px-[30px] md:px-[20px]'>
         <div className='flex flex-col lg:flex-row lg:justify-center'>
-          <div className='bg-custom-gradient-2 relative z-0 mr-2 h-[300px] w-full rounded-[50px] px-5 py-3 mb-[50px]'>
+
+
+          <div className='bg-custom-gradient-2 relative z-0 mr-2 h-[200px] w-full rounded-[40px] px-5 py-3 mb-[50px]'>
             <div className='flex flex-col lg:flex-row'>
-              <div className='mt-[-80px] flex flex-col'>
-                <p className='text-white select-none self-center text-center text-[80px] font-bold lg:self-start lg:text-left'>
+              <div className='mt-[-60px] flex flex-col'>
+                <p className='text-white select-none self-center text-center text-[50px] font-bold lg:self-start lg:text-left'>
                   6969
                 </p>
                 <div className='flex flex-row pb-2 lg:pl-4 lg:pr-8'>
                   <div className='mr-2 h-[100px] w-[100px] select-none self-center rounded-full border-4 border-red bg-background lg:self-start'></div>
                   <div className='flex flex-col'>
-                    <p className='text-white mr-3 select-none self-center text-[40px] font-bold md:self-start'>
-                      Vaibhav
+                    <p className='text-white mr-3 select-none self-center text-[30px] font-bold md:self-start'>
+                      Sunil
                     </p>
-                    <p className='text-white mr-3 select-none self-center text-[40px] font-bold md:self-start'>
-                      Awasthi
+                    <p className='text-white mr-3 select-none self-center text-[30px] font-bold md:self-start'>
+                      Chhetri
                     </p>
                   </div>
                 </div>
-                <div className='text-white absolute inset-x-0 bottom-0 flex select-none items-center justify-center text-[20px]'>
+                <div className='text-white absolute inset-x-0 bottom-0 flex select-none items-center justify-center text-[15px]'>
                   CA Id:000000000
                 </div>
               </div>
             </div>
           </div>
-          <div className='bg-custom-gradient-2 relative z-0 mr-2 h-[300px] w-full rounded-[50px] px-5 py-3 mb-[50px]'>
+
+
+
+          <div className='bg-custom-gradient-2 relative z-0 mr-2 h-[200px] w-full rounded-[40px] px-5 py-3 mb-[50px]'>
             <div className='flex flex-col lg:flex-row'>
-              <div className='mt-[-80px] flex flex-col'>
-                <p className='text-white select-none self-center text-center text-[80px] font-bold lg:self-start lg:text-left'>
+              <div className='mt-[-60px] flex flex-col'>
+                <p className='text-white select-none self-center text-center text-[50px] font-bold lg:self-start lg:text-left'>
                   6969
                 </p>
                 <div className='flex flex-row pb-2 lg:pl-4 lg:pr-8'>
                   <div className='mr-2 h-[100px] w-[100px] select-none self-center rounded-full border-4 border-red bg-background lg:self-start'></div>
                   <div className='flex flex-col'>
-                    <p className='text-white mr-3 select-none self-center text-[40px] font-bold md:self-start'>
-                      Eshaan
+                    <p className='text-white mr-3 select-none self-center text-[30px] font-bold md:self-start'>
+                      Lionel
                     </p>
-                    <p className='text-white mr-3 select-none self-center text-[40px] font-bold md:self-start'>
-                      Aggarwal
+                    <p className='text-white mr-3 select-none self-center text-[30px] font-bold md:self-start'>
+                      Messi
                     </p>
                   </div>
                 </div>
-                <div className='text-white absolute inset-x-0 bottom-0 flex select-none items-center justify-center text-[20px]'>
+                <div className='text-white absolute inset-x-0 bottom-0 flex select-none items-center justify-center text-[15px]'>
                   CA Id:000000000
                 </div>
               </div>
             </div>
           </div>
-          <div className='bg-custom-gradient-2 relative z-0 mr-2 h-[300px] w-full rounded-[50px] px-5 py-3 mb-[50px] '>
+
+
+
+
+          <div className='bg-custom-gradient-2 relative z-0 mr-2 h-[200px] w-full rounded-[40px] px-5 py-3 mb-[50px]'>
             <div className='flex flex-col lg:flex-row'>
-              <div className='mt-[-80px] flex flex-col'>
-                <p className='text-white select-none self-center text-center text-[80px] font-bold lg:self-start lg:text-left'>
+              <div className='mt-[-60px] flex flex-col'>
+                <p className='text-white select-none self-center text-center text-[50px] font-bold lg:self-start lg:text-left'>
                   6969
                 </p>
                 <div className='flex flex-row pb-2 lg:pl-4 lg:pr-8'>
                   <div className='mr-2 h-[100px] w-[100px] select-none self-center rounded-full border-4 border-red bg-background lg:self-start'></div>
                   <div className='flex flex-col'>
-                    <p className='text-white mr-3 select-none self-center text-[40px] font-bold md:self-start'>
-                      Aakash
+                    <p className='text-white mr-3 select-none self-center text-[30px] font-bold md:self-start'>
+                      Cristiano
                     </p>
-                    <p className='text-white mr-3 select-none self-center text-[40px] font-bold md:self-start'>
-                      Sharma
+                    <p className='text-white mr-3 select-none self-center text-[30px] font-bold md:self-start'>
+                      Ronaldo
                     </p>
                   </div>
                 </div>
-                <div className='text-white absolute inset-x-0 bottom-0 flex select-none items-center justify-center text-[20px]'>
+                <div className='text-white absolute inset-x-0 bottom-0 flex select-none items-center justify-center text-[15px]'>
                   CA Id:000000000
                 </div>
               </div>
@@ -97,18 +107,18 @@ const Leaderboard = () => {
         
 
         <div
-          className='z-0 h-[500px] rounded-[50px] bg-custom-gradient px-[50px] py-[30px]  md:px-[30px] '
-          style={{ maxHeight: '500px', overflowY: 'auto' }}
+          className='z-0 h-[400px] rounded-[50px] bg-custom-gradient px-[20px] py-[30px]  md:px-[20px] '
+          style={{ maxHeight: '400px', overflowY: 'auto' }}
         >
-          <div className='z-10 mb-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
-            <div className='flex h-[100px] flex-wrap content-center justify-between '>
-              <p className='text-white mr-3 select-none self-center text-[20px] font-bold md:self-start'>
+          <div className='z-10 my-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
+            <div className='flex h-[80px] flex-wrap content-center justify-between '>
+              <p className='text-white mr-3 select-none  text-[30px] font-bold self-start'>
                 4
               </p>
-              <p className='text-white mr-3 select-none self-center text-[20px] font-bold md:self-start'>
+              <p className='text-white mr-3 select-none self-center text-[30px] font-bold md:self-start'>
                 Priyadarshi
               </p>
-              <p className='text-white select-none self-center text-[20px] font-bold md:self-start'>
+              <p className='text-white select-none self-center text-[15px] font-bold md:self-start'>
                 CA:108977678909876
               </p>
               <p className='text-white select-none self-center text-[20px] font-bold md:self-start'>
@@ -116,15 +126,15 @@ const Leaderboard = () => {
               </p>
             </div>
           </div>
-          <div className='z-10 mb-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
-            <div className='flex h-[100px] flex-wrap content-center justify-between '>
-              <p className='text-white mr-3 select-none self-center text-[20px] font-bold  md:self-start'>
+          <div className='z-10 my-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
+            <div className='flex h-[80px] flex-wrap content-center justify-between '>
+              <p className='text-white mr-3 select-none  text-[30px] font-bold self-start'>
                 4
               </p>
-              <p className='text-white mr-3 select-none self-center text-[20px] font-bold md:self-start'>
+              <p className='text-white mr-3 select-none self-center text-[30px] font-bold md:self-start'>
                 Priyadarshi
               </p>
-              <p className='text-white select-none self-center text-[20px] font-bold md:self-start'>
+              <p className='text-white select-none self-center text-[15px] font-bold md:self-start'>
                 CA:108977678909876
               </p>
               <p className='text-white select-none self-center text-[20px] font-bold md:self-start'>
@@ -132,15 +142,15 @@ const Leaderboard = () => {
               </p>
             </div>
           </div>
-          <div className='z-10 mb-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
-            <div className='flex h-[100px] flex-wrap content-center justify-between '>
-              <p className='text-white mr-3 select-none self-center text-[20px] font-bold md:self-start'>
+          <div className='z-10 my-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
+            <div className='flex h-[80px] flex-wrap content-center justify-between '>
+              <p className='text-white mr-3 select-none  text-[30px] font-bold self-start'>
                 4
               </p>
-              <p className='text-white mr-3 select-none self-center text-[20px] font-bold md:self-start'>
+              <p className='text-white mr-3 select-none self-center text-[30px] font-bold md:self-start'>
                 Priyadarshi
               </p>
-              <p className='text-white select-none self-center text-[20px] font-bold md:self-start'>
+              <p className='text-white select-none self-center text-[15px] font-bold md:self-start'>
                 CA:108977678909876
               </p>
               <p className='text-white select-none self-center text-[20px] font-bold md:self-start'>
@@ -149,6 +159,7 @@ const Leaderboard = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
