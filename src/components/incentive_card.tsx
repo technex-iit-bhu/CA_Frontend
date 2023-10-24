@@ -11,9 +11,9 @@ interface CardProps {
 const IncentiveCard: FC<CardProps> = ({title, text}) => {
     return(
     <div style={{
-        width: "max(400px, 30vw)",
-        height: "max(150px, 10vh)",
-        display: "block",
+        width: "max(10px, 30vw)",
+        // height: "max(150px, 10vh)",
+        display: "flex",
         border: "10px solid #C70039",
         borderRadius: "30px",
         borderWidth: "3px",

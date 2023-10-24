@@ -14,6 +14,15 @@
 
 }
 
+.slick-slide {  
+    position: relative;  
+    z-index: 1; 
+    /* your choice,  but make sure z-index of active slide is higher than this value */
+  }  
+.slick-slide.slick-current {  
+     z-index: 10;  
+  }
+
 
   
 
