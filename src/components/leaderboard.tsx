@@ -137,7 +137,7 @@ const Leaderboard = () => {
                 5
               </p>
               <p className='text-white mr-3 select-none  text-[20px] md:text-[30px] font-bold md:self-start'>
-                Shivansh
+                Fuck vercel
               </p>
               <p className='text-white select-none mr-3 text-[10px] md:text-[15px] font-bold md:self-start'>
                 CA:108977678909876
