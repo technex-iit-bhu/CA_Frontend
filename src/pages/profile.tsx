@@ -3,14 +3,14 @@ import React from 'react';
 export default function profile() {
   return (
     <div>
-      <div className='relative mb-[100px] flex flex-col bg-background lg:pl-[68px] md:pl-[50px]   pt-[80px] md:mb-[70px] lg:pb-[150px] md:pb-8'>
-        <div className=' absolute bottom-[10px] left-0  flex text-5xl  md:p-10 lg:p-[90px]   lg:text-7xl'>
-          <span className='text-white select-none '>Profile</span>
+      <div className='relative mb-[160px] flex flex-col bg-background lg:pl-[68px] pl-[50px] pt-[80px] md:mb-[70px] lg:pb-[150px] md:pb-10'>
+        <div className=' absolute bottom-[10px] left-0 flex text-5xl md:p-10 lg:p-[90px] lg:text-7xl'>
+          <span className='text-white select-none  '>Profile</span>
         </div>
       </div>
       <div className='px-[30px] md:px-[50px] '>
-        <div className='z-0 mb-20 rounded-[50px]  bg-grey px-[50px]  md:px-[30px]'>
-          <div className='flex flex-col lg:flex-row lg:pl-[30px] lg:pt-4 lg:pb-4   pb-10 '>
+        <div className='z-0 mb-20 rounded-[50px] bg-grey px-[50px]  md:px-[30px]'>
+          <div className='flex flex-col lg:flex-row lg:pl-[0px] lg:pt-4 lg:pb-4   pb-10 '>
             <div className='mt-[-150px] flex flex-col'>
               <div className='h-[250px] w-[250px] select-none self-center rounded-full border-4 border-red bg-background lg:self-start'></div>
               <div className='flex flex-col  lg:w-[500px] lg:pl-[20px] '>
