@@ -17,25 +17,28 @@ const config: Config = {
       },
     },
     screens: {
-      'sm': '640px',
+      sm: '640px',
       // => @media (min-width: 640px) { ... }
 
-      'md': '768px',
+      md: '768px',
       // => @media (min-width: 768px) { ... }
 
-      'lg': '1024px',
+      lg: '1024px',
       // => @media (min-width: 1024px) { ... }
 
-      'xl': '1280px',
+      xl: '1280px',
       // => @media (min-width: 1280px) { ... }
 
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
-      'ab': '965px',
+      ab: '965px',
     },
     colors: {
       red: '#A81F25',
-      background: '#191919',
+      background: '191919',
+      grey: '#27272780',
+      black: '#191919',
+      black2: '#00000040',
     },
   },
   plugins: [],
