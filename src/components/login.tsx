@@ -19,7 +19,7 @@ const Login = () => {
               <input
                 placeholder='Enter Your Username'
                 type='text'
-                className='h-[50px] grow rounded-[50px] bg-background pl-[30px]'
+                className='h-[50px] grow self-stretch rounded-[50px] bg-background pl-[30px]'
               />
             </div>
             <div className='flex w-8/12 flex-col items-center gap-5 md:flex-row'>
@@ -29,7 +29,7 @@ const Login = () => {
               <input
                 placeholder='Enter Your Password'
                 type='password'
-                className='h-[50px] grow rounded-[50px] bg-background pl-[30px]'
+                className='h-[50px] self-stretch grow rounded-[50px] bg-background pl-[30px]'
               />
             </div>
             <Link href={'/register'}>Haven't Registered Yet?</Link>
