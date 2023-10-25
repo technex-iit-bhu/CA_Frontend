@@ -7,6 +7,7 @@ const navLinks = [
   { title: 'Incentives', href: '/incentives' },
   { title: 'Contact Us', href: '/contactus' },
   { title: 'FAQs', href: '/faqs' },
+  { title: 'Leaderboard', href: '/leaderboard' },
 ];
 const Hamburger = () => {
   const [open, setOpen] = useState(false);

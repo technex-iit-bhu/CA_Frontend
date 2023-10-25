@@ -6,6 +6,7 @@ import Navbar from '@/components/navbar';
 import IncentiveCard from '@/components/incentive_card';
 import IncentivesCarousel from '@/components/carousel';
 
+
 export default function Home() {
   return (
     <main>
@@ -13,7 +14,9 @@ export default function Home() {
         <LandingPage />
         <DashboardPage />
 
+
         <IncentivesCarousel />
+
       </div>
     </main>
   );
