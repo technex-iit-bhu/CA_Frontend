@@ -21,7 +21,7 @@ const Navbar: FC = () => {
       </div>
       <div className='hidden space-x-10 p-3 pr-5 text-center text-xl font-bold ab:block'>
         <Link
-          href={'/about'}
+          href={'/'}
           className="relative
                 text-[#A81F25]
                 transition-all
