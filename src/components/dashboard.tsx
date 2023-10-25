@@ -26,6 +26,7 @@ const Dashboard = () => {
                 </p>
               </div>
             </div>
+
             <div className='h-[2px] w-auto bg-red lg:h-[250px] lg:w-[2px]'></div>
             <div className='lg: flex grow flex-col justify-center self-center px-[10px] py-[30px] sm:flex-row md:pb-[30px] md:pt-[30px] lg:pb-[100px] lg:pt-0'>
               <div className='mr-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-black md:h-[200px] md:w-[200px] md:rounded-[50px]'>
@@ -61,6 +62,7 @@ const Dashboard = () => {
                   232
                 </p>
               </div>
+
             </div>
           </div>
           <div className='z-10 mb-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
