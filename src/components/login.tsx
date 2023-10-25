@@ -18,6 +18,7 @@ const Login = () => {
               </span>
               <input
                 placeholder='Enter Your Username'
+                required
                 type='text'
                 className='h-[50px] grow self-stretch rounded-[50px] bg-background pl-[30px]'
               />
@@ -28,6 +29,8 @@ const Login = () => {
               </span>
               <input
                 placeholder='Enter Your Password'
+                required
+                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
                 type='password'
                 className='h-[50px] self-stretch grow rounded-[50px] bg-background pl-[30px]'
               />
