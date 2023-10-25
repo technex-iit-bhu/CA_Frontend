@@ -1,10 +1,7 @@
 import { Inter, Outfit } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 import LandingPage from './landingPage';
-import DashboardPage from './dashboardPage';
-import Navbar from '@/components/navbar';
-import IncentiveCard from '@/components/incentive_card';
-import IncentivesCarousel from '@/components/carousel';
+import Contactus from '@/components/contactus';
 
 
 export default function Home() {
@@ -12,10 +9,7 @@ export default function Home() {
     <main>
       <div>
         <LandingPage />
-        <DashboardPage />
-
-
-        <IncentivesCarousel />
+        <Contactus/>
 
       </div>
     </main>
