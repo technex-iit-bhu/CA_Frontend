@@ -18,6 +18,7 @@ const Register = () => {
                             </span>
                             <input
                                 placeholder='Enter Your First Name'
+                                required
                                 type='text'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
@@ -26,6 +27,7 @@ const Register = () => {
                             </span>
                             <input
                                 placeholder='Enter Your Last Name'
+                                required
                                 type='text'
                                 className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[30px] lg:text-left text-center'
                             />
@@ -36,6 +38,7 @@ const Register = () => {
                             </span>
                             <input
                                 placeholder='Who do we reply to?'
+                                required
                                 type='text'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
@@ -46,6 +49,7 @@ const Register = () => {
                             </span>
                             <input
                                 placeholder='In which Institute do you study?'
+                                required
                                 type='text'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
@@ -61,11 +65,12 @@ const Register = () => {
                             </select>         
                         </div>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium'>
+                            <span className='text-white select-none align-middle text-xl font-medium lg:text-left text-center'>
                                 Postal Address:
                             </span>
                             <input
                                 placeholder='What is your Address?'
+                                required
                                 type='text'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
@@ -74,22 +79,24 @@ const Register = () => {
                             </span>
                             <input
                                 placeholder='Enter Your Pincode'
+                                required
                                 type='text'
                                 className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[30px] lg:text-left text-center'
                             />
                         </div>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium'>
-                                Why should we choose you ?:
+                            <span className='text-white select-none align-middle text-xl font-medium lg:text-left text-center'>
+                                Why should we choose you ?
                             </span>
                             <input
                                 placeholder='Why should we choose you?'
+                                required
                                 type='text'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
                         </div>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium'>
+                            <span className='text-white select-none align-middle text-xl font-medium text-center lg:text-left'>
                                 Previous CA Experience:
                             </span>
                             <select className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[10px] lg:text-left text-center'>
@@ -101,16 +108,18 @@ const Register = () => {
                             </span>
                             <input
                                 placeholder='What is your contact number?'
+                                required
                                 type='text'
                                 className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[30px] lg:text-left text-center'
                             />
                         </div>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium'>
+                            <span className='text-white select-none align-middle text-xl font-medium text-center lg:text-left'>
                                 Whatsapp Number:
                             </span>
                             <input
                                 placeholder='What is your Whatsapp no?'
+                                required
                                 type='text'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
@@ -119,6 +128,7 @@ const Register = () => {
                             </span>
                             <input
                                 placeholder='Choose your Username'
+                                required
                                 type='text'
                                 className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[30px] lg:text-left text-center'
                             />
@@ -129,6 +139,8 @@ const Register = () => {
                             </span>
                             <input
                                 placeholder='Password'
+                                required
+                                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
                                 type='password'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
@@ -137,11 +149,13 @@ const Register = () => {
                             </span>
                             <input
                                 placeholder='Confirm Password'
+                                required
+                                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
                                 type='password'
                                 className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[30px] lg:text-left text-center'
                             />
                         </div>
-                        <Link href={'/login'}>Already a Campus Ambassador?</Link>
+                        <Link href={'/login'} className="text-center">Already a Campus Ambassador?</Link>
                         <button className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red text-[20px] font-bold md:w-[200px]' type='submit'>
                             Register
                         </button>
