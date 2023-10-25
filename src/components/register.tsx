@@ -39,7 +39,7 @@ const Register = () => {
                             <input
                                 placeholder='Who do we reply to?'
                                 required
-                                type='text'
+                                type='email'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
                         </div>
@@ -80,7 +80,8 @@ const Register = () => {
                             <input
                                 placeholder='Enter Your Pincode'
                                 required
-                                type='text'
+                                type='tel'
+                                pattern='[0-9]{6}'
                                 className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[30px] lg:text-left text-center'
                             />
                         </div>
@@ -109,7 +110,8 @@ const Register = () => {
                             <input
                                 placeholder='What is your contact number?'
                                 required
-                                type='text'
+                                type='tel'
+                                pattern='[0-9]{10}'
                                 className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[30px] lg:text-left text-center'
                             />
                         </div>
@@ -120,7 +122,8 @@ const Register = () => {
                             <input
                                 placeholder='What is your Whatsapp no?'
                                 required
-                                type='text'
+                                type='tel'
+                                pattern='[0-9]{10}'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
                             <span className='text-white w-max select-none align-middle text-xl font-medium'>
