@@ -11,7 +11,7 @@ const Login = () => {
       </div>
       <div className='sm:px-[100px] pb-[100px] md:px-[175px] px-[10px]'>
         <div className='z-0 rounded-[50px] bg-grey px-[30px] py-[30px] md:px-[10px]'>
-          <div className='flex flex-col items-center gap-y-5'>
+          <form className='flex flex-col items-center gap-y-5'>
             <div className='flex w-8/12 flex-col items-center gap-5 md:flex-row'>
               <span className='text-white w-max select-none align-middle text-xl font-medium'>
                 Username:
@@ -33,10 +33,10 @@ const Login = () => {
               />
             </div>
             <Link href={'/register'}>Haven't Registered Yet?</Link>
-            <button className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red text-[20px] font-bold md:w-[200px]'>
+            <button className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red text-[20px] font-bold md:w-[200px]' type='submit'>
               Login
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
