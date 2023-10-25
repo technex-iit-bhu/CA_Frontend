@@ -144,7 +144,7 @@ const Register = () => {
                                 type='password'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
-                            <span className='text-white select-none align-middle text-xl font-medium'>
+                            <span className='text-white select-none align-middle text-xl font-medium text-center lg:text-left'>
                                 Confirm Password*:
                             </span>
                             <input
