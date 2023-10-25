@@ -3,6 +3,8 @@ const inter = Inter({ subsets: ['latin'] });
 import LandingPage from './landingPage';
 import DashboardPage from './dashboardPage';
 import Navbar from '@/components/navbar';
+import IncentiveCard from '@/components/incentive_card';
+import IncentivesCarousel from '@/components/carousel';
 
 
 export default function Home() {
@@ -11,7 +13,10 @@ export default function Home() {
       <div>
         <LandingPage />
         <DashboardPage />
-        
+
+
+        <IncentivesCarousel />
+
       </div>
     </main>
   );
