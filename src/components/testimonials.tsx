@@ -81,6 +81,7 @@ const Testimonials: React.FC = () => {
           >
             {carouselData.map((item, currentIndex) => (
               <Testes
+                key={currentIndex}
                 title={carouselData[currentIndex]['title']}
                 description={carouselData[currentIndex]['description']}
                 imageSrc={carouselData[currentIndex]['imageSrc']}
