@@ -27,10 +27,10 @@ const FAQ = () => {
         <div className='w-full md:w-1/2'>
           {/* <ChakraProvider theme = {theme}>
                         <CSSReset />   */}
-          <Accordion allowMultiple>
-            <AccordionItem>
+          <Accordion defaultIndex={[0]} allowMultiple allowToggle>
+            <AccordionItem _expanded={{ bg: 'grey', color: 'white' }}>
               <h2>
-                <AccordionButton>
+                <AccordionButton >
                   <AccordionIcon />
                   <Box as='span' flex='1' textAlign='center'>
                     Who can become a College Ambassador?
