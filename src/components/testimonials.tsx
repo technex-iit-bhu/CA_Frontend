@@ -53,7 +53,7 @@ const Testimonials: React.FC = () => {
 
   return (
     <div>
-      <Center h={height3}>
+      <Center h={height3} className='mb-5'>
         {/* Center the content vertically */}
         <Box textAlign='center' className='-space-y-11 ef:-space-y-16 md:-space-y-28 lg:-space-y-32 flex flex-col'>
           {/* Center the content horizontally */}
