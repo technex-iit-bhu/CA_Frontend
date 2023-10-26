@@ -30,17 +30,17 @@ const FAQ = () => {
         <div className='w-full md:w-1/2'>
           {/* <ChakraProvider theme = {theme}>
                         <CSSReset />   */}
-          <Accordion allowMultiple>
-            <AccordionItem>
+          <Accordion defaultIndex={[0]} allowMultiple allowToggle className=''>
+            <AccordionItem  className='bg-grey p-4 rounded-full  m-2 '>
               <h2>
-                <AccordionButton>
+                <AccordionButton >
                   <AccordionIcon />
-                  <Box as='span' flex='1' textAlign='center'>
+                  <Box as='span' flex='1' textAlign='center' >
                     Who can become a College Ambassador?
                   </Box>
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={4} className='text-center'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -48,7 +48,7 @@ const FAQ = () => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem>
+            <AccordionItem className='bg-grey p-4 rounded-full m-2'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />
@@ -57,7 +57,7 @@ const FAQ = () => {
                   </Box>
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={4} className='text-center'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -65,7 +65,7 @@ const FAQ = () => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem>
+            <AccordionItem className='bg-grey p-4 rounded-full m-2'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />
@@ -74,7 +74,7 @@ const FAQ = () => {
                   </Box>
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={4} className='text-center'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -88,7 +88,7 @@ const FAQ = () => {
           {/* <ChakraProvider theme = {theme}>
                         <CSSReset /> */}
           <Accordion allowMultiple>
-            <AccordionItem>
+            <AccordionItem className='bg-grey p-4 rounded-full m-2'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />
@@ -98,7 +98,7 @@ const FAQ = () => {
                   </Box>
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={4} className='text-center'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -106,7 +106,7 @@ const FAQ = () => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem>
+            <AccordionItem className='bg-grey p-4 rounded-full m-2'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />
@@ -115,7 +115,7 @@ const FAQ = () => {
                   </Box>
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={4} className='text-center'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
