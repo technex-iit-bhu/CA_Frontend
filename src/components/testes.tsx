@@ -57,6 +57,7 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
                 width='100%' // Make sure the image takes 100% width of the Box
                 height='100%' // Make sure the image takes 100% height of the Box
                 borderRadius='10% 20%'
+                alt=''
               />
             </Box>
             <Box
