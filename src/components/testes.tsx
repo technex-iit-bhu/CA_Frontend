@@ -23,8 +23,9 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
   const [isLargerThan1000] = useMediaQuery('(min-width: 900px)');
   const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
   const cardWidth = isLargerThan1000 ? '550px' : '70vw';
+  const padding = isLargerThan1000?'10px 30px 15px 15px': '2.5vw';
   const cardHeight = isLargerThan1000 ? '275px' : '35vw';
-  const fontSize = isLargerThan1000 ? '13px' : '2.5vw';
+  const fontSize = isLargerThan1000 ? '17px' : '2.5vw';
   const fontSize1 = isLargerThan1000 ? '45px' : '6vw';
   return (
     <div style={{ margin: '50px' }}>
@@ -44,10 +45,9 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
         >
           <Stack direction='row' height='100%'>
             <Box
-              bg='gray'
               height='80%'
-              width='35%'
-              borderRadius='10% 20%'
+              width='30%'
+              borderRadius='10%'
               position='relative'
               marginX='-15%'
             >
@@ -74,7 +74,7 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
                   {secondWord}
                 </Box>
               </Heading>
-              <Text padding='2.5vw' fontSize={fontSize}>
+              <Text padding={padding} fontSize={fontSize}>
                 {description}
               </Text>
             </Box>
