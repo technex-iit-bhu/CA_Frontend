@@ -38,89 +38,56 @@ const Testimonials: React.FC = () => {
   const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
   const [isLargerThan500] = useMediaQuery('(min-width: 500px)');
   const fontSize = isLargerThan500 ? '80px' : '12vw';
+  const height3 = isLargerThan500 ? '100px' : '14vw';
   const fontSize1 = isLargerThan500 ? '20px' : '10px';
-  const height1 = isLargerThan900 ? '420px' : '70vw';
-  const height2 = isLargerThan900 ? '400px' : '62vw';
-  const padding = isLargerThan900 ? '5vw':'10vw';
+  const height1 = isLargerThan900 ? '420px' : '50vw';
+  const height2 = isLargerThan900 ? '400px' : '45vw';
+  const padding = isLargerThan900 ? '5vw' : '10vw';
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselData.length);
-    }, 5000);
+    }, 4500);
     return () => clearInterval(interval);
   }, [currentIndex]);
 
-  const slideVariants: {
-    enter: {
-      y: string;
-      opacity: number;
-    };
-    center: {
-      y: string;
-      opacity: number;
-    };
-    exit: {
-      y: string;
-      opacity: number;
-    };
-  } = {
-    enter: {
-      y: '100%',
-      opacity: 0.5,
-    },
-    center: {
-      y: '0',
-      opacity: 0.9,
-    },
-    exit: {
-      y: '-100%',
-      opacity: 0.5,
-    },
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselData.length);
-  };
-
   return (
     <div>
-      <Center h='20vh'>
+      <Center h={height3}>
         {/* Center the content vertically */}
         <Box textAlign='center'>
           {/* Center the content horizontally */}
           <Text fontSize={fontSize}>Testimonials</Text>
         </Box>
       </Center>
-      <div
-        style={{ position: 'relative', height: `${height1}`, width: '90%' }}
-      >
+      <div style={{ position: 'relative', height: `${height1}`, width: '90%' }}>
         <Box
           position='relative'
           height={height2}
           width='auto'
           overflow='hidden'
-          id="box"
+          id='box'
           paddingLeft={padding}
-
         >
-          <motion.div
-            key={currentIndex}
-            variants={slideVariants}
-            initial='enter'
-            animate='center'
-            exit='exit'
-            id="motion"
-            transition={{ ease: 'easeInOut', duration: 1 }}
-            custom={
-              (currentIndex + 1) % carouselData.length === 0 ? 'prev' : 'next'
-            }
-            style={{ position: 'absolute', width: '100%' }}
+          <Box
+            transition='transform 0.5s ease'
+            transform={`translateY(-${
+              (currentIndex * 100) / carouselData.length
+            }%)`}
+            position='absolute'
+            width='100%'
+            display='flex'
+            flexDirection='column'
           >
-            <Testes
-              title={carouselData[currentIndex]['title']}
-              description={carouselData[currentIndex]['description']}
-              imageSrc={carouselData[currentIndex]['imageSrc']}
-            />
-          </motion.div>
+            {carouselData.map((item, currentIndex) => (
+              <Testes
+                key={currentIndex}
+                title={carouselData[currentIndex]['title']}
+                description={carouselData[currentIndex]['description']}
+                imageSrc={carouselData[currentIndex]['imageSrc']}
+              />
+            ))}
+          </Box>
         </Box>
         <div
           style={{
@@ -130,8 +97,7 @@ const Testimonials: React.FC = () => {
             transform: 'translateX(-50%)',
             zIndex: 1,
           }}
-        >
-        </div>
+        ></div>
       </div>
       <div
         style={{
