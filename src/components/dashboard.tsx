@@ -26,32 +26,43 @@ const Dashboard = () => {
                 </p>
               </div>
             </div>
+
             <div className='h-[2px] w-auto bg-red lg:h-[250px] lg:w-[2px]'></div>
             <div className='lg: flex grow flex-col justify-center self-center px-[10px] py-[30px] sm:flex-row md:pb-[30px] md:pt-[30px] lg:pb-[100px] lg:pt-0'>
-              <div className='mr-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background md:h-[200px] md:w-[200px] md:rounded-[50px]'>
+              <div className='mr-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-black md:h-[200px] md:w-[200px] md:rounded-[50px]'>
                 <p className='text-white mt-[15px] select-none self-center text-[10px] font-bold md:mt-[30px] md:text-[20px]'>
                   Tasks Done
                 </p>
-                <p className='text-white select-none self-center text-[40px] font-bold md:text-[80px]'>
+                <p
+                  className='text-white select-none self-center text-[40px] font-bold md:text-[80px]'
+                  style={{ fontFamily: 'Sedgwick Ave' }}
+                >
                   69
                 </p>
               </div>
-              <div className='mr-[10px] mt-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background sm:mt-0 md:h-[200px] md:w-[200px] md:rounded-[50px]'>
+              <div className='mr-[10px] mt-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-black sm:mt-0 md:h-[200px] md:w-[200px] md:rounded-[50px]'>
                 <p className='text-white mt-[15px] select-none self-center text-[10px] font-bold md:mt-[30px] md:text-[20px]'>
                   Total Tasks
                 </p>
-                <p className='text-white select-none self-center text-[40px] font-bold md:text-[80px]'>
+                <p
+                  className='text-white select-none self-center text-[40px] font-bold md:text-[80px]'
+                  style={{ fontFamily: 'Sedgwick Ave' }}
+                >
                   200
                 </p>
               </div>
-              <div className='mr-[10px] mt-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background sm:mt-0 md:h-[200px] md:w-[200px] md:rounded-[50px]'>
+              <div className='mr-[10px] mt-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-black sm:mt-0 md:h-[200px] md:w-[200px] md:rounded-[50px]'>
                 <p className='text-white mt-[15px] select-none self-center text-[10px] font-bold md:mt-[30px] md:text-[20px]'>
                   Points
                 </p>
-                <p className='text-white select-none self-center text-[40px] font-bold md:text-[80px]'>
+                <p
+                  className='text-white select-none self-center text-[40px] font-bold md:text-[80px]'
+                  style={{ fontFamily: 'Sedgwick Ave' }}
+                >
                   232
                 </p>
               </div>
+
             </div>
           </div>
           <div className='z-10 mb-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
