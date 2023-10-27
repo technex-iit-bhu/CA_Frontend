@@ -18,9 +18,12 @@ import {
 const FAQ = () => {
   return (
     <div className='bg-background'>
-      <div className='relative mb-[20px] flex flex-col bg-background pl-[120px] pt-[200px]'>
-        <div className='align-left absolute bottom-[10px] left-5 flex text-5xl sm:text-center md:p-10 lg:p-10 lg:text-7xl'>
-          <span className='text-white select-none'>FAQs</span>
+      <div className='relative mb-[20px] flex flex-col bg-background pl-[10px] pt-[200px]'>
+        <div className=' -space-y-14 ef:-space-y-16 md:-space-y-32 absolute bottom-3 flex flex-col sm:text-left '>
+          <span className='text-red opacity-20 text-[62px] ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
+            FAQs
+          </span>
+          <span className='text-white select-none ml-1 md:ml-2 lg:ml-3 text-[25px] ef:text-4xl md:text-7xl z-10'>FAQs</span>
         </div>
       </div>
       <div className='mb-[50px] flex flex-col items-start gap-0 px-[30px] md:flex-row md:justify-start md:gap-10 md:px-[120px] lg:flex-row lg:justify-start'>

@@ -53,7 +53,7 @@ const Hamburger = () => {
   return (
     <header>
       <div
-        className='text-md text-white cursor-pointer lg:hidden'
+        className='text-md text-white cursor-pointer'
         onClick={toggleMenu}
       >
         <HamburgerIcon boxSize={28} />
