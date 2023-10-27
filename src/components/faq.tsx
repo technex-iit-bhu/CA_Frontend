@@ -32,12 +32,12 @@ const FAQ = () => {
               <h2>
                 <AccordionButton >
                   <AccordionIcon />
-                  <Box as='span' flex='1' textAlign='center' >
+                  <Box as='span' flex='1' textAlign='center' className='font-spline' >
                     Who can become a College Ambassador?
                   </Box>
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4} className='text-center'>
+              <AccordionPanel pb={4} className='text-center font-spline'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -45,7 +45,7 @@ const FAQ = () => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem className='bg-grey p-4 rounded-full m-2'>
+            <AccordionItem className='bg-grey p-4 rounded-full m-2 font-spline'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />
@@ -62,7 +62,7 @@ const FAQ = () => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem className='bg-grey p-4 rounded-full m-2'>
+            <AccordionItem className='bg-grey p-4 rounded-full m-2 font-spline'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />
@@ -85,7 +85,7 @@ const FAQ = () => {
           {/* <ChakraProvider theme = {theme}>
                         <CSSReset /> */}
           <Accordion allowMultiple>
-            <AccordionItem className='bg-grey p-4 rounded-full m-2'>
+            <AccordionItem className='bg-grey p-4 rounded-full m-2 font-spline'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />
@@ -103,7 +103,7 @@ const FAQ = () => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem className='bg-grey p-4 rounded-full m-2'>
+            <AccordionItem className='bg-grey p-4 rounded-full m-2 font-spline'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />

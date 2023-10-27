@@ -57,7 +57,7 @@ const Testimonials: React.FC = () => {
         {/* Center the content vertically */}
         <Box textAlign='center'>
           {/* Center the content horizontally */}
-          <Text fontSize={fontSize}>Testimonials</Text>
+          <Text fontSize={fontSize} className='font-spline'>Testimonials</Text>
         </Box>
       </Center>
       <div style={{ position: 'relative', height: `${height1}`, width: '90%' }}>
