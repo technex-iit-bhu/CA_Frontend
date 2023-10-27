@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Center, Text, useMediaQuery } from '@chakra-ui/react';
+import { Box, Button, Center, Heading, Text, useMediaQuery } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Testes from './testes';
 
@@ -53,11 +53,14 @@ const Testimonials: React.FC = () => {
 
   return (
     <div>
-      <Center h={height3}>
+      <Center h={height3} className='mb-5'>
         {/* Center the content vertically */}
-        <Box textAlign='center'>
+        <Box textAlign='center' className='-space-y-11 ef:-space-y-16 md:-space-y-28 lg:-space-y-32 flex flex-col'>
           {/* Center the content horizontally */}
-          <Text fontSize={fontSize} className='font-spline'>Testimonials</Text>
+          <span className='text-red opacity-20 text-[40px] ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
+            Testimonials
+          </span>
+          <span className='text-white select-none ml-3 text-[25px] ef:text-4xl md:text-7xl z-10'>Testimonials</span>
         </Box>
       </Center>
       <div style={{ position: 'relative', height: `${height1}`, width: '90%' }}>

@@ -19,7 +19,9 @@ const Navbar: FC = () => {
           15-17 MAR 2024
         </p>
       </div>
+
       <div className='hidden space-x-10 p-3 pr-5 text-center text-xl font-bold ab:block '>
+
         <Link
           href={'/about'}
           className="relative
@@ -135,7 +137,7 @@ const Navbar: FC = () => {
         <Link href={"/login"} className='border-2 hover:border-[#A81F25] hover:text-[#A81F25] hover:bg-[#191919] sm:py-1 px-5 sm:px-7 rounded-e-full rounded-s-full font-spline'>Login</Link>
 
       </div>
-      <div className='flex p-1 sm:p-5 ab:hidden'>
+      <div className='flex p-1 sm:p-5 cd:hidden'>
         <Hamburger />
       </div>
     </div>
