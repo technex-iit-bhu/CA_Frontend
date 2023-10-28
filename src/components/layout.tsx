@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import Footer from './footer';
-import Contactus from './contactUs';
+import contactUs from './contactUs';
 
 interface LayoutProps {
   children: ReactNode;
