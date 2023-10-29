@@ -22,13 +22,15 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
 
   const [isLargerThan1000] = useMediaQuery('(min-width: 900px)');
   const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
-  const cardWidth = isLargerThan1000 ? '550px' : '70vw';
-  const padding = isLargerThan1000 ? '10px 30px 15px 15px' : '2.5vw';
-  const cardHeight = isLargerThan1000 ? '275px' : '35vw';
-  const fontSize = isLargerThan1000 ? '17px' : '2.5vw';
+  const cardWidth = isLargerThan1000 ? '630px' : '80vw';
+  const padding = isLargerThan1000 ? '10px 40px 15px 15px' : '2.5vw';
+  const cardHeight = isLargerThan1000 ? '315px' : '40vw';
+  const fontSize = isLargerThan1000 ? '22px' : '3vw';
   const fontSize1 = isLargerThan1000 ? '45px' : '6vw';
+  const padding1= isLargerThan1000?'20px 0px': '3vw 0';
+  const margin= isLargerThan1000?'80px 50px 50px 50px':'8vw';
   return (
-    <div style={{ margin: '50px' }}>
+    <div style={{ margin: `${margin}` }}>
       <div
         style={{
           display: 'flex',
@@ -40,16 +42,17 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
           bg='#444444'
           width={cardWidth}
           height={cardHeight}
-          padding='3vw 0'
+          padding={padding1}
           borderRadius='5vw'
         >
           <Stack direction='row' height='100%'>
             <Box
-              height='80%'
+              height='70%'
               width='30%'
               borderRadius='10%'
               position='relative'
               marginX='-15%'
+              marginY='5%'
             >
               <Image
                 src={imageSrc}
