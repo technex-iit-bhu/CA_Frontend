@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Button, Center, Heading, Text, useMediaQuery } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Testes from './testes';
+import { relative } from 'path';
 
 interface CarouselData {
   title: string;
@@ -13,7 +14,7 @@ const carouselData: CarouselData[] = [
   {
     title: 'Adolf Hitler',
     description:
-      'HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!',
+      'HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!',
     imageSrc:
       'https://upload.wikimedia.org/wikipedia/en/7/7d/Adolf_Hitler_cph_3a48970.jpg', // URL for the image
   },
@@ -39,10 +40,10 @@ const Testimonials: React.FC = () => {
   const [isLargerThan500] = useMediaQuery('(min-width: 500px)');
   const fontSize = isLargerThan500 ? '80px' : '12vw';
   const height3 = isLargerThan500 ? '100px' : '14vw';
-  const fontSize1 = isLargerThan500 ? '20px' : '10px';
-  const height1 = isLargerThan900 ? '420px' : '50vw';
-  const height2 = isLargerThan900 ? '400px' : '45vw';
-  const padding = isLargerThan900 ? '5vw' : '10vw';
+  const fontSize1 = isLargerThan500 ? '17px' : '10px';
+  const height1 = isLargerThan900 ? '420px' : '60vw';
+  const height2 = isLargerThan900 ? '400px' : '60vw';
+  const padding = isLargerThan900 ? '2vw' : '6vw';
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -92,26 +93,19 @@ const Testimonials: React.FC = () => {
             ))}
           </Box>
         </Box>
-        <div
+        <Center>
+          <div
           style={{
-            position: 'absolute',
-            bottom: '10px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 1,
+            height: '3px',
+            borderRadius: '3px',
+            background: '#a81f25',
+            width: '80%',
+            marginTop: '3vw',
           }}
-        ></div>
+                ></div>
+        </Center>
       </div>
-      <div
-        style={{
-          height: '3px',
-          borderRadius: '3px',
-          background: '#a81f25',
-          width: '50%',
-          margin: '0 auto',
-          marginTop: '10px',
-        }}
-      ></div>
+      
     </div>
   );
 };
