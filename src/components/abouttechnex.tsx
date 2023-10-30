@@ -1,13 +1,10 @@
 import React, { FC } from 'react';
-import { ArrowRightIcon } from '@chakra-ui/icons';
 import { HeadingTexts } from './ourReach';
 
 const AboutTechnex: FC = () => {
   return (
-    <div className='bg-[#191919]'>
-      <div className='flex animate-bounce items-center justify-center pt-28'>
-        <ArrowRightIcon className='rotate-90' boxSize={32} />
-      </div>
+    <div className='bg-[#191919]' id="aboutUs">
+      
 
       <div className='md:ml-22 ml-1 -space-y-10 sm:ml-10 sm:-space-y-20 md:-space-y-16 lg:ml-28 lg:-space-y-24 xl:ml-40'>
         <div className='-z-10'>

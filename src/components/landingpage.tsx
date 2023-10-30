@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
 import Navbar from './navbar';
-import AboutTechnex from './abouttechnex';
 import Link from 'next/link';
 
 const Landingpage: FC = () => {
   return (
     <div className='scroll-smooth'>
-      <div className="bg-[url('/bg_landing_page.webp')] bg-auto w-full bg-center bg-no-repeat pb-8 xl:bg-cover xl:pb-16 2xl:pb-48">
+      <div className="bg-[url('/bg_landing_page.webp')] bg-auto w-full bg-center bg-no-repeat pb-8 xl:bg-cover xl:pb-16 2xl:pb-48" id="top">
         <div className='z-10 pb-96 lg:pb-64 xl:pb-96'>
           <Navbar />
         </div>
@@ -27,7 +26,6 @@ const Landingpage: FC = () => {
           </div>
         </div>
       </div>
-      <AboutTechnex />
     </div>
   );
 };

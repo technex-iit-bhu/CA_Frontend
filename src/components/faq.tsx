@@ -31,7 +31,7 @@ const FAQ = () => {
           {/* <ChakraProvider theme = {theme}>
                         <CSSReset />   */}
           <Accordion defaultIndex={[0]} allowMultiple allowToggle className=''>
-            <AccordionItem  className='bg-grey p-4 rounded-full  m-2 '>
+            <AccordionItem  className='bg-grey p-4 rounded-[40px]  m-2 '>
               <h2>
                 <AccordionButton >
                   <AccordionIcon />
@@ -48,7 +48,7 @@ const FAQ = () => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem className='bg-grey p-4 rounded-full m-2 font-spline'>
+            <AccordionItem className='bg-grey p-4 rounded-[40px] m-2 font-spline'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />
@@ -65,7 +65,7 @@ const FAQ = () => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem className='bg-grey p-4 rounded-full m-2 font-spline'>
+            <AccordionItem className='bg-grey p-4 rounded-[40px] m-2 font-spline'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />
@@ -88,7 +88,7 @@ const FAQ = () => {
           {/* <ChakraProvider theme = {theme}>
                         <CSSReset /> */}
           <Accordion allowMultiple>
-            <AccordionItem className='bg-grey p-4 rounded-full m-2 font-spline'>
+            <AccordionItem className='bg-grey p-4 rounded-[40px] m-2 font-spline'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />
@@ -106,7 +106,7 @@ const FAQ = () => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem className='bg-grey p-4 rounded-full m-2 font-spline'>
+            <AccordionItem className='bg-grey p-4 rounded-[40px] m-2 font-spline'>
               <h2>
                 <AccordionButton>
                   <AccordionIcon />
