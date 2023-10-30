@@ -72,6 +72,7 @@ const Line = ({ align }: LineProps) => {
  * Type for the HeadingTexts component props.
  */
 type HeadingTextsProps = {
+  bgText: string;
   whiteText: string;
   redText: string;
   align?: ResponsiveValue<TextAlign>;
