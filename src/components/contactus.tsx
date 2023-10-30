@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-const contactUs = () => {
+const ContactUs = () => {
   return (
     <div className='relative flex flex-col gap-[100px] bg-background p-[120px] '>
       <div className='align-right absolute bottom-[250px] right-5 flex gap-[4px] text-5xl sm:text-center md:p-2 lg:bottom-[120px] lg:p-20 lg:text-7xl font-spline  '>
@@ -46,4 +46,4 @@ const contactUs = () => {
     </div>
   );
 };
-export default contactUs;
+export default ContactUs;
