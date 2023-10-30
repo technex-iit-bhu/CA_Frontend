@@ -13,7 +13,7 @@ const Register = () => {
                 <div className='z-0 rounded-[50px] bg-grey px-[30px] py-[30px] md:px-[10px] w-auto'>
                     <form className='flex flex-col items-center gap-y-5'>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium'>
+                            <span className='text-white select-none align-middle text-xl font-medium font-spline'>
                                 First Name*:
                             </span>
                             <input
@@ -22,7 +22,7 @@ const Register = () => {
                                 type='text'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
-                            <span className='text-white w-max select-none align-middle text-xl font-medium'>
+                            <span className='text-white w-max select-none align-middle text-xl font-medium font-spline'>
                                 Last Name*:
                             </span>
                             <input
@@ -33,7 +33,7 @@ const Register = () => {
                             />
                         </div>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium'>
+                            <span className='text-white select-none align-middle text-xl font-medium font-spline'>
                                 Email*:
                             </span>
                             <input
@@ -44,7 +44,7 @@ const Register = () => {
                             />
                         </div>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium'>
+                            <span className='text-white select-none align-middle text-xl font-medium font-spline'>
                                 College*:
                             </span>
                             <input
@@ -53,10 +53,10 @@ const Register = () => {
                                 type='text'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
-                            <span className='text-white w-max select-none align-middle text-xl font-medium'>
+                            <span className='text-white w-max select-none align-middle text-xl font-medium font-spline'>
                                 Year*:
                             </span>
-                            <select className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[10px] lg:text-left text-center'>
+                            <select className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[10px] lg:text-left text-center font-spline'>
                                 <option>1st Year</option>
                                 <option>2nd Year</option>
                                 <option>3rd Year</option>
@@ -65,7 +65,7 @@ const Register = () => {
                             </select>         
                         </div>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium lg:text-left text-center'>
+                            <span className='text-white select-none align-middle text-xl font-medium lg:text-left text-center font-spline'>
                                 Postal Address*:
                             </span>
                             <input
@@ -74,7 +74,7 @@ const Register = () => {
                                 type='text'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
-                            <span className='text-white w-max select-none align-middle text-xl font-medium'>
+                            <span className='text-white w-max select-none align-middle text-xl font-medium font-spline'>
                                 Pincode*:
                             </span>
                             <input
@@ -86,7 +86,7 @@ const Register = () => {
                             />
                         </div>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium lg:text-left text-center'>
+                            <span className='text-white select-none align-middle text-xl font-medium lg:text-left text-center font-spline'>
                                 Why should we choose you ?*
                             </span>
                             <input
@@ -97,14 +97,14 @@ const Register = () => {
                             />
                         </div>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium text-center lg:text-left'>
+                            <span className='text-white select-none align-middle text-xl font-medium text-center lg:text-left font-spline'>
                                 Previous CA Experience*:
                             </span>
-                            <select className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[10px] lg:text-left text-center'>
+                            <select className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[10px] lg:text-left text-center font-spline'>
                                 <option>No</option>
                                 <option>Yes</option>
                             </select> 
-                            <span className='text-white w-max select-none align-middle text-xl font-medium'>
+                            <span className='text-white w-max select-none align-middle text-xl font-medium font-spline'>
                                 Phone Number*:
                             </span>
                             <input
@@ -116,7 +116,7 @@ const Register = () => {
                             />
                         </div>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium text-center lg:text-left'>
+                            <span className='text-white select-none align-middle text-xl font-medium text-center lg:text-left font-spline'>
                                 Whatsapp Number*:
                             </span>
                             <input
@@ -126,7 +126,7 @@ const Register = () => {
                                 pattern='[0-9]{10}'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
-                            <span className='text-white w-max select-none align-middle text-xl font-medium'>
+                            <span className='text-white w-max select-none align-middle text-xl font-medium font-spline'>
                                 Username*:
                             </span>
                             <input
@@ -137,7 +137,7 @@ const Register = () => {
                             />
                         </div>
                         <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-                            <span className='text-white select-none align-middle text-xl font-medium'>
+                            <span className='text-white select-none align-middle text-xl font-medium font-spline'>
                                 Password*:
                             </span>
                             <input
@@ -147,7 +147,7 @@ const Register = () => {
                                 type='password'
                                 className='h-[50px] self-stretch rounded-[50px] grow bg-background px-[30px] lg:text-left text-center'
                             />
-                            <span className='text-white select-none align-middle text-xl font-medium text-center lg:text-left'>
+                            <span className='text-white select-none align-middle text-xl font-medium text-center lg:text-left font-spline'>
                                 Confirm Password*:
                             </span>
                             <input
@@ -158,9 +158,9 @@ const Register = () => {
                                 className='h-[50px] grow self-stretch rounded-[50px] bg-background px-[30px] lg:text-left text-center'
                             />
                         </div>
-                        <p className='font-thin select-none text-xs text-center'>Password Requirements: [A LowerCase Letter, An UpperCase Letter, A Number, Minimum 8 Characters]</p>
-                        <Link href={'/login'} className="text-center">Already a Campus Ambassador?</Link>
-                        <button className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red text-[20px] font-bold md:w-[200px]' type='submit'>
+                        <p className='font-thin select-none text-xs text-center font-spline'>Password Requirements: [A LowerCase Letter, An UpperCase Letter, A Number, Minimum 8 Characters]</p>
+                        <Link href={'/login'} className="text-center font-spline">Already a Campus Ambassador?</Link>
+                        <button className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red text-[20px] font-bold md:w-[200px] font-spline' type='submit'>
                             Register
                         </button>
                     </form>

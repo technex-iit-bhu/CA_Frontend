@@ -15,11 +15,13 @@ const Navbar: FC = () => {
           width={330}
           height={75}
         />
-        <p className='ml-36 text-xs text-[#A81F25] sm:ml-44 sm:text-sm sm:font-semibold'>
+        <p className='ml-36 text-xs text-[#A81F25] sm:ml-44 sm:text-sm sm:font-semibold font-istok' >
           15-17 MAR 2024
         </p>
       </div>
-      <div className='hidden space-x-10 p-3 pr-5 text-center text-xl font-bold cd:block'>
+
+      <div className='hidden space-x-10 p-3 pr-5 text-center text-xl font-bold ab:block '>
+
         <Link
           href={'/about'}
           className="relative
@@ -40,7 +42,7 @@ const Navbar: FC = () => {
                 before:duration-500
                 before:content-['']
                 hover:before:w-full
-                hover:before:opacity-100"
+                hover:before:opacity-100 font-spline"
         >
           About
         </Link>
@@ -64,7 +66,7 @@ const Navbar: FC = () => {
                 before:duration-500
                 before:content-['']
                 hover:before:w-full
-                hover:before:opacity-100"
+                hover:before:opacity-100 font-spline"
         >
           Incentives
         </Link>
@@ -88,9 +90,9 @@ const Navbar: FC = () => {
                 before:duration-500
                 before:content-['']
                 hover:before:w-full
-                hover:before:opacity-100"
+                hover:before:opacity-100 font-spline"
         >
-          Contact Us
+          ContactUs
         </Link>
         <Link
           href={'/faqs'}
@@ -112,7 +114,7 @@ const Navbar: FC = () => {
                 before:duration-500
                 before:content-['']
                 hover:before:w-full
-                hover:before:opacity-100">FAQs</Link>
+                hover:before:opacity-100 font-spline">FAQs</Link>
         <Link href={"/leaderboard"} className="
                 relative
                 transition-all
@@ -131,8 +133,8 @@ const Navbar: FC = () => {
                 before:from-[#0087FF]
                 before:to-[#A81F25]
                 hover:before:w-full
-                hover:before:opacity-100">Leaderboard</Link>
-        <Link href={"/login"} className='border-2 hover:border-[#A81F25] hover:text-[#A81F25] hover:bg-[#191919] sm:py-1 px-5 sm:px-7 rounded-e-full rounded-s-full'>Login</Link>
+                hover:before:opacity-100 font-spline">Leaderboard</Link>
+        <Link href={"/login"} className='border-2 hover:border-[#A81F25] hover:text-[#A81F25] hover:bg-[#191919] sm:py-1 px-5 sm:px-7 rounded-e-full rounded-s-full font-spline'>Login</Link>
 
       </div>
       <div className='flex p-1 sm:p-5 cd:hidden'>
