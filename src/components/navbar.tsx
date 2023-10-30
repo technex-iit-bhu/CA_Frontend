@@ -9,13 +9,13 @@ const Navbar: FC = () => {
     <div className='z-10 flex items-center justify-between'>
       <div className='-space-y-3 sm:-space-y-7'>
         <Image
-          className='w-56 pl-1 pt-2 sm:w-auto sm:p-3'
+          className='w-56 pl-1 pt-2 sm:w-72 sm:p-3'
           src={'/technex_logo.webp'}
           alt='technex logo'
           width={330}
           height={75}
         />
-        <p className='ml-36 text-xs text-[#A81F25] sm:ml-56 sm:text-sm sm:font-semibold lg:text-base'>
+        <p className='ml-36 text-xs text-[#A81F25] sm:ml-44 sm:text-sm sm:font-semibold'>
           15-17 MAR 2024
         </p>
       </div>
