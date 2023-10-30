@@ -252,7 +252,7 @@ const RenderCircularProgress: React.FC<{ percent: number; value: number }> = ({
 const LowerSection = () => (
   <Box mt={pxToRem(28)} textAlign='left' width={['100%', '80%', '100%']}>
 
-    <HeadingTexts whiteText='Why' redText='CA' align='left'  />
+    <HeadingTexts whiteText='Why' bgText='CA' redText='CA' align='left'  />
 
     <Text
       pb={pxToRem(28)}
