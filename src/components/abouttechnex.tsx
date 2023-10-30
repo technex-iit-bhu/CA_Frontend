@@ -8,14 +8,21 @@ const AboutTechnex: FC = () => {
       <div className='flex animate-bounce items-center justify-center pt-28'>
         <ArrowRightIcon className='rotate-90' boxSize={32} />
       </div>
-      <div className='ml-5'>
-        <div className='flex flex-col -space-y-14 ef:-space-y-20 sm:-space-y-28 md:-space-y-36'>
-        <span className='text-red opacity-20 text-[4rem] ef:text-[7rem] sm:text-[10rem] md:text-[12rem] lg:text-[200px]'>
+
+      <div className='md:ml-22 ml-1 -space-y-10 sm:ml-10 sm:-space-y-20 md:-space-y-16 lg:ml-28 lg:-space-y-24 xl:ml-40'>
+        <div className='-z-10'>
+          <span className='text-6xl font-bold text-[#A81F25] opacity-30 sm:text-[10rem] lg:text-[14rem] xl:text-[16rem] font-spline'>
+
             Technex
           </span>
           <span className='sm:pl-1 md:pl-3 text-white select-none ml-4 ef:ml-6 sm:ml-8 text-2xl ef:text-5xl sm:text-[60px] md:text-[73px] z-10'>About <span className='text-red'>Technex</span></span>
         </div>
-        <div className='ml-3 pb-10 sm:ml-8 lg:ml-12 xl:ml-14'>
+
+        <div className='z-0 ml-3 pb-10 sm:ml-8 lg:ml-12 xl:ml-14 font-spline' >
+          <span className='text-3xl font-extrabold sm:text-6xl md:text-5xl lg:text-7xl'>
+            About <span className='text-[#A81F25]'>Technex</span>
+          </span>
+
           <p className='mr-3 border-b-2 border-[#A81F25] p-3 pr-5 pt-10 tracking-wide lg:w-[850px]'>
             TECHNEX&apos;23, IIT BHU is one of the largest and oldest college
             fests in India.&nbsp; Embodying the true spirit of youth,{' '}
