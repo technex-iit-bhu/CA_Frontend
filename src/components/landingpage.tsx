@@ -10,8 +10,8 @@ const Landingpage: FC = () => {
         <div className='z-10 pb-96 lg:pb-64 xl:pb-96'>
           <Navbar />
         </div>
-        <div className='ml-2 sm:ml-10 md:ml-20 lg:ml-40'>
-          <h1 className='pb-1 text-3xl font-bold sm:pb-5 sm:text-6xl'>
+        <div className='ml-2 sm:ml-10 md:ml-20 lg:ml-40 ' >
+          <h1 className='pb-1 text-3xl font-bold sm:pb-5 sm:text-6xl font-spline '>
             Become Our{' '}
             <span className='text-3xl font-bold text-[#A81F25] sm:text-6xl'>
               Campus Ambassador
@@ -20,7 +20,7 @@ const Landingpage: FC = () => {
           <div className='text-lg font-normal'>
             <Link
               href={'/register'}
-              className='w-28 rounded-e-full rounded-s-full border-2 px-5 py-1 hover:border-[#A81F25] hover:bg-[#191919] hover:text-[#A81F25]'
+              className='w-28 rounded-e-full rounded-s-full border-2 px-5 py-1 hover:border-[#A81F25] hover:bg-[#191919] hover:text-[#A81F25] font-spline'
             >
               Register
             </Link>

@@ -20,15 +20,14 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
   const firstWord = words[0];
   const secondWord = words.slice(1).join(' ');
 
-  const [isLargerThan1000] = useMediaQuery('(min-width: 900px)');
-  const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
-  const cardWidth = isLargerThan1000 ? '630px' : '80vw';
-  const padding = isLargerThan1000 ? '10px 40px 15px 15px' : '2.5vw';
-  const cardHeight = isLargerThan1000 ? '315px' : '40vw';
-  const fontSize = isLargerThan1000 ? '22px' : '3vw';
-  const fontSize1 = isLargerThan1000 ? '45px' : '6vw';
-  const padding1= isLargerThan1000?'20px 0px': '3vw 0';
-  const margin= isLargerThan1000?'80px 50px 50px 50px':'8vw';
+  const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
+  const cardWidth = isLargerThan900 ? '630px' : '80vw';
+  const padding = isLargerThan900 ? '10px 40px 15px 15px' : '2.5vw';
+  const cardHeight = isLargerThan900 ? '315px' : '40vw';
+  const fontSize = isLargerThan900 ? '22px' : '3vw';
+  const fontSize1 = isLargerThan900 ? '45px' : '6vw';
+  const padding1= isLargerThan900?'20px 0px': '3vw 0';
+  const margin= isLargerThan900?'80px 50px 50px 50px':'8vw';
   return (
     <div style={{ margin: `${margin}` }}>
       <div
@@ -39,7 +38,7 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
         }}
       >
         <Card
-          bg='#444444'
+          bg='#272727'
           width={cardWidth}
           height={cardHeight}
           padding={padding1}

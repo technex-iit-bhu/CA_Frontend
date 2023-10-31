@@ -251,12 +251,14 @@ const RenderCircularProgress: React.FC<{ percent: number; value: number }> = ({
  */
 const LowerSection = () => (
   <Box mt={pxToRem(28)} textAlign='left' width={['100%', '80%', '100%']}>
-    <HeadingTexts bgText='CA' whiteText='Why' redText='CA' align='left' />
+
+    <HeadingTexts whiteText='Why' bgText='CA' redText='CA' align='left'  />
+
     <Text
       pb={pxToRem(28)}
       mt={pxToRem(12)}
       width={['100%', '70%', '80%']}
-      fontSize={pxToRem(15)}
+      fontSize={pxToRem(15)} className='font-spline'
     >
       The Campus Ambassador Program for Technex'23 offers an exciting chance to
       become an essential part of the organizing team behind India's premier
