@@ -61,7 +61,7 @@ const ResponsibilityCard_Symbol_Bottom = () => {
           borderBottomLeftRadius: '30px',
           position: 'absolute',
           overflow: 'hidden',
-          top: '110px',
+          top: '98px',
         }}
       >
         <div style={imgContainer}></div>
