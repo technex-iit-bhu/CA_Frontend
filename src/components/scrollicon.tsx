@@ -4,13 +4,13 @@ import { useRouter } from 'next/navigation';
 
 const ScrollIcon = () => {
   const router = useRouter();
-  const [rotate, setRotate] = useState('');
+  const [rotate, setRotate] = useState('rotate-90');
   const [section, setSection] = useState('#aboutUs')
 
   useEffect((): (() => void) => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      if (scrollY >= 800) {
+      if (scrollY >= 720) {
         setRotate('-rotate-90');
         setSection('#top');
       } else {
