@@ -4,6 +4,7 @@ import Landingpage from '@/components/landingpage';
 import Testimonials from '@/components/testimonials';
 import AboutTechnex from '@/components/abouttechnex';
 import ScrollIcon from '@/components/scrollicon';
+import ContactUs from '@/components/contactus';
 
 export default function LandingPage() {
   return (
@@ -14,6 +15,7 @@ export default function LandingPage() {
       <OurReach />
       <Testimonials/>
       <FAQ />
+      <ContactUs/>
     </>
   );
 }

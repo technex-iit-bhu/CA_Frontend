@@ -23,7 +23,7 @@ const FAQ = () => {
           <span className='text-red opacity-20 text-[62px] ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
             FAQs
           </span>
-          <span className='text-white select-none ml-1 md:ml-2 lg:ml-3 text-[25px] ef:text-4xl md:text-7xl z-10'>FAQs</span>
+          <span className='text-white select-none ml-1 md:ml-2 lg:ml-3 text-[25px] ef:text-4xl md:text-7xl z-10 transform transition duration-700 hover:scale-110'>FAQs</span>
         </div>
       </div>
       <div className='mb-[50px] flex flex-col items-start gap-0 px-[30px] md:flex-row md:justify-start md:gap-10 md:px-[120px] lg:flex-row lg:justify-start'>

@@ -6,7 +6,7 @@ const Dashboard = () => {
     <div className=''>
       <div className='relative mb-[100px] flex flex-col bg-background pl-[120px] pt-[200px] md:mb-[50px]'>
         <div className='align-left absolute bottom-[10px] left-5 flex text-5xl sm:text-center md:p-10 lg:p-10 lg:text-7xl'>
-          <span className='text-white select-none'>Dashboard</span>
+          <span className='text-white select-none transform transition duration-700 hover:scale-110'>Dashboard</span>
         </div>
       </div>
       <div className='px-[30px] md:px-[50px]'>

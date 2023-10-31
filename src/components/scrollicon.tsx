@@ -4,24 +4,21 @@ import { useRouter } from 'next/navigation';
 
 const ScrollIcon = () => {
   const router = useRouter();
-  const [rotate, setRotate] = useState('');
+  const [rotate, setRotate] = useState('rotate-90 relative bottom-[10vw]');
   const [section, setSection] = useState('#aboutUs')
 
   useEffect((): (() => void) => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      if (scrollY >= 800) {
+      if (scrollY >= 720) {
         setRotate('-rotate-90');
         setSection('#top');
       } else {
-        setRotate('rotate-90');
+        setRotate('rotate-90 relative bottom-[10vw]');
         setSection('#aboutUs');
       }
     };
     
-    const ScrollTo=()=>{
-      
-    }
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -37,7 +34,7 @@ const ScrollIcon = () => {
   };
 
   return (
-    <div className='flex animate-bounce items-center justify-center pt-10 sticky top-0 z-20'>
+    <div className='flex animate-bounce items-center justify-center pt-10 sticky top-0 z-10'>
       <ArrowRightIcon className={`${rotate}`} boxSize={32} onClick={scrollToSection}/>
     </div>
   );

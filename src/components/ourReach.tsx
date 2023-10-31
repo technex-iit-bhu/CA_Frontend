@@ -99,7 +99,7 @@ export const HeadingTexts = ({ bgText, whiteText, redText, align }: HeadingTexts
       {bgText}
       </Text>
     </Heading>
-    <span className='sm:pl-1 md:pl-3 mr-1 sm:mr-2 text-white select-none ml-3 text-2xl ef:text-4xl sm:text-[60px] md:text-[73px] z-10'>{whiteText} <span className='text-red'>{redText}</span></span>
+    <span className='transform transition duration-700 hover:scale-110 sm:pl-1 md:pl-3 mr-1 sm:mr-2 text-white select-none ml-3 text-2xl ef:text-4xl sm:text-[60px] md:text-[73px] z-10'>{whiteText} <span className='text-red'>{redText}</span></span>
   </Box>
 );
 
@@ -252,7 +252,7 @@ const RenderCircularProgress: React.FC<{ percent: number; value: number }> = ({
 const LowerSection = () => (
   <Box mt={pxToRem(28)} textAlign='left' width={['100%', '80%', '100%']}>
 
-    <HeadingTexts whiteText='Why' bgText='CA' redText='CA' align='left'  />
+    <HeadingTexts whiteText='Why' bgText='CA' redText='CA' align='left' />
 
     <Text
       pb={pxToRem(28)}

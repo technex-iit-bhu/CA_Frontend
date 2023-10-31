@@ -61,7 +61,7 @@ const Testimonials: React.FC = () => {
           <span className='text-red opacity-20 text-[40px] ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
             Testimonials
           </span>
-          <span className='text-white select-none ml-3 text-[25px] ef:text-4xl md:text-7xl z-10'>Testimonials</span>
+          <span className='text-white select-none ml-3 text-[25px] ef:text-4xl md:text-7xl z-10 transform transition duration-700 hover:scale-110'>Testimonials</span>
         </Box>
       </Center>
       <div style={{ position: 'relative', height: `${height1}`, width: '90%' }}>
