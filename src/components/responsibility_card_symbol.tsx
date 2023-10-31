@@ -1,6 +1,5 @@
 import { Center } from '@chakra-ui/react';
 import React from 'react';
-// import Classes from 'src/styles/Incentive.module.css';
 
 const imgContainer = {
   backgroundColor: 'white',
@@ -57,7 +56,7 @@ const ResponsibilityCard_Symbol = () => {
             fontSize: 'auto',
             position: 'relative',
             // marginLeft: '1%',
-            left: '17px',
+            left: '20px',
             top: '190px',
             textAlign: 'center',
           }}

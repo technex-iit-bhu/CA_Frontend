@@ -40,7 +40,7 @@ const ResponsibilityCard_Symbol_Bottom = () => {
             fontSize: 'auto',
             position: 'relative',
             marginLeft: '1%',
-            left: '17px',
+            left: '20px',
             top: '30px',
             textAlign: 'center',
           }}

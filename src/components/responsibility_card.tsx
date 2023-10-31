@@ -1,5 +1,4 @@
 import React from 'react';
-import 'src/styles/Incentive.module.css';
 
 const ResponsibilityCard = () => {
   return (

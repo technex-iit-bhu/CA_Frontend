@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import Head from 'next/head';
 import IncentiveCard from './incentive_card';
 import { v4 as uuidv4 } from 'uuid';
-import 'src/styles/Incentive.module.css';
+
 import ResponsibilityCard from './responsibility_card';
 import ResponsibilityCard_Symbol from './responsibility_card_symbol';
 import ResponsibilityCard_Symbol_Bottom from './responsibility_card_Symbol_Bottom';
