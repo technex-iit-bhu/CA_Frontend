@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRightIcon } from '@chakra-ui/icons';
-import { useRouter } from 'next/navigation';
 
 const ScrollIcon = () => {
-  const router = useRouter();
-  const [rotate, setRotate] = useState('rotate-90 relative bottom-[10vw]');
+  const [rotate, setRotate] = useState('rotate-90 relative bottom-[10vw]'); 
   const [section, setSection] = useState('#aboutUs')
 
   useEffect((): (() => void) => {
