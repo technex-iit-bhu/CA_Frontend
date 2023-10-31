@@ -8,18 +8,13 @@ import IncentivesCarousel from '@/components/carousel';
 import ResponsibilityCard_Symbol from '@/components/responsibility_card_symbol';
 import ResponsibilityCarousel from '@/components/responsibility_carousel';
 import ResponsibilityCard_Symbol_Bottom from '@/components/responsibility_card_Symbol_Bottom';
+import IncentivePage from './incentivesPage';
 
 export default function Home() {
   return (
     <main>
-      <div>
-        <LandingPage />
-        <DashboardPage />
-
-        <IncentivesCarousel />
-
-        <ResponsibilityCarousel></ResponsibilityCarousel>
-      </div>
+      <LandingPage />
+      <DashboardPage />
     </main>
   );
 }
