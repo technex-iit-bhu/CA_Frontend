@@ -1,6 +1,6 @@
-import { randomUUID } from "crypto";
+// import { randomUUID } from "crypto";
 import React, { FC } from "react";
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import "src/styles/Incentive.module.css"
 
 interface CardProps {
