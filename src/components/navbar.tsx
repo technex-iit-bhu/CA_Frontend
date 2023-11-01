@@ -47,7 +47,7 @@ const Navbar: FC = () => {
           About
         </Link>
         <Link
-          href={'/incentives'}
+          href={'/incentivesPage'}
           className="
                 relative
                 transition-all
