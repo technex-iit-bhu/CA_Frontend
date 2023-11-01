@@ -19,6 +19,7 @@ const ResponsibilityCard_Symbol_Bottom = () => {
       <div
         style={{
           height: 'calc(20vh + 100px)',
+          //   height: '200px',
           width: '200px',
           position: 'relative',
           border: '10px solid #c70039',
@@ -54,14 +55,14 @@ const ResponsibilityCard_Symbol_Bottom = () => {
           backgroundColor: '#404040',
           width: '200px',
           height: '170px',
-          zIndex: 1,
+          zIndex: 4,
           borderTopRightRadius: '50%',
           borderTopLeftRadius: '50%',
           borderBottomRightRadius: '30px',
           borderBottomLeftRadius: '30px',
           position: 'absolute',
           overflow: 'hidden',
-          top: '98px',
+          bottom: '0px',
         }}
       >
         <div style={imgContainer}></div>

@@ -16,6 +16,7 @@ const ResponsibilityCarousel = () => {
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,
+    float: 'left',
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 1,
@@ -47,8 +48,8 @@ const ResponsibilityCarousel = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           autoplay: true,
-          mobileFirst: true,
-          adaptiveHeight: true,
+          //   mobileFirst: true,
+          //   adaptiveHeight: true,
 
           autoplaySpeed: 5000,
         },
@@ -60,8 +61,8 @@ const ResponsibilityCarousel = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           autoplay: true,
-          mobileFirst: true,
-          adaptiveHeight: true,
+          //   mobileFirst: true,
+          //   adaptiveHeight: true,
 
           autoplaySpeed: 5000,
         },
@@ -73,8 +74,8 @@ const ResponsibilityCarousel = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           autoplay: true,
-          mobileFirst: true,
-          adaptiveHeight: true,
+          //   mobileFirst: true,
+          //   adaptiveHeight: true,
 
           autoplaySpeed: 5000,
         },
@@ -83,7 +84,7 @@ const ResponsibilityCarousel = () => {
   };
 
   return (
-    <div style={{ justifyContent: 'center', margin: '30px' }}>
+    <div style={{ justifyContent: 'center', margin: '20px' }}>
       <Head>
         <link
           rel='stylesheet'
