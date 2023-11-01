@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 const navLinks = [
-  { title: 'Incentives', href: '/incentives' },
+  { title: 'Incentives', href: '/incentivesPage' },
   { title: 'Contact Us', href: '/contactus' },
   { title: 'FAQs', href: '/faqs' },
   { title: 'Leaderboard', href: '/leaderboard' },

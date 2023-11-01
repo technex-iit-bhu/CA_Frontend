@@ -5,23 +5,19 @@ import { HeadingTexts } from './ourReach';
 const AboutTechnex: FC = () => {
   return (
     <div className='bg-[#191919]'>
-      <div className='flex animate-bounce items-center justify-center pt-28'>
+      <div className='flex animate-bounce items-center justify-center pt-28 sticky'>
         <ArrowRightIcon className='rotate-90' boxSize={32} />
       </div>
 
-      <div className='md:ml-22 ml-1 -space-y-10 sm:ml-10 sm:-space-y-20 md:-space-y-16 lg:ml-28 lg:-space-y-24 xl:ml-40'>
-        <div className='-z-10'>
-          <span className='text-6xl font-bold text-[#A81F25] opacity-30 sm:text-[10rem] lg:text-[14rem] xl:text-[16rem] font-spline'>
-
+      <div className='md:ml-22 ml-1'>
+        <div className='flex flex-col sm:pb-10 -space-y-9 sm:-space-y-16 md:-space-y-16 lg:-space-y-20 xl:-space-y-24'>
+          <span className='text-6xl font-bold text-[#A81F25] opacity-20 sm:text-[10rem] lg:text-[14rem] xl:text-[19rem] font-spline'>
             Technex
           </span>
-          <span className='sm:pl-1 md:pl-3 text-white select-none ml-4 ef:ml-6 sm:ml-8 text-2xl ef:text-5xl sm:text-[60px] md:text-[73px] z-10'>About <span className='text-red'>Technex</span></span>
+          <span className='sm:pl-1 lg:pl-5 xl:pl-9 text-white select-none ml-4 sm:ml-8 text-2xl sm:text-[60px] lg:text-[82px] z-10'>About <span className='text-red'>Technex</span></span>
         </div>
 
         <div className='z-0 ml-3 pb-10 sm:ml-8 lg:ml-12 xl:ml-14 font-spline' >
-          <span className='text-3xl font-extrabold sm:text-6xl md:text-5xl lg:text-7xl'>
-            About <span className='text-[#A81F25]'>Technex</span>
-          </span>
 
           <p className='mr-3 border-b-2 border-[#A81F25] p-3 pr-5 pt-10 tracking-wide lg:w-[850px]'>
             TECHNEX&apos;23, IIT BHU is one of the largest and oldest college
