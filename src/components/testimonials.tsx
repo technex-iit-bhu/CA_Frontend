@@ -58,7 +58,7 @@ const Testimonials: React.FC = () => {
         {/* Center the content vertically */}
         <Box textAlign='center' className='-space-y-11 ef:-space-y-16 md:-space-y-28 lg:-space-y-32 flex flex-col'>
           {/* Center the content horizontally */}
-          <span className='text-red opacity-20 text-[40px] ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
+          <span className='text-red opacity-20 text-[40px] ef:text-[80px] md:text-[8rem] lg:text-[11rem]'>
             Testimonials
           </span>
           <span className='text-white select-none ml-3 text-[25px] ef:text-4xl md:text-7xl z-10 transform transition duration-700 hover:scale-110'>Testimonials</span>

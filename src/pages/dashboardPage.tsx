@@ -4,9 +4,9 @@ import DashboardTab from '@/components/dashboardTab';
 
 export default function DashboardPage() {
   return (
-  <>
-    <Dashboard />
-    <DashboardTab/>
-  </>
+    <>
+      <Dashboard />
+      <DashboardTab />
+    </>
   );
 }
