@@ -4,7 +4,7 @@ import { ArrowRightIcon } from '../../node_modules/@chakra-ui/icons/dist/ArrowRi
 const AboutTechnex: FC = () => {
   return (
 
-    <div className='bg-[#191919]'>
+    <div className='bg-[#191919]' id='aboutUs'>
       <div className='md:ml-22 ml-1'>
         <div className='flex flex-col sm:pb-10 -space-y-9 sm:-space-y-16 md:-space-y-16 lg:-space-y-20 xl:-space-y-24'>
           <span className='text-6xl font-bold text-[#A81F25] opacity-20 sm:text-[10rem] lg:text-[14rem] xl:text-[19rem] font-spline'>
