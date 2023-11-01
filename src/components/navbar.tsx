@@ -7,20 +7,20 @@ import Hamburger from './hamburgermenu';
 const Navbar: FC = () => {
   return (
     <div className='z-10 flex items-center justify-between'>
-      <div className='-space-y-3 sm:-space-y-7'>
+      <div className='-space-y-3 sm:-space-y-6'>
         <Image
-          className='w-56 pl-1 pt-2 sm:w-auto sm:p-3'
+          className='w-56 pl-1 pt-2 sm:w-72 sm:p-3'
           src={'/technex_logo.webp'}
           alt='technex logo'
           width={330}
           height={75}
         />
-        <p className='ml-36 text-xs text-[#A81F25] sm:ml-56 sm:text-sm sm:font-semibold lg:text-base font-istok' >
+        <p className='ml-36 text-[10px] text-[#A81F25] sm:ml-44 sm:text-[13px] sm:font-semibold font-istok' >
           15-17 MAR 2024
         </p>
       </div>
 
-      <div className='hidden space-x-10 p-3 pr-5 text-center text-xl font-bold ab:block '>
+      <div className='hidden space-x-10 p-3 pr-5 text-center text-xl font-bold cd:block '>
 
         <Link
           href={'/about'}
