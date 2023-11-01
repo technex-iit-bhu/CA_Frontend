@@ -13,7 +13,7 @@ const IncentiveCard: FC<CardProps> = ({ title, text }) => {
   return (
     <div
       style={{
-        width: 'max(10px, 30vw)',
+        width: 'max(10px, 20vw)',
         // height: "max(150px, 10vh)",
         display: 'flex',
         border: '10px solid #A81F25',

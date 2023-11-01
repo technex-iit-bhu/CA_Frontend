@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import Head from 'next/head';
 import IncentiveCard from './incentive_card';
@@ -11,23 +11,33 @@ import ResponsibilityCard_Symbol_Bottom from './responsibility_card_Symbol_Botto
 // const titletext = ["Paisa Hi ",  <span key={uuidv4()} style={{color: "#C70039"}}>Paisa</span>, " Hoga"];
 // const lor = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque animi nihil deleniti modi hic voluptatibus dolorem. Ea eaque repellendus odio rem illo perferendis eveniet? Molestias doloremque id pariatur reiciendis iste!`
 
-const ArrowLeft = (props: any) => (
-  <ArrowLeftIcon
-    {...props}
-    style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
-    className={'prev'}
-  ></ArrowLeftIcon>
-);
-
-const ArrowRight = (props: any) => (
-  <ArrowRightIcon
-    {...props}
-    style={{ position: 'absolute', right: '-20px', top: '50%' }}
-    className={'prev'}
-  ></ArrowRightIcon>
-);
-
 const ResponsibilityCarousel = () => {
+  const sliderRef = useRef<any>();
+
+  const next = () => {
+    sliderRef.current?.slickNext();
+  };
+
+  const previous = () => {
+    sliderRef.current?.slickPrev();
+  };
+
+  const ArrowLeft = () => (
+    <ArrowLeftIcon
+      onClick={previous}
+      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
+      className={'prev'}
+    ></ArrowLeftIcon>
+  );
+
+  const ArrowRight = () => (
+    <ArrowRightIcon
+      onClick={next}
+      style={{ position: 'absolute', right: '-20px', top: '50%' }}
+      className={'prev'}
+    ></ArrowRightIcon>
+  );
+
   const settings = {
     infinite: true,
     autoplay: true,
@@ -115,7 +125,7 @@ const ResponsibilityCarousel = () => {
           href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
         />
       </Head>
-      <Slider {...settings}>
+      <Slider {...settings} ref={sliderRef}>
         <ResponsibilityCard_Symbol></ResponsibilityCard_Symbol>
         <ResponsibilityCard></ResponsibilityCard>
         <ResponsibilityCard_Symbol_Bottom></ResponsibilityCard_Symbol_Bottom>
