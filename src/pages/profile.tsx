@@ -16,7 +16,7 @@ export default function profile() {
           <span className='text-6xl xl:pl-6  font-bold text-[#A81F25] opacity-20 sm:text-[5rem] lg:text-[7rem] xl:text-[9rem] font-spline'>
             Profile
           </span>
-          <span className='sm:pl-1  xl:pt-6 lg:pt-5   text-white select-none ml-4 sm:ml-8 md:text-[30px] lg:text-[41px] z-12'>Profile</span>
+          <span className='sm:pl-0 md:p-2  xl:pt-6 lg:pt-4 lg:pl-0   text-white select-none ml-4 sm:ml-8 md:text-[30px] lg:text-[41px] z-12'>Profile</span>
         </div>
       </div>
       <div className='px-[30px] md:px-[50px] '>

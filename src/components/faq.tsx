@@ -87,7 +87,7 @@ const FAQ = () => {
         <div className='md:px-30 w-full md:w-1/2'>
           {/* <ChakraProvider theme = {theme}>
                         <CSSReset /> */}
-          <Accordion allowMultiple>
+          <Accordion >
             <AccordionItem className='bg-grey p-4 rounded-[40px] m-2 font-spline'>
               <h2>
                 <AccordionButton>
