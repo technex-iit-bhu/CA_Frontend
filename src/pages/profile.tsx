@@ -3,7 +3,7 @@ import React from 'react';
 export default function profile() {
   return (
     <div>
-      <div className='relative mb-[160px] flex flex-col bg-background lg:pl-[68px] pl-[50px] pt-[80px] md:mb-[70px] lg:pb-[100px] md:pb-10'>
+      <div className='relative mb-[160px] flex flex-col  lg:pl-[68px] pl-[50px] pt-[80px] md:mb-[70px] lg:pb-[100px] md:pb-10'>
         {/* <div className=' absolute bottom-[10px] left-0 flex text-5xl md:p-10 lg:p-[90px] lg:text-7xl'>
           <div className='flex flex-col sm:pb-10 -space-y-9 sm:-space-y-16 md:-space-y-16 lg:-space-y-20 xl:-space-y-24'>
             <span className='text-6xl xl:pl-10 lg:pl-3 md:pl-5  cd:pl-5 ef:pl-8 gh:pl-12  pl-9 font-bold text-[#A81F25] opacity-20 sm:text-[5rem] lg:text-[7rem] xl:text-[18rem] font-spline'>
@@ -13,10 +13,10 @@ export default function profile() {
           </div>
         </div> */}
         <div className='flex flex-col sm:pb-10 -space-y-9 sm:-space-y-16 md:-space-y-16 lg:-space-y-20 xl:-space-y-24'>
-          <span className='text-6xl xl:pl-6 font-bold text-[#A81F25] opacity-20 sm:text-[10rem] lg:text-[7rem] xl:text-[9rem] font-spline'>
+          <span className='text-6xl xl:pl-6  font-bold text-[#A81F25] opacity-20 sm:text-[5rem] lg:text-[7rem] xl:text-[9rem] font-spline'>
             Profile
           </span>
-          <span className='sm:pl-1 lg:pl-0 xl:pl-0 xl:pt-10 text-white select-none ml-4 sm:ml-8 text-2xl sm:text-[30px] lg:text-[41px] z-12'>Profile</span>
+          <span className='sm:pl-1  xl:pt-6 lg:pt-5   text-white select-none ml-4 sm:ml-8 md:text-[30px] lg:text-[41px] z-12'>Profile</span>
         </div>
       </div>
       <div className='px-[30px] md:px-[50px] '>
