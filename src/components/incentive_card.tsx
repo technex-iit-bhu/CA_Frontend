@@ -16,19 +16,29 @@ const IncentiveCard: FC<CardProps> = ({ title, text }) => {
         width: 'max(10px, 20vw)',
         // height: "max(150px, 10vh)",
         display: 'flex',
-        border: '10px solid #A81F25',
+        border: '3px solid black',
+        borderColor: 'black',
+        outline: 'solid 3px #A81F25',
+        outlineOffset: '-10px',
         borderRadius: '30px',
         borderWidth: '3px',
-        borderColor: '#C70039',
         backgroundColor: '#272727',
         margin: '10px',
-        boxShadow: '0px 0px 2px 2px rgba(0, 0, 0, 0.5)',
+
+        // boxShadow: '0px 0px 2px 2px rgba(0, 0, 0, 0.5)',
         overflow: 'hidden',
       }}
     >
       <div style={{ margin: '10px' }}>
         <h2 style={{ padding: '10px', color: 'white' }}>{title}</h2>
-        <p style={{ marginLeft: '5px', fontSize: '10px', color: 'white' }}>
+        <p
+          style={{
+            margin: '10px',
+            marginLeft: '5px',
+            fontSize: '10px',
+            color: 'white',
+          }}
+        >
           {text}
         </p>
       </div>
