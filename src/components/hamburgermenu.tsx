@@ -51,7 +51,7 @@ const Hamburger = () => {
   };
 
   return (
-    <header>
+    <header className='z-20'>
       <div
         className='text-md text-white cursor-pointer'
         onClick={toggleMenu}
