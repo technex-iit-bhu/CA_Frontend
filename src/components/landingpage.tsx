@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
 import Navbar from './navbar';
-import AboutTechnex from './abouttechnex';
 import Link from 'next/link';
+import styles from '../styles/styles.module.css';
 
 const Landingpage: FC = () => {
   return (
     <div className='scroll-smooth'>
-      <div className="bg-[url('/bg_landing_page.webp')] bg-cover mb-5 max-w-full h-auto bg-fixed bg-center bg-no-repeat pb-8 xl:pb-16 2xl:pb-48 -space-y-20 sm:-space-y-0">
-        <div className='z-10 pb-[31rem] sm:pb-80 lg:pb-64 xl:pb-96'>
-          <Navbar />
+      <div className={` ${styles.top} bg-auto bg-fixed w-full bg-center bg-no-repeat pb-8 xl:bg-cover xl:pb-16 2xl:pb-48`} id="top">
+        <div className='z-10 pb-96 lg:pb-64 xl:pb-96'>
+      <Navbar />
+
         </div>
         <div className='ml-2 sm:ml-10 md:ml-20 lg:ml-40 mb-5'>
           <h1 className='pb-1 text-3xl font-bold sm:pb-5 sm:text-6xl font-spline'>
@@ -27,7 +28,6 @@ const Landingpage: FC = () => {
           </div>
         </div>
       </div>
-      <AboutTechnex />
     </div>
   );
 };
