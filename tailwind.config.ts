@@ -22,6 +22,7 @@ const config: Config = {
       }
     },
     screens: {
+      gh:'900px',
       ef: '480px',
       sm: '640px',
       // => @media (min-width: 640px) { ... }
