@@ -9,7 +9,7 @@ export default function profile() {
             <span className='text-6xl lg:pl-3 md:pl-5  cd:pl-5 ef:pl-8 gh:pl-12  pl-9 font-bold text-[#A81F25] opacity-20 sm:text-[10rem] lg:text-[14rem] xl:text-[19rem] font-spline'>
             Profile
             </span>
-            <span className='lg:p-0 md:pl-5 ef:pl-5 gh:pl-6 pl-6  text-white select-none ml-4 sm:ml-8 text-2xl sm:text-[60px] lg:text-[82px] z-10'>Profile</span>
+            <span className='lg:p-0 md:pl-5 ef:pl-5 gh:pl-6 pl-6  text-white select-none ml-4 sm:ml-8 text-2xl sm:text-[60px] lg:text-[82px] z-10 font-spline'>Profile</span>
           </div>
         </div>
       </div>
