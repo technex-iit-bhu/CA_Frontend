@@ -93,7 +93,7 @@ const Footer: FC = () => {
               <Image src={'/youtube.webp'} alt='YT' width={45} height={40} />
             </Link>
           </div>
-          <div className='flex pl-4 pt-4 text-sm font-spline'>
+          <div className='flex pl-1 text-center items-center justify-center pt-4 text-sm font-spline'>
             For more queries:
             <p className='text-red-500 text-center font-spline'>
               &nbsp;&nbsp;publicity@technex.in

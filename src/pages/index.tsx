@@ -14,7 +14,6 @@ export default function Home() {
   return (
     <main>
       <LandingPage />
-      <DashboardPage />
     </main>
   );
 }

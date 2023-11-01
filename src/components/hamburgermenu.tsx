@@ -51,7 +51,7 @@ const Hamburger = () => {
   };
 
   return (
-    <header>
+    <header className='z-20'>
       <div
         className='text-md text-white cursor-pointer'
         onClick={toggleMenu}
@@ -65,7 +65,7 @@ const Hamburger = () => {
             initial='initial'
             animate='animate'
             exit='exit'
-            className='text-white fixed left-0 top-0 z-10 h-screen w-full origin-top bg-[#191919] p-10'
+            className='text-white fixed left-0 top-0 z-20 h-screen w-full origin-top bg-[#191919] p-10'
           >
             <div className='flex h-full flex-col'>
               <p className='cursor-pointer' onClick={toggleMenu}>
