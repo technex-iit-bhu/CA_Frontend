@@ -7,6 +7,7 @@ import Hamburger from './hamburgermenu';
 const Navbar: FC = () => {
   return (
     <div className='z-10 flex items-center justify-between'>
+      <Link href={"/"}>
       <div className='-space-y-3 sm:-space-y-6'>
         <Image
           className='w-56 pl-1 pt-2 sm:w-72 sm:p-3'
@@ -19,6 +20,7 @@ const Navbar: FC = () => {
           15-17 MAR 2024
         </p>
       </div>
+      </Link>
 
       <div className='hidden space-x-10 p-3 pr-5 text-center text-xl font-bold cd:block '>
 
