@@ -15,7 +15,6 @@ const ResponsibilityCard = () => {
             borderColor: '#c70039',
             backgroundColor: '#272727',
             // margin: '10px',
-            boxShadow: '0px 0px 5px 5px rgba(0, 0, 0, 1)',
             overflow: 'hidden',
             zIndex: 0,
           }}
