@@ -6,10 +6,10 @@ import React from 'react';
 const IncentivePage = () => {
   return (
     <div>
-      <Navbar></Navbar>
-      <Incentive></Incentive>
+      <Navbar/>
+      <Incentive/>
 
-      <Responsibilities></Responsibilities>
+      <Responsibilities/>
     </div>
   );
 };
