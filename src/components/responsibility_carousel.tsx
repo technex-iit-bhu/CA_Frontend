@@ -84,7 +84,7 @@ const ResponsibilityCarousel = () => {
   };
 
   return (
-    <div style={{ justifyContent: 'center', margin: '20px' }}>
+    <div style={{ justifyContent: 'center', margin: '30px' }}>
       <Head>
         <link
           rel='stylesheet'

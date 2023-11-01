@@ -37,7 +37,7 @@ const ResponsibilityCard_Symbol = () => {
           height: 'calc(20vh + 100px)',
           width: '200px',
           position: 'relative',
-          border: '10px solid #c70039',
+          border: '10px solid #A81F25',
           borderRadius: '30px',
           borderWidth: '3px',
           borderColor: '#c70039',

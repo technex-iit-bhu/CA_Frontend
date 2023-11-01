@@ -14,11 +14,11 @@ const IncentiveCard: FC<CardProps> = ({title, text}) => {
         width: "max(10px, 30vw)",
         // height: "max(150px, 10vh)",
         display: "flex",
-        border: "10px solid #C70039",
+        border: "10px solid #A81F25",
         borderRadius: "30px",
         borderWidth: "3px",
         borderColor: "#C70039",
-        backgroundColor: "#323232",
+        backgroundColor: "#272727",
         margin: "10px",
         boxShadow: "0px 0px 2px 2px rgba(0, 0, 0, 0.5)",
         overflow: "hidden"
