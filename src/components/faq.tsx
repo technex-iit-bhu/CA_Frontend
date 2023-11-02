@@ -16,117 +16,97 @@ import {
 //   })
 
 const FAQ = () => {
+  const AccordionData = [
+    {
+      question: 'Who can become a College Ambassador',
+      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+    {
+      question: 'How to become a College Ambassador',
+      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+    {
+      question: 'How many CAs can be there from a college',
+      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+    {
+      question:
+        'What are the conditions under which I will get a CA Certificate',
+      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+
+    {
+      question: 'How much do I have to work to Top the Leaderboard',
+      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+  ];
+ 
   return (
     <div className='bg-background'>
       <div className='relative mb-[20px] flex flex-col bg-background pl-[10px] pt-[200px]'>
-        <div className=' -space-y-14 ef:-space-y-16 md:-space-y-32 absolute bottom-3 flex flex-col sm:text-left '>
-          <span className='text-red opacity-20 text-[62px] ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
+        <div className=' absolute bottom-3 flex flex-col -space-y-14 ef:-space-y-16 sm:text-left md:-space-y-32 '>
+          <span className='text-[62px] text-red opacity-20 ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
             FAQs
           </span>
-          <span className='text-white select-none ml-1 md:ml-2 lg:ml-3 text-[25px] ef:text-4xl md:text-7xl z-10 transform transition duration-700 hover:scale-110'>FAQs</span>
+          <span className='text-white z-10 ml-1 transform select-none text-[25px] transition duration-700 hover:scale-110 ef:text-4xl md:ml-2 md:text-7xl lg:ml-3'>
+            FAQs
+          </span>
         </div>
       </div>
-      <div className='mb-[50px] flex flex-col items-start gap-0 px-[30px] md:flex-row md:justify-start md:gap-10 md:px-[120px] lg:flex-row lg:justify-start'>
-        <div className='w-full md:w-1/2'>
-          {/* <ChakraProvider theme = {theme}>
-                        <CSSReset />   */}
-          <Accordion defaultIndex={[0]} allowMultiple allowToggle className=''>
-            <AccordionItem  className='bg-grey p-4 rounded-[40px]  m-2 '>
-              <h2>
-                <AccordionButton >
-                  <AccordionIcon />
-                  <Box as='span' flex='1' textAlign='center' className='font-spline' >
-                    Who can become a College Ambassador?
-                  </Box>
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4} className='text-center font-spline'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </AccordionPanel>
-            </AccordionItem>
-
-            <AccordionItem className='bg-grey p-4 rounded-[40px] m-2 font-spline'>
-              <h2>
-                <AccordionButton>
-                  <AccordionIcon />
-                  <Box as='span' flex='1' textAlign='center'>
-                    How to become a College Ambassador?
-                  </Box>
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4} className='text-center'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </AccordionPanel>
-            </AccordionItem>
-
-            <AccordionItem className='bg-grey p-4 rounded-[40px] m-2 font-spline'>
-              <h2>
-                <AccordionButton>
-                  <AccordionIcon />
-                  <Box as='span' flex='1' textAlign='center'>
-                    How many CAs can be there from a college?
-                  </Box>
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4} className='text-center'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </AccordionPanel>
-            </AccordionItem>
-          </Accordion>
-          {/* </ChakraProvider> */}
-        </div>
-        <div className='md:px-30 w-full md:w-1/2'>
-          {/* <ChakraProvider theme = {theme}>
-                        <CSSReset /> */}
-          <Accordion allowMultiple>
-            <AccordionItem className='bg-grey p-4 rounded-[40px] m-2 font-spline'>
-              <h2>
-                <AccordionButton>
-                  <AccordionIcon />
-                  <Box as='span' flex='1' textAlign='center'>
-                    What are the conditions under which I will get a CA
-                    Certificate?
-                  </Box>
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4} className='text-center'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </AccordionPanel>
-            </AccordionItem>
-
-            <AccordionItem className='bg-grey p-4 rounded-[40px] m-2 font-spline'>
-              <h2>
-                <AccordionButton>
-                  <AccordionIcon />
-                  <Box as='span' flex='1' textAlign='center'>
-                    How much do I have to work to Top the Leaderboard?
-                  </Box>
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4} className='text-center'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </AccordionPanel>
-            </AccordionItem>
-          </Accordion>
-          {/* </ChakraProvider> */}
-        </div>
-      </div>
-    </div>
+      <div className='mb-[50px] flex flex-col md:flex-row md:justify-start md:gap-10 md:px-[120px] lg:flex-row lg:justify-start'>
+  <div className='w-full md:w-1/2'>
+    <Accordion defaultIndex={[0]} allowMultiple allowToggle className=''>
+      {AccordionData.slice(0, 3).map((item, index) => (
+        <AccordionItem
+          key={index}
+          className='m-2 rounded-[40px] bg-grey p-4 font-spline'
+          borderColor='red'
+          borderWidth='2px'
+        >
+          <h2>
+          <AccordionButton>
+  <AccordionIcon />
+  <Box as='span' flex='1' textAlign='center' textDecoration='underline'>
+        <span style={{ fontSize: '1.6rem', color:'red' }}>{item.question.split(' ')[0].charAt(0)}</span>{item.question.slice(1)} <span style={{ fontSize: '1.6rem', color:'red' }}>?</span> 
+  </Box>
+</AccordionButton>
+          </h2>
+          <br></br>
+          <AccordionPanel pb={4} className='text-center'>
+            {item.answer}
+          </AccordionPanel>
+        </AccordionItem>
+      
+      ))}
+    </Accordion>
+  </div>
+  <div className='w-full md:w-1/2'>
+    <Accordion defaultIndex={[0]} allowMultiple allowToggle className=''>
+      {AccordionData.slice(3).map((item, index) => (
+        <AccordionItem
+          key={index}
+          className='m-2 rounded-[40px] bg-grey p-4 font-spline'
+          borderColor='red'
+          borderWidth='2px'
+        >
+          <h2>
+            <AccordionButton>
+              <AccordionIcon />
+              <Box as='span' flex='1' textAlign='center' textDecoration='underline'>
+              <span style={{ fontSize: '1.6rem', color:'red' }}>{item.question.split(' ')[0].charAt(0)}</span>{item.question.slice(1)} <span style={{ fontSize: '1.6rem', color:'red' }}>?</span> 
+  </Box>
+            </AccordionButton>
+          </h2>
+          <br/>
+          <AccordionPanel pb={4} className='text-center'>
+            {item.answer}
+          </AccordionPanel>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  </div>
+</div>
+</div>
   );
 };
 export default FAQ;
