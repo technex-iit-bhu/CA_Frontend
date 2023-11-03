@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import axios, { AxiosError } from 'axios';
 import Router from 'next/router';
 const Register = () => {
 
@@ -30,61 +29,6 @@ const Register = () => {
     console.log(formData);
   };
 
-  //   const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement> | any) => {
-  //     e.preventDefault();
-  //     console.log('Form Submitted');
-
-  //     if (formData.password !== formData.confirmPassword) {
-  //       setModalContent('Passwords do not match!');
-  //       setShowModal(true);
-  //       return;
-  //     }
-
-  //     try {
-  //       const response = await fetch(
-  //         'https://ca-backend-467n.onrender.com/auth/register/',
-  //         {
-  //           mode: 'no-cors',
-  //           method: 'post',
-  //           headers: {
-  //             'Content-Type': 'application/json',
-  //           },
-  //           body: JSON.stringify(formData),
-  //         }
-  //       );
-
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-
-  //       const data = await response.json();
-
-  //       if (response.status === 200) {
-  //         console.log('Success');
-  //         setModalContent('Verification link has been sent by email!');
-  //         setShowModal(true);
-  //       } else if (response.status === 409) {
-  //         console.log('Error 409');
-  //         setModalContent(
-  //           data.username ||
-  //             data.email ||
-  //             'Conflict Error! Verify Username or email again if they were registered'
-  //         );
-  //         setShowModal(true);
-  //       } else if (response.status === 226) {
-  //         console.log('Error226');
-  //         setModalContent(data.error);
-  //         setShowModal(true);
-  //       } else {
-  //         console.log('Any other Error Occured');
-  //         setModalContent('An error occurred!');
-  //         setShowModal(true);
-  //       }
-  //     } catch (error) {
-  //       console.error('Error:', error);
-  //     }
-  //   };
-
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log('Form Submitted');
@@ -111,27 +55,9 @@ const Register = () => {
       setModalContent('Verification link has been sent by email!');
       setShowModal(true);
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.error('Error:', error.response);
-        const status = error.response?.status;
-        const data = error.response?.data;
-
-        if (status === 409) {
-          setModalContent(
-            data.username ||
-              data.email ||
-              'Conflict Error! Verify Username or email again if they were registered'
-          );
-        } else if (status === 226) {
-          setModalContent(data.error);
-        } else {
-          setModalContent('An error1 occurred!');
-        }
-      } else {
         console.error('Error:', error);
         setModalContent('An error2 occurred!');
-      }
-      setShowModal(true);
+        setShowModal(true);
     }
   };
 
