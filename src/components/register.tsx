@@ -96,17 +96,18 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post(
-        'https://ca-backend-467n.onrender.com/auth/register/',
-        formData,
+      const response = await fetch(
+        'api/register',
         {
+          method: 'post',
+          body: JSON.stringify(formData),
           headers: {
             'Content-Type': 'application/json',
           },
         }
       );
-
-      console.log('Success', response.data);
+      const data = await response.json();  
+      console.log('Success', data);
       setModalContent('Verification link has been sent by email!');
       setShowModal(true);
     } catch (error) {
