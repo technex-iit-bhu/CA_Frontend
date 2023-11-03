@@ -1,24 +1,49 @@
 import React, {useState} from 'react';
 import Link from 'next/link';
-import axios from 'axios';
+import Router from 'next/router';
 
 const Login = () => {
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [modalContent, setModalContent] = useState('');
+  const [showModal, setShowModal] = useState(false);
+
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(formData);
+  };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://ca-backend-467n.onrender.com/auth/login/', {
-        username,
-        password,
-      });
-      const access_token = response.data.access_token;
+      console.log(formData);
+      const response = await fetch(
+        'api/login',
+        {
+          method: 'post',
+          body: JSON.stringify(formData),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      const access_token = await response.json();
+      console.log(access_token);
       console.log("Parameters successfully posted to backend");     
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+    if (modalContent === 'successfully logged in') {
+      Router.push('https://ca-frontend-ebon.vercel.app/');
     }
   };
 
@@ -39,8 +64,10 @@ const Login = () => {
               <input
                 placeholder='Enter Your Username'
                 required
+                name='username'
                 type='text'
-                value={username}
+                value={formData.username}
+                onChange={handleChange}
                 className='h-[50px] grow self-stretch rounded-[50px] bg-background pl-[30px]'
               />
             </div>
@@ -51,9 +78,11 @@ const Login = () => {
               <input
                 placeholder='Enter Your Password'
                 required
+                name='password'
                 pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
                 type='password'
-                value={password}
+                value={formData.password}
+                onChange={handleChange}
                 className='h-[50px] self-stretch grow rounded-[50px] bg-background pl-[30px]'
               />
             </div>
@@ -62,6 +91,19 @@ const Login = () => {
               Login
             </button>
           </form>
+          {showModal && (
+            <div className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'>
+              <div className='rounded-lg bg-grey p-5 shadow-lg'>
+                <p>{modalContent}</p>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className='text-white m-4 rounded-full bg-red px-4 py-2'
+                >
+                  Okay
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
