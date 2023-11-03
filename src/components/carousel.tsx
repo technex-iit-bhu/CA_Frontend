@@ -136,7 +136,7 @@ const IncentivesCarousel = () => {
     slidesToShow: 3.75,
     slidesToScroll: 1,
     rtl: true,
-    centerMode: true,
+    // centerMode: true,
     prevArrow: <ArrowLeft2></ArrowLeft2>,
     nextArrow: <ArrowRight2 />,
     // centerPadding: '10px',

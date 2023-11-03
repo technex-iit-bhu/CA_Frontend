@@ -13,13 +13,13 @@ const IncentiveCard: FC<CardProps> = ({ title, text }) => {
   return (
     <div
       style={{
-        width: 'max(10px, 20vw)',
+        // width: 'max(10px, 20vw)',
         // height: "max(150px, 10vh)",
         display: 'flex',
         border: '3px solid black',
         borderColor: 'black',
         outline: 'solid 3px #A81F25',
-        outlineOffset: '-10px',
+        outlineOffset: '-.7vw',
         borderRadius: '30px',
         borderWidth: '3px',
         backgroundColor: '#272727',
@@ -34,9 +34,10 @@ const IncentiveCard: FC<CardProps> = ({ title, text }) => {
         <p
           style={{
             margin: '10px',
-            marginLeft: '5px',
+            // marginLeft: '5px',
             fontSize: '10px',
             color: 'white',
+            padding: 'auto',
           }}
         >
           {text}
