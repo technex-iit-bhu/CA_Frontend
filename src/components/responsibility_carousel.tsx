@@ -95,7 +95,7 @@ const ResponsibilityCarousel = () => {
         },
       },
       {
-        breakpoint: 476,
+        breakpoint: 375,
         settings: {
           infinite: true,
           slidesToShow: 1,
@@ -127,15 +127,15 @@ const ResponsibilityCarousel = () => {
       </Head>
       <Slider {...settings} ref={sliderRef}>
         <ResponsibilityCard_Symbol></ResponsibilityCard_Symbol>
-        <ResponsibilityCard></ResponsibilityCard>
+        {/* <ResponsibilityCard></ResponsibilityCard> */}
         <ResponsibilityCard_Symbol_Bottom></ResponsibilityCard_Symbol_Bottom>
-        <ResponsibilityCard></ResponsibilityCard>
+        {/* <ResponsibilityCard></ResponsibilityCard> */}
         <ResponsibilityCard_Symbol></ResponsibilityCard_Symbol>
-        <ResponsibilityCard></ResponsibilityCard>
+        {/* <ResponsibilityCard></ResponsibilityCard> */}
         <ResponsibilityCard_Symbol_Bottom></ResponsibilityCard_Symbol_Bottom>
-        <ResponsibilityCard></ResponsibilityCard>
+        {/* <ResponsibilityCard></ResponsibilityCard> */}
         <ResponsibilityCard_Symbol></ResponsibilityCard_Symbol>
-        <ResponsibilityCard></ResponsibilityCard>
+        {/* <ResponsibilityCard></ResponsibilityCard> */}
         <ResponsibilityCard_Symbol_Bottom></ResponsibilityCard_Symbol_Bottom>
       </Slider>
     </div>
