@@ -123,7 +123,7 @@ const Leaderboard = () => {
               style={{
                 backgroundColor: '#191919',
                 borderRadius: '50px',
-                boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
+                // boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
               }}
             >
               <div className='z-10 my-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
@@ -148,7 +148,7 @@ const Leaderboard = () => {
               style={{
                 backgroundColor: '#191919',
                 borderRadius: '50px',
-                boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
+                // boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
               }}
             >
               <div className='z-10 my-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
@@ -173,7 +173,7 @@ const Leaderboard = () => {
               style={{
                 backgroundColor: '#191919',
                 borderRadius: '50px',
-                boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
+                // boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
               }}
             >
               <div className='z-10 my-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>

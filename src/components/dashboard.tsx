@@ -12,13 +12,12 @@ const Dashboard = () => {
   
   return (
     <div className=''>
-      <div className='relative mb-[100px] flex flex-col bg-background pl-[120px] pt-[200px] md:mb-[50px]'>
-        <div className='align-left absolute bottom-[10px] left-5 flex text-5xl sm:text-center md:p-10 lg:p-10 lg:text-7xl'>
-            <span className='text-[62px] text-red opacity-20 ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
+      <div className='relative mb-[100px] flex flex-col bg-background pl-[40px] pt-[100px] md:mb-[50px]'>
+        <div className='flex flex-col sm:pb-10 -space-y-9 sm:-space-y-8 md:-space-y-8 lg:-space-y-15 xl:-space-y-20'>
+          <span className='text-6xl font-bold text-[#A81F25] opacity-20 text-[5rem] sm:text-[7rem] md:text-[9rem] lg:text-[13rem] xl:text-[15rem] font-spline'>
             Dashboard
           </span>
-          <span className='text-white select-none transform transition duration-700 hover:scale-110'>Dashboard</span>
-
+          <span className='transform transition duration-700 hover:scale-110 sm:pl-1 lg:pl-5 xl:pl-9 text-white select-none ml-4 sm:ml-8 text-2xl sm:text-[60px] lg:text-[82px] z-10'>Dashboard</span>
         </div>
       </div>
       <div className='px-[30px] md:px-[50px]'>
