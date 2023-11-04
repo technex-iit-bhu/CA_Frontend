@@ -3,16 +3,29 @@ import React from 'react';
 export default function profile() {
   return (
     <div>
-      <div className='relative mb-[160px] flex flex-col bg-background lg:pl-[68px] pl-[50px] pt-[80px] md:mb-[70px] lg:pb-[150px] md:pb-10'>
-        <div className=' absolute bottom-[10px] left-0 flex text-5xl md:p-10 lg:p-[90px] lg:text-7xl'>
-          <span className='text-white select-none font-spline  '>Profile</span>
+      {/* <div className='relative mb-[160px] flex flex-col  lg:pl-[68px] pl-[50px] pt-[80px] md:mb-[70px] lg:pb-[100px] md:pb-10'>
+        <div className='flex flex-col sm:pb-10 -space-y-9 sm:-space-y-16 md:-space-y-16 lg:-space-y-20 xl:-space-y-25'>
+          <span className='text-[62px]  font-bold text-red opacity-20 ef:text-[80px] md:text-[9rem] lg:text-[11rem] font-spline'>
+            Profile
+          </span>
+          <span className='text-white z-10 ml-1 select-none text-[25px]   ef:text-4xl md:ml-2 md:text-7xl lg:ml-3 font-spline'>Profile</span>
+        </div>
+      </div> */}
+      <div className='relative  flex flex-col bg-background pl-[50px] pt-[120px] md:pt-[190px] lg:pt-[150px] sm:pt-[120px] ef:pt-[130px] md:mb-[180px] lg:pb-[100px] sm:mb-[150px] ef:mb-[170px] mb-[160px] md:pb-0'>
+        <div className=' absolute bottom-3 flex flex-col -space-y-14 ef:-space-y-16 sm:text-left md:-space-y-32 '>
+          <span className='text-[62px] font-bold text-red opacity-20 ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
+            Profile
+          </span>
+          <span className='text-white z-10 ml-1 select-none text-[25px] ef:text-4xl md:ml-2 md:text-6xl md:pt-3 lg:ml-3'>
+            Profile
+          </span>
         </div>
       </div>
       <div className='px-[30px] md:px-[50px] '>
         <div className='z-0 mb-20 rounded-[50px] bg-grey px-[50px]  md:px-[30px]'>
           <div className='flex flex-col lg:flex-row lg:pl-[0px] lg:pt-4 lg:pb-4   pb-10 '>
             <div className='mt-[-150px] flex flex-col'>
-              <div className='h-[250px] w-[250px] select-none self-center rounded-full border-4 border-red bg-background lg:self-start'></div>
+              <div className='h-[250px] w-[250px] select-none self-center rounded-full border-4 border-red bg-background '></div>
               <div className='flex flex-col  lg:w-[500px] lg:pl-[20px] '>
                 <p className='text-white flex select-none flex-wrap self-center text-center lg:text-[50px] text-[30px] font-bold lg:self-start lg:text-left font-spline'>
                   Amuse Bouche Sharma
