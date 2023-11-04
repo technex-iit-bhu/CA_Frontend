@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
+
 import Slider from 'react-slick';
 import Head from 'next/head';
-import IncentiveCard from './incentive_card';
-import { v4 as uuidv4 } from 'uuid';
+
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
-import ResponsibilityCard from './responsibility_card';
+
 import ResponsibilityCard_Symbol from './responsibility_card_symbol';
 import ResponsibilityCard_Symbol_Bottom from './responsibility_card_Symbol_Bottom';
 
@@ -25,7 +25,7 @@ const ResponsibilityCarousel = () => {
   const ArrowLeft = () => (
     <ArrowLeftIcon
       onClick={previous}
-      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
+      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 10 }}
       className={'prev'}
     ></ArrowLeftIcon>
   );
@@ -125,6 +125,7 @@ const ResponsibilityCarousel = () => {
           href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
         />
       </Head>
+
       <Slider {...settings} ref={sliderRef}>
         <ResponsibilityCard_Symbol></ResponsibilityCard_Symbol>
         {/* <ResponsibilityCard></ResponsibilityCard> */}
@@ -136,6 +137,12 @@ const ResponsibilityCarousel = () => {
         {/* <ResponsibilityCard></ResponsibilityCard> */}
         <ResponsibilityCard_Symbol></ResponsibilityCard_Symbol>
         {/* <ResponsibilityCard></ResponsibilityCard> */}
+        <ResponsibilityCard_Symbol_Bottom></ResponsibilityCard_Symbol_Bottom>
+        <ResponsibilityCard_Symbol></ResponsibilityCard_Symbol>
+        <ResponsibilityCard_Symbol_Bottom></ResponsibilityCard_Symbol_Bottom>
+        <ResponsibilityCard_Symbol></ResponsibilityCard_Symbol>
+        <ResponsibilityCard_Symbol_Bottom></ResponsibilityCard_Symbol_Bottom>
+        <ResponsibilityCard_Symbol></ResponsibilityCard_Symbol>
         <ResponsibilityCard_Symbol_Bottom></ResponsibilityCard_Symbol_Bottom>
       </Slider>
     </div>
