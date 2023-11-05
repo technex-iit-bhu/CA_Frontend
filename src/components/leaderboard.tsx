@@ -25,7 +25,6 @@ const Leaderboard = () => {
       </div> */}
 
       <div className='relative mb-[20px] flex flex-col bg-background pl-[10px] pt-[200px]'>
-        
         <div className=' absolute bottom-3 flex flex-col -space-y-14 ef:-space-y-16 sm:text-left md:-space-y-32 '>
           <span className='text-[62px] font-bold text-red opacity-20 ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
             Leaderboard

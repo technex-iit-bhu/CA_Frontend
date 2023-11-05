@@ -8,7 +8,12 @@ import {
   Button,
   useMediaQuery,
   Link,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 interface Props {
   date: string;
   points: string;
@@ -67,6 +72,8 @@ const Cards: React.FC<Props> = ({
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          marginBottom: '20px',
+          zIndex: '1'
         }}
       >
         <Card
@@ -82,7 +89,7 @@ const Cards: React.FC<Props> = ({
         >
           <Stack direction='row' h='100%' margin='0' spacing='0'>
             <Box bg='gray' w={height1} h={height1} margin={br}>
-              <Image src=''></Image>
+              <Image src='' alt=''></Image>
             </Box>
             <Box w={width1}>
               <Text marginTop={padding} align='left' fontSize={fontsize1}>
@@ -176,6 +183,20 @@ const Cards: React.FC<Props> = ({
               </Box>
             </Box>
           </Stack>
+          <Menu>
+            <MenuButton
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+            ></MenuButton>
+            <MenuList color="red">
+              <MenuItem minH='48px' color="red">
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                  tempore deserunt harum accusamus.
+                </span>
+              </MenuItem>
+            </MenuList>
+          </Menu>
         </Card>
       </div>
     </>

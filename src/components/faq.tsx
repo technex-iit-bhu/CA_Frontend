@@ -60,11 +60,7 @@ const FAQ = () => {
       </div>
       <div className='mb-[50px] flex flex-col md:flex-row md:justify-start md:gap-10 md:px-[120px] lg:flex-row lg:justify-start'>
         <div className='w-full md:w-1/2'>
-          <Accordion
-            allowMultiple={false}
-            allowToggle
-            className=''
-          >
+          <Accordion allowMultiple={false} allowToggle className=''>
             {AccordionData.slice(0, 3).map((item, index) => (
               <AccordionItem
                 key={index}
@@ -95,11 +91,7 @@ const FAQ = () => {
           </Accordion>
         </div>
         <div className='w-full md:w-1/2'>
-          <Accordion
-            allowMultiple={false}
-            allowToggle
-            className=''
-          >
+          <Accordion allowMultiple={false} allowToggle className=''>
             {AccordionData.slice(3).map((item, index) => (
               <AccordionItem
                 key={index}
