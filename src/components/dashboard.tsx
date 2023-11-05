@@ -17,7 +17,7 @@ const Dashboard = () => {
           <div className='font-bold absolute text-[#A81F25] opacity-20 sm:text-[12.5vw] text-[0px] font-spline'>
             Dashboard
           </div>
-          <div className='hover:scale-110 text-white select-none sm:text-[7vw] sm:self-start z-10 text-[10vw] self-center pt-[90px] xl:pt-[200px]'>Dashboard</div>
+          <div className='transform transition duration-700 hover:scale-110 text-white select-none sm:text-[7vw] sm:self-start z-10 text-[10vw] self-center pt-[90px] xl:pt-[200px]'>Dashboard</div>
         </div>
       </div>
       <div className='px-[30px] md:px-[50px]'>
