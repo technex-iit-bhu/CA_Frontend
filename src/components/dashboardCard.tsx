@@ -13,11 +13,18 @@ interface Props {
   date: string;
   points: string;
   text: string;
-  heading:string;
-  taskNumber:string;
-  month:string;
+  heading: string;
+  taskNumber: string;
+  month: string;
 }
-const Cards:React.FC<Props>=  ({date,points,text,heading,taskNumber,month}) => {
+const Cards: React.FC<Props> = ({
+  date,
+  points,
+  text,
+  heading,
+  taskNumber,
+  month,
+}) => {
   const [isLargerThan700] = useMediaQuery('(min-width: 700px)');
   const height = isLargerThan700 ? '200px' : '28.5vw';
   const width = isLargerThan700 ? '510px' : '72.8vw';
@@ -98,7 +105,10 @@ const Cards:React.FC<Props>=  ({date,points,text,heading,taskNumber,month}) => {
               </Box>
               <Box display='flex' justifyContent='space-between'>
                 <Box display='flex' alignItems='center' justifyContent='center'>
-                  <Link href='https://www.instagram.com/technexiitbhu/' target='_blank'>
+                  <Link
+                    href='https://www.instagram.com/technexiitbhu/'
+                    target='_blank'
+                  >
                     <Image
                       src={'/insta.webp'}
                       alt='insta'
@@ -107,7 +117,10 @@ const Cards:React.FC<Props>=  ({date,points,text,heading,taskNumber,month}) => {
                       marginRight='0.5vw'
                     />
                   </Link>
-                  <Link href='https://www.facebook.com/technexiitbhu/' target='_blank'>
+                  <Link
+                    href='https://www.facebook.com/technexiitbhu/'
+                    target='_blank'
+                  >
                     <Image
                       src={'/facebook.webp'}
                       alt='facebook'
@@ -116,7 +129,10 @@ const Cards:React.FC<Props>=  ({date,points,text,heading,taskNumber,month}) => {
                       marginRight='0.5vw'
                     />
                   </Link>
-                  <Link href='https://www.linkedin.com/company/technex-iit-bhu-varanasi/mycompany/' target='_blank'>
+                  <Link
+                    href='https://www.linkedin.com/company/technex-iit-bhu-varanasi/mycompany/'
+                    target='_blank'
+                  >
                     <Image
                       src={'/linkedin.webp'}
                       alt='linkedIn'
@@ -125,7 +141,10 @@ const Cards:React.FC<Props>=  ({date,points,text,heading,taskNumber,month}) => {
                       marginRight='0.5vw'
                     />
                   </Link>
-                  <Link href='https://twitter.com/technexiitbhu?lang=en' target='_blank'>
+                  <Link
+                    href='https://twitter.com/technexiitbhu?lang=en'
+                    target='_blank'
+                  >
                     <Image
                       src={'/X.webp'}
                       alt='twitter'

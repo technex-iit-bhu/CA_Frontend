@@ -8,10 +8,10 @@ const tabContentStyle: CSSProperties = {
 };
 
 const hiddenTabContentStyle: CSSProperties = {
-  opacity:0,
-  height:0,
+  opacity: 0,
+  height: 0,
   pointerEvents: 'none',
-  transition: 'opacity 0.5s ease-out,height 0.5s ease-out'
+  transition: 'opacity 0.5s ease-out,height 0.5s ease-out',
 };
 
 const DashboardTab = () => {

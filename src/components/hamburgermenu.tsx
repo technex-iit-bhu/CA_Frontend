@@ -52,10 +52,7 @@ const Hamburger = () => {
 
   return (
     <header className='z-20'>
-      <div
-        className='text-md text-white cursor-pointer'
-        onClick={toggleMenu}
-      >
+      <div className='text-md text-white cursor-pointer' onClick={toggleMenu}>
         <HamburgerIcon boxSize={28} />
       </div>
       <AnimatePresence>

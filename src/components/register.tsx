@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 const Register = () => {
-
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -40,24 +39,21 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch(
-        'api/register',
-        {
-          method: 'post',
-          body: JSON.stringify(formData),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-      const data = await response.json();  
+      const response = await fetch('api/register', {
+        method: 'post',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
       console.log('Success', data);
       setModalContent('Verification link has been sent by email!');
       setShowModal(true);
     } catch (error) {
-        console.error('Error:', error);
-        setModalContent('An error2 occurred!');
-        setShowModal(true);
+      console.error('Error:', error);
+      setModalContent('An error2 occurred!');
+      setShowModal(true);
     }
   };
 
@@ -141,7 +137,7 @@ const Register = () => {
                 className='h-[50px] grow  self-stretch rounded-[50px] bg-background px-[10px] text-center text-black lg:text-left'
                 value={formData.year}
                 onChange={(e) =>
-                  setFormData({ ...formData, year: +(e.target.value.charAt(0)) })
+                  setFormData({ ...formData, year: +e.target.value.charAt(0) })
                 }
               >
                 <option value='1st Year'>1st Year</option>
@@ -312,4 +308,4 @@ const Register = () => {
   );
 };
 
-export default Register
+export default Register;
