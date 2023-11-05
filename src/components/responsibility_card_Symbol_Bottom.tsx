@@ -4,12 +4,13 @@ import React from 'react';
 
 const imgContainer = {
   backgroundColor: 'white',
-  width: '100px',
-  height: '100px',
+  width: '70px',
+  height: '70px',
   Position: 'relative',
-  marginLeft: '50px',
+  margin: 'auto',
   borderRadius: '50%',
-  marginTop: '15%',
+  marginTop: '10%',
+  //   margin: '50%',
   zIndex: 1,
 };
 
@@ -20,7 +21,7 @@ const ResponsibilityCard_Symbol_Bottom = () => {
         style={{
           height: 'calc(20vh + 100px)',
           //   height: '200px',
-          width: '200px',
+          //   width: '200px',
           position: 'relative',
           border: '3px solid black',
           borderColor: 'black',
@@ -37,36 +38,38 @@ const ResponsibilityCard_Symbol_Bottom = () => {
         <div
           style={{
             height: '50px',
-            width: '150px',
+            // width: '150px',
             color: 'white',
             fontSize: 'auto',
             position: 'relative',
-            marginLeft: '1%',
-            left: '20px',
+            // marginLeft: '1%',
+            // left: '16%',
+
+            alignContent: 'center',
             top: '30px',
             textAlign: 'center',
           }}
         >
-          BHUPENDRA JOGI
+          Bhupendra Jogi
         </div>
-      </div>
-
-      <div
-        style={{
-          backgroundColor: '#404040',
-          width: '200px',
-          height: '170px',
-          zIndex: 4,
-          borderTopRightRadius: '50%',
-          borderTopLeftRadius: '50%',
-          borderBottomRightRadius: '30px',
-          borderBottomLeftRadius: '30px',
-          position: 'absolute',
-          overflow: 'hidden',
-          bottom: '0px',
-        }}
-      >
-        <div style={imgContainer}></div>
+        <div
+          style={{
+            backgroundColor: '#404040',
+            width: '100%',
+            height: '45%',
+            zIndex: 4,
+            borderTopRightRadius: '50%',
+            borderTopLeftRadius: '50%',
+            borderBottomRightRadius: '30px',
+            borderBottomLeftRadius: '30px',
+            position: 'absolute',
+            overflow: 'hidden',
+            bottom: '0px',
+            alignContent: 'center',
+          }}
+        >
+          <div style={imgContainer}></div>
+        </div>
       </div>
     </div>
   );
