@@ -55,23 +55,24 @@ const FAQ = () => {
       </div>
       <div className='mb-[50px] flex flex-col md:flex-row md:justify-start md:gap-10 md:px-[120px] lg:flex-row lg:justify-start'>
   <div className='w-full md:w-1/2'>
-    <Accordion defaultIndex={[0]} allowMultiple allowToggle className=''>
+    <Accordion defaultIndex={[0]} allowMultiple  allowToggle ={false} className=''>
       {AccordionData.slice(0, 3).map((item, index) => (
         <AccordionItem
-          key={index}
-          className='m-2 rounded-[40px] bg-grey p-4 font-spline'
-          borderColor='red'
-          borderWidth='2px'
+        key={index}
+        className='m-2 rounded-[40px] bg-grey p-3 font-spline'
+        borderColor='rgba(#D7ECFF, 0, 0, 0.3)'
+        borderWidth='1.4px'
+          
         >
           <h2>
           <AccordionButton>
   <AccordionIcon />
-  <Box as='span' flex='1' textAlign='center' textDecoration='underline'>
-        <span style={{ fontSize: '1.6rem', color:'red' }}>{item.question.split(' ')[0].charAt(0)}</span>{item.question.slice(1)} <span style={{ fontSize: '1.6rem', color:'red' }}>?</span> 
+  <Box as='span' flex='1' textAlign='center'>
+        <span style={{ fontSize: '1.6rem', color:'brown' }}>{item.question.split(' ')[0].charAt(0)}</span>{item.question.slice(1)} <span style={{ fontSize: '1.6rem', color:'brown' }}>?</span> 
   </Box>
 </AccordionButton>
           </h2>
-          <br></br>
+          
           <AccordionPanel pb={4} className='text-center'>
             {item.answer}
           </AccordionPanel>
@@ -85,19 +86,19 @@ const FAQ = () => {
       {AccordionData.slice(3).map((item, index) => (
         <AccordionItem
           key={index}
-          className='m-2 rounded-[40px] bg-grey p-4 font-spline'
-          borderColor='red'
-          borderWidth='2px'
+          className='m-2 rounded-[40px] bg-grey p-3  font-spline'
+          borderColor='rgba(#D7ECFF, 0, 0, 0.3)'
+          borderWidth='1.4px'
         >
           <h2>
             <AccordionButton>
               <AccordionIcon />
-              <Box as='span' flex='1' textAlign='center' textDecoration='underline'>
-              <span style={{ fontSize: '1.6rem', color:'red' }}>{item.question.split(' ')[0].charAt(0)}</span>{item.question.slice(1)} <span style={{ fontSize: '1.6rem', color:'red' }}>?</span> 
+              <Box as='span' flex='1' textAlign='center' >
+              <span style={{ fontSize: '1.6rem', color: 'brown' }}>{item.question.split(' ')[0].charAt(0)}</span>{item.question.slice(1)} <span style={{ fontSize: '1.6rem', color:'brown' }}>?</span> 
   </Box>
             </AccordionButton>
           </h2>
-          <br/>
+       
           <AccordionPanel pb={4} className='text-center'>
             {item.answer}
           </AccordionPanel>
