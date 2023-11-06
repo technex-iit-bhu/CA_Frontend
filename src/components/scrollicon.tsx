@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRightIcon } from '@chakra-ui/icons';
 
 const ScrollIcon = () => {
-  const [rotate, setRotate] = useState('rotate-90 relative bottom-[10vw]'); 
-  const [section, setSection] = useState('#aboutUs')
+  const [rotate, setRotate] = useState('rotate-90 relative bottom-[10vw]');
+  const [section, setSection] = useState('#aboutUs');
 
   useEffect((): (() => void) => {
     const handleScroll = () => {
@@ -16,7 +16,7 @@ const ScrollIcon = () => {
         setSection('#aboutUs');
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -32,8 +32,12 @@ const ScrollIcon = () => {
   };
 
   return (
-    <div className='flex animate-bounce items-center justify-center pt-10 sticky top-0 z-10'>
-      <ArrowRightIcon className={`${rotate}`} boxSize={32} onClick={scrollToSection}/>
+    <div className='sticky top-0 z-10 flex animate-bounce items-center justify-center pt-10'>
+      <ArrowRightIcon
+        className={`${rotate}`}
+        boxSize={32}
+        onClick={scrollToSection}
+      />
     </div>
   );
 };

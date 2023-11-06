@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 
 const Login = () => {
-
   const [modalContent, setModalContent] = useState('');
   const [showModal, setShowModal] = useState(false);
 
@@ -22,19 +21,16 @@ const Login = () => {
 
     try {
       console.log(formData);
-      const response = await fetch(
-        'api/login',
-        {
-          method: 'post',
-          body: JSON.stringify(formData),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const response = await fetch('api/login', {
+        method: 'post',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       const access_token = await response.json();
       console.log(access_token);
-      console.log("Parameters successfully posted to backend");     
+      console.log('Parameters successfully posted to backend');
     } catch (error) {
       console.log(error);
     }
@@ -54,11 +50,14 @@ const Login = () => {
           <span className='text-white select-none'>Login</span>
         </div>
       </div>
-      <div className='sm:px-[100px] pb-[100px] md:px-[175px] px-[10px]'>
+      <div className='px-[10px] pb-[100px] sm:px-[100px] md:px-[175px]'>
         <div className='z-0 rounded-[50px] bg-grey px-[30px] py-[30px] md:px-[10px]'>
-          <form className='flex flex-col items-center gap-y-5' onSubmit={handleSubmit}>
+          <form
+            className='flex flex-col items-center gap-y-5'
+            onSubmit={handleSubmit}
+          >
             <div className='flex w-8/12 flex-col items-center gap-5 md:flex-row'>
-              <span className='text-white w-max select-none align-middle text-xl font-medium font-spline'>
+              <span className='text-white w-max select-none align-middle font-spline text-xl font-medium'>
                 Username:
               </span>
               <input
@@ -72,7 +71,7 @@ const Login = () => {
               />
             </div>
             <div className='flex w-8/12 flex-col items-center gap-5 md:flex-row'>
-              <span className='text-white select-none align-middle text-xl font-medium font-spline'>
+              <span className='text-white select-none align-middle font-spline text-xl font-medium'>
                 Password:
               </span>
               <input
@@ -83,11 +82,16 @@ const Login = () => {
                 type='password'
                 value={formData.password}
                 onChange={handleChange}
-                className='h-[50px] self-stretch grow rounded-[50px] bg-background pl-[30px]'
+                className='h-[50px] grow self-stretch rounded-[50px] bg-background pl-[30px]'
               />
             </div>
-            <Link href={'/register'} className='font-spline'>Haven't Registered Yet?</Link>
-            <button className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red text-[20px] font-bold md:w-[200px] font-spline' type='submit'>
+            <Link href={'/register'} className='font-spline'>
+              Haven't Registered Yet?
+            </Link>
+            <button
+              className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px]'
+              type='submit'
+            >
               Login
             </button>
           </form>

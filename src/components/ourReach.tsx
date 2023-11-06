@@ -82,24 +82,26 @@ type HeadingTextsProps = {
 /**
  * Component to render a heading with two different text colors.
  */
-export const HeadingTexts = ({ bgText, whiteText, redText, align }: HeadingTextsProps) => (
+export const HeadingTexts = ({
+  bgText,
+  whiteText,
+  redText,
+  align,
+}: HeadingTextsProps) => (
   <Box
     display='flex'
     flexDirection='column'
     alignItems={align === 'right' ? 'flex-end' : 'flex-start'}
-    className='-space-y-14 ef:-space-y-20 sm:-space-y-32 lg:-space-y-36 pb-10'
+    className='-space-y-14 pb-10 ef:-space-y-20 sm:-space-y-32 lg:-space-y-36'
   >
     <Heading className='text-[5rem] ef:text-[120px] sm:text-[212px] lg:text-[16rem]'>
-      <Text
-      as='span'
-      color='#A81F25'
-      className='bgText'
-      opacity='0.2'
-      >
-      {bgText}
+      <Text as='span' color='#A81F25' className='bgText' opacity='0.2'>
+        {bgText}
       </Text>
     </Heading>
-    <span className='transform transition duration-700 hover:scale-110 sm:pl-1 md:pl-3 mr-1 sm:mr-2 text-white select-none ml-3 text-2xl ef:text-4xl sm:text-[60px] md:text-[73px] z-10'>{whiteText} <span className='text-red'>{redText}</span></span>
+    <span className='text-white z-10 ml-3 mr-1 transform select-none text-2xl transition duration-700 hover:scale-110 ef:text-4xl sm:mr-2 sm:pl-1 sm:text-[60px] md:pl-3 md:text-[73px]'>
+      {whiteText} <span className='text-red'>{redText}</span>
+    </span>
   </Box>
 );
 
@@ -108,12 +110,12 @@ export const HeadingTexts = ({ bgText, whiteText, redText, align }: HeadingTexts
  */
 const HeadingComponent = () => (
   <div>
-  <HeadingTexts
-    bgText='Reach'
-    whiteText='Our'
-    redText='Reach'
-    align='right'
-  />
+    <HeadingTexts
+      bgText='Reach'
+      whiteText='Our'
+      redText='Reach'
+      align='right'
+    />
   </div>
 );
 
@@ -251,29 +253,43 @@ const RenderCircularProgress: React.FC<{ percent: number; value: number }> = ({
  */
 const LowerSection = () => (
   <Box mt={pxToRem(28)} textAlign='left' width={['100%', '80%', '100%']}>
-
     <HeadingTexts whiteText='Why' bgText='CA' redText='CA' align='left' />
 
     <Text
       pb={pxToRem(28)}
       mt={pxToRem(12)}
       width={['100%', '70%', '80%']}
-      fontSize={pxToRem(15)} className='font-spline'
+      fontSize={pxToRem(15)}
+      className='font-spline'
     >
       The Campus Ambassador Program for Technex'23 offers an exciting chance to
       become an essential part of the organizing team behind India's premier
-      technical and innovation fest. As a Campus Ambassador, <span className='text-red'>you'll lead your
-      college's contingent at Technex</span>,&nbsp; promoting the event within your
-      institution. This role allows you to <span className='text-red'>develop communication and managerial
-      skills by interacting with students from diverse backgrounds</span>.&nbsp; You'll also
-      showcase your <span className='text-red'>leadership abilities, inspiring and motivating your peers</span>&nbsp; to
-      participate. As a Campus Ambassador, you can <span className='text-red'>organize workshops and
-      events, gaining hands-on experience in event planning</span>.&nbsp; You'll be the face
-      of Technex'23 in your college, serving as a source of information,
-      motivation, and a connector. This program is an incredible opportunity to
-      <span className='text-red'>grow both personally and professionally</span>&nbsp; while playing a pivotal role in
-      promoting technology and innovation at your college. Seize this chance to
-      be a leader and influencer in your college's journey towards Technex'23.
+      technical and innovation fest. As a Campus Ambassador,{' '}
+      <span className='text-red'>
+        you'll lead your college's contingent at Technex
+      </span>
+      ,&nbsp; promoting the event within your institution. This role allows you
+      to{' '}
+      <span className='text-red'>
+        develop communication and managerial skills by interacting with students
+        from diverse backgrounds
+      </span>
+      .&nbsp; You'll also showcase your{' '}
+      <span className='text-red'>
+        leadership abilities, inspiring and motivating your peers
+      </span>
+      &nbsp; to participate. As a Campus Ambassador, you can{' '}
+      <span className='text-red'>
+        organize workshops and events, gaining hands-on experience in event
+        planning
+      </span>
+      .&nbsp; You'll be the face of Technex'23 in your college, serving as a
+      source of information, motivation, and a connector. This program is an
+      incredible opportunity to
+      <span className='text-red'>grow both personally and professionally</span>
+      &nbsp; while playing a pivotal role in promoting technology and innovation
+      at your college. Seize this chance to be a leader and influencer in your
+      college's journey towards Technex'23.
     </Text>
   </Box>
 );

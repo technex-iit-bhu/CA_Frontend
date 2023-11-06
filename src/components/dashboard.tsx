@@ -1,23 +1,24 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 const Dashboard = () => {
-
   const [name, setName] = useState('John Doe');
   const [rank, setRank] = useState('1');
   const [caId, setCaId] = useState('CA2021001');
   const [tasksDone, setTasksDone] = useState('69');
   const [totalTasks, setTotalTasks] = useState('200');
   const [points, setPoints] = useState('232');
-  
+
   return (
     <div className=''>
-      <div className='relative mb-[100px] flex flex-col bg-background sm:pl-[40px] pl-[0px] pt-[100px] md:mb-[50px]'>
-        <div className='flex flex-col sm:pb-10 -space-y-9 sm:-space-y-8 md:-space-y-8 lg:-space-y-15 xl:-space-y-20'>
-          <div className='font-bold absolute text-[#A81F25] opacity-20 sm:text-[12.5vw] text-[0px] font-spline'>
+      <div className='relative mb-[100px] flex flex-col bg-background pl-[0px] pt-[100px] sm:pl-[40px] md:mb-[50px]'>
+        <div className='lg:-space-y-15 flex flex-col -space-y-9 sm:-space-y-8 sm:pb-10 md:-space-y-8 xl:-space-y-20'>
+          <div className='absolute font-spline text-[0px] font-bold text-[#A81F25] opacity-20 sm:text-[12.5vw]'>
             Dashboard
           </div>
-          <div className='transform transition duration-700 hover:scale-110 text-white select-none sm:text-[7vw] sm:self-start z-10 text-[10vw] self-center pt-[90px] xl:pt-[200px]'>Dashboard</div>
+          <div className='text-white z-10 transform select-none self-center pt-[90px] text-[10vw] transition duration-700 hover:scale-110 sm:self-start sm:text-[7vw] xl:pt-[200px]'>
+            Dashboard
+          </div>
         </div>
       </div>
       <div className='px-[30px] md:px-[50px]'>
