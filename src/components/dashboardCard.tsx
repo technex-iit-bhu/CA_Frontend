@@ -1,19 +1,8 @@
 import React, { useState, useRef } from 'react';
-import {
-  Box,
-  Text,
-  Card,
-  Stack,
-  Image,
-  Button,
-  useMediaQuery,
-  Link,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-} from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
+import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
+
 interface Props {
   date: string;
   points: string;
@@ -22,6 +11,7 @@ interface Props {
   taskNumber: string;
   month: string;
 }
+
 const Cards: React.FC<Props> = ({
   date,
   points,
@@ -30,176 +20,87 @@ const Cards: React.FC<Props> = ({
   taskNumber,
   month,
 }) => {
-  const [isLargerThan700] = useMediaQuery('(min-width: 700px)');
-  const height = isLargerThan700 ? '200px' : '28.5vw';
-  const width = isLargerThan700 ? '510px' : '72.8vw';
-  const width1 = isLargerThan700 ? '300px' : '42.85vw';
-  const br = isLargerThan700 ? '40px' : '5.71vw';
-  const height1 = isLargerThan700 ? '120px' : '17.14vw';
-  const fontsize1 = isLargerThan700 ? '13px' : '1.85vw';
-  const fontsize2 = isLargerThan700 ? '24px' : '3.42vw';
-  const padding = isLargerThan700 ? '10px' : '1.42vw';
-  const bh = isLargerThan700 ? '25px' : '3.57vw';
-  const bw = isLargerThan700 ? '100px' : '14.2vw';
-  const image = isLargerThan700 ? '20px' : '3.57vw';
-
   const [isUploaded, setIsUploaded] = useState(false);
   const [buttonText, setButtonText] = useState('Upload');
+  const fileInputRef = useRef<HTMLInputElement>(null!);
+
   const onFileSelect = (file: File) => {
     console.log('Selected File:', file);
     console.log('Selected File Name:', file.name);
-    // Handle the selected file here
     setTimeout(() => {
       setIsUploaded(true);
       setButtonText('Uploaded');
     }, 2000);
   };
 
-  const fileInputRef = useRef<HTMLInputElement>(null!);
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const fileInput = fileInputRef.current;
-    if (fileInput) {
-      const file = event.target.files && event.target.files[0];
-      if (file) {
-        onFileSelect(file);
-      }
+    const file = event.target.files && event.target.files[0];
+    if (file) {
+      onFileSelect(file);
     }
   };
+
   return (
-    <>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginBottom: '20px',
-          zIndex: '1'
-        }}
-      >
-        <Card
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(100, 100, 100, 0.4) 0%, rgba(100, 100, 100, 0.2) 100%)',
-          }}
-          w={width}
-          h={height}
-          borderRadius={br}
-          paddingRight={padding}
-          marginBottom='2vw'
-        >
-          <Stack direction='row' h='100%' margin='0' spacing='0'>
-            <Box bg='gray' w={height1} h={height1} margin={br}>
-              <Image src='' alt=''></Image>
-            </Box>
-            <Box w={width1}>
-              <Text marginTop={padding} align='left' fontSize={fontsize1}>
-                Month:{month} | Task:{taskNumber}
-              </Text>
-              <Text align='left' fontWeight='700' fontSize={fontsize2}>
-                {heading}
-              </Text>
-              <Text align='left' fontSize={fontsize1}>
-                {text}
-              </Text>
-              <Box display='flex' justifyContent='space-between'>
-                <Text align='left' fontSize={fontsize1}>
-                  Expires on: {date}
-                </Text>
-                <Text align='left' fontSize={fontsize1}>
-                  {' '}
-                  Points: {points}
-                </Text>
-              </Box>
-              <Box display='flex' justifyContent='space-between'>
-                <Box display='flex' alignItems='center' justifyContent='center'>
-                  <Link
-                    href='https://www.instagram.com/technexiitbhu/'
-                    target='_blank'
-                  >
-                    <Image
-                      src={'/insta.webp'}
-                      alt='insta'
-                      width={image}
-                      height={image}
-                      marginRight='0.5vw'
-                    />
-                  </Link>
-                  <Link
-                    href='https://www.facebook.com/technexiitbhu/'
-                    target='_blank'
-                  >
-                    <Image
-                      src={'/facebook.webp'}
-                      alt='facebook'
-                      width={bh}
-                      height={image}
-                      marginRight='0.5vw'
-                    />
-                  </Link>
-                  <Link
-                    href='https://www.linkedin.com/company/technex-iit-bhu-varanasi/mycompany/'
-                    target='_blank'
-                  >
-                    <Image
-                      src={'/linkedin.webp'}
-                      alt='linkedIn'
-                      width={image}
-                      height={image}
-                      marginRight='0.5vw'
-                    />
-                  </Link>
-                  <Link
-                    href='https://twitter.com/technexiitbhu?lang=en'
-                    target='_blank'
-                  >
-                    <Image
-                      src={'/X.webp'}
-                      alt='twitter'
-                      width={image}
-                      height={image}
-                      marginRight='0.5vw'
-                    />
-                  </Link>
-                </Box>
-                <Box>
-                  <input
-                    type='file'
-                    ref={fileInputRef}
-                    style={{ display: 'none' }}
-                    onChange={handleFileSelect}
-                  />
-                  <Button
-                    onClick={() => fileInputRef.current?.click()}
-                    w={bw}
-                    h={bh}
-                    borderRadius={image}
-                    bg={isUploaded ? '#4CAF50' : '#A81F2591'}
-                    color='white'
-                    fontSize={fontsize1}
-                  >
-                    {buttonText}
-                  </Button>
-                </Box>
-              </Box>
-            </Box>
-          </Stack>
-          <Menu>
-            <MenuButton
-              as={Button}
-              rightIcon={<ChevronDownIcon />}
-            ></MenuButton>
-            <MenuList color="red">
-              <MenuItem minH='48px' color="red">
-                <span>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-                  tempore deserunt harum accusamus.
-                </span>
-              </MenuItem>
-            </MenuList>
-          </Menu>
-        </Card>
+    <div className="flex justify-center items-center mb-5 relative">
+      <div className="bg-gradient-to-b from-gray-400 to-gray-200 w-full md:w-1/2 lg:w-1/3 rounded-xl p-2 mb-8 relative">
+        <div className="flex h-full">
+          <div className="bg-gray-500 w-1/3 h-1/3 rounded-xl">
+            <img src="" alt="" />
+          </div>
+          <div className="w-2/3">
+            <p className="mt-2 text-left text-xs md:text-sm">
+              Month:{month} | Task:{taskNumber}
+            </p>
+            <p className="text-left font-bold text-2xl md:text-4xl">{heading}</p>
+            <p className="text-left text-xs md:text-sm">{text}</p>
+            <div className="flex justify-between">
+              <p className="text-left text-xs md:text-sm">Expires on: {date}</p>
+              <p className="text-left text-xs md:text-sm">Points: {points}</p>
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <Link to="https://www.instagram.com/technexiitbhu/" target="_blank">
+                  <img src="/insta.webp" alt="insta" className="w-5 h-5 mr-1" />
+                </Link>
+                <Link to="https://www.facebook.com/technexiitbhu/" target="_blank">
+                  <img src="/facebook.webp" alt="facebook" className="w-5 h-5 mr-1" />
+                </Link>
+                <Link to="https://www.linkedin.com/company/technex-iit-bhu-varanasi/mycompany/" target="_blank">
+                  <img src="/linkedin.webp" alt="linkedIn" className="w-5 h-5 mr-1" />
+                </Link>
+                <Link to="https://twitter.com/technexiitbhu?lang=en" target="_blank">
+                  <img src="/X.webp" alt="twitter" className="w-5 h-5 mr-1" />
+                </Link>
+              </div>
+              <div>
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  className="hidden"
+                  onChange={handleFileSelect}
+                />
+                <button
+                  onClick={() => fileInputRef.current?.click()}
+                  className={`w-20 h-6 rounded-full text-white ${isUploaded ? 'bg-green-500' : 'bg-red-500'}`}
+                >
+                  {buttonText}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Menu>
+          <MenuButton as={Button} leftIcon={<ChevronDownIcon />} className="absolute right-0 bottom-0"></MenuButton>
+          <MenuList color="red" className="z-10">
+            <MenuItem minH="48px" color="red">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+              tempore deserunt harum accusamus.
+            </MenuItem>
+          </MenuList>
+        </Menu>
       </div>
-    </>
+    </div>
   );
 };
+
 export default Cards;
