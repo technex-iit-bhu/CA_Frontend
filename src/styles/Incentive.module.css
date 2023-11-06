@@ -22,6 +22,6 @@
     /* your choice,  but make sure z-index of active slide is higher than this value */
   }  
 .slick-slide.slick-current {  
-     z-index: 10;  
+     z-index: 2;  
   }
 
