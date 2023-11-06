@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import { HeadingTexts } from './ourReach';
-import { ArrowRightIcon } from '../../node_modules/@chakra-ui/icons/dist/ArrowRight';
+
 const AboutTechnex: FC = () => {
   return (
     <div className='bg-[#191919]' id='aboutUs'>

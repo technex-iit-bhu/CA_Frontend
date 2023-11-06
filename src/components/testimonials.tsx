@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Center, Heading, Text, useMediaQuery } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Center,
+  Heading,
+  Text,
+  useMediaQuery,
+} from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Testes from './testes';
 import { relative } from 'path';
@@ -56,12 +63,17 @@ const Testimonials: React.FC = () => {
     <div>
       <Center h={height3} className='mb-5'>
         {/* Center the content vertically */}
-        <Box textAlign='center' className='-space-y-11 ef:-space-y-16 md:-space-y-28 lg:-space-y-32 flex flex-col'>
+        <Box
+          textAlign='center'
+          className='flex flex-col -space-y-11 ef:-space-y-16 md:-space-y-28 lg:-space-y-32'
+        >
           {/* Center the content horizontally */}
-          <span className='text-red opacity-20 text-[40px] ef:text-[80px] md:text-[8rem] lg:text-[11rem]'>
+          <span className='text-[40px] text-red opacity-20 ef:text-[80px] md:text-[8rem] lg:text-[11rem]'>
             Testimonials
           </span>
-          <span className='text-white select-none ml-3 text-[25px] ef:text-4xl md:text-7xl z-10 transform transition duration-700 hover:scale-110'>Testimonials</span>
+          <span className='text-white z-10 ml-3 transform select-none text-[25px] transition duration-700 hover:scale-110 ef:text-4xl md:text-7xl'>
+            Testimonials
+          </span>
         </Box>
       </Center>
       <div style={{ position: 'relative', height: `${height1}`, width: '90%' }}>
@@ -95,17 +107,16 @@ const Testimonials: React.FC = () => {
         </Box>
         <Center>
           <div
-          style={{
-            height: '3px',
-            borderRadius: '3px',
-            background: '#a81f25',
-            width: '80%',
-            marginTop: '3vw',
-          }}
-                ></div>
+            style={{
+              height: '3px',
+              borderRadius: '3px',
+              background: '#a81f25',
+              width: '80%',
+              marginTop: '3vw',
+            }}
+          ></div>
         </Center>
       </div>
-      
     </div>
   );
 };
