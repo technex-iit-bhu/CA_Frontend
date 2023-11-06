@@ -43,7 +43,7 @@ const Cards: React.FC<Props> = ({
 
   return (
     <div className='relative mb-5 flex items-center justify-center'>
-      <div className='from-gray-400 to-gray-200 relative mb-8 w-full rounded-xl bg-grey bg-gradient-to-b p-2 md:w-1/2 lg:w-1/3'>
+      <div className='from-gray-400 to-gray-200 relative mb-8 w-full content-center rounded-xl bg-grey bg-gradient-to-b p-5 md:w-1/2 lg:w-1/3'>
         <div className='flex h-full'>
           <div className='h-1/3 w-1/3 rounded-xl bg-black'>
             <img src='' alt='' />
@@ -120,10 +120,13 @@ const Cards: React.FC<Props> = ({
             leftIcon={<ChevronDownIcon />}
             className='absolute bottom-0 right-0'
           ></MenuButton>
-          <MenuList color='red' className='z-10'>
-            <MenuItem minH='48px' color='red'>
+          <MenuList className='z-10'>
+            <MenuItem
+              minH='48px'
+              maxW='350px'
+              className='menuItem flex-shrink-1 flex'
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-              tempore deserunt harum accusamus.
             </MenuItem>
           </MenuList>
         </Menu>
