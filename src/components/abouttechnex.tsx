@@ -29,9 +29,9 @@ const Carousel = () => {
           src={images[currentIndex]}
           alt={`Image ${currentIndex + 1}`}
           style={{
-            width: '220px', 
-            height: '230px', 
-            borderRadius: '19px',
+            width: '560px', 
+            height: '340px', 
+            borderRadius: '29px',
             marginRight: '20px', 
             marginBottom: '20px', 
             border: '4px solid #7d0000 ', 
