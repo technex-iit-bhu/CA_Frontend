@@ -29,17 +29,18 @@ const Carousel = () => {
           src={images[currentIndex]}
           alt={`Image ${currentIndex + 1}`}
           style={{
-            width: '200px', 
-            height: '200px', 
-            borderRadius: '12px',
+            width: '220px', 
+            height: '230px', 
+            borderRadius: '19px',
             marginRight: '20px', 
             marginBottom: '20px', 
-            border: '4px solid aliceblue', 
+            border: '4px solid #7d0000 ', 
             boxShadow: '2px 2px 4px black', 
           }}
         />
       </div>
-    </div>
+</div>
+
   );
 };
 const AboutTechnex: FC = () => {
@@ -54,42 +55,44 @@ const AboutTechnex: FC = () => {
           <span className='transform transition duration-700 hover:scale-110 sm:pl-1 lg:pl-5 xl:pl-9 text-white select-none ml-4 sm:ml-8 text-2xl sm:text-[60px] lg:text-[82px] z-10'>About <span className='text-red'>Technex</span></span>
         </div>
 
-        <div className='z-0 ml-3 pb-10 sm:ml-8 lg:ml-12 xl:ml-14 font-spline' >
+        <div className='z-0 ml-3 pb-10 sm:ml-8 lg:ml-12 xl:ml-14 font-spline'>
 
-          
-           <div className="flex">
-        <div className="left-column">
-          <p className="mr-3 border-b-2 border-[#A81F25] p-3 pr-5 pt-10 tracking-wide lg:w-[850px]">
-            TECHNEX&apos;23, IIT BHU is one of the largest and oldest college
-            fests in India.&nbsp; Embodying the true spirit of youth,{' '}
-            <span className="text-[#A81F25]">
-              Technex provides a platform for young talent from all over India
-              to showcase their varied skills.
-            </span>
-            &nbsp; Technex is an annual technical festival organized by the
-            students of Indian Institute of Technology (IIT) BHU,&nbsp;
-            Varanasi.<br></br>
-            The festival provides a platform for students to showcase their
-            technical and creative abilities through{' '}
-            <span className="text-[#A81F25]">
-              various competitions, workshops, guest lectures, and exhibitions
-            </span>
-            . It attracts a large number of students from all over the country
-            and provides a unique opportunity for them to showcase their skills
-            and network with their peers and industry professionals.{' '}
-            <span className="text-[#A81F25]">
-              Technex is a celebration of innovation and technology, and a
-              platform for students to learn, grow, and excel in their field of
-              interest.
-            </span>
-          </p>
-        </div>
-        <div className="right-column" style={{ margin: '40px 120px' }}>
-          <Carousel />
-        </div>
-      </div>
-        </div>
-       
+  <div className="flex">
+    <div className="left-column">
+      <p className="mr-3 border-b-2 border-[#A81F25] p-3 pr-5 pt-10 tracking-wide lg:w-[850px]">
+        TECHNEX&apos;23, IIT BHU is one of the largest and oldest college
+        fests in India.&nbsp; Embodying the true spirit of youth,{' '}
+        <span className="text-[#A81F25]">
+          Technex provides a platform for young talent from all over India
+          to showcase their varied skills.
+        </span>
+        &nbsp; Technex is an annual technical festival organized by the
+        students of Indian Institute of Technology (IIT) BHU,&nbsp;
+        Varanasi.<br></br>
+        The festival provides a platform for students to showcase their
+        technical and creative abilities through{' '}
+        <span className="text-[#A81F25]">
+          various competitions, workshops, guest lectures, and exhibitions
+        </span>
+        . It attracts a large number of students from all over the country
+        and provides a unique opportunity for them to showcase their skills
+        and network with their peers and industry professionals.{' '}
+        <span className="text-[#A81F25]">
+          Technex is a celebration of innovation and technology, and a
+          platform for students to learn, grow, and excel in their field of
+          interest.
+        </span>
+      </p>
+    </div>
+  </div>
+<br/><br/><br/>
+  <div className="flex justify-center">
+    <div className="centered-carousel">
+      <Carousel />
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   );
