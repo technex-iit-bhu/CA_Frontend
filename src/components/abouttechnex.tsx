@@ -12,36 +12,47 @@ const Carousel = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change images every 3 seconds
+  const nextImage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
-    return () => {
-      clearInterval(interval);
-    };
+  const previousImage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  useEffect(() => {
+    
   }, []);
 
   return (
     <div className="carousel-container">
-      <div className="carousel-image">
-        <img
-          src={images[currentIndex]}
-          alt={`Image ${currentIndex + 1}`}
-          style={{
-            width: '560px', 
-            height: '340px', 
-            borderRadius: '29px',
-            marginRight: '20px', 
-            marginBottom: '20px', 
-            border: '4px solid #7d0000 ', 
-            boxShadow: '2px 2px 4px black', 
-          }}
-        />
-      </div>
+      <div className="carousel-image" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh' }}>
+  <div className="carousel-image-container" style={{ display: 'flex', alignItems: 'center' }}>
+    <button onClick={previousImage} className='text-white'>Prev</button>
+    <img
+      src={images[currentIndex]}
+      alt={`Image ${currentIndex + 1}`}
+      style={{
+        maxWidth: '100%',
+        height: '340px',
+        width: '560px',
+        objectFit: 'cover',
+        borderRadius: '29px',
+        margin: '0 20px',
+        border: '4px solid #7d0000',
+        boxShadow: '2px 2px 4px black',
+      }}
+    />
+    <button onClick={nextImage} className='text-white'>Next</button>
+  </div>
 </div>
 
+    </div>
   );
+  
+  
+
+
 };
 const AboutTechnex: FC = () => {
   return (
@@ -85,7 +96,7 @@ const AboutTechnex: FC = () => {
       </p>
     </div>
   </div>
-<br/><br/><br/>
+<br/>
   <div className="flex justify-center">
     <div className="centered-carousel">
       <Carousel />
