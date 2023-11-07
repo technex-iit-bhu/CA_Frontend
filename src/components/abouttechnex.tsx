@@ -21,14 +21,18 @@ const Carousel = () => {
   };
 
   useEffect(() => {
-    
+    const interval = setInterval(nextImage, 45000); // Change images every 3 seconds
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   return (
     <div className="carousel-container">
       <div className="carousel-image" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh' }}>
   <div className="carousel-image-container" style={{ display: 'flex', alignItems: 'center' }}>
-    <button onClick={previousImage} className='text-white'>Prev</button>
+    <button onClick={previousImage} className='text-white'> <span style={{ fontSize: '24px', color: 'red' }}>{'<<'}</span>Prevoius </button>
     <img
       src={images[currentIndex]}
       alt={`Image ${currentIndex + 1}`}
@@ -43,7 +47,7 @@ const Carousel = () => {
         boxShadow: '2px 2px 4px black',
       }}
     />
-    <button onClick={nextImage} className='text-white'>Next</button>
+    <button onClick={nextImage} className='text-white'>Next <span style={{ fontSize: '24px', color: 'red' }}>{'>>'}</span></button>
   </div>
 </div>
 
