@@ -3,12 +3,13 @@ import React from 'react';
 
 const imgContainer = {
   backgroundColor: 'white',
-  width: '100px',
-  height: '100px',
+  width: '70px',
+  height: '70px',
   Position: 'relative',
-  marginLeft: '50px',
+  margin: 'auto',
   borderRadius: '50%',
-  marginTop: '15%',
+  marginTop: '10%',
+  //   margin: '50%',
   zIndex: 1,
 };
 
@@ -17,25 +18,8 @@ const ResponsibilityCard_Symbol = () => {
     <div>
       <div
         style={{
-          backgroundColor: '#404040',
-          width: '200px',
-          height: '170px',
-          zIndex: 1,
-          borderBottomRightRadius: '50%',
-          borderBottomLeftRadius: '50%',
-          borderTopRightRadius: '30px',
-          borderTopLeftRadius: '30px',
-          position: 'absolute',
-          overflow: 'hidden',
-        }}
-      >
-        <div style={imgContainer}></div>
-      </div>
-
-      <div
-        style={{
           height: 'calc(20vh + 100px)',
-          width: '200px',
+          //   width: '200px',
           position: 'relative',
           border: '3px solid black',
           borderColor: 'black',
@@ -51,18 +35,36 @@ const ResponsibilityCard_Symbol = () => {
       >
         <div
           style={{
+            backgroundColor: '#404040',
+            width: '100%',
+            height: '45%',
+            zIndex: 1,
+            borderBottomRightRadius: '50%',
+            borderBottomLeftRadius: '50%',
+            borderTopRightRadius: '30px',
+            borderTopLeftRadius: '30px',
+            position: 'absolute',
+            overflow: 'hidden',
+          }}
+        >
+          <div style={imgContainer}></div>
+        </div>
+        <div
+          style={{
             height: '50px',
-            width: '150px',
+            // width: '150px',
             color: 'white',
             fontSize: 'auto',
             position: 'relative',
             // marginLeft: '1%',
-            left: '20px',
+            // left: '16%',
+
+            alignContent: 'center',
             top: '190px',
             textAlign: 'center',
           }}
         >
-          BHUPENDRA JOGI
+          Bhupendra Jogi
         </div>
       </div>
     </div>

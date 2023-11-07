@@ -26,8 +26,8 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
   const cardHeight = isLargerThan900 ? '315px' : '40vw';
   const fontSize = isLargerThan900 ? '22px' : '3vw';
   const fontSize1 = isLargerThan900 ? '45px' : '6vw';
-  const padding1= isLargerThan900?'20px 0px': '3vw 0';
-  const margin= isLargerThan900?'80px 50px 50px 50px':'8vw';
+  const padding1 = isLargerThan900 ? '20px 0px' : '3vw 0';
+  const margin = isLargerThan900 ? '80px 50px 50px 50px' : '8vw';
   return (
     <div style={{ margin: `${margin}` }}>
       <div

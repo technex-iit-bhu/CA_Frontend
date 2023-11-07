@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
+import Textbox from '../components/textbox';
 
 const Login = () => {
-
   const [modalContent, setModalContent] = useState('');
   const [showModal, setShowModal] = useState(false);
 
@@ -22,19 +22,16 @@ const Login = () => {
 
     try {
       console.log(formData);
-      const response = await fetch(
-        'api/login',
-        {
-          method: 'post',
-          body: JSON.stringify(formData),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const response = await fetch('api/login', {
+        method: 'post',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       const access_token = await response.json();
       console.log(access_token);
-      console.log("Parameters successfully posted to backend");     
+      console.log('Parameters successfully posted to backend');
     } catch (error) {
       console.log(error);
     }
@@ -54,40 +51,37 @@ const Login = () => {
           <span className='text-white select-none'>Login</span>
         </div>
       </div>
-      <div className='sm:px-[100px] pb-[100px] md:px-[175px] px-[10px]'>
-        <div className='z-0 rounded-[50px] bg-grey px-[30px] py-[30px] md:px-[10px]'>
-          <form className='flex flex-col items-center gap-y-5' onSubmit={handleSubmit}>
-            <div className='flex w-8/12 flex-col items-center gap-5 md:flex-row'>
-              <span className='text-white w-max select-none align-middle text-xl font-medium font-spline'>
-                Username:
-              </span>
-              <input
+      <div className='pb-[100px] self-center px-[50px] lg:px-[100px] xl:px-[400px]'>
+        <div className='z-0 rounded-[50px] bg-grey sm:px-[30px] py-[30px] md:px-[50px] px-[20px]'>
+          <form
+            className='flex flex-col items-center gap-y-5'
+            onSubmit={handleSubmit}
+          >
+            <div className='flex lg:flex-row content-center flex-col gap-5 self-stretch'>
+              <Textbox
+                label='Username:'
                 placeholder='Enter Your Username'
-                required
                 name='username'
                 type='text'
                 value={formData.username}
                 onChange={handleChange}
-                className='h-[50px] grow self-stretch rounded-[50px] bg-background pl-[30px]'
               />
-            </div>
-            <div className='flex w-8/12 flex-col items-center gap-5 md:flex-row'>
-              <span className='text-white select-none align-middle text-xl font-medium font-spline'>
-                Password:
-              </span>
-              <input
+              <Textbox
+                label='Password:'
                 placeholder='Enter Your Password'
-                required
                 name='password'
-                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
                 type='password'
                 value={formData.password}
                 onChange={handleChange}
-                className='h-[50px] self-stretch grow rounded-[50px] bg-background pl-[30px]'
               />
             </div>
-            <Link href={'/register'} className='font-spline'>Haven't Registered Yet?</Link>
-            <button className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red text-[20px] font-bold md:w-[200px] font-spline' type='submit'>
+            <Link href={'/register'} className='font-spline'>
+              Haven't Registered Yet? Sign In
+            </Link>
+            <button
+              className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px]'
+              type='submit'
+            >
               Login
             </button>
           </form>

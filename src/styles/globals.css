@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Istok+Web&display=swap');
 
@@ -31,6 +30,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+<<<<<<< HEAD
 
 .demo-container {
   width: 30vw;
@@ -68,3 +68,5 @@ body {
     transform:  translateX(100%) scaleX(0.5);
   }
 }
+=======
+>>>>>>> c3019654120828a7be245bf39bf4cb6dc95745ef
