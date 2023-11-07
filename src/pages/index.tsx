@@ -1,16 +1,19 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import Navigation from '@/components/navigation'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Inter, Outfit } from 'next/font/google';
+const inter = Inter({ subsets: ['latin'] });
+import LandingPage from './landingPage';
+import DashboardPage from './dashboardPage';
+import Navbar from '@/components/navbar';
+// import IncentiveCard from '@/components/incentive_card';
+import IncentivesCarousel from '@/components/carousel';
+import ResponsibilityCard_Symbol from '@/components/responsibility_card_symbol';
+import ResponsibilityCarousel from '@/components/responsibility_carousel';
+import ResponsibilityCard_Symbol_Bottom from '@/components/responsibility_card_Symbol_Bottom';
+import IncentivePage from './incentivesPage';
 
 export default function Home() {
   return (
-
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}>
-      <Navigation/>
-
+    <main>
+      <LandingPage />
     </main>
-  )
+  );
 }

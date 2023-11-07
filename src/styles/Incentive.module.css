@@ -1,0 +1,22 @@
+.container {
+  width: 400px;
+  height: 150px;
+  display: block;
+  border: 10px solid #c70039;
+  border-radius: 30px;
+  border-width: 3px;
+  border-color: #c70039;
+  background-color: #393646;
+  margin: 10px;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.slick-slide {
+  position: relative;
+  z-index: 1;
+  /* your choice,  but make sure z-index of active slide is higher than this value */
+}
+.slick-slide.slick-current {
+  z-index: 10;
+}

@@ -1,6 +1,6 @@
-
 import React, { FC, ReactNode } from 'react';
 import Footer from './footer';
+import contactUs from './contactus';
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,11 +9,11 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      {/* add <Navbar /> here */}
       <main>{children}</main>
+      {/* <contactUs/> */}
       <Footer />
     </>
   );
-}
+};
 
 export default Layout;
