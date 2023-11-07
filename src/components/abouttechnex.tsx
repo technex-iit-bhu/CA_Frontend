@@ -3,25 +3,20 @@ import { HeadingTexts } from './ourReach';
 import { ArrowRightIcon } from '../../node_modules/@chakra-ui/icons/dist/ArrowRight';
 
 
+
 const Carousel = () => {
   const images = [
-    'https://upload.wikimedia.org/wikipedia/en/7/7d/Adolf_Hitler_cph_3a48970.jpg',
-    'https://assets.editorial.aetnd.com/uploads/2022/11/napoleon-exile-gettyimages-1288489073.jpg',
-    'https://i.pinimg.com/564x/91/8e/7a/918e7a39b2d71bd85d3e26cf6b42a1ec.jpg',
+    'https://media.architecturaldigest.com/photos/641b2b8252ae61ead67e92d9/16:9/w_2240,c_limit/GettyImages-1474485122.jpg',
+    'https://dancingastronaut.com/wp-content/uploads/2022/06/imgonline-com-ua-twotoone-3h3siEMcoQW7.jpg',
+    'https://consequence.net/wp-content/uploads/2023/03/Taylor-Swift-1.jpeg',
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const previousImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
-
   useEffect(() => {
-    const interval = setInterval(nextImage, 45000); // Change images every 3 seconds
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 7000); // Change images every 7 seconds
 
     return () => {
       clearInterval(interval);
@@ -30,33 +25,24 @@ const Carousel = () => {
 
   return (
     <div className="carousel-container">
-      <div className="carousel-image" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh' }}>
-  <div className="carousel-image-container" style={{ display: 'flex', alignItems: 'center' }}>
-    <button onClick={previousImage} className='text-white'> <span style={{ fontSize: '24px', color: 'red' }}>{'<<'}</span>Prevoius </button>
-    <img
-      src={images[currentIndex]}
-      alt={`Image ${currentIndex + 1}`}
-      style={{
-        maxWidth: '100%',
-        height: '340px',
-        width: '560px',
-        objectFit: 'cover',
-        borderRadius: '29px',
-        margin: '0 20px',
-        border: '4px solid #7d0000',
-        boxShadow: '2px 2px 4px black',
-      }}
-    />
-    <button onClick={nextImage} className='text-white'>Next <span style={{ fontSize: '24px', color: 'red' }}>{'>>'}</span></button>
-  </div>
-</div>
-
+      <div className="carousel-image">
+        <img
+          src={images[currentIndex]}
+          alt={`Image ${currentIndex + 1}`}
+          style={{
+            width: '560px', 
+            height: '340px', 
+            borderRadius: '29px',
+            marginRight: '20px', 
+            marginBottom: '20px', 
+            border: '4px solid #900D09', 
+            boxShadow: '2px 2px 4px black',
+            transition:'transform ease' ,
+          }}
+        />
+      </div>
     </div>
   );
-  
-  
-
-
 };
 const AboutTechnex: FC = () => {
   return (
@@ -102,6 +88,8 @@ const AboutTechnex: FC = () => {
       </p>
     </div>
   </div>
+<br/>
+<br/>
 <br/>
   <div className="flex justify-center">
     <div className="centered-carousel">
