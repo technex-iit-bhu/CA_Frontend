@@ -16,10 +16,6 @@
     cursor: pointer;
     margin:10px;
 }
-
-.button:disabled{
-    background-color: rgb(124, 124, 124);
-}
 .active{
     scale:1.2;
     background-color: rgb(255, 157, 0);
