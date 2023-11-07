@@ -6,35 +6,33 @@ import Layout from '@/components/layout';
 import '../styles/style.css';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import loading from '@/components/loading';
 import LoadingPage from '@/components/loading';
+
 
 const spline = Spline_Sans({ subsets: ['latin'] });
 
-interface LoadingProps {
-  children: React.ReactNode;
-}
 
-function Loading({ children }: LoadingProps) {
+function Loading({ children }: any) {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const handleStart = (url: string) => url !== router.asPath && setIsLoading(true);
-    const handleComplete = (url: string) => url === router.asPath && setIsLoading(false);
+      const handleStart = (url:any) => (url !== router.asPath) && setLoading(true);
+      const handleComplete = (url:any) => (url === router.asPath) && setLoading(false);
 
-    router.events.on('routeChangeStart', handleStart);
-    router.events.on('routeChangeComplete', handleComplete);
-    router.events.on('routeChangeError', handleComplete);
+      router.events.on('routeChangeStart', handleStart)
+      router.events.on('routeChangeComplete', handleComplete)
+      router.events.on('routeChangeError', handleComplete)
 
-    return () => {
-      router.events.off('routeChangeStart', handleStart);
-      router.events.off('routeChangeComplete', handleComplete);
-      router.events.off('routeChangeError', handleComplete);
-    };
-  }, [router.events]);
+      return () => {
+          router.events.off('routeChangeStart', handleStart)
+          router.events.off('routeChangeComplete', handleComplete)
+          router.events.off('routeChangeError', handleComplete)
+      }
+  })
 
-  return isLoading ?  <LoadingPage /> : <>{children}</>;
+  return loading && (<LoadingPage/>);
 }
 
 export default function App({ Component, pageProps }: AppProps) {
