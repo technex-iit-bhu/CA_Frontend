@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from '../styles/adminPage.module.css';
 import TaskList from '@/components/AdminPage/TaskList';
-import TaskForm from '@/components/AdminPage/TaskForm';
+import { log } from 'console';
 function AdminPage() {
   const [token, setToken] = useState<string | null>(null);
   const [loginTime, setLoginTime] = useState<Date>(new Date());
@@ -11,11 +11,11 @@ function AdminPage() {
 
   return (
     <div className={styles.container}>
-      <Tabs
+      <Navbar
         options={options}
         selected={selected}
         setSelected={setSelected}
-      ></Tabs>
+      ></Navbar>
       {selected === 'login' ? (
         <Login
           token={token}
@@ -116,7 +116,7 @@ function Login({
   );
 }
 
-function Tabs({
+function Navbar({
   options,
   selected,
   setSelected,
@@ -145,5 +145,73 @@ function Tabs({
   );
 }
 
+function TaskForm({ token }: { token: string | null }) {
+  const [title, setTitle] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [points, setPoints] = useState<number>(0);
+
+  function handleSubmit() {
+    fetch(BACKEND_URL + 'tasks/', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'content-length': '0',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        title,
+        description,
+        points,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setTitle('');
+        setDescription('');
+        setPoints(0);
+      })
+      .catch((err) => console.log(err));
+  }
+
+  return (
+    <div>
+      <div>
+        <label>
+          Title:
+          <input
+            type='text'
+            className={styles.input}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          Description:
+          <textarea
+            value={description}
+            className={styles.input}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          Points:
+          <input
+            type='number'
+            className={styles.input}
+            value={points}
+            onChange={(e) => setPoints(Number(e.target.value))}
+          />
+        </label>
+        <br />
+        <button type='submit' className={styles.button} onClick={handleSubmit}>
+          Submit
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default AdminPage;
