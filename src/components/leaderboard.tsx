@@ -25,7 +25,6 @@ const Leaderboard = () => {
       </div> */}
 
       <div className='relative mb-[20px] flex flex-col bg-background pl-[10px] pt-[200px]'>
-        
         <div className=' absolute bottom-3 flex flex-col -space-y-14 ef:-space-y-16 sm:text-left md:-space-y-32 '>
           <span className='text-[62px] font-bold text-red opacity-20 ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
             Leaderboard
@@ -125,7 +124,7 @@ const Leaderboard = () => {
               style={{
                 backgroundColor: '#191919',
                 borderRadius: '50px',
-                boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
+                // boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
               }}
             >
               <div className='z-10 my-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
@@ -150,7 +149,7 @@ const Leaderboard = () => {
               style={{
                 backgroundColor: '#191919',
                 borderRadius: '50px',
-                boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
+                // boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
               }}
             >
               <div className='z-10 my-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
@@ -175,7 +174,7 @@ const Leaderboard = () => {
               style={{
                 backgroundColor: '#191919',
                 borderRadius: '50px',
-                boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
+                // boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
               }}
             >
               <div className='z-10 my-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>

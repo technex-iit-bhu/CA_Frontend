@@ -1,16 +1,29 @@
 // import { randomUUID } from "crypto";
 import { ClassNames } from '@emotion/react';
 import React, { FC } from 'react';
+import { useState } from 'react';
 // import { v4 as uuidv4 } from 'uuid';
 import 'src/styles/Incentive.module.css';
+import Image from 'next/image';
+import CardPopup from './cardpopup';
+
 
 interface CardProps {
-  title: any;
+  logo: any;
   text: string;
 }
 //
-const IncentiveCard: FC<CardProps> = ({ title, text }) => {
+const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
+  const [showFullDescription, setFullDescription] = useState(false);
+
+  const showFullDescriptionHandler = () => {
+    setFullDescription(!showFullDescription);
+  };
+  const description = showFullDescription
+    ? "Card me dikhega"
+    : text.slice(0, 150);
   return (
+    <main>
     <div
       style={{
         // width: 'max(10px, 20vw)',
@@ -29,22 +42,23 @@ const IncentiveCard: FC<CardProps> = ({ title, text }) => {
         overflow: 'hidden',
       }}
     >
-      <div style={{ margin: '10px' }}>
-        <h2 style={{ padding: '10px', color: 'white' }}>{title}</h2>
-        <p
+      <div style={{ margin: '10px' }} className='space-y-3'>
+        <div className='flex items-center justify-center p-1'>
+        <Image alt='companylogo' src={'/logoipsum-284.svg' || logo} width={100} height={100} />
+        </div>
+        <p className='px-3 py-1 pb-2'
           style={{
-            margin: '10px',
             // marginLeft: '5px',
-            fontSize: '10px',
+            fontSize: '15px',
             color: 'white',
-            padding: 'auto',
+            padding: '',
           }}
         >
-          {text}
+         {showFullDescription ? `${description}` : `${description}...` }
         </p>
       </div>
     </div>
+    </main>
   );
 };
-
 export default IncentiveCard;
