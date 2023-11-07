@@ -56,9 +56,7 @@ const Navbar: FC = () => {
             width={330}
             height={75}
           />
-          <p className='ml-36 text-[10px] text-[#A81F25] sm:ml-44 sm:text-[13px] sm:font-semibold font-istok' >
-          15-17 MAR 2024
-        </p>
+          
         </div>
       </Link>
 
