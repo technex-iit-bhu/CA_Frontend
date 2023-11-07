@@ -52,9 +52,11 @@ function Login({
   useEffect(() => {
     //update loginTime
     let k = setInterval(() => {
-      setLInterval(
-        Math.floor((new Date().getTime() - loginTime.getTime()) / 1000)
-      );
+      if (loginTime !== null) {
+        setLInterval(
+          Math.floor((new Date().getTime() - loginTime.getTime()) / 1000)
+        );
+      }
     }, 1000);
     return () => clearInterval(k);
   }, [loginTime]);
@@ -105,9 +107,7 @@ function Login({
       </div>
       <div>
         Status:
-        {token === null
-          ? 'Not logged in'
-          : `Logged in ${Math.floor(lInterval / 60)} minutes ago`}
+        {token === null ? 'Not logged in' : `Logged in ${Math.floor(lInterval/60)} minutes ago`}
       </div>
       <button className={styles.button} onClick={handleClick}>
         Login
@@ -144,5 +144,6 @@ function Tabs({
     </div>
   );
 }
+
 
 export default AdminPage;
