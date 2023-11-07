@@ -11,6 +11,7 @@ const BACKEND_URL = 'http://localhost:8000/'; //TODO: move to .env
 function TaskList({ token }: { token: string | null }) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>('');
   const fetchTasks = async () => {
     try {
       setLoading(true);
@@ -20,7 +21,20 @@ function TaskList({ token }: { token: string | null }) {
         },
       });
       const data = await response.json();
-      setTasks([...data]); //handles the case when data is null
+      console.log(data);
+      if (data.splice === undefined) //there has been an error as data is not an array
+      {
+        setMessage(data.detail);
+        setTasks([]); 
+      }
+      else {
+        //sort data by dataelement.id
+        data.sort((a: Task, b: Task) =>
+          a.id > b.id ? 1 : b.id > a.id ? -1 : 0
+        );
+        setTasks([...data]); //handles the case when data is null
+        setMessage(data.length+" tasks found.")
+      }
     } catch (error) {
       console.error('Error fetching tasks:', error);
       setTasks([]);
@@ -39,7 +53,7 @@ function TaskList({ token }: { token: string | null }) {
 
   return (
     <div>
-        <h2>Click on update button after making changes to a task.</h2>
+      <h2>Click on update button after making changes to a task.</h2>
       <table>
         <thead>
           <tr>
@@ -55,13 +69,17 @@ function TaskList({ token }: { token: string | null }) {
               key={task.id}
               task={task}
               handleRefresh={handleRefresh}
+              token={token}
             ></TaskItem>
           ))}
           {tasks.length === 0 && !loading && (
             <tr>
-              <td colSpan={5}>No tasks found. Try logging in again.</td>
+              <td colSpan={5}>No tasks found</td>
             </tr>
           )}
+          <p style={{
+            color:"red"
+          }}>{message}</p>
         </tbody>
       </table>
       <button onClick={handleRefresh} className={styless.button}>
@@ -74,24 +92,57 @@ function TaskList({ token }: { token: string | null }) {
 function TaskItem({
   task,
   handleRefresh,
+  token,
 }: {
   task: Task;
   handleRefresh: Function;
+  token: string | null;
 }) {
   const [title, setTitle] = useState<string>(task.title);
   const [description, setDescription] = useState<string>(task.description);
   const [points, setPoints] = useState<number>(task.points);
 
-  let edited=title!==task.title || description!==task.description || points!==task.points;
+  let edited =
+    title !== task.title ||
+    description !== task.description ||
+    points !== task.points;
 
-  function handleDeleteTask(id: number) {
-    //todo make fetch request
-    handleRefresh();
+  async function handleDeleteTask() {
+    try {
+      const response = await fetch(BACKEND_URL + 'tasks/' + task.id + '/', {
+        method: 'DELETE',
+        headers: {
+          'content-type': 'application/json',
+          'content-length': '0',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (response.ok) handleRefresh();
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-  function handleUpdateTask(){
-    //todo make fetch request
-    handleRefresh();
+  async function handleUpdateTask() {
+    try {
+      const response = await fetch(BACKEND_URL + 'tasks/' + task.id + '/', {
+        method: 'PATCH',
+        headers: {
+          'content-type': 'application/json',
+          'content-length': '0',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          title,
+          description,
+          points,
+        }),
+      });
+
+      if (response.ok) handleRefresh();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -118,17 +169,14 @@ function TaskItem({
       <td className={styles.td}>
         <button
           className={styless.button}
-          onClick={() => handleDeleteTask(task.id)}
+          onClick={() => handleUpdateTask()}
           disabled={!edited}
         >
           update
         </button>
       </td>
       <td className={styles.td}>
-        <button
-          className={styless.button}
-          onClick={() => handleDeleteTask(task.id)}
-        >
+        <button className={styless.button} onClick={() => handleDeleteTask()}>
           delete
         </button>
       </td>
