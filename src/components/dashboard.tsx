@@ -76,27 +76,8 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          {/* <div className='z-10 mb-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px] '>
-            <p className='text-white select-none self-center font-spline text-[20px] font-bold md:self-start'>
-              Next Milestone
-            </p>
-            <p className='text-white w-fit select-none self-center font-spline text-[15px] md:w-4/6 md:self-start'>
-              Go and find a girl you virgin. Go and earn some money, so that
-              atleast someone is attracted to your money if not YOU !
-            </p>
-            <button className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] md:self-end'>
-              Courses
-            </button>
-          </div> */}
           <div className='z-10 mb-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
-            <p className='text-white select-none self-center font-spline text-[20px] font-bold md:self-start'>
-              Rewards at the end of the CA Program
-            </p>
-            <p className='text-white w-fit select-none self-center font-spline text-[15px] md:w-4/6 md:self-start'>
-              istg youre still here ???? bitch go study, GSoC nikalo jaake, yeh
-              CA, VA tab banna jab DU ke ho.{' '}
-            </p>
-            <button className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] md:self-end'>
+            <button className='text-white my-[10px] h-[40px] w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] md:self-end'>
               Awards
             </button>
           </div>

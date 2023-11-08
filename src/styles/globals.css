@@ -35,7 +35,7 @@ body {
   width: 30vw;
   margin-top: 100px;
   position: relative;
-  bottom:10vh;
+  bottom: 10vh;
 }
 
 .progress-bar {
@@ -44,7 +44,7 @@ body {
   width: 100%;
   overflow: hidden;
   position: relative;
-  bottom:10vw;
+  bottom: 10vw;
   border-radius: 40px;
 }
 
@@ -58,13 +58,12 @@ body {
 
 @keyframes indeterminateAnimation {
   0% {
-    transform:  translateX(0) scaleX(0);
+    transform: translateX(0) scaleX(0);
   }
   40% {
-    transform:  translateX(0) scaleX(0.4);
+    transform: translateX(0) scaleX(0.4);
   }
   100% {
-    transform:  translateX(100%) scaleX(0.5);
+    transform: translateX(100%) scaleX(0.5);
   }
 }
-

@@ -25,16 +25,17 @@ function TaskForm({ token }: { token: string | null }) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if(data.id === undefined) throw new Error(data.detail);
-        setMessage('Task created with title: ' + data.title + ' and id: ' + data.id + '.');
+        if (data.id === undefined) throw new Error(data.detail);
+        setMessage(
+          'Task created with title: ' + data.title + ' and id: ' + data.id + '.'
+        );
         setTitle('');
         setDescription('');
         setPoints(0);
       })
-      .catch((err) =>{
+      .catch((err) => {
         console.log(err);
-        setMessage("Error: " + err);
-      
+        setMessage('Error: ' + err);
       });
   }
 
@@ -84,6 +85,5 @@ function TaskForm({ token }: { token: string | null }) {
     </div>
   );
 }
-
 
 export default TaskForm;

@@ -20,7 +20,7 @@ export default async function handler(
 
       if (response.ok) {
         const data = await response.json();
-        res.status(200).json(data); // Forward the response from the external API
+        res.status(200).json(data); // Forward the response from the API
       } else {
         res.status(response.status).end();
       }

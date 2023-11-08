@@ -56,7 +56,6 @@ const Navbar: FC = () => {
             width={330}
             height={75}
           />
-          
         </div>
       </Link>
 

@@ -51,13 +51,13 @@ const Login = () => {
           <span className='text-white select-none'>Login</span>
         </div>
       </div>
-      <div className='pb-[100px] self-center px-[50px] lg:px-[100px] xl:px-[400px]'>
-        <div className='z-0 rounded-[50px] bg-grey sm:px-[30px] py-[30px] md:px-[50px] px-[20px]'>
+      <div className='self-center px-[50px] pb-[100px] lg:px-[100px] xl:px-[400px]'>
+        <div className='z-0 rounded-[50px] bg-grey px-[20px] py-[30px] sm:px-[30px] md:px-[50px]'>
           <form
             className='flex flex-col items-center gap-y-5'
             onSubmit={handleSubmit}
           >
-            <div className='flex lg:flex-row content-center flex-col gap-5 self-stretch'>
+            <div className='flex flex-col content-center gap-5 self-stretch lg:flex-row'>
               <Textbox
                 label='Username:'
                 placeholder='Enter Your Username'

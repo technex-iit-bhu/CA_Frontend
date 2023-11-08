@@ -22,18 +22,17 @@ function TaskList({ token }: { token: string | null }) {
       });
       const data = await response.json();
       console.log(data);
-      if (data.splice === undefined) //there has been an error as data is not an array
-      {
+      if (data.splice === undefined) {
+        //there has been an error as data is not an array
         setMessage(data.detail);
-        setTasks([]); 
-      }
-      else {
+        setTasks([]);
+      } else {
         //sort data by dataelement.id
         data.sort((a: Task, b: Task) =>
           a.id > b.id ? 1 : b.id > a.id ? -1 : 0
         );
         setTasks([...data]); //handles the case when data is null
-        setMessage(data.length+" tasks found.")
+        setMessage(data.length + ' tasks found.');
       }
     } catch (error) {
       console.error('Error fetching tasks:', error);
@@ -77,9 +76,13 @@ function TaskList({ token }: { token: string | null }) {
               <td colSpan={5}>No tasks found</td>
             </tr>
           )}
-          <p style={{
-            color:"red"
-          }}>{message}</p>
+          <p
+            style={{
+              color: 'red',
+            }}
+          >
+            {message}
+          </p>
         </tbody>
       </table>
       <button onClick={handleRefresh} className={styless.button}>
