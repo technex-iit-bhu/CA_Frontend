@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import Textbox from '../components/textbox';
+import Navbar from './navbar';
 
 const Login = () => {
   const [modalContent, setModalContent] = useState('');
@@ -46,6 +47,9 @@ const Login = () => {
 
   return (
     <div className=''>
+        <div className='z-10 pb-96 lg:pb-64 xl:pb-96 absolute w-full'>
+          <Navbar />
+        </div>
       <div className='relative bg-background pt-[100px]'>
         <div className='bottom-[10px] left-5 p-10 text-center text-5xl lg:text-7xl'>
           <span className='text-white select-none'>Login</span>
