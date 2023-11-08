@@ -14,8 +14,6 @@ export default function LandingPage() {
       <AboutTechnex />
       <OurReach />
       <Testimonials />
-      <FAQ />
-      
     </>
   );
 }

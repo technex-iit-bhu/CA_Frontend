@@ -6,7 +6,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 const navLinks = [
   { title: 'Incentives', href: '/incentivesPage' },
   { title: 'Contact Us', href: '/contactUsPage' },
-  { title: 'FAQs', href: '/faqs' },
+  { title: 'FAQs', href: '/faqsPage' },
   { title: 'Leaderboard', href: '/leaderboard' },
 ];
 const Hamburger = () => {
