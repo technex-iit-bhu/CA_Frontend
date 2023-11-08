@@ -15,7 +15,7 @@ export default function LandingPage() {
       <OurReach />
       <Testimonials />
       <FAQ />
-      <ContactUs />
+      
     </>
   );
 }

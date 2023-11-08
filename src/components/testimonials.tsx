@@ -7,9 +7,7 @@ import {
   Text,
   useMediaQuery,
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-import Testes from './testes';
-import { relative } from 'path';
+import Testes from './testemonialCard';
 
 interface CarouselData {
   title: string;
@@ -45,9 +43,7 @@ const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
   const [isLargerThan500] = useMediaQuery('(min-width: 500px)');
-  const fontSize = isLargerThan500 ? '80px' : '12vw';
   const height3 = isLargerThan500 ? '100px' : '14vw';
-  const fontSize1 = isLargerThan500 ? '17px' : '10px';
   const height1 = isLargerThan900 ? '420px' : '60vw';
   const height2 = isLargerThan900 ? '400px' : '60vw';
   const padding = isLargerThan900 ? '2vw' : '6vw';

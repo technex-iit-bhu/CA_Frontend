@@ -5,7 +5,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 const navLinks = [
   { title: 'Incentives', href: '/incentivesPage' },
-  { title: 'Contact Us', href: '/contactus' },
+  { title: 'Contact Us', href: '/contactUsPage' },
   { title: 'FAQs', href: '/faqs' },
   { title: 'Leaderboard', href: '/leaderboard' },
 ];
@@ -76,7 +76,7 @@ const Hamburger = () => {
                 className='flex h-full flex-col items-center justify-center gap-5 '
               >
                 <motion.div variants={mobileLinkVars}>
-                  <Link href={'/about'} className='text-4xl text-[#A81F25]'>
+                  <Link href={'/'} className='text-4xl text-[#A81F25]'>
                     About
                   </Link>
                 </motion.div>
