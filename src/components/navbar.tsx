@@ -24,9 +24,9 @@ const Navbar: FC = () => {
       setContactusColor('white');
       setFaqColor('white');
       setLeaderBoardColor('white');
-    } else if (window.location.pathname === '/contactus') {
+    } else if (window.location.pathname === '/contactUsPage') {
       setAboutColor('white');
-      setIncentivesColor('red');
+      setIncentivesColor('white');
       setContactusColor('red');
       setFaqColor('white');
       setLeaderBoardColor('white');
@@ -74,7 +74,7 @@ const Navbar: FC = () => {
           Incentives
         </Link>
         <Link
-          href={'/contactus'}
+          href={'/contactUsPage'}
           className={`relative text-${contactusColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#0087FF] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
         >
           ContactUs
