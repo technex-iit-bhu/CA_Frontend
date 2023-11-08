@@ -43,7 +43,7 @@ const Cards: React.FC<Props> = ({
 
   return (
     <div className='relative mb-5 flex items-center justify-center'>
-      <div className='from-gray-400 to-gray-200 relative mb-8 w-full content-center rounded-xl bg-grey bg-gradient-to-b p-5 md:w-1/2 lg:w-1/3'>
+      <div className='from-gray-400 to-gray-200 relative mb-8 w-full content-center rounded-xl bg-grey bg-gradient-to-b p-6 md:w-1/2 lg:w-1/3'>
         <div className='flex h-full'>
           <div className='h-1/3 w-1/3 rounded-xl bg-black'>
             <img src='' alt='' />
@@ -124,7 +124,7 @@ const Cards: React.FC<Props> = ({
             <MenuItem
               minH='48px'
               maxW='350px'
-              className='menuItem flex-shrink-1 flex'
+              className='menuItem bg-[#A81F25] p-[10px] flex-shrink-1 flex md:w-1/2 lg:w-1/3'
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
             </MenuItem>
