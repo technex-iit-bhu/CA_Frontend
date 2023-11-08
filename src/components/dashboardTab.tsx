@@ -67,7 +67,7 @@ const DashboardTab = () => {
         title={title}
         description={description}
         taskNumber={`${index + 1}`}
-        month={`${monthNames[now.getMonth()]}`}
+        month={`${monthNames[now.getMonth() + 1]}`}
       />
     ));
   };
