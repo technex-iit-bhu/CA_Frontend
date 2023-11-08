@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 interface Props {
   date: string;
   points: string;
-  text: string;
-  heading: string;
+  description: string;
+  title: string;
   taskNumber: string;
   month: string;
 }
@@ -16,8 +16,8 @@ interface Props {
 const Cards: React.FC<Props> = ({
   date,
   points,
-  text,
-  heading,
+  description,
+  title,
   taskNumber,
   month,
 }) => {
@@ -53,9 +53,9 @@ const Cards: React.FC<Props> = ({
               Month:{month} | Task:{taskNumber}
             </p>
             <p className='text-left font-bold md:text-xl lg:text-2xl'>
-              {heading}
+              {title}
             </p>
-            <p className='text-left text-xs md:text-sm'>{text}</p>
+            <p className='text-left text-xs md:text-sm'>{description}</p>
             <div className='flex justify-between'>
               <p className='text-left text-xs md:text-sm'>Expires on: {date}</p>
               <p className='text-left text-xs md:text-sm'>Points: {points}</p>
@@ -124,7 +124,7 @@ const Cards: React.FC<Props> = ({
             <MenuItem
               minH='48px'
               maxW='350px'
-              className='menuItem bg-[#A81F25] p-[10px] flex-shrink-1 flex md:w-1/2 lg:w-1/3'
+              className='menuItem flex-shrink-1 flex bg-[#A81F25] p-[10px] md:w-1/2 lg:w-1/3'
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
             </MenuItem>

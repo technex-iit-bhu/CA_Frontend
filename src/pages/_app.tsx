@@ -8,9 +8,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import LoadingPage from '@/components/loading';
 
-
 const spline = Spline_Sans({ subsets: ['latin'] });
-
 
 function Loading({ children }: any) {
   const router = useRouter();
@@ -18,35 +16,39 @@ function Loading({ children }: any) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-      const handleStart = (url:any) => (url !== router.asPath) && setLoading(true);
-      const handleComplete = (url:any) => (url === router.asPath) && setLoading(false);
+    const handleStart = (url: any) => url !== router.asPath && setLoading(true);
+    const handleComplete = (url: any) =>
+      url === router.asPath && setLoading(false);
 
-      router.events.on('routeChangeStart', handleStart)
-      router.events.on('routeChangeComplete', handleComplete)
-      router.events.on('routeChangeError', handleComplete)
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleComplete);
 
-      return () => {
-          router.events.off('routeChangeStart', handleStart)
-          router.events.off('routeChangeComplete', handleComplete)
-          router.events.off('routeChangeError', handleComplete)
-      }
-  })
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+      router.events.off('routeChangeError', handleComplete);
+    };
+  });
 
-  return loading && (<LoadingPage/>);
+  return loading && <LoadingPage />;
 }
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-    <Loading/>
-    <main className={spline.className}>
-      <Layout>
-        <Head>
-          <meta name='viewport' content='width=device-width, initial-scale=1' />
-        </Head>
-        <Component {...pageProps} />
-      </Layout>
-    </main>
-  </>
+      <Loading />
+      <main className={spline.className}>
+        <Layout>
+          <Head>
+            <meta
+              name='viewport'
+              content='width=device-width, initial-scale=1'
+            />
+          </Head>
+          <Component {...pageProps} />
+        </Layout>
+      </main>
+    </>
   );
 }

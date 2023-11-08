@@ -26,7 +26,7 @@ const Loading = () => {
         <span className='scale-50 text-[60px] font-bold tracking-[.25em] text-red opacity-50 ef:text-[6rem] md:text-[9rem] lg:text-[9rem]'>
           LOADING
         </span>
-        <span className='scale-50 text-[60px] font-bold tracking-[.25em] relative bottom-[85px] right-[7px] text-red opacity-10 ef:bottom-[140px] ef:right-[8px] ef:text-[6rem] md:bottom-[205px] md:right-[10px] md:text-[9rem] lg:bottom-[208px] lg:right-[10px] lg:text-[9rem]'>
+        <span className='relative bottom-[85px] right-[7px] scale-50 text-[60px] font-bold tracking-[.25em] text-red opacity-10 ef:bottom-[140px] ef:right-[8px] ef:text-[6rem] md:bottom-[205px] md:right-[10px] md:text-[9rem] lg:bottom-[208px] lg:right-[10px] lg:text-[9rem]'>
           LOADING
         </span>
         {/* <Progress colorScheme='green' size='md' isIndeterminate /> */}
