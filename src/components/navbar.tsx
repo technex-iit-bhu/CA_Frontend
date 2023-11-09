@@ -32,13 +32,13 @@ const Navbar: FC = () => {
       setLeaderBoardColor('white');
     } else if (window.location.pathname === '/faqs') {
       setAboutColor('white');
-      setIncentivesColor('red');
+      setIncentivesColor('white');
       setContactusColor('white');
       setFaqColor('red');
       setLeaderBoardColor('white');
     } else if (window.location.pathname === '/leaderboard') {
       setAboutColor('white');
-      setIncentivesColor('red');
+      setIncentivesColor('white');
       setContactusColor('white');
       setFaqColor('white');
       setLeaderBoardColor('red');
