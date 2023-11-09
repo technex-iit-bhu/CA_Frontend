@@ -10,9 +10,7 @@ const IncentivePage = () => {
     <div>
 
 
-       <div className='z-10 pb-96 lg:pb-64 xl:pb-96 absolute w-full'>
-          <Navbar />
-        </div>
+       
       {/* <Navbar></Navbar> */}
       <Incentive></Incentive>
 

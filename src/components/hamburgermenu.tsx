@@ -2,7 +2,6 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import Incentive from './incentives';
 
 
 const Hamburger = () => {
@@ -54,8 +53,15 @@ const Hamburger = () => {
   const [leaderboardColor, setLeaderBoardColor] = useState('white');
 
 
+  const navLinks = [
+    { color: incentivesColor, title: 'Incentives', href: '/incentivesPage' },
+    { color: contactusColor, title: 'Contact Us', href: '/contactUsPage' },
+    { color: faqColor, title: 'FAQs', href: '/faqs' },
+    { color: leaderboardColor, title: 'Leaderboard', href: '/leaderboard' },
+  ];
+
   useEffect(() => {
-    if (window.location.pathname === '/about' || window.location.pathname == '/') {
+    if (window.location.pathname === '/index') {
       setAboutColor('red');
       setIncentivesColor('white');
       setContactusColor('white');
@@ -67,7 +73,7 @@ const Hamburger = () => {
       setContactusColor('white');
       setFaqColor('white');
       setLeaderBoardColor('white');
-    } else if (window.location.pathname === '/contactus') {
+    } else if (window.location.pathname === '/contactUsPage') {
       setAboutColor('white');
       setIncentivesColor('white');
       setContactusColor('red');
@@ -87,13 +93,6 @@ const Hamburger = () => {
       setLeaderBoardColor('red');
     }
   }, []);
-
-  const navLinks = [
-    { color: incentivesColor, title: 'Incentives', href: '/incentivesPage' },
-    { color: contactusColor, title: 'Contact Us', href: '/contactus' },
-    { color: faqColor, title: 'FAQs', href: '/faqs' },
-    { color: leaderboardColor, title: 'Leaderboard', href: '/leaderboard' },
-  ];
 
   return (
     <header className='z-20'>
@@ -121,7 +120,7 @@ const Hamburger = () => {
                 className='flex h-full flex-col items-center justify-center gap-5 '
               >
                 <motion.div variants={mobileLinkVars}>
-                  <Link href={'/'} className={`text-4xl text-${aboutColor}`}>
+                <Link href={'/'} className={`text-4xl text-${aboutColor}`}>
                     About
                   </Link>
                 </motion.div>
@@ -129,9 +128,9 @@ const Hamburger = () => {
                   return (
                     <div className='overflow-hidden' key={index}>
                       <MobileNavLink
-                        color={link.color}
                         key={index}
                         title={link.title}
+                        color={link.color}
                         href={link.href}
                       />
                     </div>
@@ -170,7 +169,7 @@ const mobileLinkVars = {
     },
   },
 };
-const MobileNavLink = ({ color, title, href }: { color: any, title: string; href: string }) => {
+const MobileNavLink = ({ color, title, href }: { color:any, title: string; href: string }) => {
   return (
     <motion.div
       variants={mobileLinkVars}
