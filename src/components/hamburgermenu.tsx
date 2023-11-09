@@ -1,9 +1,14 @@
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
-
+const navLinks = [
+  { title: 'Incentives', href: '/incentivesPage' },
+  { title: 'Contact Us', href: '/contactUsPage' },
+  { title: 'FAQs', href: '/faqs' },
+  { title: 'Leaderboard', href: '/leaderboard' },
+];
 const Hamburger = () => {
   const [open, setOpen] = useState(false);
   const toggleMenu = () => {
@@ -45,55 +50,6 @@ const Hamburger = () => {
     },
   };
 
-
-  const [aboutColor, setAboutColor] = useState('red');
-  const [incentivesColor, setIncentivesColor] = useState('white');
-  const [contactusColor, setContactusColor] = useState('white');
-  const [faqColor, setFaqColor] = useState('white');
-  const [leaderboardColor, setLeaderBoardColor] = useState('white');
-
-
-  const navLinks = [
-    { color: incentivesColor, title: 'Incentives', href: '/incentivesPage' },
-    { color: contactusColor, title: 'Contact Us', href: '/contactUsPage' },
-    { color: faqColor, title: 'FAQs', href: '/faqs' },
-    { color: leaderboardColor, title: 'Leaderboard', href: '/leaderboard' },
-  ];
-
-  useEffect(() => {
-    if (window.location.pathname === '/index') {
-      setAboutColor('red');
-      setIncentivesColor('white');
-      setContactusColor('white');
-      setFaqColor('white');
-      setLeaderBoardColor('white');
-    } else if (window.location.pathname === '/incentivesPage') {
-      setAboutColor('white');
-      setIncentivesColor('red');
-      setContactusColor('white');
-      setFaqColor('white');
-      setLeaderBoardColor('white');
-    } else if (window.location.pathname === '/contactUsPage') {
-      setAboutColor('white');
-      setIncentivesColor('white');
-      setContactusColor('red');
-      setFaqColor('white');
-      setLeaderBoardColor('white');
-    } else if (window.location.pathname === '/faqs') {
-      setAboutColor('white');
-      setIncentivesColor('white');
-      setContactusColor('white');
-      setFaqColor('red');
-      setLeaderBoardColor('white');
-    } else if (window.location.pathname === '/leaderboard') {
-      setAboutColor('white');
-      setIncentivesColor('white');
-      setContactusColor('white');
-      setFaqColor('white');
-      setLeaderBoardColor('red');
-    }
-  }, []);
-
   return (
     <header className='z-20'>
       <div className='text-md text-white cursor-pointer' onClick={toggleMenu}>
@@ -120,7 +76,7 @@ const Hamburger = () => {
                 className='flex h-full flex-col items-center justify-center gap-5 '
               >
                 <motion.div variants={mobileLinkVars}>
-                <Link href={'/'} className={`text-4xl text-${aboutColor}`}>
+                  <Link href={'/'} className='text-4xl text-[#A81F25]'>
                     About
                   </Link>
                 </motion.div>
@@ -130,7 +86,6 @@ const Hamburger = () => {
                       <MobileNavLink
                         key={index}
                         title={link.title}
-                        color={link.color}
                         href={link.href}
                       />
                     </div>
@@ -169,13 +124,13 @@ const mobileLinkVars = {
     },
   },
 };
-const MobileNavLink = ({ color, title, href }: { color:any, title: string; href: string }) => {
+const MobileNavLink = ({ title, href }: { title: string; href: string }) => {
   return (
     <motion.div
       variants={mobileLinkVars}
       className='text-white text-3xl uppercase'
     >
-      <Link className={`text-4xl text-${color}`} href={href}>{title}</Link>
+      <Link href={href}>{title}</Link>
     </motion.div>
   );
 };
