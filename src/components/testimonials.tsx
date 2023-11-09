@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   Box,
-  Button,
   Center,
-  Heading,
-  Text,
   useMediaQuery,
 } from '@chakra-ui/react';
 import Testes from './testemonialCard';
@@ -72,47 +69,49 @@ const Testimonials: React.FC = () => {
           </span>
         </Box>
       </Center>
-      <div style={{ position: 'relative', height: `${height1}`, width: '90%' }}>
-        <Box
-          position='relative'
-          height={height2}
-          width='auto'
-          overflow='hidden'
-          id='box'
-          paddingLeft={padding}
-        >
+      <Center>
+        <div style={{ position: 'relative', height: `${height1}`, width: '90%' }}>
           <Box
-            transition='transform 0.5s ease'
-            transform={`translateY(-${
-              (currentIndex * 100) / carouselData.length
-            }%)`}
-            position='absolute'
-            width='100%'
-            display='flex'
-            flexDirection='column'
+            position='relative'
+            height={height2}
+            width='auto'
+            overflow='hidden'
+            id='box'
+            paddingLeft={padding}
           >
-            {carouselData.map((item, currentIndex) => (
-              <Testes
-                key={currentIndex}
-                title={carouselData[currentIndex]['title']}
-                description={carouselData[currentIndex]['description']}
-                imageSrc={carouselData[currentIndex]['imageSrc']}
-              />
-            ))}
+            <Box
+              transition='transform 0.5s ease'
+              transform={`translateY(-${
+                (currentIndex * 100) / carouselData.length
+              }%)`}
+              position='absolute'
+              width='100%'
+              display='flex'
+              flexDirection='column'
+            >
+              {carouselData.map((item, currentIndex) => (
+                <Testes
+                  key={currentIndex}
+                  title={carouselData[currentIndex]['title']}
+                  description={carouselData[currentIndex]['description']}
+                  imageSrc={carouselData[currentIndex]['imageSrc']}
+                />
+              ))}
+            </Box>
           </Box>
-        </Box>
-        <Center>
-          <div
-            style={{
-              height: '3px',
-              borderRadius: '3px',
-              background: '#a81f25',
-              width: '80%',
-              marginTop: '3vw',
-            }}
-          ></div>
-        </Center>
-      </div>
+          <Center>
+            <div
+              style={{
+                height: '3px',
+                borderRadius: '3px',
+                background: '#a81f25',
+                width: '80%',
+                marginTop: '3vw',
+              }}
+            ></div>
+          </Center>
+        </div>
+      </Center>
     </div>
   );
 };
