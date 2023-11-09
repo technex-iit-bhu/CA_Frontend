@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
   Box,
-  Button,
   Center,
-  Heading,
-  Text,
   useMediaQuery,
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-import Testes from './testes';
-import { relative } from 'path';
+import Testes from './testemonialCard';
 
 interface CarouselData {
   title: string;
@@ -45,9 +40,7 @@ const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
   const [isLargerThan500] = useMediaQuery('(min-width: 500px)');
-  const fontSize = isLargerThan500 ? '80px' : '12vw';
   const height3 = isLargerThan500 ? '100px' : '14vw';
-  const fontSize1 = isLargerThan500 ? '17px' : '10px';
   const height1 = isLargerThan900 ? '420px' : '60vw';
   const height2 = isLargerThan900 ? '400px' : '60vw';
   const padding = isLargerThan900 ? '2vw' : '6vw';
@@ -76,47 +69,49 @@ const Testimonials: React.FC = () => {
           </span>
         </Box>
       </Center>
-      <div style={{ position: 'relative', height: `${height1}`, width: '90%' }}>
-        <Box
-          position='relative'
-          height={height2}
-          width='auto'
-          overflow='hidden'
-          id='box'
-          paddingLeft={padding}
-        >
+      <Center>
+        <div style={{ position: 'relative', height: `${height1}`, width: '90%' }}>
           <Box
-            transition='transform 0.5s ease'
-            transform={`translateY(-${
-              (currentIndex * 100) / carouselData.length
-            }%)`}
-            position='absolute'
-            width='100%'
-            display='flex'
-            flexDirection='column'
+            position='relative'
+            height={height2}
+            width='auto'
+            overflow='hidden'
+            id='box'
+            paddingLeft={padding}
           >
-            {carouselData.map((item, currentIndex) => (
-              <Testes
-                key={currentIndex}
-                title={carouselData[currentIndex]['title']}
-                description={carouselData[currentIndex]['description']}
-                imageSrc={carouselData[currentIndex]['imageSrc']}
-              />
-            ))}
+            <Box
+              transition='transform 0.5s ease'
+              transform={`translateY(-${
+                (currentIndex * 100) / carouselData.length
+              }%)`}
+              position='absolute'
+              width='100%'
+              display='flex'
+              flexDirection='column'
+            >
+              {carouselData.map((item, currentIndex) => (
+                <Testes
+                  key={currentIndex}
+                  title={carouselData[currentIndex]['title']}
+                  description={carouselData[currentIndex]['description']}
+                  imageSrc={carouselData[currentIndex]['imageSrc']}
+                />
+              ))}
+            </Box>
           </Box>
-        </Box>
-        <Center>
-          <div
-            style={{
-              height: '3px',
-              borderRadius: '3px',
-              background: '#a81f25',
-              width: '80%',
-              marginTop: '3vw',
-            }}
-          ></div>
-        </Center>
-      </div>
+          <Center>
+            <div
+              style={{
+                height: '3px',
+                borderRadius: '3px',
+                background: '#a81f25',
+                width: '80%',
+                marginTop: '3vw',
+              }}
+            ></div>
+          </Center>
+        </div>
+      </Center>
     </div>
   );
 };
