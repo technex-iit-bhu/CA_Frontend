@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, useState, useEffect } from 'react';
 import Footer from './footer';
-import contactUs from './contactus';
+import contactUs from './contactUs';
 import Navbar from './navbar';
 
 

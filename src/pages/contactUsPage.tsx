@@ -1,4 +1,4 @@
-import ContactUs from '../components/contactus';
+import ContactUs from '../components/contactUs';
 import Navbar from '../components/navbar'
 import React from 'react';
 import Tnc from '../components/tnc';
