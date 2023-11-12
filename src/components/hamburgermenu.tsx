@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
-
 const Hamburger = () => {
   const [open, setOpen] = useState(false);
   const toggleMenu = () => {
@@ -84,8 +83,6 @@ const Hamburger = () => {
       setLeaderBoardColor('red');
     }
   }, []);
-
-
 
   const navLinks = [
     { color: incentivesColor, title: 'Incentives', href: '/incentivesPage' },
@@ -169,13 +166,23 @@ const mobileLinkVars = {
     },
   },
 };
-const MobileNavLink = ({ color, title, href }: { color:any, title: string; href: string }) => {
+const MobileNavLink = ({
+  color,
+  title,
+  href,
+}: {
+  color: any;
+  title: string;
+  href: string;
+}) => {
   return (
     <motion.div
       variants={mobileLinkVars}
       className='text-white text-3xl uppercase'
     >
-      <Link className={`text-${color} text-3xl uppercase`} href={href}>{title}</Link>
+      <Link className={`text-${color} text-3xl uppercase`} href={href}>
+        {title}
+      </Link>
     </motion.div>
   );
 };
