@@ -13,7 +13,7 @@ const Landingpage: FC = () => {
         <div className='z-10 pb-96 lg:pb-64 xl:pb-96 '>
           <Navbar />
         </div>
-       
+
         <div className='mb-5 ml-2 sm:ml-10 md:ml-20 lg:ml-40'>
           <h1 className='pb-1 font-spline text-3xl font-bold sm:pb-5 sm:text-6xl'>
             Become Our{' '}
