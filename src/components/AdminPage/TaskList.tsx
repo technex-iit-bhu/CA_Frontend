@@ -60,6 +60,8 @@ function TaskList({ token }: { token: string | null }) {
             <th className={styles.th}>Title</th>
             <th className={styles.th}>Description</th>
             <th className={styles.th}>Points</th>
+            <th className={styles.th}>Update</th>
+            <th className={styles.th}>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -152,11 +154,13 @@ function TaskItem({
   return (
     <tr key={task.id}>
       <td className={styles.td}>{task.id}</td>
-      <input
-        className={styles.td}
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      ></input>
+      <td>
+        <input
+          className={styles.textarea}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        ></input>
+      </td>
       <td className={styles.td}>
         <textarea
           className={styles.textarea}

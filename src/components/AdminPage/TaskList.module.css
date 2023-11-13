@@ -2,13 +2,14 @@
     color:black;
 }
 .th{
-    border:1px solid black;
+    border:1px solid rgb(224, 224, 224);
 }
 .td{
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
     text-align: center;
     width: fit-content;
+    color:rgb(105, 50, 50);
 }
 
 .button {

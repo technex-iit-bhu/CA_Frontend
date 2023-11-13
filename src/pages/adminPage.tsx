@@ -32,8 +32,8 @@ function Login({
   token: string | null;
   setToken: Function;
 }) {
-  const [username, setUsername] = useState<string>('fda');
-  const [password, setPassword] = useState<string>('');
+  const [username, setUsername] = useState<string>('ADMIN');
+  const [password, setPassword] = useState<string>('strong__password_123');
   const [message, setMessage] = useState<string>('');
 
   function handleClick() {

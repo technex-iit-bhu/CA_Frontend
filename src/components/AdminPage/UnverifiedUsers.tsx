@@ -61,12 +61,13 @@ const UserTable = ({ token }: { token: string | null }) => {
       .then((k) => {
         if (k.status === 200) {
           fetchUnverifiedUsers();
+          setErrorMessage('');
         } else
           throw new Error(
             'Error verifying user ' + k.status + ' ' + k.statusText
           );
       })
-      .catch((err) => setErrorMessage('' + err)).finally(()=>setErrorMessage(''));
+      .catch((err) => setErrorMessage('' + err));
   }
 
   return (
@@ -87,6 +88,7 @@ const UserTable = ({ token }: { token: string | null }) => {
             <th className={styles.th}>Were You CA</th>
             <th className={styles.th}>Points</th>
             <th className={styles.th}>Date Joined</th>
+            <th className={styles.th}>Mark verified</th>
           </tr>
         </thead>
         <tbody>
@@ -107,7 +109,7 @@ const UserTable = ({ token }: { token: string | null }) => {
               <td className={styles.td}>
                 {new Date(user.date_joined).toLocaleDateString()}
               </td>
-              <td>
+              <td className={styles.td}>
                 <button
                   className={styles.button}
                   onClick={() => handleVerify(user.email_token)}
@@ -123,16 +125,5 @@ const UserTable = ({ token }: { token: string | null }) => {
     </>
   );
 };
-
-// const styles = {
-//   th: {
-//     // Add your styles for th elements here
-//     // For example:
-//     backgroundColor: '#f2f2f2',
-//     padding: '10px',
-//     border: '1px solid #ddd',
-//     justifyContent: 'center',
-//   },
-// };
 
 export default UserTable;
