@@ -127,22 +127,22 @@ const ResponsibilityCarousel = () => {
       </Head>
 
       <Slider {...settings} ref={sliderRef}>
-        <ResponsibilityCard_Symbol logo={null} text="Promoting various events and activites around the campus" heading='PUBLICISE'/>
+        <ResponsibilityCard_Symbol logo="/publicise.png" text="Promoting various events and activites around the campus" heading='PUBLICISE'/>
         {/* <ResponsibilityCard></ResponsibilityCard> */}
-        <ResponsibilityCard_Symbol_Bottom logo={null} text= "Plan, arrange and execute events and workshops" heading='COORDINATE'/>
+        <ResponsibilityCard_Symbol_Bottom logo="/coordinate.png" text= "Plan, arrange and execute events and workshops" heading='COORDINATE'/>
         {/* <ResponsibilityCard></ResponsibilityCard> */}
-        <ResponsibilityCard_Symbol logo={null} text="Create awareness and generate buzz around the campus" heading='SOCIAL MEDIA'/>
+        <ResponsibilityCard_Symbol logo="/socialmedia.png" text="Create awareness and generate buzz around the campus" heading='SOCIAL MEDIA'/>
 
         {/* <ResponsibilityCard></ResponsibilityCard> */}
-        <ResponsibilityCard_Symbol_Bottom logo={null} text= "Manage time and resources for maximum efficiency" heading='TASKS'/>
+        <ResponsibilityCard_Symbol_Bottom logo="/tasks.png" text= "Manage time and resources for maximum efficiency" heading='TASKS'/>
 
-        <ResponsibilityCard_Symbol logo={null} text="Hone communication, empathy, teamwork for success and fulfillment." heading='SOCIAL DEVELOPMENT'/>
+        <ResponsibilityCard_Symbol logo="/socialdev.png" text="Hone communication, empathy, teamwork for success and fulfillment." heading='SOCIAL DEVELOPMENT'/>
 
-        <ResponsibilityCard_Symbol_Bottom logo={null} text= "Plan, arrange and execute events and workshops" heading='COORDINATE'/>
+        <ResponsibilityCard_Symbol_Bottom logo="/coordinate.png" text= "Plan, arrange and execute events and workshops" heading='COORDINATE'/>
 
-        <ResponsibilityCard_Symbol logo={null} text="Create awareness and generate buzz around the campus" heading='SOCIAL MEDIA'/>
+        <ResponsibilityCard_Symbol logo="/socialmedia.png" text="Create awareness and generate buzz around the campus" heading='SOCIAL MEDIA'/>
 
-        <ResponsibilityCard_Symbol_Bottom logo={null} text= "Manage time and resources for maximum efficiency" heading='TASKS'/>
+        <ResponsibilityCard_Symbol_Bottom logo="/tasks.png" text= "Manage time and resources for maximum efficiency" heading='TASKS'/>
 
 
 

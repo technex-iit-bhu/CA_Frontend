@@ -3,12 +3,12 @@ import React, { FC } from 'react';
 
 const imgContainer = {
   backgroundColor: 'white',
-  width: '70px',
-  height: '70px',
+  width: '90px',
+  height: '90px',
   Position: 'relative',
   margin: 'auto',
   borderRadius: '50%',
-  marginTop: '10%',
+  marginTop: '7%',
   //   margin: '50%',
   zIndex: 1,
 };
@@ -53,7 +53,7 @@ const ResponsibilityCard_Symbol:FC<CardProps> = ({logo, text, heading}) => {
             overflow: 'hidden',
           }}
         >
-          <div style={imgContainer}></div>
+          <img style={imgContainer} src={logo}></img>
         </div>
         <div
           style={{

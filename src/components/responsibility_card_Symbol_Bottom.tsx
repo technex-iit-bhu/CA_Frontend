@@ -5,12 +5,12 @@ import React, { FC } from 'react';
 
 const imgContainer = {
   backgroundColor: 'white',
-  width: '70px',
-  height: '70px',
+  width: '90px',
+  height: '90px',
   Position: 'relative',
   margin: 'auto',
   borderRadius: '50%',
-  marginTop: '10%',
+  marginTop: '8%',
   //   margin: '50%',
   zIndex: 1,
 };
@@ -18,7 +18,7 @@ const imgContainer = {
 interface CardProps{
     text: string,
     heading: string,
-    logo: any
+    logo: string
 }
 
 const ResponsibilityCard_Symbol_Bottom: FC<CardProps> = ({logo, text, heading}) => {
@@ -77,7 +77,7 @@ const ResponsibilityCard_Symbol_Bottom: FC<CardProps> = ({logo, text, heading}) 
             alignContent: 'center',
           }}
         >
-          <div style={imgContainer}></div>
+          <img style={imgContainer} src={logo}></img>
         </div>
       </div>
     </div>
