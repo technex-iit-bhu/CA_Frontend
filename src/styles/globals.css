@@ -67,3 +67,29 @@ body {
     transform: translateX(100%) scaleX(0.5);
   }
 }
+
+/* ImageTrackComponent.css */
+
+.image-track {
+  display: flex;
+  gap: 4vmin;
+  left: 50%;
+  /* right: 50%; */
+  top: 50%;
+  transform: translate(0%, -50%);
+  user-select: none;
+  margin-top: 12rem;
+  margin-bottom: -12rem;
+  height: 60vh; /* Set a fixed height */
+  width: 100%; 
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: scroll;
+}
+
+.image-track .image {
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: 100% center;
+}
+
