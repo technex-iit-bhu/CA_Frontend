@@ -10,25 +10,43 @@ interface CarouselData {
 
 const carouselData: CarouselData[] = [
   {
-    title: 'Adolf Hitler',
+    title: 'Ellen Verma',
     description:
-      'HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!',
+      "My journey as a Campus Ambassador for TECHNEX'23 at IIT BHU was an incredible experience that allowed me to grow both personally and professionally. It provided me with the opportunity to contribute to the success of a prestigious technical festival, develop my leadership and organizational skills, and foster a sense of pride in representing my college. This experience will always hold a special place in my heart, and I am grateful for the valuable lessons and memories it has given me.",
     imageSrc:
-      'https://upload.wikimedia.org/wikipedia/en/7/7d/Adolf_Hitler_cph_3a48970.jpg', // URL for the image
+      'cutie_t1.webp', // URL for the image
   },
   {
-    title: 'Mr Bonaparte',
+    title: 'Neha Upadhyay',
     description:
-      "There's nothing we can do.There's nothing we can do.There's nothing we can do.There's nothing we can do.There's nothing we can do.There's nothing.",
+      "At the beginning of february this year, I got an opportunity to became CA of Technex'23 so i enrolled myself and got selected. And  my point of view for myself that i am not good in convincing the people or get my point across  totally changed after becoming CA  nd convinced student to participate in fest, alot of new things I learnt and the way Technex team help me is really appreciable  they help in making my profile even at last I forget my code nd they help me in that also. At last I will finish this with one word Technex  is enjoyable nd knowledgeable",
     imageSrc:
-      'https://assets.editorial.aetnd.com/uploads/2022/11/napoleon-exile-gettyimages-1288489073.jpg', // URL for the image
+      'notcutie_t2.webp', // URL for the image
   },
   {
-    title: 'Jordan Belfort',
+    title: 'Shakti Nandan',
     description:
-      'I have been a rich man and I have been a poor man. And I will choose rich EVERY FUCKING TIMEEE!!Is anyone carrying some LSD by chance? I forgot to bring mine.',
+      "Hi, I am Shakti Nandan, very happy and proud to be a part of TECHNEX'23 as CAMPUS AMBASSADOR in such a Greenish and Vedic culture campus. TECHNEX, the annual technical festival provided an incredible platform for students to explore itself, expand network with common minded people and showcase their technical & creative abilities on national level. I learn lots of valuable experience, explore leadership abilities,  expanded network, updated with the latest innovation & emerging technology and enjoy campus a lot. It was a good experience and opportunity for me to work in supportive environment with TECNEX team and different people. I heartly thankful to TECNEX team to provide me that opportunity and  also thankful to my college for support me to work with full effort.",
     imageSrc:
-      'https://i.pinimg.com/564x/91/8e/7a/918e7a39b2d71bd85d3e26cf6b42a1ec.jpg', // URL for the image
+      't3.webp', // URL for the image
+  },
+  {
+    title: 'Manish Gupta',
+    description: 
+    "Hey everyone my name is Manish and I am from SLIET. I had the opportunity to represent my college as a campus ambassador for Technex, IIT BHU and I would like to say that it has been a wonderful experience for me being a campus ambassador of this prestigious technical fest. As a campus ambassador my role was to promote Technex'23 in my college and reach out to students and all the technical clubs of my college. And as a result, with over 50+ students who not only participated in this event but also achieved remarkable positions there. What I felt that Technex is more than just an event, the level of competitions there,  coupled with the warm hospitality and enriching experiences left a long lasting impact on our participants. Lastly, being a part of Technex  has truly been a privilege for me. I Hope that the upcoming Technex will be an even more remarkable experience for everyone. STAY TECHNEXED!",
+    imageSrc: "t4.webp",
+  },
+  {
+    title: "Krishna Raj",
+    description:
+    "I must say, it was an absolutely fantastic experience! Everything from the food to the security arrangements was top-notch. The variety and quality of cuisines offered left us spoilt for choice, and I couldn't help but appreciate the efforts put in by the organizers. Speaking of security, it was evident that a lot of thought and planning went into ensuring everyone felt safe and comfortable throughout the event.It's a testament to the organizers' commitment to creating a welcoming environment for all attendees. The lineup of events was nothing short of spectacular. From engaging workshops to thrilling performances, there was something for everyone. It was clear that a lot of effort was put into curating a diverse and entertaining program. Additionally, the accommodation for the boys was excellent. Clean, comfortable, and conveniently located, it made for a hassle-free stay. Overall, I have to say that this fest exceeded my expectations in every way. It was evident that the organizers went above and beyond to create a memorable experience for all. Looking forward to the next one!",
+    imageSrc: "t5 (1).webp",
+  },
+  {
+    title: "Umesh Verma",
+    description:
+    "Being a campus ambassador of technex iit 2k23 was an enriching experience where I represented my university at events, workshops, and orientations. I had the chance to interact with prospective students, share my insights about campus life, and foster a sense of belonging.",
+    imageSrc: "t6.webp",
   },
 ];
 

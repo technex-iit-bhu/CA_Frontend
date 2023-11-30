@@ -21,12 +21,15 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
   const secondWord = words.slice(1).join(' ');
 
   const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
+  const [isLargerThan425] = useMediaQuery('(min-width: 425px)');
+  const [isLargerThan640] = useMediaQuery('(min-width: 640px)');
+  const [isLargerThan768] = useMediaQuery('(min-width: 768px)');
   const cardWidth = isLargerThan900 ? '630px' : '80vw';
-  const padding = isLargerThan900 ? '10px 40px 15px 15px' : '2.5vw';
-  const cardHeight = isLargerThan900 ? '315px' : '40vw';
-  const fontSize = isLargerThan900 ? '22px' : '3vw';
-  const fontSize1 = isLargerThan900 ? '45px' : '6vw';
-  const padding1 = isLargerThan900 ? '20px 0px' : '3vw 0';
+  const padding = isLargerThan900 ? '10px 40px 15px 15px' : '2vw';
+  const cardHeight = isLargerThan900 ? '315px' : '50vw';
+  const fontSize = isLargerThan900 ? '15px' : '2.1vw';
+  const fontSize1 = isLargerThan900 ? '44px' : '6vw';
+  const padding1 = isLargerThan900 ? '15px 0px' : '3vw 0';
   const margin = isLargerThan900 ? '80px 50px 50px 50px' : '8vw';
   return (
     <div style={{ margin: `${margin}` }}>
@@ -77,9 +80,21 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
                   {secondWord}
                 </Box>
               </Heading>
-              <Text padding={padding} fontSize={fontSize}>
+              {!isLargerThan425 && <Text padding={padding} fontSize={ (description.length < 300 && "9px") || (description.length < 565 && fontSize) || (description.length < 1000 && "5.5px") || "5px" }>
                 {description}
-              </Text>
+              </Text>}
+              {isLargerThan425 && !isLargerThan640 && <Text padding={padding} fontSize={ (description.length < 300 && "12px") || (description.length < 565 && fontSize) || (description.length < 1000 && "8px") || "6px" }>
+                {description}
+              </Text>}
+              {isLargerThan640 && !isLargerThan768 && <Text padding={padding} fontSize={ (description.length < 300 && "16px") || (description.length < 565 && fontSize) || (description.length < 1000 && "11px") || "10px" }>
+                {description}
+              </Text>}
+              {isLargerThan768 && !isLargerThan900 && <Text padding={padding} fontSize={ (description.length < 300 && "18px") || (description.length < 565 && fontSize) || (description.length < 1000 && "14.5px") || "13.5px" }>
+                {description}
+              </Text>}
+              {isLargerThan900 && <Text padding={padding} fontSize={ (description.length < 300 && "18px") || (description.length < 565 && fontSize) || (description.length < 1000 && "12px") || "11px" }>
+                {description}
+              </Text>}
             </Box>
           </Stack>
         </Card>
