@@ -69,7 +69,7 @@ const Hamburger = () => {
       setContactusColor('red');
       setFaqColor('white');
       setLeaderBoardColor('white');
-    } else if (window.location.pathname === '/faqs') {
+    } else if (window.location.pathname === '/faqPage') {
       setAboutColor('white');
       setIncentivesColor('white');
       setContactusColor('white');
@@ -87,7 +87,7 @@ const Hamburger = () => {
   const navLinks = [
     { color: incentivesColor, title: 'Incentives', href: '/incentivesPage' },
     { color: contactusColor, title: 'Contact Us', href: '/contactUsPage' },
-    { color: faqColor, title: 'FAQs', href: '/faqs' },
+    { color: faqColor, title: 'FAQs', href: '/faqPage' },
     { color: leaderboardColor, title: 'Leaderboard', href: '/leaderboard' },
   ];
 
