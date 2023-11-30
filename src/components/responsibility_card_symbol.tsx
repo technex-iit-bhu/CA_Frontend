@@ -70,7 +70,7 @@ const ResponsibilityCard_Symbol:FC<CardProps> = ({logo, text, heading}) => {
             textAlign: 'center',
           }}
         >
-            <p style={{ margin:"15px", marginBottom:"2vh"}}>{text}</p>
+            <p style={{ margin:"15px", marginBottom:"1.5vh"}}>{text}</p>
 
             <h1><b>{heading} </b></h1>
           

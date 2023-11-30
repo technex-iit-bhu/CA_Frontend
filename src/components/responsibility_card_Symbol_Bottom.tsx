@@ -58,7 +58,7 @@ const ResponsibilityCard_Symbol_Bottom: FC<CardProps> = ({logo, text, heading}) 
           }}
         >
             <h1><b>{heading}</b></h1>
-            <p style={{ margin:"20px", marginTop:"2vh"}}>{text}</p>
+            <p style={{ margin:"20px", marginTop:"1.5vh"}}>{text}</p>
             
         </div>
         <div
