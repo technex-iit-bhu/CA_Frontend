@@ -1,4 +1,3 @@
-import FAQ from '@/components/faq';
 import OurReach from '../components/ourReach';
 import Landingpage from '@/components/landingPage';
 import Testimonials from '@/components/testimonials';
@@ -14,7 +13,6 @@ export default function LandingPage() {
       <AboutTechnex />
       <OurReach />
       <Testimonials />
-      <FAQ />
     </>
   );
 }
