@@ -65,18 +65,18 @@ const FAQ = () => {
               <AccordionItem
                 key={index}
                 className='m-2 rounded-[40px] bg-grey p-3 font-spline'
-                borderColor='rgba(#D7ECFF, 0, 0, 0.3)'
-                borderWidth='1.4px'
+                borderColor='RGB(205, 92, 92)'
+                borderWidth='1.2px'
               >
                 <h2>
                   <AccordionButton>
                     <AccordionIcon />
                     <Box as='span' flex='1' textAlign='center'>
-                      <span style={{ fontSize: '1.6rem', color: 'brown' }}>
+                      <span style={{ fontSize: '1.4rem', color: 'brown' }}>
                         {item.question.split(' ')[0].charAt(0)}
                       </span>
                       {item.question.slice(1)}{' '}
-                      <span style={{ fontSize: '1.6rem', color: 'brown' }}>
+                      <span style={{ fontSize: '1.4rem', color: 'brown' }}>
                         ?
                       </span>
                     </Box>
@@ -96,18 +96,18 @@ const FAQ = () => {
               <AccordionItem
                 key={index}
                 className='m-2 rounded-[40px] bg-grey p-3  font-spline'
-                borderColor='rgba(#D7ECFF, 0, 0, 0.3)'
-                borderWidth='1.4px'
+                borderColor='RGB(205, 92, 92)'
+                borderWidth='1.2px'
               >
                 <h2>
                   <AccordionButton>
                     <AccordionIcon />
                     <Box as='span' flex='1' textAlign='center'>
-                      <span style={{ fontSize: '1.6rem', color: 'brown' }}>
+                      <span style={{ fontSize: '1.4rem', color: 'brown' }}>
                         {item.question.split(' ')[0].charAt(0)}
                       </span>
                       {item.question.slice(1)}{' '}
-                      <span style={{ fontSize: '1.6rem', color: 'brown' }}>
+                      <span style={{ fontSize: '1.4rem', color: 'brown' }}>
                         ?
                       </span>
                     </Box>

@@ -162,14 +162,14 @@ const EllipseSection = () => (
       <CircularProgressWithText
         percent={34}
         value={'500+'}
-        text='College Ambassadors'
+        text='Campus Ambassadors'
       />
     </div>
     <div>
       <CircularProgressWithText
         percent={52}
         value={'750+'}
-        text='Indian College'
+        text='Colleges'
       />
     </div>
     <div>
