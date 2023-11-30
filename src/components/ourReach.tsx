@@ -173,11 +173,7 @@ const EllipseSection = () => (
       />
     </div>
     <div>
-      <CircularProgressWithText
-        percent={77}
-        value={'50k+'}
-        text='Foot fall'
-      />
+      <CircularProgressWithText percent={77} value={'50k+'} text='Foot fall' />
     </div>
   </Box>
 );
