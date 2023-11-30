@@ -24,8 +24,7 @@ function TaskForm({ token }: { token: string | null }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if(data.id === undefined) throw new Error(data.detail);
+        if(data.id === undefined) throw new Error(JSON.stringify(data));
         setMessage('Task created with title: ' + data.title + ' and id: ' + data.id + '.');
         setTitle('');
         setDescription('');

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styles from './TaskList.module.css';
-import styless from '../../styles/adminPage.module.css';
 type Task = {
   id: number;
   title: string;
@@ -61,6 +60,8 @@ function TaskList({ token }: { token: string | null }) {
             <th className={styles.th}>Title</th>
             <th className={styles.th}>Description</th>
             <th className={styles.th}>Points</th>
+            <th className={styles.th}>Update</th>
+            <th className={styles.th}>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -77,14 +78,19 @@ function TaskList({ token }: { token: string | null }) {
               <td colSpan={5}>No tasks found</td>
             </tr>
           )}
-          <p style={{
-            color:"red"
-          }}>{message}</p>
+          <label
+            style={{
+              color: 'red',
+            }}
+          >
+            {message}
+          </label>
         </tbody>
       </table>
-      <button onClick={handleRefresh} className={styless.button}>
+      <button onClick={handleRefresh} className={styles.button}>
         {loading ? 'Loading...' : 'Refresh'}
       </button>
+      
     </div>
   );
 }
@@ -148,11 +154,13 @@ function TaskItem({
   return (
     <tr key={task.id}>
       <td className={styles.td}>{task.id}</td>
-      <input
-        className={styles.td}
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      ></input>
+      <td>
+        <input
+          className={styles.textarea}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        ></input>
+      </td>
       <td className={styles.td}>
         <textarea
           className={styles.textarea}
@@ -168,7 +176,7 @@ function TaskItem({
       ></input>
       <td className={styles.td}>
         <button
-          className={styless.button}
+          className={styles.button}
           onClick={() => handleUpdateTask()}
           disabled={!edited}
         >
@@ -176,7 +184,7 @@ function TaskItem({
         </button>
       </td>
       <td className={styles.td}>
-        <button className={styless.button} onClick={() => handleDeleteTask()}>
+        <button className={styles.button} onClick={() => handleDeleteTask()}>
           delete
         </button>
       </td>
