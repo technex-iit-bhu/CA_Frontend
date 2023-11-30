@@ -8,7 +8,7 @@ const ContactUs = () => {
           <span className='text-[62px] text-red opacity-20 ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
             CONTACT
           </span>
-          <span className='text-white z-10 ml-1 transform select-none text-[25px] transition duration-700 hover:scale-110 ef:text-4xl md:ml-2 md:text-7xl lg:ml-3'>
+          <span className='text-white z-10 ml-1 transform select-none text-center text-[25px] transition duration-700 hover:scale-110 ef:text-4xl md:ml-2 md:text-7xl lg:ml-3'>
             <span className='text-red'>Contact</span>US
           </span>
         </div>
@@ -53,15 +53,6 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <br />
     </div>
   );

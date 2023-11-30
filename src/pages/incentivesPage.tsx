@@ -6,7 +6,7 @@ import React from 'react';
 const IncentivePage = () => {
   return (
     <div>
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
       <Incentive></Incentive>
 
       <Responsibilities></Responsibilities>
