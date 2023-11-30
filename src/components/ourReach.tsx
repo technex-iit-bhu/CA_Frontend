@@ -124,7 +124,7 @@ const HeadingComponent = () => (
  */
 type CircularProgressWithTextProps = {
   percent: number;
-  value: number;
+  value: string;
   text: string;
 };
 
@@ -161,23 +161,19 @@ const EllipseSection = () => (
     <div>
       <CircularProgressWithText
         percent={34}
-        value={69}
-        text='College Ambassadors'
+        value={'500+'}
+        text='Campus Ambassadors'
       />
     </div>
     <div>
       <CircularProgressWithText
         percent={52}
-        value={234}
-        text='Indian College'
+        value={'750+'}
+        text='Colleges'
       />
     </div>
     <div>
-      <CircularProgressWithText
-        percent={77}
-        value={987}
-        text='International College'
-      />
+      <CircularProgressWithText percent={77} value={'50k+'} text='Foot fall' />
     </div>
   </Box>
 );
@@ -185,7 +181,7 @@ const EllipseSection = () => (
 /**
  * Function to render a circular progress with animation.
  */
-const RenderCircularProgress: React.FC<{ percent: number; value: number }> = ({
+const RenderCircularProgress: React.FC<{ percent: number; value: string }> = ({
   percent,
   value,
 }) => {
