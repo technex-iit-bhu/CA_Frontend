@@ -48,13 +48,34 @@ const Register = () => {
           'Content-Type': 'application/json',
         },
       });
-      const data = await response.json();
-      console.log('Success', data);
-      setModalContent('Verification link has been sent by email!');
-      setShowModal(true);
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Success', data);
+        setModalContent('Verification link has been sent by email!');
+        setShowModal(true);
+      } else {
+        // Handle conflict error
+        if (response.status === 409) {
+          const errorData = await response.json();
+          if (errorData.username && errorData.email) {
+            setModalContent(
+              'Both username and email already exist. Please login.'
+            );
+          } else if (errorData.username) {
+            // Only username conflict
+            setModalContent(errorData.username);
+          } else if (errorData.email) {
+            // Only email conflict
+            setModalContent(errorData.email);
+          }
+        } else {
+          setModalContent('An error occurred during registration!');
+        }
+        setShowModal(true);
+      }
     } catch (error) {
       console.error('Error:', error);
-      setModalContent('An error2 occurred!');
+      setModalContent('An error occurred!');
       setShowModal(true);
     }
   };

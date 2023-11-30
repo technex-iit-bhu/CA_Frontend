@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Box,
-  Center,
-  useMediaQuery,
-} from '@chakra-ui/react';
+import { Box, Center, useMediaQuery } from '@chakra-ui/react';
 import Testes from './testemonialCard';
 
 interface CarouselData {
@@ -70,7 +66,9 @@ const Testimonials: React.FC = () => {
         </Box>
       </Center>
       <Center>
-        <div style={{ position: 'relative', height: `${height1}`, width: '90%' }}>
+        <div
+          style={{ position: 'relative', height: `${height1}`, width: '90%' }}
+        >
           <Box
             position='relative'
             height={height2}

@@ -20,7 +20,8 @@ const monthNames = [
 const DashboardTab = () => {
   // State to hold the tasks
   const [tasks, setTasks] = useState([]);
-  const [activeTab, setActiveTab] = useState('live'); // This can be simplified since there's only one type of task now
+  const [activeTab, setActiveTab] = useState('live'); // This has be simplified since there's only one type of task now.
+  // We need to replqace this with actual live, expired and completed tasks
   const [isLargerThan700] = useMediaQuery('(min-width: 700px)');
 
   // Fetch tasks from the API when the component mounts
@@ -36,7 +37,8 @@ const DashboardTab = () => {
         if (response.status === 200) {
           const fetchedTasks = await response.json();
 
-          // Map through each task and assign an expiry time
+          // Map through each task and assign an expiry time.
+          // Backend peeps need to add this to user schema too to remove this hard coding
           const finalTasks = fetchedTasks.map((task: any) => ({
             ...task,
             expiryDate: '06/01/2004',
@@ -59,17 +61,19 @@ const DashboardTab = () => {
   const renderCards = () => {
     const now = new Date();
     // Render the cards for live tasks
-    return tasks.map(({id, expiryDate,points,title,description}, index) => (
-      <Cards
-        key={id} 
-        date={expiryDate} 
-        points={points}
-        title={title}
-        description={description}
-        taskNumber={`${index + 1}`}
-        month={`${monthNames[now.getMonth() + 1]}`}
-      />
-    ));
+    return tasks.map(
+      ({ id, expiryDate, points, title, description }, index) => (
+        <Cards
+          key={id}
+          date={expiryDate}
+          points={points}
+          title={title}
+          description={description}
+          taskNumber={`${index + 1}`}
+          month={`${monthNames[now.getMonth() + 1]}`}
+        />
+      )
+    );
   };
 
   return (

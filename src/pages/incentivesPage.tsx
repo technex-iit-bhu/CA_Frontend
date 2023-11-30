@@ -4,13 +4,8 @@ import Responsibilities from '@/components/responsibilities';
 import React from 'react';
 
 const IncentivePage = () => {
-
-  
   return (
     <div>
-
-
-       
       {/* <Navbar></Navbar> */}
       <Incentive></Incentive>
 
