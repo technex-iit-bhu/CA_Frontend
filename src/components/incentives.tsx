@@ -5,9 +5,9 @@ import Navbar from './navbar';
 const Incentive = () => {
   return (
     <div>
-        <div className='z-20 pb-96 lg:pb-64 xl:pb-96 absolute w-full'>
-          <Navbar />
-        </div>
+      <div className='absolute z-20 w-full pb-96 lg:pb-64 xl:pb-96'>
+        <Navbar />
+      </div>
       <div className='relative mb-[20px] flex flex-col bg-background pl-[10px] pt-[200px]'>
         <div className=' absolute bottom-3 flex flex-col -space-y-10 ef:-space-y-16 sm:text-left md:-space-y-24 lg:-space-y-28'>
           <span className='text-[40px] text-red opacity-20 ef:text-[80px] md:text-[8rem] lg:text-[11rem]'>

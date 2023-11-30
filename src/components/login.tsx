@@ -47,9 +47,9 @@ const Login = () => {
 
   return (
     <div className=''>
-        <div className='z-10 pb-10 lg:pb-10 xl:pb-10 absolute w-full'>
-          <Navbar />
-        </div>
+      <div className='absolute z-10 w-full pb-10 lg:pb-10 xl:pb-10'>
+        <Navbar />
+      </div>
       <div className='relative bg-background pt-[100px]'>
         <div className='bottom-[10px] left-5 p-10 text-center text-5xl lg:text-7xl'>
           <span className='text-white select-none'>Login</span>

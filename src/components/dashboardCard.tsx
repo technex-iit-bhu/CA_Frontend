@@ -2,7 +2,6 @@
 import React, { useState, useRef } from 'react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
 
 interface Props {
   date: string;
