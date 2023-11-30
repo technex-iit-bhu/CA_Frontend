@@ -1,5 +1,5 @@
 import { Center } from '@chakra-ui/react';
-import React from 'react';
+import React, { FC } from 'react';
 
 const imgContainer = {
   backgroundColor: 'white',
@@ -13,7 +13,13 @@ const imgContainer = {
   zIndex: 1,
 };
 
-const ResponsibilityCard_Symbol = () => {
+interface CardProps{
+    text: string,
+    logo: any,
+    heading: string
+}
+
+const ResponsibilityCard_Symbol:FC<CardProps> = ({logo, text, heading}) => {
   return (
     <div>
       <div
@@ -60,11 +66,14 @@ const ResponsibilityCard_Symbol = () => {
             // left: '16%',
 
             alignContent: 'center',
-            top: '190px',
+            top: '120px',
             textAlign: 'center',
           }}
         >
-          Bhupendra Jogi
+            <p style={{ margin:"15px", marginBottom:"2vh"}}>{text}</p>
+
+            <h1><b>{heading} </b></h1>
+          
         </div>
       </div>
     </div>

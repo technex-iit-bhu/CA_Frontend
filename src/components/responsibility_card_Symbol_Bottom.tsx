@@ -1,5 +1,6 @@
 import { Center } from '@chakra-ui/react';
-import React from 'react';
+import React, { FC } from 'react';
+
 // import Classes from 'src/styles/Incentive.module.css';
 
 const imgContainer = {
@@ -14,7 +15,13 @@ const imgContainer = {
   zIndex: 1,
 };
 
-const ResponsibilityCard_Symbol_Bottom = () => {
+interface CardProps{
+    text: string,
+    heading: string,
+    logo: any
+}
+
+const ResponsibilityCard_Symbol_Bottom: FC<CardProps> = ({logo, text, heading}) => {
   return (
     <div>
       <div
@@ -50,7 +57,9 @@ const ResponsibilityCard_Symbol_Bottom = () => {
             textAlign: 'center',
           }}
         >
-          Bhupendra Jogi
+            <h1><b>{heading}</b></h1>
+            <p style={{ margin:"20px", marginTop:"2vh"}}>{text}</p>
+            
         </div>
         <div
           style={{
