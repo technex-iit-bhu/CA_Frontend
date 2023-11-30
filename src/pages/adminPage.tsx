@@ -1,35 +1,26 @@
-import { useEffect, useState } from 'react';
+import { ReactElement, useState } from 'react';
 import styles from '../styles/adminPage.module.css';
 import TaskList from '@/components/AdminPage/TaskList';
 import TaskForm from '@/components/AdminPage/TaskForm';
+import UnverifiedUsers from '@/components/AdminPage/UnverifiedUsers';
 function AdminPage() {
   const [token, setToken] = useState<string | null>(null);
-  const [loginTime, setLoginTime] = useState<Date>(new Date());
-
   const [selected, setSelected] = useState<string>('login');
-  const options = ['login', 'All Tasks', 'Add Task'];
+  const options: { [k: string]: ReactElement<any, any> } = {
+    login: <Login token={token} setToken={setToken}></Login>,
+    'All Tasks': <TaskList token={token}></TaskList>,
+    'Add Task': <TaskForm token={token}></TaskForm>,
+    'verify CAs': <UnverifiedUsers token={token}></UnverifiedUsers>,
+  };
 
   return (
     <div className={styles.container}>
       <Tabs
-        options={options}
+        options={Object.keys(options)}
         selected={selected}
         setSelected={setSelected}
       ></Tabs>
-      {selected === 'login' ? (
-        <Login
-          token={token}
-          setToken={setToken}
-          loginTime={loginTime}
-          setLoginTime={setLoginTime}
-        ></Login>
-      ) : selected === 'All Tasks' ? (
-        <TaskList token={token}></TaskList>
-      ) : selected === 'Add Task' ? (
-        <TaskForm token={token}></TaskForm>
-      ) : (
-        <div>Never</div>
-      )}
+      {options[selected]}
     </div>
   );
 }
@@ -37,27 +28,14 @@ const BACKEND_URL = 'http://localhost:8000/'; //TODO: move to .env
 function Login({
   token,
   setToken,
-  loginTime,
-  setLoginTime,
 }: {
   token: string | null;
   setToken: Function;
-  loginTime: Date;
-  setLoginTime: Function;
 }) {
-  const [username, setUsername] = useState<string>('fda');
-  const [password, setPassword] = useState<string>('');
-  const [lInterval, setLInterval] = useState<number>(0);
+  const [username, setUsername] = useState<string>('ADMIN');
+  const [password, setPassword] = useState<string>('strong__password_123');
+  const [message, setMessage] = useState<string>('');
 
-  useEffect(() => {
-    //update loginTime
-    let k = setInterval(() => {
-      setLInterval(
-        Math.floor((new Date().getTime() - loginTime.getTime()) / 1000)
-      );
-    }, 1000);
-    return () => clearInterval(k);
-  }, [loginTime]);
   function handleClick() {
     fetch(BACKEND_URL + 'auth/login/', {
       method: 'POST',
@@ -73,7 +51,7 @@ function Login({
       .then((res) => res.json())
       .then((data) => {
         setToken(data.access);
-        setLoginTime(new Date());
+        setMessage('');
       })
       .catch((err) => console.log(err));
   }
@@ -105,10 +83,15 @@ function Login({
       </div>
       <div>
         Status:
-        {token === null
-          ? 'Not logged in'
-          : `Logged in ${Math.floor(lInterval / 60)} minutes ago`}
+        {token === null ? 'Not logged in' : `Logged in`}
       </div>
+      <p
+        style={{
+          color: 'red',
+        }}
+      >
+        {message}
+      </p>
       <button className={styles.button} onClick={handleClick}>
         Login
       </button>
