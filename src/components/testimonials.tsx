@@ -10,25 +10,43 @@ interface CarouselData {
 
 const carouselData: CarouselData[] = [
   {
-    title: 'Adolf Hitler',
+    title: 'Ellen Verma',
     description:
-      'HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!',
+      "My journey as a Campus Ambassador for TECHNEX'23 at IIT BHU was an incredible experience that allowed me to grow both personally and professionally. This experience will always hold a special place in my heart, and I am grateful for this.",
     imageSrc:
-      'https://upload.wikimedia.org/wikipedia/en/7/7d/Adolf_Hitler_cph_3a48970.jpg', // URL for the image
+      'cutie_t1.webp', // URL for the image
   },
   {
-    title: 'Mr Bonaparte',
+    title: 'Neha Upadhyay',
     description:
-      "There's nothing we can do.There's nothing we can do.There's nothing we can do.There's nothing we can do.There's nothing we can do.There's nothing.",
+      "This year I got an opportunity to became CA of Technex'23. My convincing skill changed after becoming CA and the way Technex team help me is really appreciable. At last I will finish this with one word Technex  is enjoyable nd knowledgeable.",
     imageSrc:
-      'https://assets.editorial.aetnd.com/uploads/2022/11/napoleon-exile-gettyimages-1288489073.jpg', // URL for the image
+      'notcutie_t2.webp', // URL for the image
   },
   {
-    title: 'Jordan Belfort',
+    title: 'Shakti Nandan',
     description:
-      'I have been a rich man and I have been a poor man. And I will choose rich EVERY FUCKING TIMEEE!!Is anyone carrying some LSD by chance? I forgot to bring mine.',
+      "Hi, I am Shakti Nandan, very happy and proud to be a part of TECHNEX'23 as CAMPUS AMBASSADOR in such a Greenish and Vedic culture campus. I got very valuable experience and  I heartly thankful to TECHNEX team to provide me that opportunity.",
     imageSrc:
-      'https://i.pinimg.com/564x/91/8e/7a/918e7a39b2d71bd85d3e26cf6b42a1ec.jpg', // URL for the image
+      't3.webp', // URL for the image
+  },
+  {
+    title: 'Manish Gupta',
+    description: 
+    "I had the opportunity to represent my college as a campus ambassador for Technex, IIT BHU and I would like to say that it has been a wonderful experience for me being a campus ambassador of this prestigious technical fest. STAY TECHNEXED!",
+    imageSrc: "t4.webp",
+  },
+  {
+    title: "Krishna Raj",
+    description:
+    "An absolute fantastic experience, from the food to the security arrangements. The variety & quality of cuisines  left us spoilt for choice It was evident that the organizers went above and beyond to create a memorable experience for all.",
+    imageSrc: "t5 (1).webp",
+  },
+  {
+    title: "Umesh Verma",
+    description:
+    "Being a campus ambassador of technex iit 2k23 was an enriching experience where I represented my university at events, workshops, orientations. I had the chance to interact with prospective students & share my insights about campus life.",
+    imageSrc: "t6.webp",
   },
 ];
 
