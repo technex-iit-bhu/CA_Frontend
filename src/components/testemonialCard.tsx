@@ -27,7 +27,7 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
   const cardWidth = isLargerThan900 ? '630px' : '80vw';
   const padding = isLargerThan900 ? '10px 40px 15px 15px' : '2.5vw';
   const cardHeight = isLargerThan900 ? '315px' : '50vw';
-  const fontSize = isLargerThan900 ? '22px' : '3.5vw';
+  const fontSize = (!isLargerThan425 && "10px") || (isLargerThan425 && !isLargerThan640 && "12px") || (isLargerThan640 && !isLargerThan900 && "20px") || "21px";
   const fontSize1 = isLargerThan900 ? '44px' : '6vw';
   const padding1 = isLargerThan900 ? '15px 0px' : '3vw 0';
   const margin = isLargerThan900 ? '80px 50px 50px 50px' : '8vw';
@@ -81,8 +81,7 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
                 </Box>
               </Heading>
               <Text padding={padding} fontSize={fontSize}>
-                {!isLargerThan900 && description.slice(0, 150) + "..."}
-                {isLargerThan900 && description.slice(0, 250) + "..."}
+                {description}
               </Text>
             </Box>
           </Stack>
