@@ -25,7 +25,7 @@ const titletext = [
   </span>,
   ' Hoga',
 ];
-const lor = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque animi nihil deleniti modi hic voluptatibus dolorem. Ea eaque repellendus odio rem illo perferendis eveniet? Molestias doloremque id pariatur reiciendis iste!`;
+const lor = `COMING SOON...`;
 
 const IncentivesCarousel = () => {
   const [showFull, setShowFull] = useState(false);
