@@ -15,7 +15,6 @@ const Login = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
   };
 
   const handleSubmit = async (e: any) => {
@@ -30,9 +29,8 @@ const Login = () => {
           'Content-Type': 'application/json',
         },
       });
-      const access_token = await response.json();
-      console.log(access_token);
-      console.log('Parameters successfully posted to backend');
+      setModalContent('Successfully Logged In');
+      setShowModal(true);
     } catch (error) {
       console.log(error);
     }
@@ -40,8 +38,8 @@ const Login = () => {
 
   const handleModalClose = () => {
     setShowModal(false);
-    if (modalContent === 'successfully logged in') {
-      Router.push('https://ca-frontend-ebon.vercel.app/');
+    if (modalContent === 'Successfully Logged In') {
+      Router.push('https://ca-frontend-ebon.vercel.app/dashboardPage');
     }
   };
 
@@ -94,7 +92,7 @@ const Login = () => {
               <div className='rounded-lg bg-grey p-5 shadow-lg'>
                 <p>{modalContent}</p>
                 <button
-                  onClick={() => setShowModal(false)}
+                  onClick={handleModalClose}
                   className='text-white m-4 rounded-full bg-red px-4 py-2'
                 >
                   Okay
