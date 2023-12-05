@@ -1,13 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const Dashboard = () => {
+<<<<<<< HEAD
   const [name, setName] = useState('');
   const [rank, setRank] = useState('');
   const [caId, setCaId] = useState('');
   const [tasksDone, setTasksDone] = useState('');
   const [totalTasks, setTotalTasks] = useState('');
   const [points, setPoints] = useState('');
+=======
+
+  const router = useRouter();
+ 
+  const [name, setName] = useState('John Doe');
+  const [rank, setRank] = useState('1');
+  const [caId, setCaId] = useState('CA2021001');
+  const [tasksDone, setTasksDone] = useState('69');
+  const [totalTasks, setTotalTasks] = useState('200');
+  const [points, setPoints] = useState('232');
+>>>>>>> 370c337722ea8e7acb2cbd5cd7e7d02d045f133e
+
+    useEffect(() => {
+      const fetchDetails = async () => {
+        try {
+          const accessToken = localStorage.getItem('accessToken');
+          const response = await fetch('https://ca-backend-467n.onrender.com/auth/user/profile', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${accessToken}`,
+            },
+          });
+          if (response.status === 200) {
+            const fetchedDetails = await response.json();
+            setName(`${fetchedDetails.userprofile.first_name} ${fetchedDetails.userprofile.last_name}`);
+            setPoints(fetchedDetails.userprofile.points);
+          } else {
+            console.error('Failed to fetch profile');
+          }
+        } catch (error) {
+          console.error('Server error', error);
+        }
+      };
+  
+      fetchDetails();
+    }, []);
 
   return (
     <div className=''>
@@ -24,16 +63,16 @@ const Dashboard = () => {
       <div className='px-[30px] md:px-[50px]'>
         <div className='z-0 rounded-[50px] bg-custom-gradient px-[50px] py-[30px] md:px-[30px]'>
           <div className='flex flex-col lg:flex-row'>
-            <div className='mt-[-80px] flex flex-col'>
-              <div className='h-[150px] w-[150px] select-none self-center rounded-full border-4 border-red bg-background lg:self-start'></div>
-              <div className='flex flex-col pb-[30px] font-spline lg:pl-[20px] lg:pr-[60px]'>
-                <p className='text-white select-none self-center text-center text-[30px] font-bold lg:self-start lg:text-left'>
+            <div className='mt-[-80px] flex flex-col lg:w-1/3'>
+              <div className='h-[150px] w-[150px] select-none self-center rounded-full border-4 border-red bg-background'></div>
+              <div className='flex flex-col pb-[30px] font-spline self-center'>
+                <p className='text-white select-none self-center text-center text-[30px] font-bold'>
                   {name}
                 </p>
-                <p className='text-white select-none self-center text-[20px] lg:self-start'>
+                <p className='text-white select-none self-center text-[20px]'>
                   Rank:{rank}
                 </p>
-                <p className='text-white select-none self-center text-[20px] lg:self-start'>
+                <p className='text-white select-none self-center text-[20px]'>
                   CA Id:{caId}
                 </p>
               </div>
