@@ -10,6 +10,16 @@ const Navbar: FC = () => {
   const [contactusColor, setContactusColor] = useState('white');
   const [faqColor, setFaqColor] = useState('white');
   const [leaderboardColor, setLeaderBoardColor] = useState('white');
+  const [dashboardPageColor, setDashboardPageColor] = useState('white');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if access token exists in localStorage
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      setIsLoggedIn(true);
+    } 
+  }, []);
 
   useEffect(() => {
     if (window.location.pathname === '/index') {
@@ -18,30 +28,42 @@ const Navbar: FC = () => {
       setContactusColor('white');
       setFaqColor('white');
       setLeaderBoardColor('white');
+      setDashboardPageColor('white');
     } else if (window.location.pathname === '/incentivesPage') {
       setAboutColor('white');
       setIncentivesColor('red');
       setContactusColor('white');
       setFaqColor('white');
       setLeaderBoardColor('white');
+      setDashboardPageColor('white');
     } else if (window.location.pathname === '/contactUsPage') {
       setAboutColor('white');
       setIncentivesColor('white');
       setContactusColor('red');
       setFaqColor('white');
       setLeaderBoardColor('white');
+      setDashboardPageColor('white'); 
     } else if (window.location.pathname === '/faqPage') {
       setAboutColor('white');
       setIncentivesColor('white');
       setContactusColor('white');
       setFaqColor('red');
       setLeaderBoardColor('white');
+      setDashboardPageColor('white');
     } else if (window.location.pathname === '/leaderboard') {
       setAboutColor('white');
       setIncentivesColor('white');
       setContactusColor('white');
       setFaqColor('white');
       setLeaderBoardColor('red');
+      setDashboardPageColor('white');
+    } else if (window.location.pathname === '/dashboardPage') {
+      setAboutColor('white');
+      setIncentivesColor('white');
+      setContactusColor('white');
+      setFaqColor('white');
+      setLeaderBoardColor('white');
+      setDashboardPageColor('red');
     }
   }, []);
 
@@ -90,12 +112,24 @@ const Navbar: FC = () => {
         >
           Leaderboard
         </Link>
-        <Link
+        {isLoggedIn && <Link
+          href={'/dashboardPage'}
+            className={`relative text-${dashboardPageColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
+        >
+          Dashboard
+        </Link>}
+        {isLoggedIn ? (<Link
+          href={'/'}
+          onClick={() => {setIsLoggedIn(false); localStorage.removeItem('accessToken');}}
+          className='rounded-e-full rounded-s-full border-2 px-5 font-spline hover:border-[#A81F25] hover:bg-[#191919] hover:text-[#A81F25] sm:px-7 sm:py-1'
+        >
+          Logout
+        </Link>) : (<Link
           href={'/login'}
           className='rounded-e-full rounded-s-full border-2 px-5 font-spline hover:border-[#A81F25] hover:bg-[#191919] hover:text-[#A81F25] sm:px-7 sm:py-1'
         >
           Login
-        </Link>
+        </Link>)}
       </div>
       <div className='flex p-1 sm:p-5 cd:hidden'>
         <Hamburger />

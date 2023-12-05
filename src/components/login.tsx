@@ -32,8 +32,8 @@ const Login = () => {
       });
       const Token = await response.json();
       const accessToken = Token.access;
-      console.log(accessToken);
-      router.push(`/dashboardPage?token=${accessToken}`);
+      localStorage.setItem('accessToken', accessToken);
+      router.push('/dashboardPage');
     } catch (error) {
       console.log(error);
     }
