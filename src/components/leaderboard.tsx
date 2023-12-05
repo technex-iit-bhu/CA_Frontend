@@ -28,26 +28,21 @@ const Leaderboard = () => {
         <Navbar />
       </div>
 
-      <div className='relative mb-[20px] flex flex-col bg-background pl-[10px] pt-[200px]'>
-        <div className=' absolute bottom-3 flex flex-col -space-y-14 ef:-space-y-16 sm:text-left md:-space-y-32 '>
-          <span className='text-[62px] font-bold text-red opacity-20 ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
+      <div className='relative mb-[20px] flex flex-col bg-background pl-[10px] lg:pt-[250px] pt-[200px]'>
+        <div className=' absolute bottom-3 flex flex-col -space-y-14 ef:-space-y-16 sm:text-left md:-space-y-32'>
+          <span className='text-[62px] font-bold text-red opacity-20 ef:text-[80px] sm:text-[5rem] md:text-[7rem] lg:text-[11rem]'>
             Leaderboard
           </span>
-          <span className='text-white z-10 ml-1 select-none text-[25px] ef:text-4xl md:ml-2 md:text-7xl lg:ml-3'>
+          <span className='text-white z-10 ml-1 select-none text-[25px] ef:text-4xl md:ml-2 md:text-7xl lg:ml-3 sm:text-3xl'>
             Leaderboard
           </span>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
-      <div className=' mx-9 mb-10 pb-10'>
+      <div className=' mx-9 mb-10 pb-10 lg:pt-[10rem]'>
         <div className='px-[30px] md:px-[20px]'>
           <div className='flex flex-col lg:flex-row lg:justify-center'>
-            <div className='relative z-0 mb-[50px] mr-2 h-[120px]  w-full rounded-[40px] bg-custom-gradient-2 px-5 py-3 md:h-[200px]'>
+            {/* <div className='relative z-0 mb-[50px] mr-2 h-[120px]  w-full rounded-[40px] bg-custom-gradient-2 px-5 py-3 md:h-[200px]'>
               <div className='flex flex-col lg:flex-row'>
                 <div className=' mt-[-40px]  flex flex-col md:mt-[-60px]'>
                   <p className='text-white select-none self-center text-center text-[30px]  font-bold md:text-[50px] lg:self-start lg:text-left'>
@@ -89,7 +84,7 @@ const Leaderboard = () => {
                     </div>
                   </div>
                   <div className='text-white absolute inset-x-0 bottom-0 flex select-none items-center justify-center font-spline text-[9px] md:text-[15px]'>
-                    CA Id:000000000
+                    Coming Soon
                   </div>
                 </div>
               </div>
@@ -117,14 +112,15 @@ const Leaderboard = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div
-            className='z-0 h-[400px] rounded-[50px] bg-custom-gradient px-[20px] py-[30px]  md:px-[20px] '
+            className='z-0 h-[400px] rounded-[50px] bg-custom-gradient px-[20px] py-[30px] md:px-[20px] '
             style={{ maxHeight: '400px', overflowY: 'auto', overflowX: 'auto' }}
           >
-            <div
+            <h1 className='h-[100%] w-[100%] flex items-center justify-center lg:text-9xl sm:text-2xl'>Coming Soon</h1>
+            {/* <div
               style={{
                 backgroundColor: '#191919',
                 borderRadius: '50px',
@@ -147,9 +143,9 @@ const Leaderboard = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div
+            {/* <div
               style={{
                 backgroundColor: '#191919',
                 borderRadius: '50px',
@@ -172,8 +168,8 @@ const Leaderboard = () => {
                   </p>
                 </div>
               </div>
-            </div>
-
+            </div> */}
+              {/*
             <div
               style={{
                 backgroundColor: '#191919',
@@ -181,7 +177,7 @@ const Leaderboard = () => {
                 // boxShadow: '0px 4px 10px 1px rgba(0, 0, 0, 0.8)',
               }}
             >
-              <div className='z-10 my-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
+               <div className='z-10 my-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
                 <div className='flex h-[80px] flex-wrap content-center justify-between '>
                   <p className='text-white mr-3 select-none  self-start text-[20px] font-bold md:text-[30px]'>
                     6
@@ -196,8 +192,9 @@ const Leaderboard = () => {
                     Points:345
                   </p>
                 </div>
-              </div>
+              </div> 
             </div>
+            */}
           </div>
         </div>
       </div>

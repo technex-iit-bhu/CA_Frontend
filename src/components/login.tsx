@@ -78,7 +78,7 @@ const Login = () => {
               />
             </div>
             <Link href={'/register'} className='font-spline'>
-              Haven't Registered Yet? Sign In
+              Haven't Registered Yet? Sign Up
             </Link>
             <button
               className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px]'
