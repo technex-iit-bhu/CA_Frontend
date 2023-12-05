@@ -61,19 +61,22 @@ const DashboardTab = () => {
   const renderCards = () => {
     const now = new Date();
     // Render the cards for live tasks
-    return tasks.map(
-      ({ id, expiryDate, points, title, description }, index) => (
-        <Cards
-          key={id}
-          date={expiryDate}
-          points={points}
-          title={title}
-          description={description}
-          taskNumber={`${index + 1}`}
-          month={`${monthNames[now.getMonth() + 1]}`}
-        />
-      )
-    );
+    // return tasks.map(
+    //   ({ id, expiryDate, points, title, description }, index) => (
+    //     <Cards
+    //       key={id}
+    //       date={expiryDate}
+    //       points={points}
+    //       title={title}
+    //       description={description}
+    //       taskNumber={`${index + 1}`}
+    //       month={`${monthNames[now.getMonth() + 1]}`}
+    //     />
+    //   )
+    // );
+    return (
+      <h1 className='h-[100%] w-[100%] flex items-center justify-center lg:text-9xl py-6 cs'> Coming soon</h1>
+    )
   };
 
   return (

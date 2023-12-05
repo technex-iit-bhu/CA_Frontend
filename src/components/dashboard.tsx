@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 const Dashboard = () => {
-  const [name, setName] = useState('John Doe');
-  const [rank, setRank] = useState('1');
-  const [caId, setCaId] = useState('CA2021001');
-  const [tasksDone, setTasksDone] = useState('69');
-  const [totalTasks, setTotalTasks] = useState('200');
-  const [points, setPoints] = useState('232');
+  const [name, setName] = useState('');
+  const [rank, setRank] = useState('');
+  const [caId, setCaId] = useState('');
+  const [tasksDone, setTasksDone] = useState('');
+  const [totalTasks, setTotalTasks] = useState('');
+  const [points, setPoints] = useState('');
 
   return (
     <div className=''>
