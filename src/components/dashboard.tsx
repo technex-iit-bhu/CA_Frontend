@@ -3,24 +3,12 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 const Dashboard = () => {
-<<<<<<< HEAD
   const [name, setName] = useState('');
   const [rank, setRank] = useState('');
   const [caId, setCaId] = useState('');
   const [tasksDone, setTasksDone] = useState('');
   const [totalTasks, setTotalTasks] = useState('');
   const [points, setPoints] = useState('');
-=======
-
-  const router = useRouter();
- 
-  const [name, setName] = useState('John Doe');
-  const [rank, setRank] = useState('1');
-  const [caId, setCaId] = useState('CA2021001');
-  const [tasksDone, setTasksDone] = useState('69');
-  const [totalTasks, setTotalTasks] = useState('200');
-  const [points, setPoints] = useState('232');
->>>>>>> 370c337722ea8e7acb2cbd5cd7e7d02d045f133e
 
     useEffect(() => {
       const fetchDetails = async () => {
