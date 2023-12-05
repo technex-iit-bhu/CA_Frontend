@@ -1,19 +1,25 @@
 import { Center } from '@chakra-ui/react';
-import React from 'react';
+import React, { FC } from 'react';
 
 const imgContainer = {
   backgroundColor: 'white',
-  width: '70px',
-  height: '70px',
+  width: '90px',
+  height: '90px',
   Position: 'relative',
   margin: 'auto',
   borderRadius: '50%',
-  marginTop: '10%',
+  marginTop: '7%',
   //   margin: '50%',
   zIndex: 1,
 };
 
-const ResponsibilityCard_Symbol = () => {
+interface CardProps{
+    text: string,
+    logo: any,
+    heading: string
+}
+
+const ResponsibilityCard_Symbol:FC<CardProps> = ({logo, text, heading}) => {
   return (
     <div>
       <div
@@ -47,7 +53,7 @@ const ResponsibilityCard_Symbol = () => {
             overflow: 'hidden',
           }}
         >
-          <div style={imgContainer}></div>
+          <img style={imgContainer} src={logo}></img>
         </div>
         <div
           style={{
@@ -60,11 +66,14 @@ const ResponsibilityCard_Symbol = () => {
             // left: '16%',
 
             alignContent: 'center',
-            top: '190px',
+            top: '120px',
             textAlign: 'center',
           }}
         >
-          Bhupendra Jogi
+            <p style={{ margin:"15px", marginBottom:"1.5vh"}}>{text}</p>
+
+            <h1><b>{heading} </b></h1>
+          
         </div>
       </div>
     </div>

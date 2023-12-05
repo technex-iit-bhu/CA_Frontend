@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import Textbox from '../components/textbox';
+import Navbar from './navbar';
 
 const Login = () => {
   const [modalContent, setModalContent] = useState('');
@@ -46,18 +47,21 @@ const Login = () => {
 
   return (
     <div className=''>
+      <div className='absolute z-10 w-full pb-10 lg:pb-10 xl:pb-10'>
+        <Navbar />
+      </div>
       <div className='relative bg-background pt-[100px]'>
         <div className='bottom-[10px] left-5 p-10 text-center text-5xl lg:text-7xl'>
           <span className='text-white select-none'>Login</span>
         </div>
       </div>
-      <div className='pb-[100px] self-center px-[50px] lg:px-[100px] xl:px-[400px]'>
-        <div className='z-0 rounded-[50px] bg-grey sm:px-[30px] py-[30px] md:px-[50px] px-[20px]'>
+      <div className='self-center px-[50px] pb-[100px] lg:px-[100px] xl:px-[400px]'>
+        <div className='z-20 rounded-[50px] bg-grey px-[20px] py-[30px] sm:px-[30px] md:px-[50px]'>
           <form
             className='flex flex-col items-center gap-y-5'
             onSubmit={handleSubmit}
           >
-            <div className='flex lg:flex-row content-center flex-col gap-5 self-stretch'>
+            <div className='flex flex-col content-center gap-5 self-stretch lg:flex-row'>
               <Textbox
                 label='Username:'
                 placeholder='Enter Your Username'

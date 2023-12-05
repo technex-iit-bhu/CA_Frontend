@@ -1,4 +1,3 @@
-// pages/api/register.js
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
@@ -11,7 +10,7 @@ export default async function handler(
         'https://ca-backend-467n.onrender.com/auth/register/',
         {
           method: 'POST',
-          body: JSON.stringify(req.body), // Pass the request body as-is
+          body: JSON.stringify(req.body),
           headers: {
             'Content-Type': 'application/json',
           },
@@ -20,9 +19,15 @@ export default async function handler(
 
       if (response.ok) {
         const data = await response.json();
-        res.status(200).json(data); // Forward the response from the external API
+        res.status(200).json(data);
       } else {
-        res.status(response.status).end();
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          const errorData = await response.json();
+          res.status(response.status).json(errorData);
+        } else {
+          res.status(response.status).end();
+        }
       }
     } catch (error) {
       console.error(error);

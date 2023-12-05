@@ -1,33 +1,30 @@
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import styles from '../styles/adminPage.module.css';
 import TaskList from '@/components/AdminPage/TaskList';
+import TaskForm from '@/components/AdminPage/TaskForm';
+import UnverifiedUsers from '@/components/AdminPage/UnverifiedUsers';
 function AdminPage() {
   const [token, setToken] = useState<string | null>(null);
   const [selected, setSelected] = useState<string>('login');
-  const options = ['login','All Tasks', 'Add Task', 'Edit task'];
+  const options: { [k: string]: ReactElement<any, any> } = {
+    login: <Login token={token} setToken={setToken}></Login>,
+    'All Tasks': <TaskList token={token}></TaskList>,
+    'Add Task': <TaskForm token={token}></TaskForm>,
+    'verify CAs': <UnverifiedUsers token={token}></UnverifiedUsers>,
+  };
 
   return (
     <div className={styles.container}>
-      <Navbar
-        options={options}
+      <Tabs
+        options={Object.keys(options)}
         selected={selected}
         setSelected={setSelected}
-      ></Navbar>
-      {selected === 'login' ? (
-        <Login token={token} setToken={setToken}></Login>
-      ) : selected === 'All Tasks' ? (
-        <TaskList token={token}></TaskList>
-      ) : selected === 'Add Task' ? (
-        <TaskForm token={token}></TaskForm>
-      ):selected === 'Edit task' ? (
-        <div>Edit task</div>
-      ) : (
-        <div>Never</div>
-      )}
+      ></Tabs>
+      {options[selected]}
     </div>
   );
 }
-const BACKEND_URL = 'http://localhost:8000/';//TODO: move to .env
+const BACKEND_URL = 'https://ca-backend-467n.onrender.com/'; //TODO: move to .env :( 
 function Login({
   token,
   setToken,
@@ -35,8 +32,9 @@ function Login({
   token: string | null;
   setToken: Function;
 }) {
-  const [username, setUsername] = useState<string>('fda');
-  const [password, setPassword] = useState<string>('');
+  const [username, setUsername] = useState<string>('ADMIN');
+  const [password, setPassword] = useState<string>('strong__password_123');
+  const [message, setMessage] = useState<string>('');
 
   function handleClick() {
     fetch(BACKEND_URL + 'auth/login/', {
@@ -52,8 +50,8 @@ function Login({
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setToken(data.access);
+        setMessage('');
       })
       .catch((err) => console.log(err));
   }
@@ -83,7 +81,17 @@ function Login({
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <div>Status:{token === null ? 'Not logged in' : 'Logged in'}</div>
+      <div>
+        Status:
+        {token === null ? 'Not logged in' : `Logged in`}
+      </div>
+      <p
+        style={{
+          color: 'red',
+        }}
+      >
+        {message}
+      </p>
       <button className={styles.button} onClick={handleClick}>
         Login
       </button>
@@ -91,7 +99,7 @@ function Login({
   );
 }
 
-function Navbar({
+function Tabs({
   options,
   selected,
   setSelected,
@@ -119,77 +127,5 @@ function Navbar({
     </div>
   );
 }
-
-function TaskForm({ token }: { token: string | null}) {
-  const [title, setTitle] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
-  const [points, setPoints] = useState<number>(0);
-
-  function handleSubmit() {
-    fetch(BACKEND_URL + 'tasks/', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'content-length': '0',
-        Authorization: `Bearer ${token}`,
-      },
-        body: JSON.stringify({
-            title,
-            description,
-            points,
-        }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setTitle('');
-        setDescription('');
-        setPoints(0);
-      })
-      .catch((err) => console.log(err));
-  }
-
-  return (
-    <div>
-      <div>
-        <label>
-          Title:
-          <input
-            type='text'
-            className={styles.input}
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Description:
-          <textarea
-            value={description}
-            className={styles.input}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Points:
-          <input
-            type='number'
-            className={styles.input}
-            value={points}
-            onChange={(e) => setPoints(Number(e.target.value))}
-          />
-        </label>
-        <br />
-        <button type='submit' className={styles.button} onClick={handleSubmit}>
-          Submit
-        </button>
-      </div>
-    </div>
-  );
-}
-
-
-
 
 export default AdminPage;
