@@ -27,7 +27,11 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
   const cardWidth = isLargerThan900 ? '630px' : '80vw';
   const padding = isLargerThan900 ? '10px 40px 15px 15px' : '2.5vw';
   const cardHeight = isLargerThan900 ? '315px' : '50vw';
-  const fontSize = (!isLargerThan425 && "10px") || (isLargerThan425 && !isLargerThan640 && "12px") || (isLargerThan640 && !isLargerThan900 && "20px") || "21px";
+  const fontSize =
+    (!isLargerThan425 && '10px') ||
+    (isLargerThan425 && !isLargerThan640 && '12px') ||
+    (isLargerThan640 && !isLargerThan900 && '20px') ||
+    '21px';
   const fontSize1 = isLargerThan900 ? '44px' : '6vw';
   const padding1 = isLargerThan900 ? '15px 0px' : '3vw 0';
   const margin = isLargerThan900 ? '80px 50px 50px 50px' : '8vw';
@@ -58,10 +62,10 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
             >
               <Image
                 src={imageSrc}
-                objectFit='fill' // Ensure the image stays inside the box and covers it
+                objectFit='contain' // Ensure the image stays inside the box and covers it
                 width='100%' // Make sure the image takes 100% width of the Box
                 height='100%' // Make sure the image takes 100% height of the Box
-                borderRadius='10% 20%'
+                borderRadius='10% 30%'
                 alt=''
               />
             </Box>
@@ -80,8 +84,15 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
                   {secondWord}
                 </Box>
               </Heading>
-              <Text padding={padding} fontSize={fontSize}>
+
+              <Text padding={padding} fontSize={fontSize} style={{ fontFamily: "'Spline Sans', sans-serif" }}>
+                <Box as='span' color='#a81f25' fontSize='2rem'>
+                  "
+                </Box>
                 {description}
+                <Box as='span' color='#a81f25' fontSize='2rem'>
+                  "
+                </Box>
               </Text>
             </Box>
           </Stack>
