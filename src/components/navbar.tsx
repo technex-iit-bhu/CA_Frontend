@@ -62,31 +62,31 @@ const Navbar: FC = () => {
       <div className='hidden space-x-10 p-3 pr-5 text-center text-xl font-bold cd:block '>
         <Link
           href='/'
-          className={`relative text-${aboutColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-3xl before:bg-gradient-to-r before:from-[#0087FF] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
+          className={`relative text-${aboutColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-3xl before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
         >
           About
         </Link>
         <Link
           href='/incentivesPage'
-          className={`relative text-${incentivesColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#0087FF] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
+          className={`relative text-${incentivesColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
         >
           Incentives
         </Link>
         <Link
           href={'/contactUsPage'}
-          className={`relative text-${contactusColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#0087FF] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
+          className={`relative text-${contactusColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
         >
           ContactUs
         </Link>
         <Link
           href={'/faqPage'}
-          className={`relative text-${faqColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#0087FF] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
+          className={`relative text-${faqColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
         >
           FAQs
         </Link>
         <Link
           href={'/leaderboard'}
-          className={`relative text-${leaderboardColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#0087FF] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
+            className={`relative text-${leaderboardColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
         >
           Leaderboard
         </Link>

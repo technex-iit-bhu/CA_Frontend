@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Router from 'next/router';
+import {useRouter} from 'next/router';
 import Textbox from '../components/textbox';
 import Navbar from './navbar';
 
 const Login = () => {
   const [modalContent, setModalContent] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
 
   const [formData, setFormData] = useState({
     username: '',
@@ -29,8 +30,10 @@ const Login = () => {
           'Content-Type': 'application/json',
         },
       });
-      setModalContent('Successfully Logged In');
-      setShowModal(true);
+      const Token = await response.json();
+      const accessToken = Token.access;
+      console.log(accessToken);
+      router.push(`/dashboardPage?token=${accessToken}`);
     } catch (error) {
       console.log(error);
     }
@@ -38,9 +41,6 @@ const Login = () => {
 
   const handleModalClose = () => {
     setShowModal(false);
-    if (modalContent === 'Successfully Logged In') {
-      Router.push('https://ca-frontend-ebon.vercel.app/dashboardPage');
-    }
   };
 
   return (
