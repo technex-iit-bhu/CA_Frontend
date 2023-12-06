@@ -75,7 +75,7 @@ const DashboardTab = () => {
     //   )
     // );
     return (
-      <h1 className='h-[100%] w-[100%] flex items-center justify-center lg:text-9xl py-6 cs'> Coming soon</h1>
+      <h1 className='h-[100%] w-[100%] flex items-center justify-center text-center lg:text-9xl md:text-7xl sm:text-5xl text-3xl py-6 cs'> Coming soon</h1>
     )
   };
 
