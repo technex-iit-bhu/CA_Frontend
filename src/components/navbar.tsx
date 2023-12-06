@@ -81,7 +81,7 @@ const Navbar: FC = () => {
         </div>
       </Link>
 
-      <div className='hidden space-x-10 p-3 pr-5 text-center text-xl font-bold cd:block '>
+      <div className='hidden space-x-6 xl:space-x-10 p-3 pr-5 text-center text-xl font-bold cd:block '>
         <Link
           href='/'
           className={`relative text-${aboutColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-3xl before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
@@ -106,12 +106,12 @@ const Navbar: FC = () => {
         >
           FAQs
         </Link>
-        <Link
+        {isLoggedIn && <Link
           href={'/leaderboard'}
             className={`relative text-${leaderboardColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
         >
           Leaderboard
-        </Link>
+        </Link>}
         {isLoggedIn && <Link
           href={'/dashboardPage'}
             className={`relative text-${dashboardPageColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
