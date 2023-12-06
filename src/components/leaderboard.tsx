@@ -119,7 +119,7 @@ const Leaderboard = () => {
             className='z-0 h-[400px] rounded-[50px] bg-custom-gradient px-[20px] py-[30px] md:px-[20px] '
             style={{ maxHeight: '400px', overflowY: 'auto', overflowX: 'auto' }}
           >
-            <h1 className='h-[100%] w-[100%] flex items-center justify-center lg:text-9xl sm:text-2xl'>Coming Soon</h1>
+            <h1 className='h-[100%] w-[100%] flex items-center justify-center text-center lg:text-9xl md:text-7xl sm:text-5xl text-3xl'>Coming Soon</h1>
             {/* <div
               style={{
                 backgroundColor: '#191919',

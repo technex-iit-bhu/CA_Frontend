@@ -20,7 +20,14 @@ const contactUsPage = () => {
           </span>
         </Center>
       </Box>
-      <Tnc text='To be Announced'></Tnc>
+
+      {/* <Tnc text='Kaam karna padega'></Tnc>
+      <Tnc text='Acche se karna padega'></Tnc>
+      <Tnc text='Din raat karna padega'></Tnc>
+      <Tnc text='Nahi karoge toh merch nhi milega'></Tnc>
+      <Tnc text='PS:Aaj shaam ke GS ke session mein aa jaana sab'></Tnc> */}
+      <p className='h-[100%] w-[100%] flex items-center justify-center text-center lg:text-7xl md:text-5xl sm:text-3xl text-2xl'>Coming Soon</p>
+
       <br />
       <br />
     </div>
