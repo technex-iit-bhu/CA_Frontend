@@ -12,6 +12,7 @@ import {
   VStack,
   ResponsiveValue,
 } from '@chakra-ui/react';
+import React from 'react';
 
 // Custom pxToRem function
 const pxToRem = (px: number) => `${px / 16}rem`;
