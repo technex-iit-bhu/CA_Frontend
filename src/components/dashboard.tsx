@@ -39,11 +39,11 @@ const Dashboard = () => {
   return (
     <div className=''>
       <div className='relative mb-[100px] flex flex-col bg-background pl-[0px] pt-[100px] sm:pl-[40px] md:mb-[50px]'>
-        <div className='lg:-space-y-15 flex flex-col -space-y-9 sm:-space-y-8 sm:pb-10 md:-space-y-8 xl:-space-y-20'>
-          <div className='absolute font-spline text-[0px] font-bold text-[#A81F25] opacity-20 sm:text-[12.5vw]'>
+        <div className='flex flex-col sm:pb-10 -space-y-[138px] ef:-space-y-[167px] sm:-space-y-[187px] lg:-space-y-[234px] xl:-space-y-[392px]'>
+          <div className='self-center sm:self-start font-spline text-[50px] ef:text-[80px] select-none font-bold text-[#A81F25] opacity-20 sm:text-[100px] lg:text-[150px] xl:text-[200px]'>
             Dashboard
           </div>
-          <div className='text-white z-10 transform select-none self-center pt-[90px] text-[10vw] transition duration-700 hover:scale-110 sm:self-start sm:text-[7vw] xl:pt-[200px]'>
+          <div className='text-white z-10 transform select-none self-center pt-[90px] text-[26px] ef:text-[40px] transition duration-700 hover:scale-110 sm:pl-1 sm:self-start sm:text-[50px] lg:text-[75px] xl:text-[100px] xl:pt-[200px] lg:pl-1.5'>
             Dashboard
           </div>
         </div>
