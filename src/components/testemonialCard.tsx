@@ -86,11 +86,11 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
               </Heading>
 
               <Text padding={padding} fontSize={fontSize} style={{ fontFamily: "'Spline Sans', sans-serif" }}>
-                <Box as='span' color='#a81f25' fontSize='2rem'>
+                <Box as='span' color='#a81f25' fontSize='1.5rem'>
                   "
                 </Box>
                 {description}
-                <Box as='span' color='#a81f25' fontSize='2rem'>
+                <Box as='span' color='#a81f25' fontSize='1.5rem'>
                   "
                 </Box>
               </Text>
