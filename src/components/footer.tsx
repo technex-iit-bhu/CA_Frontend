@@ -20,7 +20,7 @@ const Footer: FC = () => {
         <div className='pb-3 text-center font-bold sm:pr-10'>
           <h1 className='pb-4 font-spline'>Social Links</h1>
           <div className='flex items-center justify-center space-x-5 p-1'>
-            <Link href={''}>
+            <Link href={'https://www.facebook.com/technexiitbhu'}>
               <Image
                 src={'/facebook.webp'}
                 alt='facebook'
@@ -28,10 +28,10 @@ const Footer: FC = () => {
                 height={50}
               />
             </Link>
-            <Link href={''}>
+            <Link href={'https://www.instagram.com/technexiitbhu/'}>
               <Image src={'/insta.webp'} alt='Insta' width={33} height={35} />
             </Link>
-            <Link href={''}>
+            <Link href={'https://www.linkedin.com/company/technex-iit-bhu-varanasi/mycompany/'}>
               <Image
                 src={'/linkedin.webp'}
                 alt='Linkedin'
@@ -39,10 +39,10 @@ const Footer: FC = () => {
                 height={40}
               />
             </Link>
-            <Link href={''}>
+            <Link href={'https://x.com/technexiitbhu?s=20'}>
               <Image src={'/X.webp'} alt='X' width={35} height={35} />
             </Link>
-            <Link href={''}>
+            <Link href={'https://www.youtube.com/@TechnexIITBHU'}>
               <Image src={'/youtube.webp'} alt='YT' width={45} height={40} />
             </Link>
           </div>
@@ -68,7 +68,7 @@ const Footer: FC = () => {
           <div className='pb-3 text-center font-bold sm:pr-10'>
             <h1 className='pb-4 pt-2 font-spline'>Social Links</h1>
             <div className='flex items-center justify-center space-x-5 p-1'>
-              <Link href={''}>
+              <Link href={'https://www.facebook.com/technexiitbhu'}>
                 <Image
                   src={'/facebook.webp'}
                   alt='facebook'
@@ -76,10 +76,10 @@ const Footer: FC = () => {
                   height={50}
                 />
               </Link>
-              <Link href={''}>
+              <Link href={'https://www.instagram.com/technexiitbhu/'}>
                 <Image src={'/insta.webp'} alt='Insta' width={33} height={35} />
               </Link>
-              <Link href={''}>
+              <Link href={'https://www.linkedin.com/company/technex-iit-bhu-varanasi/mycompany/'}>
                 <Image
                   src={'/linkedin.webp'}
                   alt='Linkedin'
@@ -87,10 +87,10 @@ const Footer: FC = () => {
                   height={40}
                 />
               </Link>
-              <Link href={''}>
+              <Link href={'https://x.com/technexiitbhu?s=20'}>
                 <Image src={'/X.webp'} alt='X' width={35} height={35} />
               </Link>
-              <Link href={''}>
+              <Link href={'https://www.youtube.com/@TechnexIITBHU'}>
                 <Image src={'/youtube.webp'} alt='YT' width={45} height={40} />
               </Link>
             </div>

@@ -20,7 +20,7 @@ const AboutTechnex: FC = () => {
           <div className='flex'>
             <div className='left-column'>
               <p className='mr-3 border-b-2 border-[#A81F25] p-3 pr-5 pt-10 tracking-wide lg:w-[850px]'>
-                Technex'23, hosted by the prestigious Indian Institute of
+                Technex'24, hosted by the prestigious Indian Institute of
                 Technology (IIT) BHU, stands as a venerable beacon among India's
                 college festivals.{' '}
                 <span className='text-[#A81F25]'>
