@@ -4,11 +4,11 @@ import { useRouter } from 'next/router';
 
 const Dashboard = () => {
   const [name, setName] = useState('');
-  const [rank, setRank] = useState('');
-  const [caId, setCaId] = useState('');
-  const [tasksDone, setTasksDone] = useState('');
-  const [totalTasks, setTotalTasks] = useState('');
-  const [points, setPoints] = useState('');
+  const [rank, setRank] = useState('NaN');
+  const [caId, setCaId] = useState('XXXXXXXXXX');
+  const [tasksDone, setTasksDone] = useState('NaN');
+  const [totalTasks, setTotalTasks] = useState('0');
+  const [points, setPoints] = useState('NaN');
 
     useEffect(() => {
       const fetchDetails = async () => {
@@ -23,6 +23,7 @@ const Dashboard = () => {
           });
           if (response.status === 200) {
             const fetchedDetails = await response.json();
+            console.log(fetchedDetails);
             setName(`${fetchedDetails.userprofile.first_name} ${fetchedDetails.userprofile.last_name}`);
             setPoints(fetchedDetails.userprofile.points);
           } else {
@@ -32,8 +33,22 @@ const Dashboard = () => {
           console.error('Server error', error);
         }
       };
-  
+      const getTasks = async () => {
+        const response = await fetch('https://ca-backend-467n.onrender.com/tasks/', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        if (response.status === 200) {
+          const fetchedTasks = await response.json();
+          console.log(fetchedTasks);
+          setTotalTasks(fetchedTasks.length);
+        } else {
+          console.error('Failed to fetch tasks');
+        }}
       fetchDetails();
+      getTasks();
     }, []);
 
   return (
