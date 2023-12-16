@@ -25,7 +25,7 @@ const Dashboard = () => {
             const fetchedDetails = await response.json();
             setName(`${fetchedDetails.userprofile.first_name} ${fetchedDetails.userprofile.last_name}`);
             setPoints(fetchedDetails.userprofile.points);
-            setCaId(fetchedDetails.userprofile.unique_id);
+            setCaId(fetchedDetails.userprofile.unique_id.slice(-8));
           } else {
             console.error('Failed to fetch profile');
           }
