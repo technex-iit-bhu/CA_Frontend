@@ -1,17 +1,13 @@
-import React, { useState, useRef, MutableRefObject } from 'react';
-import Slider from 'react-slick';
-import Head from 'next/head';
+import React, { useState } from 'react';
 import IncentiveCard from './incentive_card';
 import { v4 as uuidv4 } from 'uuid';
 import 'src/styles/Incentive.module.css';
-import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CardPopup from './cardpopup';
 
 import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const titletext = [
   'Paisa Hi ',
@@ -22,7 +18,7 @@ const titletext = [
 ];
 const lor = `COMING SOON...`;
 
-const IncentivesCarousel = () => {
+const IncCarousel = () => {
   const [showFull, setShowFull] = useState(false);
   const showFullHandler = () => {
     setShowFull(!showFull);
@@ -31,13 +27,12 @@ const IncentivesCarousel = () => {
   const IncentivesCarousel = () => {
     return (
       <Carousel
-      showThumbs={false}
-      showStatus={false}
-      showIndicators={false}
-      showArrows={true}
-      centerMode
-      centerSlidePercentage={25}
-      className='pb-4'
+        showThumbs={true}
+        showStatus={false}
+        showIndicators={false}
+        showArrows={true}
+        centerMode
+        centerSlidePercentage={25}
       >
         <div>
           <IncentiveCard logo={titletext} text={lor} />
@@ -108,12 +103,10 @@ const IncentivesCarousel = () => {
   };
   return (
     <div className=''>
-      {
-        <div className='blur-none'>
-          <IncentivesCarousel />
-          <IncentivesCarousel />
-        </div>
-      }
+      <div>
+        <IncentivesCarousel />
+        <IncentivesCarousel />
+      </div>
       <div className='fixed left-0 top-1/4 z-30 flex items-center justify-center md:left-1/4 lg:left-[28%]'>
         <CardPopup logo={'./logoipsum-284.svg'} text={lor} trigger={showFull}>
           <button
@@ -128,4 +121,4 @@ const IncentivesCarousel = () => {
   );
 };
 
-export default IncentivesCarousel;
+export default IncCarousel;

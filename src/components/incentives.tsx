@@ -1,5 +1,5 @@
 import React from 'react';
-import IncentivesCarousel from './carousel';
+import IncCarousel from './carousel';
 import Navbar from './navbar';
 
 const Incentive = () => {
@@ -19,7 +19,7 @@ const Incentive = () => {
         </div>
       </div>
 
-      <IncentivesCarousel></IncentivesCarousel>
+      <IncCarousel></IncCarousel>
     </div>
   );
 };
