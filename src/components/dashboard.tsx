@@ -4,11 +4,11 @@ import { useRouter } from 'next/router';
 
 const Dashboard = () => {
   const [name, setName] = useState('');
-  const [rank, setRank] = useState('');
-  const [caId, setCaId] = useState('');
-  const [tasksDone, setTasksDone] = useState('');
-  const [totalTasks, setTotalTasks] = useState('');
-  const [points, setPoints] = useState('');
+  const [rank, setRank] = useState('NaN');
+  const [caId, setCaId] = useState('XXXXXXXXXX');
+  const [tasksDone, setTasksDone] = useState('NaN');
+  const [totalTasks, setTotalTasks] = useState('0');
+  const [points, setPoints] = useState('NaN');
 
     useEffect(() => {
       const fetchDetails = async () => {
@@ -25,6 +25,7 @@ const Dashboard = () => {
             const fetchedDetails = await response.json();
             setName(`${fetchedDetails.userprofile.first_name} ${fetchedDetails.userprofile.last_name}`);
             setPoints(fetchedDetails.userprofile.points);
+            setCaId(fetchedDetails.userprofile.unique_id.slice(-8));
           } else {
             console.error('Failed to fetch profile');
           }
@@ -32,8 +33,21 @@ const Dashboard = () => {
           console.error('Server error', error);
         }
       };
-  
+      const getTasks = async () => {
+        const response = await fetch('https://ca-backend-467n.onrender.com/tasks/', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        if (response.status === 200) {
+          const fetchedTasks = await response.json();
+          setTotalTasks(fetchedTasks.length);
+        } else {
+          console.error('Failed to fetch tasks');
+        }}
       fetchDetails();
+      getTasks();
     }, []);
 
   return (
@@ -52,7 +66,15 @@ const Dashboard = () => {
         <div className='z-0 rounded-[50px] bg-custom-gradient px-[50px] py-[30px] md:px-[30px]'>
           <div className='flex flex-col lg:flex-row'>
             <div className='mt-[-80px] flex flex-col lg:w-1/3'>
-              <div className='h-[150px] w-[150px] select-none self-center rounded-full border-4 border-red bg-background'></div>
+              <div className='h-[150px] w-[150px] select-none self-center rounded-full border-4 border-red bg-background'>
+                <img
+                  src='https://play-lh.googleusercontent.com/Oriscl3_nvmDPncct6gStmNuQW_4tqHVozy1skG0vd8Jk22KYNMYYJfKq0vcyU-NKdw'
+                  alt='profile picture'
+                  width={150}
+                  height={150}
+                  className='rounded-full '
+                />
+              </div>
               <div className='flex flex-col pb-[30px] font-spline self-center'>
                 <p className='text-white select-none self-center text-center text-[30px] font-bold'>
                   {name}
