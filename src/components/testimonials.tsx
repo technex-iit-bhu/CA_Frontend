@@ -12,40 +12,40 @@ const carouselData: CarouselData[] = [
   {
     title: 'Ellen Verma',
     description:
-      "My journey as a Campus Ambassador for TECHNEX'23 at IIT BHU was an incredible experience that allowed me to grow both personally and professionally. This experience will always hold a special place in my heart, and I am grateful for this.",
+      "As a Campus Ambassador for TECHNEX at IIT BHU, I gained valuable personal and professional development, enhancing leadership and organizational skills. Representing my college filled me with pride, and the lessons learned and memories created are deeply meaningful.",
     imageSrc:
       'cutie_t1.webp', // URL for the image
   },
   {
     title: 'Neha Upadhyay',
     description:
-      "This year I got an opportunity to became CA of Technex'23. My convincing skill changed after becoming CA and the way Technex team help me is really appreciable. At last I will finish this with one word Technex  is enjoyable nd knowledgeable.",
+      "As a Campus Ambassador for TECHNEX in early February, I transformed my communication and persuasion skills while successfully encouraging student participation. The Technex team's support in profile enhancement and overcoming challenges was appreciated, making my tenure a blend of enjoyment and intellectual growth.",
     imageSrc:
       'notcutie_t2.webp', // URL for the image
   },
   {
     title: 'Shakti Nandan',
     description:
-      "Hi, I am Shakti Nandan, very happy and proud to be a part of TECHNEX'23 as CAMPUS AMBASSADOR in such a Greenish and Vedic culture campus. I got very valuable experience and  I heartly thankful to TECHNEX team to provide me that opportunity.",
+      "I'm Shakti Nandan, honored to be a CAMPUS AMBASSADOR for TECHNEX at this culturally rich campus. TECHNEX provides a platform for self-exploration, networking, and showcasing skills nationally. My journey included gaining experiences, honing leadership skills, and enjoying campus life, with gratitude to the TECHNEX team and my college for their support.",
     imageSrc:
       't3.webp', // URL for the image
   },
   {
     title: 'Manish Gupta',
     description: 
-    "I had the opportunity to represent my college as a campus ambassador for Technex, IIT BHU and I would like to say that it has been a wonderful experience for me being a campus ambassador of this prestigious technical fest. STAY TECHNEXED!",
+    "Hello, I'm Manish from SLIET, and being a campus ambassador for TECHNEX, IIT BHU has been a fantastic journey. Promoting TECHNEX, engaging with technical clubs, and seeing over 50 students excel in the event has been truly rewarding. Technex is more than just a fest; it offers intense competitions, warm hospitality, and enriching experiences. Looking forward to more remarkable experiences in upcoming events. STAY TECHNEXED!",
     imageSrc: "t4.webp",
   },
   {
     title: "Krishna Raj",
     description:
-    "An absolute fantastic experience, from the food to the security arrangements. The variety & quality of cuisines  left us spoilt for choice It was evident that the organizers went above and beyond to create a memorable experience for all.",
+    "Exceptional experience! Commendable organization, diverse cuisines, top-notch security, engaging workshops, thrilling performances, and excellent accommodation made the fest memorable. Organizers went above and beyond, exceeding expectations. Looking forward to the next one!",
     imageSrc: "t5 (1).webp",
   },
   {
     title: "Umesh Verma",
     description:
-    "Being a campus ambassador of technex iit 2k23 was an enriching experience where I represented my university at events, workshops, orientations. I had the chance to interact with prospective students & share my insights about campus life.",
+    "As a Campus Ambassador for TECHNEX IIT BHU, I had an enriching experience representing my university at events and orientations. Interacting with prospective students, I aimed to foster a sense of belonging and provide valuable information about campus life.",
     imageSrc: "t6.webp",
   },
 ];
