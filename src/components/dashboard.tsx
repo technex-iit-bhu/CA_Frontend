@@ -23,7 +23,6 @@ const Dashboard = () => {
           });
           if (response.status === 200) {
             const fetchedDetails = await response.json();
-            console.log(fetchedDetails);
             setName(`${fetchedDetails.userprofile.first_name} ${fetchedDetails.userprofile.last_name}`);
             setPoints(fetchedDetails.userprofile.points);
           } else {
@@ -42,7 +41,6 @@ const Dashboard = () => {
         });
         if (response.status === 200) {
           const fetchedTasks = await response.json();
-          console.log(fetchedTasks);
           setTotalTasks(fetchedTasks.length);
         } else {
           console.error('Failed to fetch tasks');

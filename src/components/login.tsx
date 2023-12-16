@@ -22,7 +22,6 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      console.log(formData);
       const response = await fetch('api/login', {
         method: 'post',
         body: JSON.stringify(formData),
