@@ -39,7 +39,7 @@ const carouselData: CarouselData[] = [
   {
     title: "Krishna Raj",
     description:
-    "An absolute fantastic experience, from the food to the security arrangements. The variety & quality of cuisines  left us spoilt for choice It was evident that the organizers went above and beyond to create a memorable experience for all.",
+    "Exceptional experience! Commendable organization, diverse cuisines, top-notch security, engaging workshops, thrilling performances, and excellent accommodation made the fest memorable. Organizers went above and beyond, exceeding expectations. Looking forward to the next one!",
     imageSrc: "t5 (2).png",
   },
   {
