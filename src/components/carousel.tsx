@@ -8,21 +8,6 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CardPopup from './cardpopup';
-import technex from '../../public/technex_logo.webp';
-import SE from '../../public/SELogo.svg'
-import eM from '../../public/eM.svg';
-import LgLogo from '../../public/LgLogo.svg';
-
-const info = `
-  • Lead CAs to get a rank based Social Media Marketing Internship Certificate from Technex IIT BHU.
-  • Exclusively Top Performers will have Letter of Recommendation signed by Chairman, Technex IIT BHU.
-  • Goodies and Merchandise Discounts on Tickets and Accommodation for Top Performers.
-  • LinkedIn Endorsement.
-  • Weekly Instagram Shoutout On Technex Social Media Platforms.
-`;
-
-
-const text = info.trim();
 
 const SlickButtonFix = (
   props: {
@@ -44,12 +29,8 @@ const lor = `COMING SOON...`;
 
 const IncentivesCarousel = () => {
   const [showFull, setShowFull] = useState(false);
- 
-  const [selectedCard, setSelectedCard] = useState({ logo: '', text: '' });
-
-  const showFullHandler = (logo: any, text: any) => {
+  const showFullHandler = () => {
     setShowFull(!showFull);
-    setSelectedCard({ logo, text });
   };
   const sliderRef1 = useRef<any>();
   // const divRef = useRef<MutableRefObject<HTMLDivElement>>()
@@ -241,58 +222,161 @@ const IncentivesCarousel = () => {
 
             <Slider {...settings} ref={sliderRef1} className='pb-10'>
               <div>
-                <IncentiveCard logo={technex} text={text} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(technex, text)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
 
               <div>
-                <IncentiveCard logo={SE} text={lor} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(SE, lor)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
 
               <div>
-                <IncentiveCard logo={eM} text={lor} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(eM, lor)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
 
               <div>
-                <IncentiveCard logo={LgLogo} text={lor} />
-                {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
-            <IncentiveCard logo={titletext} text={lor} />
-          </div> */}
+                <IncentiveCard logo={titletext} text={lor} />
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(LgLogo, lor)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
-
-              
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
             </Slider>
           </div>
           <div style={{ justifyContent: 'center', margin: '20px' }}>
@@ -311,52 +395,157 @@ const IncentivesCarousel = () => {
             </Head>
             <Slider {...settings2} ref={sliderRef2}>
               <div>
-                <IncentiveCard logo={technex} text={text} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className=' font-semibold text-red'
-                  onClick={() => showFullHandler(technex, text)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
 
               <div>
-              <IncentiveCard logo={SE} text={lor} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(SE, lor)}
+                  onClick={showFullHandler}
                 >
                   Show {showFull ? '' : 'More'}
                 </button>
               </div>
 
               <div>
-              <IncentiveCard logo={eM} text={lor} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(eM, lor)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
 
               <div>
-              <IncentiveCard logo={LgLogo} text={lor} />
-                {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
-            <IncentiveCard logo={titletext} text={lor} />
-          </div> */}
+                <IncentiveCard logo={titletext} text={lor} />
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(LgLogo, lor)}
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
@@ -389,58 +578,161 @@ const IncentivesCarousel = () => {
 
             <Slider {...settings} ref={sliderRef1} className='pb-10'>
               <div>
-                <IncentiveCard logo={technex} text={text} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(technex, text)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
 
               <div>
-              <IncentiveCard logo={SE} text={lor} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(SE, lor)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
 
               <div>
-              <IncentiveCard logo={eM} text={lor} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(eM, lor)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
 
               <div>
-              <IncentiveCard logo={LgLogo} text={lor} />
-                {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
-            <IncentiveCard logo={titletext} text={lor} />
-          </div> */}
+                <IncentiveCard logo={titletext} text={lor} />
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(LgLogo, lor)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
-
-             
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
             </Slider>
           </div>
           <div style={{ justifyContent: 'center', margin: '20px' }}>
@@ -459,67 +751,170 @@ const IncentivesCarousel = () => {
             </Head>
             <Slider {...settings2} ref={sliderRef2}>
               <div>
-                <IncentiveCard logo={technex} text={text} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className=' font-semibold text-red'
-                  onClick={() => showFullHandler(technex, text)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
 
               <div>
-              <IncentiveCard logo={SE} text={lor} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(SE, lor)}
+                  onClick={showFullHandler}
                 >
                   Show {showFull ? '' : 'More'}
                 </button>
               </div>
 
               <div>
-              <IncentiveCard logo={eM} text={lor} />
+                <IncentiveCard logo={titletext} text={lor} />
                 {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
             <IncentiveCard logo={titletext} text={lor} />
           </div> */}
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(eM, lor)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
 
               <div>
-              <IncentiveCard logo={LgLogo} text={lor} />
-                {/* <div style={{ marginLeft: 'max(20px, 15vw)' }}>
-            <IncentiveCard logo={titletext} text={lor} />
-          </div> */}
+                <IncentiveCard logo={titletext} text={lor} />
                 <button
                   className='px-3 py-1 font-semibold text-red'
-                  onClick={() => showFullHandler(LgLogo, lor)}
+                  onClick={showFullHandler}
                 >
                   {showFull ? '' : 'Show More'}
                 </button>
               </div>
-
-              
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
+              <div>
+                <IncentiveCard logo={titletext} text={lor} />
+                <button
+                  className='px-3 py-1 font-semibold text-red'
+                  onClick={showFullHandler}
+                >
+                  {showFull ? '' : 'Show More'}
+                </button>
+              </div>
             </Slider>
           </div>
         </div>
       )}
       <div className='fixed left-0 top-1/4 z-30 flex items-center justify-center md:left-1/4 lg:left-[28%]'>
-      <CardPopup logo={selectedCard.logo} text={selectedCard.text} trigger={showFull}>
+        <CardPopup logo={'./logoipsum-284.svg'} text={lor} trigger={showFull}>
           <button
             className='relative px-3 py-1 pb-2 font-semibold text-red'
-            onClick={() => showFullHandler('./logoipsum-284.svg', lor)}
+            onClick={showFullHandler}
           >
             Show {showFull ? 'Less' : 'More'}
           </button>

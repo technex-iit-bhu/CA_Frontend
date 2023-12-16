@@ -10,7 +10,7 @@ const CardPopup = (props: any) => {
         <CardHeader className='flex items-center justify-center p-2 pb-3'>
           <Image
             alt='companylogo'
-            src={props.logo}
+            src={'/logoipsum-284.svg' || props.logo}
             width={100}
             height={100}
           />
