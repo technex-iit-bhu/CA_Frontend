@@ -40,7 +40,7 @@ const carouselData: CarouselData[] = [
     title: "Krishna Raj",
     description:
     "An absolute fantastic experience, from the food to the security arrangements. The variety & quality of cuisines  left us spoilt for choice It was evident that the organizers went above and beyond to create a memorable experience for all.",
-    imageSrc: "t5 (1).webp",
+    imageSrc: "t5 (2).png",
   },
   {
     title: "Umesh Verma",
