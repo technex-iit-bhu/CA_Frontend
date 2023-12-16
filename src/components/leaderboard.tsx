@@ -28,12 +28,12 @@ const Leaderboard = () => {
         <Navbar />
       </div>
 
-      <div className='relative mb-[20px] flex flex-col bg-background sm:pl-[10px] lg:pt-[250px] pt-[200px]'>
+      <div className='relative mb-[20px] flex flex-col bg-background pt-[200px] sm:pl-[10px] lg:pt-[250px]'>
         <div className=' bottom-3 flex flex-col -space-y-[46px] ef:-space-y-16 sm:text-left md:-space-y-[106px] lg:-space-y-[124px]'>
           <span className='self-center text-[44px] font-bold text-red opacity-20 ef:text-[80px] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]'>
             Leaderboard
           </span>
-          <span className='self-center text-white z-10 ml-1 select-none text-[25px] ef:text-4xl sm:text-[40px] md:ml-2 md:text-7xl lg:ml-3 sm:text-3xl'>
+          <span className='text-white z-10 ml-1 select-none self-center text-[25px] ef:text-4xl sm:text-3xl sm:text-[40px] md:ml-2 md:text-7xl lg:ml-3'>
             Leaderboard
           </span>
         </div>
@@ -119,7 +119,9 @@ const Leaderboard = () => {
             className='z-0 h-[400px] rounded-[50px] bg-custom-gradient px-[20px] py-[30px] md:px-[20px] '
             style={{ maxHeight: '400px', overflowY: 'auto', overflowX: 'auto' }}
           >
-            <h1 className='h-[100%] w-[100%] flex items-center justify-center text-center lg:text-9xl md:text-7xl sm:text-5xl text-3xl'>Coming Soon</h1>
+            <h1 className='flex h-[100%] w-[100%] items-center justify-center text-center text-3xl sm:text-5xl md:text-7xl lg:text-9xl'>
+              Coming Soon
+            </h1>
             {/* <div
               style={{
                 backgroundColor: '#191919',
@@ -169,7 +171,7 @@ const Leaderboard = () => {
                 </div>
               </div>
             </div> */}
-              {/*
+            {/*
             <div
               style={{
                 backgroundColor: '#191919',

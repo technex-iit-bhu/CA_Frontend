@@ -45,7 +45,7 @@ const UserTable = ({ token }: { token: string | null }) => {
   }, []);
 
   function handleVerify(email_token: string) {
-    setErrorMessage("loading...")
+    setErrorMessage('loading...');
     fetch(BACKEND_URL + 'auth/verifyaccount/', {
       method: 'POST',
       headers: {
