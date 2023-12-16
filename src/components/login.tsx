@@ -30,6 +30,11 @@ const Login = () => {
           'Content-Type': 'application/json',
         },
       });
+      if(response.status === 401) {
+        setModalContent('Invalid Credentials');
+        setShowModal(true);
+        return;
+      }
       const Token = await response.json();
       const accessToken = Token.access;
       localStorage.setItem('accessToken', accessToken);
@@ -88,12 +93,12 @@ const Login = () => {
             </button>
           </form>
           {showModal && (
-            <div className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'>
-              <div className='rounded-lg bg-grey p-5 shadow-lg'>
-                <p>{modalContent}</p>
+            <div className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50' onClick={() => setShowModal(false)}>
+              <div className='rounded-lg bg-grey p-5 shadow-lg w-[30%] h-50 flex flex-col'>
+                <p className='self-center'>{modalContent}</p>
                 <button
                   onClick={handleModalClose}
-                  className='text-white m-4 rounded-full bg-red px-4 py-2'
+                  className='text-white m-4 rounded-full bg-red px-4 py-2 lg:w-[50%] self-center'
                 >
                   Okay
                 </button>
