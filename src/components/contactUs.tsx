@@ -30,7 +30,7 @@ const ContactUs = () => {
               />
             </div>
             <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
-              <h2 className='font-bold text-red'>Rhythm Singh Rajpurohit</h2>
+              <h2 className='font-bold text-red'>Rhythm S. Rajpurohit</h2>
               <div>+918955879550</div>
             </div>
           </div>
@@ -137,7 +137,7 @@ const ContactUs = () => {
               />
             </div>
             <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
-              <h2 className='font-bold text-red'>Yashvardhan singh Chauhan</h2>
+              <h2 className='font-bold text-red'>Yashvardhan S. Chauhan</h2>
               <div>+917692980743</div>
             </div>
           </div>
