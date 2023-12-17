@@ -256,24 +256,26 @@ const LowerSection = () => (
     >
       Embark on an exhilarating journey with the Campus Ambassador Program for
       Technex, where you'll be an integral part of shaping India's foremost
-      technical and innovation festival. As a Campus Ambassador,<span className='text-red'>
-      you take the
-      reins to lead your college's charge at Technex, spearheading the promotion
-      of this grand event within your institution.
-      </span>  This dynamic role is your
-      ticket to honing communication and managerial skills, engaging with a
-      diverse student body. <span className='text-red'>
-      Showcase your leadership prowess by inspiring and
-      motivating your peers to actively participate, all while gaining hands-on
-      experience in event planning through workshops and events.
-      </span> As the face of
-      Technex in your college, you'll be a source of information, motivation,
-      and a vital connector. Seize this incredible opportunity to grow both
-      personally and professionally, playing a pivotal role in fostering
-      technology and innovation at your college, and <span className='text-red'>
-      emerge as a leader and
-      influencer in your college's journey towards Technex.
-      </span> 
+      technical and innovation festival. As a Campus Ambassador,
+      <span className='text-red'>
+        you take the reins to lead your college's charge at Technex,
+        spearheading the promotion of this grand event within your institution.
+      </span>{' '}
+      This dynamic role is your ticket to honing communication and managerial
+      skills, engaging with a diverse student body.{' '}
+      <span className='text-red'>
+        Showcase your leadership prowess by inspiring and motivating your peers
+        to actively participate, all while gaining hands-on experience in event
+        planning through workshops and events.
+      </span>{' '}
+      As the face of Technex in your college, you'll be a source of information,
+      motivation, and a vital connector. Seize this incredible opportunity to
+      grow both personally and professionally, playing a pivotal role in
+      fostering technology and innovation at your college, and{' '}
+      <span className='text-red'>
+        emerge as a leader and influencer in your college's journey
+        towards Technex.
+      </span>
     </Text>
   </Box>
 );

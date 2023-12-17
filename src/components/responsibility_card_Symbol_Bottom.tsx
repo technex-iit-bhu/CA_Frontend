@@ -15,13 +15,17 @@ const imgContainer = {
   zIndex: 1,
 };
 
-interface CardProps{
-    text: string,
-    heading: string,
-    logo: string
+interface CardProps {
+  text: string;
+  heading: string;
+  logo: string;
 }
 
-const ResponsibilityCard_Symbol_Bottom: FC<CardProps> = ({logo, text, heading}) => {
+const ResponsibilityCard_Symbol_Bottom: FC<CardProps> = ({
+  logo,
+  text,
+  heading,
+}) => {
   return (
     <div>
       <div
@@ -57,9 +61,10 @@ const ResponsibilityCard_Symbol_Bottom: FC<CardProps> = ({logo, text, heading}) 
             textAlign: 'center',
           }}
         >
-            <h1><b>{heading}</b></h1>
-            <p style={{ margin:"20px", marginTop:"1.5vh"}}>{text}</p>
-            
+          <h1>
+            <b>{heading}</b>
+          </h1>
+          <p style={{ margin: '20px', marginTop: '1.5vh' }}>{text}</p>
         </div>
         <div
           style={{

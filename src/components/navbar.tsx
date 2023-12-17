@@ -18,7 +18,7 @@ const Navbar: FC = () => {
     const token = localStorage.getItem('accessToken');
     if (token) {
       setIsLoggedIn(true);
-    } 
+    }
   }, []);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const Navbar: FC = () => {
       setContactusColor('red');
       setFaqColor('white');
       setLeaderBoardColor('white');
-      setDashboardPageColor('white'); 
+      setDashboardPageColor('white');
     } else if (window.location.pathname === '/faqPage') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -81,7 +81,7 @@ const Navbar: FC = () => {
         </div>
       </Link>
 
-      <div className='hidden space-x-6 xl:space-x-10 p-3 pr-5 text-center text-xl font-bold cd:block '>
+      <div className='hidden space-x-6 p-3 pr-5 text-center text-xl font-bold cd:block xl:space-x-10 '>
         <Link
           href='/'
           className={`relative text-${aboutColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-3xl before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
@@ -106,30 +106,41 @@ const Navbar: FC = () => {
         >
           FAQs
         </Link>
-        {isLoggedIn && <Link
-          href={'/leaderboard'}
+        {isLoggedIn && (
+          <Link
+            href={'/leaderboard'}
             className={`relative text-${leaderboardColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
-        >
-          Leaderboard
-        </Link>}
-        {isLoggedIn && <Link
-          href={'/dashboardPage'}
+          >
+            Leaderboard
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link
+            href={'/dashboardPage'}
             className={`relative text-${dashboardPageColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
-        >
-          Dashboard
-        </Link>}
-        {isLoggedIn ? (<Link
-          href={'/'}
-          onClick={() => {setIsLoggedIn(false); localStorage.removeItem('accessToken');}}
-          className='rounded-e-full rounded-s-full border-2 px-5 font-spline hover:border-[#A81F25] hover:bg-[#191919] hover:text-[#A81F25] sm:px-7 sm:py-1'
-        >
-          Logout
-        </Link>) : (<Link
-          href={'/login'}
-          className='rounded-e-full rounded-s-full border-2 px-5 font-spline hover:border-[#A81F25] hover:bg-[#191919] hover:text-[#A81F25] sm:px-7 sm:py-1'
-        >
-          Login
-        </Link>)}
+          >
+            Dashboard
+          </Link>
+        )}
+        {isLoggedIn ? (
+          <Link
+            href={'/'}
+            onClick={() => {
+              setIsLoggedIn(false);
+              localStorage.removeItem('accessToken');
+            }}
+            className='rounded-e-full rounded-s-full border-2 px-5 font-spline hover:border-[#A81F25] hover:bg-[#191919] hover:text-[#A81F25] sm:px-7 sm:py-1'
+          >
+            Logout
+          </Link>
+        ) : (
+          <Link
+            href={'/login'}
+            className='rounded-e-full rounded-s-full border-2 px-5 font-spline hover:border-[#A81F25] hover:bg-[#191919] hover:text-[#A81F25] sm:px-7 sm:py-1'
+          >
+            Login
+          </Link>
+        )}
       </div>
       <div className='flex p-1 sm:p-5 cd:hidden'>
         <Hamburger />

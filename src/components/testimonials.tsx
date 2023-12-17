@@ -12,41 +12,38 @@ const carouselData: CarouselData[] = [
   {
     title: 'Ellen Verma',
     description:
-      "As a Campus Ambassador of TECHNEX at IIT BHU, I gained valuable personal and professional development, enhancing leadership and organizational skills. Representing my college filled me with pride, and the lessons learned and memories created are deeply meaningful.",
-    imageSrc:
-      'cutie_t1.webp', // URL for the image
+      "My journey as a Campus Ambassador for TECHNEX'23 at IIT BHU was an incredible experience that allowed me to grow both personally and professionally. This experience will always hold a special place in my heart, and I am grateful for this.",
+    imageSrc: 'cutie_t1.webp', // URL for the image
   },
   {
     title: 'Neha Upadhyay',
     description:
-      "As a Campus Ambassador of TECHNEX, I transformed my communication and persuasion skills while successfully encouraging student participation.Technex team supported me in profile enhancement and overcoming challenges, making my tenure a blend of enjoyment and intellectual growth.",
-    imageSrc:
-      'notcutie_t2.webp', // URL for the image
+      "This year I got an opportunity to became CA of Technex'23. My convincing skill changed after becoming CA and the way Technex team help me is really appreciable. At last I will finish this with one word Technex  is enjoyable nd knowledgeable.",
+    imageSrc: 'notcutie_t2.webp', // URL for the image
   },
   {
     title: 'Shakti Nandan',
     description:
-      "I was a Campus Ambassador of TECHNEX in the culturally rich campus of IIT BHU.TECHNEX provides a platform for self-exploration ,networking ,showcasing skills nationally ,gaining experiences ,honing leadership skills and enjoying campus life,gratitude to the TECHNEX team for their support.",
-    imageSrc:
-      't3.webp', // URL for the image
+      "Hi, I am Shakti Nandan, very happy and proud to be a part of TECHNEX'23 as CAMPUS AMBASSADOR in such a Greenish and Vedic culture campus. I got very valuable experience and  I heartly thankful to TECHNEX team to provide me that opportunity.",
+    imageSrc: 't3.webp', // URL for the image
   },
   {
     title: 'Manish Gupta',
-    description: 
-    "Hello, I'm Manish being a campus ambassador for TECHNEX,IIT BHU has been a fantastic journey.Promoting it,engaging with technical clubs, and seeing over 50 students excel in the event has been truly rewarding.Technex is more than just a fest. It offers intense competitions, warm hospitality and enriching experiences.",
-    imageSrc: "t4.webp",
+    description:
+      'I had the opportunity to represent my college as a campus ambassador for Technex, IIT BHU and I would like to say that it has been a wonderful experience for me being a campus ambassador of this prestigious technical fest. STAY TECHNEXED!',
+    imageSrc: 't4.webp',
   },
   {
-    title: "Krishna Raj",
+    title: 'Krishna Raj',
     description:
-    "Exceptional experience! Commendable organization, diverse cuisines, top-notch security, engaging workshops, thrilling performances, and excellent accommodation made the fest memorable. Organizers went above and beyond, exceeding expectations. Looking forward to the next one!",
-    imageSrc: "t5 (2).png",
+      'An absolute fantastic experience, from the food to the security arrangements. The variety & quality of cuisines  left us spoilt for choice It was evident that the organizers went above and beyond to create a memorable experience for all.',
+    imageSrc: 't5 (2).png',
   },
   {
-    title: "Umesh Verma",
+    title: 'Umesh Verma',
     description:
-    "As a Campus Ambassador for TECHNEX IIT BHU, I had an enriching experience representing my university at events and orientations. Interacting with prospective students, I aimed to foster a sense of belonging and provide valuable information about campus life.",
-    imageSrc: "t6.webp",
+      'Being a campus ambassador of technex iit 2k23 was an enriching experience where I represented my university at events, workshops, orientations. I had the chance to interact with prospective students & share my insights about campus life.',
+    imageSrc: 't6.webp',
   },
 ];
 
