@@ -26,12 +26,6 @@
   border-radius: 5px 5px 20px 20px;
 }
 
-@media screen and (max-width: 768px) {
-  .cs {
-    font-size: 3.4rem;
-  }
-}
-
 .carousel-container {
   position: relative;
 }
@@ -49,4 +43,16 @@
 
 .next {
   right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .cs {
+    font-size: 3.4rem;
+  }
+  .card {
+    position: relative;
+    /* left: 50%; */
+    translate: 20%;
+    padding:0 40px;
+  }
 }

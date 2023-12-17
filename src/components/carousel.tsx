@@ -890,7 +890,7 @@ const IncentivesCarousel = () => {
           </div>
         </div>
       )}
-      <div className='fixed left-0 top-1/4 z-20 flex items-center justify-center md:left-1/4 lg:left-[28%]'>
+      <div className='fixed top-1/4 z-30 flex items-center justify-center md:left-1/4 lg:left-[28%]'>
         <CardPopup logo={'./logoipsum-284.svg'} text={lor} trigger={showFull}>
           <button
             className='relative px-3 py-1 pb-2 font-semibold text-red'
