@@ -66,7 +66,7 @@ const ResponsibilityCard_Symbol: FC<CardProps> = ({ logo, text, heading }) => {
             // left: '16%',
 
             alignContent: 'center',
-            top: '120px',
+            top: '40%',
             textAlign: 'center',
           }}
         >
