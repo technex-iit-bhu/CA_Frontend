@@ -4,7 +4,6 @@ import Testimonials from '@/components/testimonials';
 import AboutTechnex from '@/components/abouttechnex';
 import ScrollIcon from '@/components/scrollicon';
 
-
 export default function LandingPage() {
   return (
     <>

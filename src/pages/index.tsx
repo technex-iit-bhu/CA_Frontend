@@ -4,7 +4,7 @@ import LandingPage from './landingPage';
 import DashboardPage from './dashboardPage';
 import Navbar from '@/components/navbar';
 // import IncentiveCard from '@/components/incentive_card';
-import IncentivesCarousel from '@/components/carousel';
+import IncCarousel from '@/components/carousel';
 import ResponsibilityCard_Symbol from '@/components/responsibility_card_symbol';
 import ResponsibilityCarousel from '@/components/responsibility_carousel';
 import ResponsibilityCard_Symbol_Bottom from '@/components/responsibility_card_Symbol_Bottom';
