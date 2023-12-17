@@ -16,7 +16,6 @@ const titletext = [
   </span>,
   ' Hoga',
 ];
-// const lor = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque animi nihil deleniti modi hic voluptatibus dolorem. Ea eaque repellendus odio rem illo perferendis eveniet? Molestias doloremque id pariatur reiciendis iste!`;
 const lor = `COMING SOON!!`;
 
 const IncentivesCarousel = () => {
@@ -25,17 +24,6 @@ const IncentivesCarousel = () => {
     setShowFull(!showFull);
   };
   const sliderRef1 = useRef<any>();
-  // const divRef = useRef<MutableRefObject<HTMLDivElement>>()
-  // const ref = (divRef.current)
-  // const divRefNode = divRef.current
-  // if (!showFull) {
-  //   ref.classList.add('blur-none')
-  //   ref.classList.remove('blur-sm')
-  // }
-  // else {
-  //   ref.classList.add('blur-sm')
-  //   ref.classList.remove('blur-none')
-  // }
 
   const next1 = () => {
     sliderRef1.current?.slickNext();

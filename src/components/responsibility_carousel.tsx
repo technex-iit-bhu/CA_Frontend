@@ -25,16 +25,16 @@ const ResponsibilityCarousel = () => {
   const ArrowLeft = () => (
     <ArrowLeftIcon
       onClick={previous}
-      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 10 }}
-      className={'prev'}
+      // style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 10 }}
+      className={'arrow prev'}
     ></ArrowLeftIcon>
   );
 
   const ArrowRight = () => (
     <ArrowRightIcon
       onClick={next}
-      style={{ position: 'absolute', right: '-20px', top: '50%' }}
-      className={'prev'}
+      // style={{ position: 'absolute', right: '-20px', top: '50%' }}
+      className={'arrow next'}
     ></ArrowRightIcon>
   );
 
