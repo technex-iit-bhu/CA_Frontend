@@ -49,7 +49,7 @@ const IncentivesCarousel = () => {
     <ArrowLeftIcon
       onClick={previous1}
       // style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
-      className={'prev'}
+      className={'arrow prev'}
     ></ArrowLeftIcon>
   );
 
@@ -57,7 +57,7 @@ const IncentivesCarousel = () => {
     <ArrowRightIcon
       onClick={next1}
       // style={{ position: 'absolute', right: '-20px', top: '50%' }}
-      className={'prev'}
+      className={'arrow next'}
     ></ArrowRightIcon>
   );
 
@@ -75,7 +75,7 @@ const IncentivesCarousel = () => {
     <ArrowLeftIcon
       onClick={previous2}
       // style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
-      className={'prev'}
+      className={'arrow prev'}
     ></ArrowLeftIcon>
   );
 
@@ -83,7 +83,7 @@ const IncentivesCarousel = () => {
     <ArrowRightIcon
       onClick={next2}
       // style={{ position: 'absolute', right: '-20px', top: '50%' }}
-      className={'prev'}
+      className={'arrow next'}
     ></ArrowRightIcon>
   );
 
@@ -552,7 +552,6 @@ const IncentivesCarousel = () => {
             style={{
               justifyContent: 'center',
               // margin: '20px',
-              margin: '0'
             }}
           >
             <Head>

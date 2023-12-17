@@ -36,3 +36,17 @@
   position: relative;
 }
 
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
