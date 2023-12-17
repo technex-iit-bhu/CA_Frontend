@@ -9,7 +9,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CardPopup from './cardpopup';
 
-
 const titletext = [
   'Paisa Hi ',
   <span key={uuidv4()} style={{ color: '#C70039' }}>
@@ -49,7 +48,7 @@ const IncentivesCarousel = () => {
   const ArrowLeft1 = () => (
     <ArrowLeftIcon
       onClick={previous1}
-      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
+      // style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
       className={'prev'}
     ></ArrowLeftIcon>
   );
@@ -57,7 +56,7 @@ const IncentivesCarousel = () => {
   const ArrowRight1 = () => (
     <ArrowRightIcon
       onClick={next1}
-      style={{ position: 'absolute', right: '-20px', top: '50%' }}
+      // style={{ position: 'absolute', right: '-20px', top: '50%' }}
       className={'prev'}
     ></ArrowRightIcon>
   );
@@ -75,7 +74,7 @@ const IncentivesCarousel = () => {
   const ArrowLeft2 = () => (
     <ArrowLeftIcon
       onClick={previous2}
-      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
+      // style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
       className={'prev'}
     ></ArrowLeftIcon>
   );
@@ -83,7 +82,7 @@ const IncentivesCarousel = () => {
   const ArrowRight2 = () => (
     <ArrowRightIcon
       onClick={next2}
-      style={{ position: 'absolute', right: '-20px', top: '50%' }}
+      // style={{ position: 'absolute', right: '-20px', top: '50%' }}
       className={'prev'}
     ></ArrowRightIcon>
   );
@@ -552,7 +551,8 @@ const IncentivesCarousel = () => {
           <div
             style={{
               justifyContent: 'center',
-              margin: '20px',
+              // margin: '20px',
+              margin: '0'
             }}
           >
             <Head>
@@ -728,7 +728,7 @@ const IncentivesCarousel = () => {
               </div>
             </Slider>
           </div>
-          <div style={{ justifyContent: 'center', margin: '20px' }}>
+          <div style={{ justifyContent: 'center' }}>
             <Head>
               <link
                 rel='stylesheet'
