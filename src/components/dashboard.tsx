@@ -10,54 +10,63 @@ const Dashboard = () => {
   const [totalTasks, setTotalTasks] = useState('0');
   const [points, setPoints] = useState('NaN');
 
-    useEffect(() => {
-      const fetchDetails = async () => {
-        try {
-          const accessToken = localStorage.getItem('accessToken');
-          const response = await fetch('https://ca-backend-467n.onrender.com/auth/user/profile', {
+  useEffect(() => {
+    const fetchDetails = async () => {
+      try {
+        const accessToken = localStorage.getItem('accessToken');
+        const response = await fetch(
+          'https://ca-backend-467n.onrender.com/auth/user/profile',
+          {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${accessToken}`,
+              Authorization: `Bearer ${accessToken}`,
             },
-          });
-          if (response.status === 200) {
-            const fetchedDetails = await response.json();
-            setName(`${fetchedDetails.userprofile.first_name} ${fetchedDetails.userprofile.last_name}`);
-            setPoints(fetchedDetails.userprofile.points);
-            setCaId(fetchedDetails.userprofile.unique_id.slice(-8));
-          } else {
-            console.error('Failed to fetch profile');
           }
-        } catch (error) {
-          console.error('Server error', error);
+        );
+        if (response.status === 200) {
+          const fetchedDetails = await response.json();
+          setName(
+            `${fetchedDetails.userprofile.first_name} ${fetchedDetails.userprofile.last_name}`
+          );
+          setPoints(fetchedDetails.userprofile.points);
+          setCaId(fetchedDetails.userprofile.unique_id.slice(-8));
+        } else {
+          console.error('Failed to fetch profile');
         }
-      };
-      const getTasks = async () => {
-        const response = await fetch('https://ca-backend-467n.onrender.com/tasks/', {
+      } catch (error) {
+        console.error('Server error', error);
+      }
+    };
+    const getTasks = async () => {
+      const response = await fetch(
+        'https://ca-backend-467n.onrender.com/tasks/',
+        {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
-        });
-        if (response.status === 200) {
-          const fetchedTasks = await response.json();
-          setTotalTasks(fetchedTasks.length);
-        } else {
-          console.error('Failed to fetch tasks');
-        }}
-      fetchDetails();
-      getTasks();
-    }, []);
+        }
+      );
+      if (response.status === 200) {
+        const fetchedTasks = await response.json();
+        setTotalTasks(fetchedTasks.length);
+      } else {
+        console.error('Failed to fetch tasks');
+      }
+    };
+    fetchDetails();
+    getTasks();
+  }, []);
 
   return (
     <div className=''>
       <div className='relative mb-[100px] flex flex-col bg-background pl-[0px] pt-[100px] sm:pl-[40px] md:mb-[50px]'>
-        <div className='flex flex-col sm:pb-10 -space-y-[138px] ef:-space-y-[167px] sm:-space-y-[187px] lg:-space-y-[234px] xl:-space-y-[392px]'>
-          <div className='self-center sm:self-start font-spline text-[50px] ef:text-[80px] select-none font-bold text-[#A81F25] opacity-20 sm:text-[100px] lg:text-[150px] xl:text-[200px]'>
+        <div className='flex flex-col -space-y-[138px] ef:-space-y-[167px] sm:-space-y-[187px] sm:pb-10 lg:-space-y-[234px] xl:-space-y-[392px]'>
+          <div className='select-none self-center font-spline text-[50px] font-bold text-[#A81F25] opacity-20 ef:text-[80px] sm:self-start sm:text-[100px] lg:text-[150px] xl:text-[200px]'>
             Dashboard
           </div>
-          <div className='text-white z-10 transform select-none self-center pt-[90px] text-[26px] ef:text-[40px] transition duration-700 hover:scale-110 sm:pl-1 sm:self-start sm:text-[50px] lg:text-[75px] xl:text-[100px] xl:pt-[200px] lg:pl-1.5'>
+          <div className='text-white z-10 transform select-none self-center pt-[90px] text-[26px] transition duration-700 hover:scale-110 ef:text-[40px] sm:self-start sm:pl-1 sm:text-[50px] lg:pl-1.5 lg:text-[75px] xl:pt-[200px] xl:text-[100px]'>
             Dashboard
           </div>
         </div>
@@ -75,7 +84,7 @@ const Dashboard = () => {
                   className='rounded-full '
                 />
               </div>
-              <div className='flex flex-col pb-[30px] font-spline self-center'>
+              <div className='flex flex-col self-center pb-[30px] font-spline'>
                 <p className='text-white select-none self-center text-center text-[30px] font-bold'>
                   {name}
                 </p>

@@ -24,8 +24,7 @@ function TaskForm({ token }: { token: string | null }) {
     })
       .then((res) => res.json())
       .then((data) => {
-
-        if(data.id === undefined) throw new Error(JSON.stringify(data));
+        if (data.id === undefined) throw new Error(JSON.stringify(data));
 
         setTitle('');
         setDescription('');
