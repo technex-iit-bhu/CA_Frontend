@@ -2,28 +2,27 @@
   color: black;
 }
 
-.th{
-    border:1px solid rgb(224, 224, 224);
+.th {
+  border: 1px solid rgb(224, 224, 224);
 }
-.td{
-    padding: 10px;
-    border: 1px solid rgb(255, 255, 255);
-    text-align: center;
-    width: fit-content;
-    color:rgb(105, 50, 50);
+.td {
+  padding: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  text-align: center;
+  width: fit-content;
+  color: rgb(105, 50, 50);
 }
 
 .button {
-    background-color: rgb(89, 23, 16);
-    color: white;
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: none;
-    cursor: pointer;
-    margin:10px;
+  background-color: rgb(89, 23, 16);
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
 }
-.button:disabled{
-    background-color: rgb(124, 124, 124);
+.button:disabled {
+  background-color: rgb(124, 124, 124);
 }
-

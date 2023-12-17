@@ -75,12 +75,11 @@ body {
   gap: 4vmin;
   left: 50%;
   top: 50%;
-  transform: translate(0%, -50%); 
+  transform: translate(0%, -50%);
   user-select: none;
   margin-top: 12rem;
   margin-bottom: -12rem;
   overflow-y: scroll;
-  
 }
 
 .image-track::-webkit-scrollbar {
@@ -93,6 +92,3 @@ body {
   object-fit: cover;
   object-position: 100% center;
 }
-
-
-

@@ -1,11 +1,11 @@
 import React from 'react';
-import IncentivesCarousel from './carousel';
+import IncCarousel from './carousel';
 import Navbar from './navbar';
 
 const Incentive = () => {
   return (
     <div>
-      <div className='absolute z-20 w-full pb-96 lg:pb-64 xl:pb-96'>
+      <div className='z-0 w-full lg:pb-2 xl:pb-2'>
         <Navbar />
       </div>
       <div className='relative mb-[20px] flex flex-col bg-background pl-[10px] pt-[220px]'>
@@ -19,7 +19,7 @@ const Incentive = () => {
         </div>
       </div>
 
-      <IncentivesCarousel></IncentivesCarousel>
+      <IncCarousel></IncCarousel>
     </div>
   );
 };
