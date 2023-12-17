@@ -13,40 +13,37 @@ const carouselData: CarouselData[] = [
     title: 'Ellen Verma',
     description:
       "My journey as a Campus Ambassador for TECHNEX'23 at IIT BHU was an incredible experience that allowed me to grow both personally and professionally. This experience will always hold a special place in my heart, and I am grateful for this.",
-    imageSrc:
-      'cutie_t1.webp', // URL for the image
+    imageSrc: 'cutie_t1.webp', // URL for the image
   },
   {
     title: 'Neha Upadhyay',
     description:
       "This year I got an opportunity to became CA of Technex'23. My convincing skill changed after becoming CA and the way Technex team help me is really appreciable. At last I will finish this with one word Technex  is enjoyable nd knowledgeable.",
-    imageSrc:
-      'notcutie_t2.webp', // URL for the image
+    imageSrc: 'notcutie_t2.webp', // URL for the image
   },
   {
     title: 'Shakti Nandan',
     description:
       "Hi, I am Shakti Nandan, very happy and proud to be a part of TECHNEX'23 as CAMPUS AMBASSADOR in such a Greenish and Vedic culture campus. I got very valuable experience and  I heartly thankful to TECHNEX team to provide me that opportunity.",
-    imageSrc:
-      't3.webp', // URL for the image
+    imageSrc: 't3.webp', // URL for the image
   },
   {
     title: 'Manish Gupta',
-    description: 
-    "I had the opportunity to represent my college as a campus ambassador for Technex, IIT BHU and I would like to say that it has been a wonderful experience for me being a campus ambassador of this prestigious technical fest. STAY TECHNEXED!",
-    imageSrc: "t4.webp",
+    description:
+      'I had the opportunity to represent my college as a campus ambassador for Technex, IIT BHU and I would like to say that it has been a wonderful experience for me being a campus ambassador of this prestigious technical fest. STAY TECHNEXED!',
+    imageSrc: 't4.webp',
   },
   {
-    title: "Krishna Raj",
+    title: 'Krishna Raj',
     description:
-    "An absolute fantastic experience, from the food to the security arrangements. The variety & quality of cuisines  left us spoilt for choice It was evident that the organizers went above and beyond to create a memorable experience for all.",
-    imageSrc: "t5 (2).png",
+      'An absolute fantastic experience, from the food to the security arrangements. The variety & quality of cuisines  left us spoilt for choice It was evident that the organizers went above and beyond to create a memorable experience for all.',
+    imageSrc: 't5 (2).png',
   },
   {
-    title: "Umesh Verma",
+    title: 'Umesh Verma',
     description:
-    "Being a campus ambassador of technex iit 2k23 was an enriching experience where I represented my university at events, workshops, orientations. I had the chance to interact with prospective students & share my insights about campus life.",
-    imageSrc: "t6.webp",
+      'Being a campus ambassador of technex iit 2k23 was an enriching experience where I represented my university at events, workshops, orientations. I had the chance to interact with prospective students & share my insights about campus life.',
+    imageSrc: 't6.webp',
   },
 ];
 

@@ -21,18 +21,17 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
   const secondWord = words.slice(1).join(' ');
 
   const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
-  const [isLargerThan425] = useMediaQuery('(min-width: 425px)');
+  const [isLargerThan490] = useMediaQuery('(min-width: 460px)');
   const [isLargerThan640] = useMediaQuery('(min-width: 640px)');
-  const [isLargerThan768] = useMediaQuery('(min-width: 768px)');
+  const [isLargerThan700] = useMediaQuery('(min-width: 700px)');
+  const [isLargerThan375] = useMediaQuery('(min-width: 375px)');
   const cardWidth = isLargerThan900 ? '630px' : '80vw';
   const padding = isLargerThan900 ? '10px 40px 15px 15px' : '2.5vw';
-  const cardHeight = isLargerThan900 ? '315px' : '50vw';
+  const cardHeight = (isLargerThan900 ? '315px' :(isLargerThan640 ? '40vh' : (isLargerThan490 ? '40vh' : (isLargerThan375 ?'30vh' : '25vh'))));
   const fontSize =
-    (!isLargerThan425 && '10px') ||
-    (isLargerThan425 && !isLargerThan640 && '12px') ||
-    (isLargerThan640 && !isLargerThan900 && '20px') ||
-    '21px';
-  const fontSize1 = isLargerThan900 ? '44px' : '6vw';
+  (isLargerThan900 ? '19px' :(isLargerThan700 ? '15px' : (isLargerThan490 ? '12px' : (isLargerThan375 ?'10px' : '8px'))));
+    
+  const fontSize1 = isLargerThan900 ? '44px' : '4vw';
   const padding1 = isLargerThan900 ? '15px 0px' : '3vw 0';
   const margin = isLargerThan900 ? '80px 50px 50px 50px' : '8vw';
   return (
@@ -85,14 +84,19 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
                 </Box>
               </Heading>
 
-              <Text padding={padding} fontSize={fontSize} style={{ fontFamily: "'Spline Sans', sans-serif" }}>
-                <Box as='span' color='#a81f25' fontSize='1.5rem'>
-                  "
-                </Box>
+              <Text
+                padding={padding}
+                fontSize={fontSize}
+                style={{ fontFamily: "'Spline Sans', sans-serif" }}
+              >
+                
+                  " &nbsp;
+               
                 {description}
-                <Box as='span' color='#a81f25' fontSize='1.5rem'>
-                  "
-                </Box>
+                
+                
+                &nbsp;  " 
+                
               </Text>
             </Box>
           </Stack>

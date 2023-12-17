@@ -79,21 +79,17 @@ function TaskList({ token }: { token: string | null }) {
           )}
 
           <label
-
             style={{
               color: 'red',
             }}
           >
             {message}
-
           </label>
-
         </tbody>
       </table>
       <button onClick={handleRefresh} className={styles.button}>
         {loading ? 'Loading...' : 'Refresh'}
       </button>
-      
     </div>
   );
 }

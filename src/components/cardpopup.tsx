@@ -1,12 +1,11 @@
 import React from 'react';
-import { FC, useState } from 'react';
-import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
+import { Card, CardHeader, CardBody } from '@chakra-ui/react';
 import Image from 'next/image';
 
 const CardPopup = (props: any) => {
   return props.trigger ? (
-    <div className='card z-20 m-1 flex h-auto w-auto flex-col items-center justify-center rounded-3xl border-2 border-red bg-[#272727] md:h-[250px] md:w-[500px] xl:w-[700px]'>
-      <Card className='p-2'>
+    <div className='card m-1 w-[100%] h-[100%] flex flex-col items-center justify-center rounded-3xl border-2 border-red bg-[#272727] md:h-[250px] md:w-[500px] xl:w-[600px]'>
+      <Card className='p-4'>
         <CardHeader className='flex items-center justify-center p-2 pb-3'>
           <Image
             alt='companylogo'
@@ -15,7 +14,9 @@ const CardPopup = (props: any) => {
             height={100}
           />
         </CardHeader>
-        <CardBody className='pb-2 text-center text-base'>{props.text}</CardBody>
+        <CardBody className='mt-[2rem] pb-2 text-center text-base'>
+          {props.text}
+        </CardBody>
       </Card>
       {props.children}
     </div>
