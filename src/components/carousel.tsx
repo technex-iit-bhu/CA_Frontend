@@ -9,15 +9,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CardPopup from './cardpopup';
 
-const SlickButtonFix = (
-  props: {
-    children: JSX.Element;
-  } & object
-) => {
-  const { children, ...otherProps } = props;
-  return <span {...otherProps}>{children}</span>;
-};
-
 const titletext = [
   'Paisa Hi ',
   <span key={uuidv4()} style={{ color: '#C70039' }}>
@@ -25,7 +16,7 @@ const titletext = [
   </span>,
   ' Hoga',
 ];
-const lor = `COMING SOON...`;
+const lor = `COMING SOON!!`;
 
 const IncentivesCarousel = () => {
   const [showFull, setShowFull] = useState(false);
@@ -33,17 +24,6 @@ const IncentivesCarousel = () => {
     setShowFull(!showFull);
   };
   const sliderRef1 = useRef<any>();
-  // const divRef = useRef<MutableRefObject<HTMLDivElement>>()
-  // const ref = (divRef.current)
-  // const divRefNode = divRef.current
-  // if (!showFull) {
-  //   ref.classList.add('blur-none')
-  //   ref.classList.remove('blur-sm')
-  // }
-  // else {
-  //   ref.classList.add('blur-sm')
-  //   ref.classList.remove('blur-none')
-  // }
 
   const next1 = () => {
     sliderRef1.current?.slickNext();
@@ -56,16 +36,16 @@ const IncentivesCarousel = () => {
   const ArrowLeft1 = () => (
     <ArrowLeftIcon
       onClick={previous1}
-      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
-      className={'prev'}
+      // style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
+      className={'arrow prev'}
     ></ArrowLeftIcon>
   );
 
   const ArrowRight1 = () => (
     <ArrowRightIcon
       onClick={next1}
-      style={{ position: 'absolute', right: '-20px', top: '50%' }}
-      className={'prev'}
+      // style={{ position: 'absolute', right: '-20px', top: '50%' }}
+      className={'arrow next'}
     ></ArrowRightIcon>
   );
 
@@ -82,16 +62,16 @@ const IncentivesCarousel = () => {
   const ArrowLeft2 = () => (
     <ArrowLeftIcon
       onClick={previous2}
-      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
-      className={'prev'}
+      // style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
+      className={'arrow prev'}
     ></ArrowLeftIcon>
   );
 
   const ArrowRight2 = () => (
     <ArrowRightIcon
       onClick={next2}
-      style={{ position: 'absolute', right: '-20px', top: '50%' }}
-      className={'prev'}
+      // style={{ position: 'absolute', right: '-20px', top: '50%' }}
+      className={'arrow next'}
     ></ArrowRightIcon>
   );
 
@@ -197,7 +177,7 @@ const IncentivesCarousel = () => {
   };
 
   return (
-    <div className=''>
+    <div className='pb-4'>
       {showFull && (
         <div className='blur-sm'>
           <div
@@ -559,7 +539,7 @@ const IncentivesCarousel = () => {
           <div
             style={{
               justifyContent: 'center',
-              margin: '20px',
+              // margin: '20px',
             }}
           >
             <Head>
@@ -735,7 +715,7 @@ const IncentivesCarousel = () => {
               </div>
             </Slider>
           </div>
-          <div style={{ justifyContent: 'center', margin: '20px' }}>
+          <div style={{ justifyContent: 'center' }}>
             <Head>
               <link
                 rel='stylesheet'
@@ -910,7 +890,7 @@ const IncentivesCarousel = () => {
           </div>
         </div>
       )}
-      <div className='fixed left-0 top-1/4 z-30 flex items-center justify-center md:left-1/4 lg:left-[28%]'>
+      <div className='fixed top-1/4 z-30 flex items-center justify-center md:left-1/4 lg:left-[28%]'>
         <CardPopup logo={'./logoipsum-284.svg'} text={lor} trigger={showFull}>
           <button
             className='relative px-3 py-1 pb-2 font-semibold text-red'

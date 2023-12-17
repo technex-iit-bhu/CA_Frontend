@@ -73,12 +73,12 @@ const Leaderboard = () => {
         <Navbar />
       </div>
 
-      <div className='relative mb-[20px] flex flex-col bg-background sm:pl-[10px] lg:pt-[250px] pt-[200px]'>
+      <div className='relative mb-[20px] flex flex-col bg-background pt-[200px] sm:pl-[10px] lg:pt-[250px]'>
         <div className=' bottom-3 flex flex-col -space-y-[46px] ef:-space-y-16 sm:text-left md:-space-y-[106px] lg:-space-y-[124px]'>
           <span className='self-center text-[44px] font-bold text-red opacity-20 ef:text-[80px] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]'>
             Leaderboard
           </span>
-          <span className='self-center text-white z-10 ml-1 select-none text-[25px] ef:text-4xl sm:text-[40px] md:ml-2 md:text-7xl lg:ml-3 sm:text-3xl'>
+          <span className='text-white z-10 ml-1 select-none self-center text-[25px] ef:text-4xl sm:text-3xl sm:text-[40px] md:ml-2 md:text-7xl lg:ml-3'>
             Leaderboard
           </span>
         </div>

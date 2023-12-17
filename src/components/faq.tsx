@@ -19,8 +19,7 @@ const FAQ = () => {
   const AccordionData = [
     {
       question: 'Who can become a College Ambassador',
-      answer:
-        'Any College Student with a valid College Student Identity Card.',
+      answer: 'Any College Student with a valid College Student Identity Card.',
     },
     {
       question: 'How to become a College Ambassador',
