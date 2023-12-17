@@ -48,13 +48,34 @@ const Register = () => {
           'Content-Type': 'application/json',
         },
       });
-      const data = await response.json();
-      console.log('Success', data);
-      setModalContent('Verification link has been sent by email!');
-      setShowModal(true);
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Success', data);
+        setModalContent('Verification link has been sent by email!');
+        setShowModal(true);
+      } else {
+        // Handle conflict error
+        if (response.status === 409) {
+          const errorData = await response.json();
+          if (errorData.username && errorData.email) {
+            setModalContent(
+              'Both username and email already exist. Please login.'
+            );
+          } else if (errorData.username) {
+            // Only username conflict
+            setModalContent(errorData.username);
+          } else if (errorData.email) {
+            // Only email conflict
+            setModalContent(errorData.email);
+          }
+        } else {
+          setModalContent('An error occurred during registration!');
+        }
+        setShowModal(true);
+      }
     } catch (error) {
       console.error('Error:', error);
-      setModalContent('An error2 occurred!');
+      setModalContent('An error occurred!');
       setShowModal(true);
     }
   };
@@ -80,15 +101,47 @@ const Register = () => {
             className='flex flex-col items-center gap-y-5'
           >
             <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-              <Textbox label='First Name*' placeholder='Enter Your First Name' required name='first_name' type='text' value={formData.first_name} onChange={handleChange} />
-              <Textbox label='Last Name*' placeholder='Enter Your Last Name' required name='last_name' type='text' value={formData.last_name} onChange={handleChange} />
+              <Textbox
+                label='First Name*'
+                placeholder='Enter Your First Name'
+                required
+                name='first_name'
+                type='text'
+                value={formData.first_name}
+                onChange={handleChange}
+              />
+              <Textbox
+                label='Last Name*'
+                placeholder='Enter Your Last Name'
+                required
+                name='last_name'
+                type='text'
+                value={formData.last_name}
+                onChange={handleChange}
+              />
             </div>
             <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-              <Textbox label='Email*' placeholder='Enter Your Email' required name='email' type='email' value={formData.email} onChange={handleChange} />
+              <Textbox
+                label='Email*'
+                placeholder='Enter Your Email'
+                required
+                name='email'
+                type='email'
+                value={formData.email}
+                onChange={handleChange}
+              />
             </div>
             <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-              <Textbox label='College*' placeholder='Enter Your College' required name='college' type='text' value={formData.college} onChange={handleChange} />
-              <div className='flex flex-col items-center gap-5 lg:items-start self-stretch'>
+              <Textbox
+                label='College*'
+                placeholder='Enter Your College'
+                required
+                name='college'
+                type='text'
+                value={formData.college}
+                onChange={handleChange}
+              />
+              <div className='flex flex-col items-center gap-5 self-stretch lg:items-start'>
                 <span className='text-white w-max select-none align-middle text-xl font-medium'>
                   Year*:
                 </span>
@@ -96,7 +149,10 @@ const Register = () => {
                   className='h-[50px] grow self-stretch  rounded-[10px] bg-background px-[10px] text-center text-black lg:text-left'
                   value={formData.year}
                   onChange={(e) =>
-                    setFormData({ ...formData, year: +(e.target.value.charAt(0)) })
+                    setFormData({
+                      ...formData,
+                      year: +e.target.value.charAt(0),
+                    })
                   }
                 >
                   <option value='1st Year'>1st Year</option>
@@ -108,14 +164,39 @@ const Register = () => {
               </div>
             </div>
             <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-              <Textbox label='Postal Address*' placeholder='Enter Your Postal Address' required name='postal_address' type='text' value={formData.postal_address} onChange={handleChange} />
-              <Textbox label='Pin Code*' placeholder='Enter Your Pin Code' required name='pin_code' type='text' value={formData.pin_code} onChange={handleChange}  pattern ='[0-9]{6}'/>
+              <Textbox
+                label='Postal Address*'
+                placeholder='Enter Your Postal Address'
+                required
+                name='postal_address'
+                type='text'
+                value={formData.postal_address}
+                onChange={handleChange}
+              />
+              <Textbox
+                label='Pin Code*'
+                placeholder='Enter Your Pin Code'
+                required
+                name='pin_code'
+                type='text'
+                value={formData.pin_code}
+                onChange={handleChange}
+                pattern='[0-9]{6}'
+              />
             </div>
             <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-              <Textbox label='Why Choose Us?*' placeholder='Why do you want to be a Campus Ambassador?' required name='why_choose' type='text' value={formData.why_choose} onChange={handleChange} />
+              <Textbox
+                label='Why Choose Us?*'
+                placeholder='Why do you want to be a Campus Ambassador?'
+                required
+                name='why_choose'
+                type='text'
+                value={formData.why_choose}
+                onChange={handleChange}
+              />
             </div>
             <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-              <div className='flex flex-col items-center gap-5 lg:items-start self-stretch'>
+              <div className='flex flex-col items-center gap-5 self-stretch lg:items-start'>
                 <span className='text-white select-none text-center align-middle text-xl font-medium lg:text-left'>
                   Previous CA Experience*:
                 </span>
@@ -133,15 +214,57 @@ const Register = () => {
                   <option>Yes</option>
                 </select>
               </div>
-              <Textbox label='Phone Number*' placeholder='What is your phone number?' required name='phone_no' type='tel' pattern='[0-9]{10}' value={formData.phone_no} onChange={handleChange} />
+              <Textbox
+                label='Phone Number*'
+                placeholder='What is your phone number?'
+                required
+                name='phone_no'
+                type='tel'
+                pattern='[0-9]{10}'
+                value={formData.phone_no}
+                onChange={handleChange}
+              />
             </div>
             <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-              <Textbox label='WhatsApp Number*' placeholder='What is your WhatsApp number?' required name='whatsapp_no' type='tel' pattern='[0-9]{10}' value={formData.whatsapp_no} onChange={handleChange} />
-              <Textbox label='Username*' placeholder='Enter Your Username' required name='username' type='text' value={formData.username} onChange={handleChange} />
+              <Textbox
+                label='WhatsApp Number*'
+                placeholder='What is your WhatsApp number?'
+                required
+                name='whatsapp_no'
+                type='tel'
+                pattern='[0-9]{10}'
+                value={formData.whatsapp_no}
+                onChange={handleChange}
+              />
+              <Textbox
+                label='Username*'
+                placeholder='Enter Your Username'
+                required
+                name='username'
+                type='text'
+                value={formData.username}
+                onChange={handleChange}
+              />
             </div>
             <div className='flex w-8/12 flex-col items-center gap-5 lg:flex-row'>
-              <Textbox label='Password*' placeholder='Enter Your Password' name='password' type='password' value={formData.password} onChange={handleChange} pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'/>
-              <Textbox label='Confirm Password*' placeholder='Confirm Your Password' name='confirmPassword' type='password' value={formData.confirmPassword} onChange={handleChange} pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'/>
+              <Textbox
+                label='Password*'
+                placeholder='Enter Your Password'
+                name='password'
+                type='password'
+                value={formData.password}
+                onChange={handleChange}
+                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+              />
+              <Textbox
+                label='Confirm Password*'
+                placeholder='Confirm Your Password'
+                name='confirmPassword'
+                type='password'
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+              />
             </div>
             <p className='select-none text-center text-xs font-thin'>
               Password Requirements: [A LowerCase Letter, An UpperCase Letter, A

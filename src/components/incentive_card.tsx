@@ -1,8 +1,6 @@
-// import { randomUUID } from "crypto";
 import { ClassNames } from '@emotion/react';
 import React, { FC } from 'react';
 import { useState } from 'react';
-// import { v4 as uuidv4 } from 'uuid';
 import 'src/styles/Incentive.module.css';
 import Image from 'next/image';
 import CardPopup from './cardpopup';
@@ -11,13 +9,10 @@ interface CardProps {
   logo: string;
   text: string;
 }
-//
+
 const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
   const [showFullDescription, setFullDescription] = useState(false);
 
-  const showFullDescriptionHandler = () => {
-    setFullDescription(!showFullDescription);
-  };
   const description = showFullDescription
     ? 'Card me dikhega'
     : text.slice(0, 150);

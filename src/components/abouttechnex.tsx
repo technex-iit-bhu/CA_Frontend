@@ -1,49 +1,8 @@
-import React, { FC,useEffect,useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { HeadingTexts } from './ourReach';
 import { ArrowRightIcon } from '../../node_modules/@chakra-ui/icons/dist/ArrowRight';
+import ImageTrackComponent from './sexyGallery';
 
-
-
-const Carousel = () => {
-  const images = [
-    'https://media.architecturaldigest.com/photos/641b2b8252ae61ead67e92d9/16:9/w_2240,c_limit/GettyImages-1474485122.jpg',
-    'https://dancingastronaut.com/wp-content/uploads/2022/06/imgonline-com-ua-twotoone-3h3siEMcoQW7.jpg',
-    'https://consequence.net/wp-content/uploads/2023/03/Taylor-Swift-1.jpeg',
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 7000); // Change images every 7 seconds
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
-  return (
-    <div className="carousel-container">
-      <div className="carousel-image">
-        <img
-          src={images[currentIndex]}
-          alt={`Image ${currentIndex + 1}`}
-          style={{
-            width: '560px', 
-            height: '340px', 
-            borderRadius: '29px',
-            marginRight: '20px', 
-            marginBottom: '20px', 
-            border: '4px solid #900D09', 
-            boxShadow: '2px 2px 4px black',
-            transition:'transform ease' ,
-          }}
-        />
-      </div>
-    </div>
-  );
-};
 const AboutTechnex: FC = () => {
   return (
     <div className='bg-[#191919]' id='aboutUs'>
@@ -57,48 +16,45 @@ const AboutTechnex: FC = () => {
           </span>
         </div>
 
-
-        <div className='z-0 ml-3 pb-10 sm:ml-8 lg:ml-12 xl:ml-14 font-spline'>
-
-  <div className="flex">
-    <div className="left-column">
-      <p className="mr-3 border-b-2 border-[#A81F25] p-3 pr-5 pt-10 tracking-wide lg:w-[850px]">
-        TECHNEX&apos;23, IIT BHU is one of the largest and oldest college
-        fests in India.&nbsp; Embodying the true spirit of youth,{' '}
-        <span className="text-[#A81F25]">
-          Technex provides a platform for young talent from all over India
-          to showcase their varied skills.
-        </span>
-        &nbsp; Technex is an annual technical festival organized by the
-        students of Indian Institute of Technology (IIT) BHU,&nbsp;
-        Varanasi.<br></br>
-        The festival provides a platform for students to showcase their
-        technical and creative abilities through{' '}
-        <span className="text-[#A81F25]">
-          various competitions, workshops, guest lectures, and exhibitions
-        </span>
-        . It attracts a large number of students from all over the country
-        and provides a unique opportunity for them to showcase their skills
-        and network with their peers and industry professionals.{' '}
-        <span className="text-[#A81F25]">
-          Technex is a celebration of innovation and technology, and a
-          platform for students to learn, grow, and excel in their field of
-          interest.
-        </span>
-      </p>
-    </div>
-  </div>
-<br/>
-<br/>
-<br/>
-  <div className="flex justify-center">
-    <div className="centered-carousel">
-      <Carousel />
-    </div>
-  </div>
-</div>
-
-
+        <div className='z-0 mx-3 pb-10 font-spline sm:mx-8 lg:mx-12 xl:mx-14'>
+          <div className='flex'>
+            <div className='left-column'>
+              <p className='mr-3 border-b-2 border-[#A81F25] p-3 pr-5 pt-10 tracking-wide lg:w-[850px]'>
+                Technex, hosted by the prestigious Indian Institute of
+                Technology (IIT) BHU, stands as a venerable beacon among India's
+                college festivals.{' '}
+                <span className='text-[#A81F25]'>
+                  Revered as one of the largest and oldest gatherings of its
+                  kind, this annual technical extravaganza epitomizes the
+                  vibrant spirit of youth
+                </span>{' '}
+                . Serving as a distinguished platform for emerging talents
+                across the nation, Technex unfurls a tapestry of skills,
+                seamlessly weaving together the technical and creative prowess
+                of students.<br></br>
+                This illustrious festival, meticulously organized by the
+                students of IIT BHU, Varanasi, transcends conventional
+                boundaries with its myriad offerings.&nbsp;
+                <span className='text-[#A81F25]'>
+                  From compelling competitions and enlightening workshops to
+                  captivating guest lectures and insightful exhibitions, Technex
+                  embodies a celebration of innovation and technology
+                </span>{' '}
+                . Drawing participants from every corner of the country, it
+                provides a distinctive opportunity for students to not only
+                showcase their abilities but also engage in meaningful
+                networking with peers and industry professionals. Technex
+                emerges as a crucible for personal and professional growth,
+                where students can learn, evolve, and truly excel in their
+                chosen fields{' '}
+              </p>
+            </div>
+          </div>
+          <br />
+          <br />
+          <br />
+          <ImageTrackComponent />
+        </div>
       </div>
     </div>
   );

@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Box,
-  Button,
-  Center,
-  Heading,
-  Text,
-  useMediaQuery,
-} from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-import Testes from './testes';
-import { relative } from 'path';
+import { Box, Center, useMediaQuery } from '@chakra-ui/react';
+import Testes from './testemonialCard';
 
 interface CarouselData {
   title: string;
@@ -19,25 +10,40 @@ interface CarouselData {
 
 const carouselData: CarouselData[] = [
   {
-    title: 'Adolf Hitler',
+    title: 'Ellen Verma',
     description:
-      'HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!HEIL!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!Kill!',
-    imageSrc:
-      'https://upload.wikimedia.org/wikipedia/en/7/7d/Adolf_Hitler_cph_3a48970.jpg', // URL for the image
+      "My journey as a Campus Ambassador for TECHNEX'23 at IIT BHU was an incredible experience that allowed me to grow both personally and professionally. This experience will always hold a special place in my heart, and I am grateful for this.",
+    imageSrc: 'cutie_t1.webp', // URL for the image
   },
   {
-    title: 'Mr Bonaparte',
+    title: 'Neha Upadhyay',
     description:
-      "There's nothing we can do.There's nothing we can do.There's nothing we can do.There's nothing we can do.There's nothing we can do.There's nothing.",
-    imageSrc:
-      'https://assets.editorial.aetnd.com/uploads/2022/11/napoleon-exile-gettyimages-1288489073.jpg', // URL for the image
+      "This year I got an opportunity to became CA of Technex'23. My convincing skill changed after becoming CA and the way Technex team help me is really appreciable. At last I will finish this with one word Technex  is enjoyable nd knowledgeable.",
+    imageSrc: 'notcutie_t2.webp', // URL for the image
   },
   {
-    title: 'Jordan Belfort',
+    title: 'Shakti Nandan',
     description:
-      'I have been a rich man and I have been a poor man. And I will choose rich EVERY FUCKING TIMEEE!!Is anyone carrying some LSD by chance? I forgot to bring mine.',
-    imageSrc:
-      'https://i.pinimg.com/564x/91/8e/7a/918e7a39b2d71bd85d3e26cf6b42a1ec.jpg', // URL for the image
+      "Hi, I am Shakti Nandan, very happy and proud to be a part of TECHNEX'23 as CAMPUS AMBASSADOR in such a Greenish and Vedic culture campus. I got very valuable experience and  I heartly thankful to TECHNEX team to provide me that opportunity.",
+    imageSrc: 't3.webp', // URL for the image
+  },
+  {
+    title: 'Manish Gupta',
+    description:
+      'I had the opportunity to represent my college as a campus ambassador for Technex, IIT BHU and I would like to say that it has been a wonderful experience for me being a campus ambassador of this prestigious technical fest. STAY TECHNEXED!',
+    imageSrc: 't4.webp',
+  },
+  {
+    title: 'Krishna Raj',
+    description:
+      'An absolute fantastic experience, from the food to the security arrangements. The variety & quality of cuisines  left us spoilt for choice It was evident that the organizers went above and beyond to create a memorable experience for all.',
+    imageSrc: 't5 (2).png',
+  },
+  {
+    title: 'Umesh Verma',
+    description:
+      'Being a campus ambassador of technex iit 2k23 was an enriching experience where I represented my university at events, workshops, orientations. I had the chance to interact with prospective students & share my insights about campus life.',
+    imageSrc: 't6.webp',
   },
 ];
 
@@ -45,9 +51,7 @@ const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
   const [isLargerThan500] = useMediaQuery('(min-width: 500px)');
-  const fontSize = isLargerThan500 ? '80px' : '12vw';
   const height3 = isLargerThan500 ? '100px' : '14vw';
-  const fontSize1 = isLargerThan500 ? '17px' : '10px';
   const height1 = isLargerThan900 ? '420px' : '60vw';
   const height2 = isLargerThan900 ? '400px' : '60vw';
   const padding = isLargerThan900 ? '2vw' : '6vw';
@@ -76,47 +80,51 @@ const Testimonials: React.FC = () => {
           </span>
         </Box>
       </Center>
-      <div style={{ position: 'relative', height: `${height1}`, width: '90%' }}>
-        <Box
-          position='relative'
-          height={height2}
-          width='auto'
-          overflow='hidden'
-          id='box'
-          paddingLeft={padding}
+      <Center>
+        <div
+          style={{ position: 'relative', height: `${height1}`, width: '90%' }}
         >
           <Box
-            transition='transform 0.5s ease'
-            transform={`translateY(-${
-              (currentIndex * 100) / carouselData.length
-            }%)`}
-            position='absolute'
-            width='100%'
-            display='flex'
-            flexDirection='column'
+            position='relative'
+            height={height2}
+            width='auto'
+            overflow='hidden'
+            id='box'
+            paddingLeft={padding}
           >
-            {carouselData.map((item, currentIndex) => (
-              <Testes
-                key={currentIndex}
-                title={carouselData[currentIndex]['title']}
-                description={carouselData[currentIndex]['description']}
-                imageSrc={carouselData[currentIndex]['imageSrc']}
-              />
-            ))}
+            <Box
+              transition='transform 0.5s ease'
+              transform={`translateY(-${
+                (currentIndex * 100) / carouselData.length
+              }%)`}
+              position='absolute'
+              width='100%'
+              display='flex'
+              flexDirection='column'
+            >
+              {carouselData.map((item, currentIndex) => (
+                <Testes
+                  key={currentIndex}
+                  title={carouselData[currentIndex]['title']}
+                  description={carouselData[currentIndex]['description']}
+                  imageSrc={carouselData[currentIndex]['imageSrc']}
+                />
+              ))}
+            </Box>
           </Box>
-        </Box>
-        <Center>
-          <div
-            style={{
-              height: '3px',
-              borderRadius: '3px',
-              background: '#a81f25',
-              width: '80%',
-              marginTop: '3vw',
-            }}
-          ></div>
-        </Center>
-      </div>
+          <Center>
+            <div
+              style={{
+                height: '3px',
+                borderRadius: '3px',
+                background: '#a81f25',
+                width: '80%',
+                marginTop: '3vw',
+              }}
+            ></div>
+          </Center>
+        </div>
+      </Center>
     </div>
   );
 };

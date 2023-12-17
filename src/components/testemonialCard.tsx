@@ -21,12 +21,18 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
   const secondWord = words.slice(1).join(' ');
 
   const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
+  const [isLargerThan490] = useMediaQuery('(min-width: 460px)');
+  const [isLargerThan640] = useMediaQuery('(min-width: 640px)');
+  const [isLargerThan700] = useMediaQuery('(min-width: 700px)');
+  const [isLargerThan375] = useMediaQuery('(min-width: 375px)');
   const cardWidth = isLargerThan900 ? '630px' : '80vw';
   const padding = isLargerThan900 ? '10px 40px 15px 15px' : '2.5vw';
-  const cardHeight = isLargerThan900 ? '315px' : '40vw';
-  const fontSize = isLargerThan900 ? '22px' : '3vw';
-  const fontSize1 = isLargerThan900 ? '45px' : '6vw';
-  const padding1 = isLargerThan900 ? '20px 0px' : '3vw 0';
+  const cardHeight = (isLargerThan900 ? '315px' :(isLargerThan640 ? '40vh' : (isLargerThan490 ? '40vh' : (isLargerThan375 ?'30vh' : '25vh'))));
+  const fontSize =
+  (isLargerThan900 ? '19px' :(isLargerThan700 ? '15px' : (isLargerThan490 ? '12px' : (isLargerThan375 ?'10px' : '8px'))));
+    
+  const fontSize1 = isLargerThan900 ? '44px' : '4vw';
+  const padding1 = isLargerThan900 ? '15px 0px' : '3vw 0';
   const margin = isLargerThan900 ? '80px 50px 50px 50px' : '8vw';
   return (
     <div style={{ margin: `${margin}` }}>
@@ -55,10 +61,10 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
             >
               <Image
                 src={imageSrc}
-                objectFit='fill' // Ensure the image stays inside the box and covers it
+                objectFit='contain' // Ensure the image stays inside the box and covers it
                 width='100%' // Make sure the image takes 100% width of the Box
                 height='100%' // Make sure the image takes 100% height of the Box
-                borderRadius='10% 20%'
+                borderRadius='10% 30%'
                 alt=''
               />
             </Box>
@@ -77,8 +83,20 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
                   {secondWord}
                 </Box>
               </Heading>
-              <Text padding={padding} fontSize={fontSize}>
+
+              <Text
+                padding={padding}
+                fontSize={fontSize}
+                style={{ fontFamily: "'Spline Sans', sans-serif" }}
+              >
+                
+                  " &nbsp;
+               
                 {description}
+                
+                
+                &nbsp;  " 
+                
               </Text>
             </Box>
           </Stack>

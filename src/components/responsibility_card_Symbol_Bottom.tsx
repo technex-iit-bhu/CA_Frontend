@@ -1,20 +1,31 @@
 import { Center } from '@chakra-ui/react';
-import React from 'react';
+import React, { FC } from 'react';
+
 // import Classes from 'src/styles/Incentive.module.css';
 
 const imgContainer = {
   backgroundColor: 'white',
-  width: '70px',
-  height: '70px',
+  width: '90px',
+  height: '90px',
   Position: 'relative',
   margin: 'auto',
   borderRadius: '50%',
-  marginTop: '10%',
+  marginTop: '8%',
   //   margin: '50%',
   zIndex: 1,
 };
 
-const ResponsibilityCard_Symbol_Bottom = () => {
+interface CardProps {
+  text: string;
+  heading: string;
+  logo: string;
+}
+
+const ResponsibilityCard_Symbol_Bottom: FC<CardProps> = ({
+  logo,
+  text,
+  heading,
+}) => {
   return (
     <div>
       <div
@@ -50,7 +61,10 @@ const ResponsibilityCard_Symbol_Bottom = () => {
             textAlign: 'center',
           }}
         >
-          Bhupendra Jogi
+          <h1>
+            <b>{heading}</b>
+          </h1>
+          <p style={{ margin: '20px', marginTop: '1.5vh' }}>{text}</p>
         </div>
         <div
           style={{
@@ -68,7 +82,7 @@ const ResponsibilityCard_Symbol_Bottom = () => {
             alignContent: 'center',
           }}
         >
-          <div style={imgContainer}></div>
+          <img style={imgContainer} src={logo}></img>
         </div>
       </div>
     </div>

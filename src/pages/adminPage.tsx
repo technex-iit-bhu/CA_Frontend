@@ -24,7 +24,7 @@ function AdminPage() {
     </div>
   );
 }
-const BACKEND_URL = 'http://localhost:8000/'; //TODO: move to .env
+const BACKEND_URL = 'https://ca-backend-467n.onrender.com/'; //TODO: move to .env :(
 function Login({
   token,
   setToken,

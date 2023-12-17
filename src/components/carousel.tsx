@@ -9,15 +9,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CardPopup from './cardpopup';
 
-const SlickButtonFix = (
-  props: {
-    children: JSX.Element;
-  } & object
-) => {
-  const { children, ...otherProps } = props;
-  return <span {...otherProps}>{children}</span>;
-};
-
 const titletext = [
   'Paisa Hi ',
   <span key={uuidv4()} style={{ color: '#C70039' }}>
@@ -71,30 +62,30 @@ const IncentivesCarousel = () => {
   const ArrowLeft1 = () => (
     <ArrowLeftIcon
       onClick={previous1}
-      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
-      className={'prev'}
+      // style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
+      className={'arrow prev'}
     ></ArrowLeftIcon>
   );
   const ArrowRight1 = () => (
     <ArrowRightIcon
       onClick={next1}
-      style={{ position: 'absolute', right: '-20px', top: '50%' }}
-      className={'prev'}
+      // style={{ position: 'absolute', right: '-20px', top: '50%' }}
+      className={'arrow next'}
     ></ArrowRightIcon>
   );
   const ArrowLeft2 = () => (
     <ArrowLeftIcon
       onClick={previous2}
-      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
-      className={'prev'}
+      // style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
+      className={'arrow prev'}
     ></ArrowLeftIcon>
   );
 
   const ArrowRight2 = () => (
     <ArrowRightIcon
       onClick={next2}
-      style={{ position: 'absolute', right: '-20px', top: '50%' }}
-      className={'prev'}
+      // style={{ position: 'absolute', right: '-20px', top: '50%' }}
+      className={'arrow next'}
     ></ArrowRightIcon>
   );
 
