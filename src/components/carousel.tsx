@@ -9,14 +9,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CardPopup from './cardpopup';
 
-const SlickButtonFix = (
-  props: {
-    children: JSX.Element;
-  } & object
-) => {
-  const { children, ...otherProps } = props;
-  return <span {...otherProps}>{children}</span>;
-};
 
 const titletext = [
   'Paisa Hi ',
@@ -25,7 +17,8 @@ const titletext = [
   </span>,
   ' Hoga',
 ];
-const lor = `COMING SOON...`;
+// const lor = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque animi nihil deleniti modi hic voluptatibus dolorem. Ea eaque repellendus odio rem illo perferendis eveniet? Molestias doloremque id pariatur reiciendis iste!`;
+const lor = `COMING SOON!!`;
 
 const IncentivesCarousel = () => {
   const [showFull, setShowFull] = useState(false);
@@ -910,7 +903,7 @@ const IncentivesCarousel = () => {
           </div>
         </div>
       )}
-      <div className='fixed left-0 top-1/4 z-30 flex items-center justify-center md:left-1/4 lg:left-[28%]'>
+      <div className='fixed left-0 top-1/4 z-20 flex items-center justify-center md:left-1/4 lg:left-[28%]'>
         <CardPopup logo={'./logoipsum-284.svg'} text={lor} trigger={showFull}>
           <button
             className='relative px-3 py-1 pb-2 font-semibold text-red'
