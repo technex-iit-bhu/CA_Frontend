@@ -45,10 +45,9 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
           <div className='flex items-center justify-center p-1'>
             <Image
               alt='companylogo'
-              src={logo}
+              src={'/logoipsum-284.svg' || logo}
               width={100}
               height={100}
-              className="mx-auto"
             />
           </div>
           <p

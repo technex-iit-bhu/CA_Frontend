@@ -73,7 +73,7 @@ const Navbar: FC = () => {
         <div className='-space-y-3 sm:-space-y-6'>
           <Image
             className='w-56 pl-1 pt-2 sm:w-72 sm:p-3'
-            src={'/Asset 1.svg'}
+            src={'/technex_logo.webp'}
             alt='technex logo'
             width={330}
             height={75}
