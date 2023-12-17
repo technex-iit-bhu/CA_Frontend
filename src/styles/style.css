@@ -51,7 +51,6 @@
   }
   .card {
     position: relative;
-    /* left: 50%; */
     translate: 20%;
     padding:0 40px;
   }

@@ -177,7 +177,7 @@ const IncentivesCarousel = () => {
   };
 
   return (
-    <div className=''>
+    <div className='pb-4'>
       {showFull && (
         <div className='blur-sm'>
           <div
