@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { HeadingTexts } from './ourReach';
 import { ArrowRightIcon } from '../../node_modules/@chakra-ui/icons/dist/ArrowRight';
 import ImageTrackComponent from './sexyGallery';
+import Gallery from './gallery';
 
 const AboutTechnex: FC = () => {
   return (
@@ -53,7 +54,7 @@ const AboutTechnex: FC = () => {
           <br />
           <br />
           <br />
-          <ImageTrackComponent />
+          <Gallery />
         </div>
       </div>
     </div>
