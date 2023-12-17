@@ -1,31 +1,50 @@
-import React from 'react'
+import React from 'react';
 import { FC, useState } from 'react';
-import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
 import Image from 'next/image';
-
 
 type CardPopupProps = {
   logo: string;
   text: string;
   trigger: boolean;
   children?: JSX.Element;
-}
-const CardPopup = (props:CardPopupProps) => {
-  return (
-    (props.trigger) ? (
-    <div className='z-20 card flex m-1 flex-col w-auto h-auto md:w-[500px] xl:w-[700px] md:h-[250px] justify-center items-center border-red border-2 bg-[#272727] rounded-3xl'>
-      <Card className='p-2'>
-        <CardHeader className='flex justify-center items-center p-2 pb-3'>
-          <Image alt='companylogo' src={props.logo} width={100} height={100} />
-        </CardHeader>
-        <CardBody className='text-center text-base pb-2'>
-          {props.text}
-        </CardBody>
-      </Card>
-      { props.children }
-    </div>)
-    : ""
-  )
-}
+};
+const CardPopup = (props: CardPopupProps) => {
+  return props.trigger ? (
+    <>
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          zIndex: 1,
+          backdropFilter: 'blur(10px)',
+          backgroundColor: 'rgba(255, 255, 255, 0)',
+        }}
+      ></div>
 
-export default CardPopup
+      <div className='card z-20 m-1 flex h-auto w-auto flex-col items-center justify-center rounded-3xl border-2 border-red bg-[#272727] md:h-[250px] md:w-[500px] xl:w-[700px]'>
+        <Card className='p-2'>
+          <CardHeader className='flex items-center justify-center p-2 pb-3'>
+            <Image
+              alt='companylogo'
+              src={props.logo}
+              width={100}
+              height={100}
+            />
+          </CardHeader>
+          <CardBody className='pb-2 text-center text-base'>
+            {props.text}
+          </CardBody>
+        </Card>
+        {props.children}
+      </div>
+    </>
+  ) : (
+    ''
+  );
+};
+
+export default CardPopup;

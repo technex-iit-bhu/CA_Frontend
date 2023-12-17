@@ -222,7 +222,7 @@ const IncentivesCarousel = () => {
           </div>
         </div>
       )}
-      {showFull == false && (
+      {(
         <div className='blur-none'>
           <div
             style={{
@@ -259,7 +259,7 @@ const IncentivesCarousel = () => {
                       className=' font-semibold text-red'
                       onClick={() => showFullHandler(logo_text)}
                     >
-                      {showFull ? '' : 'Show More'}
+                      {'Show More'}
                     </button>
                   </div>
                 );
@@ -296,7 +296,7 @@ const IncentivesCarousel = () => {
                       className=' font-semibold text-red'
                       onClick={() => showFullHandler(logo_text)}
                     >
-                      {showFull ? '' : 'Show More'}
+                      {'Show More'}
                     </button>
                   </div>
                 );
@@ -307,8 +307,8 @@ const IncentivesCarousel = () => {
       )}
       <div className='fixed left-0 top-1/4 z-30 flex items-center justify-center md:left-1/4 lg:left-[28%]'>
         <CardPopup
-          logo={(fullLogoText && fullLogoText[0]) || 'bug! bug!'}
-          text={(fullLogoText && fullLogoText[1]) || 'bug! bug!'}
+          logo={(fullLogoText && fullLogoText[0]) || '/logoipsum-284.svg'}
+          text={(fullLogoText && fullLogoText[1]) || 'BUG!!!'}
           trigger={showFull}
         >
           <button
