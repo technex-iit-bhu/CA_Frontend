@@ -75,20 +75,19 @@ const IncentivesCarousel = () => {
       className={'prev'}
     ></ArrowLeftIcon>
   );
-  const ArrowLeft2 = () => (
-    <ArrowLeftIcon
-      onClick={previous2}
-      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
-      className={'prev'}
-    ></ArrowLeftIcon>
-  );
-
   const ArrowRight1 = () => (
     <ArrowRightIcon
       onClick={next1}
       style={{ position: 'absolute', right: '-20px', top: '50%' }}
       className={'prev'}
     ></ArrowRightIcon>
+  );
+  const ArrowLeft2 = () => (
+    <ArrowLeftIcon
+      onClick={previous2}
+      style={{ position: 'absolute', left: '-20px', top: '50%', zIndex: 3 }}
+      className={'prev'}
+    ></ArrowLeftIcon>
   );
 
   const ArrowRight2 = () => (
@@ -99,20 +98,59 @@ const IncentivesCarousel = () => {
     ></ArrowRightIcon>
   );
 
-
-  const settings = {
+  const settings1 = {
+    arrows: true,
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,
     speed: 500,
+    slidesToShow: 3.5,
+    slidesToScroll: 1,
+
+    responsive: [
+      {
+        breakpoint: 624,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 5000,
+        },
+      },
+      {
+        breakpoint: 325,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 5000,
+        },
+      },
+      {
+        breakpoint: 100,
+        settings: {
+          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          mobileFirst: true,
+          adaptiveHeight: true,
+
+          autoplaySpeed: 5000,
+        },
+      },
+    ],
+  };
+
+  const settings2 = {
+    arrows: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 4500,
+    speed: 500,
     slidesToShow: 3.75,
     slidesToScroll: 1,
     rtl: true,
-    // centerMode: true,
-    prevArrow: <ArrowLeft2 />,
-    nextArrow: <ArrowRight2 />,
-    // centerPadding: '10px',
-    // centerMode: true,
 
     responsive: [
       {
@@ -216,12 +254,10 @@ const IncentivesCarousel = () => {
             </Head>
 
             <Slider
-              {...{
-                ...settings,
-                prevArrow: <ArrowLeft1 />,
-                nextArrow: <ArrowRight1 />,
-              }}
+              {...settings1}
               ref={sliderRef1}
+              prevArrow={<ArrowLeft1 />}
+              nextArrow={<ArrowRight1 />}
             >
               {incentiveLogoPaths.map((logo_text, index) => {
                 return (
@@ -253,7 +289,13 @@ const IncentivesCarousel = () => {
                 href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
               />
             </Head>
-            <Slider {...settings} ref={sliderRef2}>
+            <Slider
+              {...settings2}
+              ref={sliderRef2}
+              rtl={true}
+              prevArrow={<ArrowLeft2 />}
+              nextArrow={<ArrowRight2 />}
+            >
               {incentiveLogoPaths.map((logo_text, index) => {
                 return (
                   <div key={index}>
