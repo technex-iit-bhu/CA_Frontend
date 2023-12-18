@@ -6,7 +6,9 @@ import Navbar from '../components/navbar';
 export default function DashboardPage() {
   return (
     <>
-      <Navbar></Navbar>
+      <div className='z-10 pb-[80px] '>
+          <Navbar />
+      </div>
       <Dashboard />
       <DashboardTab />
     </>

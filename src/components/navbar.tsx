@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 import Hamburger from './hamburgermenu';
+import { Menu, MenuButton, MenuList, MenuItem, Avatar, Button } from '@chakra-ui/react';
 
 const Navbar: FC = () => {
   const [aboutColor, setAboutColor] = useState('red');
@@ -13,6 +15,17 @@ const Navbar: FC = () => {
   const [dashboardPageColor, setDashboardPageColor] = useState('white');
   const [profileColor, setProfileColor] = useState('white');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const router = useRouter();
+
+  const handleProfile = () => {
+    console.log('profile')
+    router.push('/profile');
+  };
+
+  const handleDashboard = () => {
+    window.location.href = '/dashboardPage';
+  };
 
   useEffect(() => {
     // Check if access token exists in localStorage
@@ -83,7 +96,7 @@ const Navbar: FC = () => {
   }, []);
 
   return (
-    <div className='z-10 flex items-center justify-between'>
+    <div className='z-100 flex items-center justify-between'>
       <Link href={'/'}>
         <div className='-space-y-3 sm:-space-y-6'>
           <Image
@@ -121,7 +134,7 @@ const Navbar: FC = () => {
         >
           FAQs
         </Link>
-        {isLoggedIn && (
+        {/* {isLoggedIn && (
           <Link
             href={'/leaderboard'}
             className={`relative text-${leaderboardColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
@@ -144,18 +157,35 @@ const Navbar: FC = () => {
           >
             Profile
           </Link>
-        )}
+        )} */}
         {isLoggedIn ? (
-          <Link
-            href={'/'}
-            onClick={() => {
-              setIsLoggedIn(false);
-              localStorage.removeItem('accessToken');
-            }}
-            className='rounded-e-full rounded-s-full border-2 px-5 font-spline hover:border-[#A81F25] hover:bg-[#191919] hover:text-[#A81F25] sm:px-7 sm:py-1'
-          >
-            Logout
-          </Link>
+          // <Link
+          //   href={'/'}
+          //   onClick={() => {
+          //     setIsLoggedIn(false);
+          //     localStorage.removeItem('accessToken');
+          //   }}
+          //   className='rounded-e-full rounded-s-full border-2 px-5 font-spline hover:border-[#A81F25] hover:bg-[#191919] hover:text-[#A81F25] sm:px-7 sm:py-1'
+          // >
+          //   Logout
+          // </Link>
+          <Menu>
+            {({ isOpen }) => (
+              <>
+                <MenuButton isActive={isOpen} as={Button} >
+                  <Avatar name='Dan Abrahmov' src='https://play-lh.googleusercontent.com/Oriscl3_nvmDPncct6gStmNuQW_4tqHVozy1skG0vd8Jk22KYNMYYJfKq0vcyU-NKdw' className='h-[50px] w-[50px] rounded-full' />
+                </MenuButton>
+                <MenuList>
+                  <MenuItem onClick={handleProfile}>Profile</MenuItem>
+                  <MenuItem onClick={handleDashboard}>Dashboard</MenuItem>
+                  <MenuItem onClick={() => {
+                    setIsLoggedIn(false);
+                    localStorage.removeItem('accessToken');
+                    }}>Logout</MenuItem>                 
+                </MenuList>
+              </>
+            )}
+          </Menu>
         ) : (
           <Link
             href={'/login'}
