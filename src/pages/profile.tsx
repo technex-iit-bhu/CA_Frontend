@@ -76,7 +76,15 @@ export default function Profile() {
         <div className='z-0 mb-20 rounded-[50px] bg-grey px-[50px]  md:px-[30px]'>
           <div className='flex flex-col pb-10 lg:flex-row lg:pb-4 lg:pl-[0px]   lg:pt-4 '>
             <div className='mt-[-150px] flex flex-col'>
-              <div className='h-[250px] w-[250px] select-none self-center rounded-full border-4 border-red bg-background '></div>
+              <div className='h-[250px] w-[250px] select-none self-center rounded-full border-4 border-red bg-background '>
+                <img
+                  src='https://play-lh.googleusercontent.com/Oriscl3_nvmDPncct6gStmNuQW_4tqHVozy1skG0vd8Jk22KYNMYYJfKq0vcyU-NKdw'
+                  alt='profile picture'
+                  width={250}
+                  height={250}
+                  className='rounded-full '
+                />
+              </div>
               <div className='flex flex-col  lg:w-[500px] lg:pl-[20px] '>
                 <p className='text-white flex select-none flex-wrap self-center text-center font-spline text-[30px] font-bold lg:self-start lg:text-left lg:text-[50px]'>
                   {Name}
