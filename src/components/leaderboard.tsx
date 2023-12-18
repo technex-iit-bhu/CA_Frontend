@@ -7,6 +7,8 @@ const Leaderboard = () => {
 
   interface LeaderboardEntry {
     user_name: string;
+    first_name: string;
+    last_name: string;
     points: number;
   }
 
@@ -19,6 +21,8 @@ const Leaderboard = () => {
     const getLeaderboard = async () => {
       interface MyInterface {
         user_name: string;
+        first_name: string;
+        last_name: string;
         points: number;
       }
 
@@ -90,133 +94,116 @@ const Leaderboard = () => {
             <div id='3rd' className='relative z-0 mb-[50px] mr-2 h-[120px]  w-full rounded-[40px] bg-custom-gradient-2 px-5 py-3 md:h-[200px]'>
               <div className='flex flex-col lg:flex-row'>
                 <div className=' mt-[-40px]  flex flex-col md:mt-[-60px]'>
-                  <p className='text-white select-none self-center text-center text-[30px]  font-bold md:text-[50px] lg:self-start lg:text-left'>
+                  {descLeaderboard.map((entry, index) => {
+                    if (index === 2) {
+                      return (
+                        <div key={index}>
+                        <p className='text-white select-none self-center text-center text-[30px]  font-bold md:text-[50px] lg:self-start lg:text-left'>
                       <span>
-                      {descLeaderboard.map((entry, index) => {
-                            if (index === 2) {
-                              return (
-                                <span key={index}>
-                                  {entry.points}
-                                </span>
-                              );
-                            } else {
-                              return null;
-                            }
-                          })}
+                        {entry.points}
                       </span>
                   </p>
                   <div className='flex flex-row pb-2 lg:pl-4 lg:pr-8 items-center'>
                     <div className='mr-2 h-[60px] w-[60px] select-none self-center rounded-full border-4 border-red bg-background md:h-[100px] md:w-[100px] '></div>
                     <div className='flex flex-col'>
                       <p className='text-white mr-3 select-none  font-spline text-[20px] font-bold md:self-start md:text-[30px]'>
-                      {descLeaderboard.map((entry, index) => {
-                            if (index === 2) {
-                              return (
-                                <span key={index}>
-                                  {entry.user_name}
-                                </span>
-                              );
-                            } else {
-                              return null;
-                            }
-                          })}
+                      <span>
+                        {entry.first_name}
+                      </span>
                       </p>
-                      {/* <p className='text-white mr-3 select-none  font-spline text-[20px] font-bold md:self-start md:text-[30px]'>
-                        lastName
-                      </p> */}
+                      <p className='text-white mr-3 select-none  font-spline text-[20px] font-bold md:self-start md:text-[30px]'>
+                        {entry.last_name}
+                      </p>
                     </div>
                   </div>
                   {/* <div className='text-white absolute inset-x-0 bottom-0 flex select-none items-center justify-center font-spline text-[9px] md:text-[15px]'>
                     CA ID: {caId}
                   </div> */}
+                  </div>
+                      )
+                    }
+                    else {
+                      return null;
+                    }
+                  })}
                 </div>
               </div>
             </div>
 
             <div id='1st' className='relative z-0 mb-[50px] mr-2 h-[120px]  w-full rounded-[40px] bg-custom-gradient-2 px-5 py-3 md:h-[200px]'>
               <div className='flex flex-col lg:flex-row'>
-                <div className=' mt-[-40px]  flex flex-col md:mt-[-60px]'>
-                  <p className='text-white select-none self-center text-center text-[30px]  font-bold md:text-[50px] lg:self-start lg:text-left'>
+              <div className=' mt-[-40px]  flex flex-col md:mt-[-60px]'>
                   {descLeaderboard.map((entry, index) => {
-                            if (index === 0) {
-                              return (
-                                <span key={index}>
-                                  {entry.points}
-                                </span>
-                              );
-                            } else {
-                              return null;
-                            }
-                          })}
+                    if (index === 0) {
+                      return (
+                        <div key={index}>
+                        <p className='text-white select-none self-center text-center text-[30px]  font-bold md:text-[50px] lg:self-start lg:text-left'>
+                      <span>
+                        {entry.points}
+                      </span>
                   </p>
                   <div className='flex flex-row pb-2 lg:pl-4 lg:pr-8 items-center'>
                     <div className='mr-2 h-[60px] w-[60px] select-none self-center rounded-full border-4 border-red bg-background md:h-[100px] md:w-[100px] '></div>
                     <div className='flex flex-col'>
                       <p className='text-white mr-3 select-none  font-spline text-[20px] font-bold md:self-start md:text-[30px]'>
-                      {descLeaderboard.map((entry, index) => {
-                            if (index === 0) {
-                              return (
-                                <span key={index}>
-                                  {entry.user_name}
-                                </span>
-                              );
-                            } else {
-                              return null;
-                            }
-                          })}
+                      <span>
+                        {entry.first_name}
+                      </span>
                       </p>
-                      {/* <p className='text-white mr-3 select-none  font-spline text-[20px] font-bold md:self-start md:text-[30px]'>
-                        lastName
-                      </p> */}
+                      <p className='text-white mr-3 select-none  font-spline text-[20px] font-bold md:self-start md:text-[30px]'>
+                        {entry.last_name}
+                      </p>
                     </div>
                   </div>
                   {/* <div className='text-white absolute inset-x-0 bottom-0 flex select-none items-center justify-center font-spline text-[9px] md:text-[15px]'>
-                  CA ID: {caId}
+                    CA ID: {caId}
                   </div> */}
+                  </div>
+                      )
+                    }
+                    else {
+                      return null;
+                    }
+                  })}
                 </div>
               </div>
             </div>
 
             <div id='2nd' className='relative z-0 mb-[50px] mr-2 h-[120px]  w-full rounded-[40px] bg-custom-gradient-2 px-5 py-3 md:h-[200px]'>
               <div className='flex flex-col lg:flex-row'>
-                <div className=' mt-[-40px]  flex flex-col md:mt-[-60px]'>
-                  <p className='text-white select-none self-center text-center text-[30px]  font-bold md:text-[50px] lg:self-start lg:text-left'>
+              <div className=' mt-[-40px]  flex flex-col md:mt-[-60px]'>
                   {descLeaderboard.map((entry, index) => {
-                            if (index === 1) {
-                              return (
-                                <span key={index}>
-                                  {entry.points}
-                                </span>
-                              );
-                            } else {
-                              return null;
-                            }
-                          })}
+                    if (index === 1) {
+                      return (
+                        <div key={index}>
+                        <p className='text-white select-none self-center text-center text-[30px]  font-bold md:text-[50px] lg:self-start lg:text-left'>
+                      <span>
+                        {entry.points}
+                      </span>
                   </p>
                   <div className='flex flex-row pb-2 lg:pl-4 lg:pr-8 items-center'>
                     <div className='mr-2 h-[60px] w-[60px] select-none self-center rounded-full border-4 border-red bg-background md:h-[100px] md:w-[100px] '></div>
                     <div className='flex flex-col'>
                       <p className='text-white mr-3 select-none  font-spline text-[20px] font-bold md:self-start md:text-[30px]'>
-                      {descLeaderboard.map((entry, index) => {
-                            if (index === 1) {
-                              return (
-                                <span key={index}>
-                                  {entry.user_name}
-                                </span>
-                              );
-                            } else {
-                              return null;
-                            }
-                          })}
+                      <span>
+                        {entry.first_name}
+                      </span>
                       </p>
-                      {/* <p className='text-white mr-3 select-none  font-spline text-[20px] font-bold md:self-start md:text-[30px]'>
-                        Misra
-                      </p> */}
+                      <p className='text-white mr-3 select-none  font-spline text-[20px] font-bold md:self-start md:text-[30px]'>
+                        {entry.last_name}
+                      </p>
                     </div>
                   </div>
                   {/* <div className='text-white absolute inset-x-0 bottom-0 flex select-none items-center justify-center font-spline text-[9px] md:text-[15px]'>
-                    CA Id:{caId}
+                    CA ID: {caId}
                   </div> */}
+                  </div>
+                      )
+                    }
+                    else {
+                      return null;
+                    }
+                  })}
                 </div>
               </div>
             </div>
@@ -244,7 +231,7 @@ const Leaderboard = () => {
                             if (index === 3) {
                               return (
                                 <span key={index}>
-                                  {entry.user_name}
+                                  {entry.first_name} {entry.last_name}
                                 </span>
                               );
                             } else {
@@ -257,7 +244,7 @@ const Leaderboard = () => {
                   </p> */}
                   <p className='text-white mr-3 select-none font-spline text-[10px] font-bold md:self-start md:text-[20px] mt-2'>
                     Points: {descLeaderboard.map((entry, index) => {
-                            if (index === 2) {
+                            if (index === 3) {
                               return (
                                 <span key={index}>
                                   {entry.points}
@@ -288,7 +275,7 @@ const Leaderboard = () => {
                             if (index === 4) {
                               return (
                                 <span key={index}>
-                                  {entry.user_name}
+                                  {entry.first_name} {entry.last_name}
                                 </span>
                               );
                             } else {
@@ -333,7 +320,7 @@ const Leaderboard = () => {
                             if (index === 5) {
                               return (
                                 <span key={index}>
-                                  {entry.user_name}
+                                  {entry.first_name} {entry.last_name}
                                 </span>
                               );
                             } else {
@@ -379,7 +366,7 @@ const Leaderboard = () => {
                             if (index === 6) {
                               return (
                                 <span key={index}>
-                                  {entry.user_name}
+                                  {entry.first_name} {entry.last_name}
                                 </span>
                               );
                             } else {
@@ -424,7 +411,7 @@ const Leaderboard = () => {
                             if (index === 7) {
                               return (
                                 <span key={index}>
-                                  {entry.user_name}
+                                  {entry.first_name} {entry.last_name}
                                 </span>
                               );
                             } else {
@@ -469,7 +456,7 @@ const Leaderboard = () => {
                             if (index === 8) {
                               return (
                                 <span key={index}>
-                                  {entry.user_name}
+                                  {entry.first_name} {entry.last_name}
                                 </span>
                               );
                             } else {
@@ -514,7 +501,7 @@ const Leaderboard = () => {
                             if (index === 9) {
                               return (
                                 <span key={index}>
-                                  {entry.user_name}
+                                  {entry.first_name} {entry.last_name}
                                 </span>
                               );
                             } else {
