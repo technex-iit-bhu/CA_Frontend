@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import Image from 'next/image';
 
 const ImageTrackComponent = () => {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -76,19 +77,19 @@ const ImageTrackComponent = () => {
       data-prev-percentage='0'
       className='image-track'
     >
-      <img
+      <Image
         className='image'
-        src='Tnx_4.jpg'
+        src='/Tnx_4.webp'
         draggable='false'
         alt='First Image'
       />
-      <img className='image' src='Tnx_6.jpg' draggable='false' />
-      <img className='image' src='Tnx_7.jpg' draggable='false' />
-      <img className='image' src='Tnx_8.jpg' draggable='false' />
-      <img className='image' src='Tnx_10.jpg' draggable='false' />
-      <img className='image' src='Tnx_13.png' draggable='false' />
-      <img className='image' src='Tnx_15.png' draggable='false' />
-      <img className='image' src='Tnx17.png' draggable='false' />
+      <Image className='image' src='/Tnx_6.webp' draggable='false'  alt='First Image'/>
+      <Image className='image' src='/Tnx_7.webp' draggable='false' alt='First Image' />
+      <Image className='image' src='/Tnx_8.webp' draggable='false' alt='First Image'/>
+      <Image className='image' src='/Tnx_10.webp' draggable='false' alt='First Image'/>
+      <Image className='image' src='/Tnx_13.webp' draggable='false' alt='First Image'/>
+      <Image className='image' src='/Tnx_15.webp' draggable='false' alt='First Image' />
+      <Image className='image' src='/Tnx17.webp' draggable='false' alt='First Image'/>
     </div>
   );
 };
