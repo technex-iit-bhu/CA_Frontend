@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/navbar';
 import { useState, useEffect } from 'react';
 
-export default function profile() {
+export default function Profile() {
 
   const [Name, setName] = useState('');
   const [Address, setAddress] = useState('');
@@ -59,7 +59,9 @@ export default function profile() {
           <span className='text-white z-10 ml-1 select-none text-[25px]   ef:text-4xl md:ml-2 md:text-7xl lg:ml-3 font-spline'>Profile</span>
         </div>
       </div> */}
-      <Navbar />
+      <div className='z-10 pb-[80px] '>
+          <Navbar />
+      </div>
       <div className='relative  mb-[160px] flex flex-col bg-background pl-[50px] pt-[120px] ef:mb-[170px] ef:pt-[130px] sm:mb-[150px] sm:pt-[120px] md:mb-[180px] md:pb-0 md:pt-[190px] lg:pb-[100px] lg:pt-[150px]'>
         <div className=' absolute bottom-3 flex flex-col -space-y-14 ef:-space-y-16 sm:text-left md:-space-y-32 '>
           <span className='text-[62px] font-bold text-red opacity-20 ef:text-[80px] md:text-[9rem] lg:text-[11rem]'>
