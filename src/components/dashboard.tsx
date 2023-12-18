@@ -15,7 +15,7 @@ const Dashboard = () => {
       try {
         const accessToken = localStorage.getItem('accessToken');
         const response = await fetch(
-          'https://ca-backend-467n.onrender.com/auth/user/profile',
+          'https://ca-backend-qknd.onrender.com/auth/user/profile',
           {
             method: 'GET',
             headers: {
@@ -40,7 +40,7 @@ const Dashboard = () => {
     };
     const getTasks = async () => {
       const response = await fetch(
-        'https://ca-backend-467n.onrender.com/tasks/',
+        'https://ca-backend-qknd.onrender.com/tasks/',
         {
           method: 'GET',
           headers: {

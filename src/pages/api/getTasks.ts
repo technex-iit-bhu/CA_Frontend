@@ -7,7 +7,7 @@ export default async function handler(
   if (req.method === 'GET') {
     try {
       const response = await fetch(
-        'https://ca-backend-467n.onrender.com/tasks/',
+        'https://ca-backend-qknd.onrender.com/tasks/',
         {
           method: 'GET',
           headers: {

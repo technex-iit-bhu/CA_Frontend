@@ -22,7 +22,7 @@ const Leaderboard = () => {
         points: number;
       }
 
-      const response = await fetch('https://ca-backend-467n.onrender.com/tasks/leaderboard/', {
+      const response = await fetch('https://ca-backend-qknd.onrender.com/tasks/leaderboard/', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
