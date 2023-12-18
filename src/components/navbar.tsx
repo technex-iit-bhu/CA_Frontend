@@ -11,6 +11,7 @@ const Navbar: FC = () => {
   const [faqColor, setFaqColor] = useState('white');
   const [leaderboardColor, setLeaderBoardColor] = useState('white');
   const [dashboardPageColor, setDashboardPageColor] = useState('white');
+  const [profileColor, setProfileColor] = useState('white');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const Navbar: FC = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/incentivesPage') {
       setAboutColor('white');
       setIncentivesColor('red');
@@ -36,6 +38,7 @@ const Navbar: FC = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/contactUsPage') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -43,6 +46,7 @@ const Navbar: FC = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/faqPage') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -50,6 +54,7 @@ const Navbar: FC = () => {
       setFaqColor('red');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/leaderboard') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -57,6 +62,7 @@ const Navbar: FC = () => {
       setFaqColor('white');
       setLeaderBoardColor('red');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/dashboardPage') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -64,6 +70,15 @@ const Navbar: FC = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('red');
+      setProfileColor('white');
+    } else if (window.location.pathname === '/profile') {
+      setAboutColor('white');
+      setIncentivesColor('white');
+      setContactusColor('white');
+      setFaqColor('white');
+      setLeaderBoardColor('white');
+      setDashboardPageColor('white');
+      setProfileColor('red');
     }
   }, []);
 
@@ -120,6 +135,14 @@ const Navbar: FC = () => {
             className={`relative text-${dashboardPageColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
           >
             Dashboard
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link
+            href={'/profile'}
+            className={`relative text-${profileColor} font-spline transition-all duration-500 before:absolute before:-bottom-2 before:left-0 before:h-1 before:w-0 before:rounded-full before:bg-gradient-to-r before:from-[#A81F25] before:to-[#A81F25] before:opacity-0 before:transition-all before:duration-500 before:content-[''] hover:before:w-full hover:before:opacity-100`}
+          >
+            Profile
           </Link>
         )}
         {isLoggedIn ? (
