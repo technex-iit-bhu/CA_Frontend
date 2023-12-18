@@ -5,7 +5,7 @@ import Navbar from './navbar';
 const Incentive = () => {
   return (
     <div>
-      <div className='z-10 pb-[80px] '>
+      <div className='z-10 pb-[110px] '>
           <Navbar />
       </div>
       <div className='relative mb-[20px] flex flex-col bg-background pl-[10px] pt-[220px]'>

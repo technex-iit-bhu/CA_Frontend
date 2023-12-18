@@ -59,7 +59,7 @@ export default function Profile() {
           <span className='text-white z-10 ml-1 select-none text-[25px]   ef:text-4xl md:ml-2 md:text-7xl lg:ml-3 font-spline'>Profile</span>
         </div>
       </div> */}
-      <div className='z-10 pb-[80px] '>
+      <div className='z-10 pb-[110px] '>
           <Navbar />
       </div>
       <div className='relative  mb-[160px] flex flex-col bg-background pl-[50px] pt-[120px] ef:mb-[170px] ef:pt-[130px] sm:mb-[150px] sm:pt-[120px] md:mb-[180px] md:pb-0 md:pt-[190px] lg:pb-[100px] lg:pt-[150px]'>

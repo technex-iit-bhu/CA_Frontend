@@ -5,7 +5,7 @@ import FAQ from '@/components/faq';
 const faqPage = () => {
   return (
     <div>
-      <div className='z-10 pb-[80px] '>
+      <div className='z-10 pb-[110px] '>
           <Navbar />
       </div>
       <FAQ></FAQ>

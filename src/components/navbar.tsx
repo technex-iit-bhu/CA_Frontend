@@ -19,13 +19,16 @@ const Navbar: FC = () => {
   const router = useRouter();
 
   const handleProfile = () => {
-    console.log('profile')
     router.push('/profile');
   };
 
   const handleDashboard = () => {
-    window.location.href = '/dashboardPage';
+    router.push('/dashboardPage');
   };
+
+  const handleLeaderboard = () => {
+    router.push('/leaderboard');
+  }
 
   useEffect(() => {
     // Check if access token exists in localStorage
@@ -178,6 +181,7 @@ const Navbar: FC = () => {
                 <MenuList>
                   <MenuItem onClick={handleProfile}>Profile</MenuItem>
                   <MenuItem onClick={handleDashboard}>Dashboard</MenuItem>
+                  <MenuItem onClick={handleLeaderboard}>Leaderboard</MenuItem>
                   <MenuItem onClick={() => {
                     setIsLoggedIn(false);
                     localStorage.removeItem('accessToken');
