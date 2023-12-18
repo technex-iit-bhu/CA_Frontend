@@ -181,6 +181,7 @@ const Navbar: FC = () => {
                   <MenuItem onClick={() => {
                     setIsLoggedIn(false);
                     localStorage.removeItem('accessToken');
+                    router.push('/');
                     }}>Logout</MenuItem>                 
                 </MenuList>
               </>
