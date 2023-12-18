@@ -81,12 +81,12 @@ export default function Profile() {
                 <p className='text-white flex select-none flex-wrap self-center text-center font-spline text-[30px] font-bold lg:self-start lg:text-left lg:text-[50px]'>
                   {Name}
                 </p>
-                <p className='text-white flex select-none flex-wrap self-center font-spline text-[15px] lg:self-start lg:text-[20px]'>
+                {/* <p className='text-white flex select-none flex-wrap self-center font-spline text-[15px] lg:self-start lg:text-[20px]'>
                   {whyca}
                 </p>
                 <p className='text-white flex select-none flex-wrap self-center font-spline text-[15px] lg:self-start lg:text-[20px]'>
                   CA ID :{CaId}
-                </p>
+                </p> */}
               </div>
             </div>
             <div className='m-6 h-[2px] w-auto bg-red lg:h-[400px] lg:w-[2px] lg:self-center '></div>
