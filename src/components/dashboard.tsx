@@ -63,7 +63,7 @@ const Dashboard = () => {
 
   return (
     <div className=''>
-      <div className='relative mb-[100px] flex flex-col bg-background pl-[0px] pt-[100px] sm:pl-[40px] md:mb-[50px]'>
+      <div className='relative mb-[100px] flex flex-col bg-background pl-[0px] sm:pl-[40px] md:mb-[50px]'>
         <div className='flex flex-col -space-y-[138px] ef:-space-y-[167px] sm:-space-y-[187px] sm:pb-10 lg:-space-y-[234px] xl:-space-y-[392px]'>
           <div className='select-none self-center font-spline text-[50px] font-bold text-[#A81F25] opacity-20 ef:text-[80px] sm:self-start sm:text-[100px] lg:text-[150px] xl:text-[200px]'>
             Dashboard

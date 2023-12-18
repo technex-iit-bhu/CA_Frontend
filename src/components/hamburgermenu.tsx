@@ -50,6 +50,7 @@ const Hamburger = () => {
   const [faqColor, setFaqColor] = useState('white');
   const [leaderboardColor, setLeaderBoardColor] = useState('white');
   const [dashboardPageColor, setDashboardPageColor] = useState('white');
+  const [profileColor, setProfileColor] = useState('white');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -68,6 +69,7 @@ const Hamburger = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/incentivesPage') {
       setAboutColor('white');
       setIncentivesColor('red');
@@ -75,6 +77,7 @@ const Hamburger = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/contactUsPage') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -82,6 +85,7 @@ const Hamburger = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/faqPage') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -89,6 +93,7 @@ const Hamburger = () => {
       setFaqColor('red');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/leaderboard') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -96,6 +101,7 @@ const Hamburger = () => {
       setFaqColor('white');
       setLeaderBoardColor('red');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/dashboardPage') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -103,6 +109,15 @@ const Hamburger = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('red');
+      setProfileColor('white');
+    } else if (window.location.pathname === '/profile') {
+      setAboutColor('white');
+      setIncentivesColor('white');
+      setContactusColor('white');
+      setFaqColor('white');
+      setLeaderBoardColor('white');
+      setDashboardPageColor('white');
+      setProfileColor('red');
     }
   }, []);
 
@@ -118,6 +133,11 @@ const Hamburger = () => {
       color: dashboardPageColor,
       title: 'Dashboard',
       href: '/dashboardPage',
+    });
+    navLinks.push({
+      color: profileColor,
+      title: 'Profile',
+      href: '/profile',
     });
   }
 
