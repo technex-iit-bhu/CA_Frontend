@@ -7,7 +7,7 @@ export default async function handler(
   if (req.method === 'POST') {
     try {
       const response = await fetch(
-        'https://ca-backend-467n.onrender.com/auth/register/',
+        'https://ca-backend-qknd.onrender.com/auth/register/',
         {
           method: 'POST',
           body: JSON.stringify(req.body),
