@@ -55,15 +55,15 @@ const DashboardTab = () => {
     const now = new Date();
     // Render the cards for live tasks
     return tasks.map(
-      ({ id, expiryDate, points, title, description }, index) => (
+      ({ id, deadline, points, title, description }, index) => (
         <Cards
           key={id}
-          date={expiryDate}
+            date={new Date(deadline).toLocaleDateString()}
           points={points}
           title={title}
           description={description}
           taskNumber={`${index + 1}`}
-          month={`${monthNames[now.getMonth() + 1]}`}
+          month={`${monthNames[now.getMonth()]}`}
         />
       )
     );
