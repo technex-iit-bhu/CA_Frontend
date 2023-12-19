@@ -4,48 +4,51 @@ import { useRouter } from 'next/router';
 import Textbox from '../components/textbox';
 import Navbar from './navbar';
 
-const Login = () => {
+const ForgotPassword = () => {
   const [modalContent, setModalContent] = useState('');
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
+    email: '',
+    password1: '',
+    password2: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('api/login', {
+      const response = await fetch('api/resetpassword', {
         method: 'post',
         body: JSON.stringify(formData),
         headers: {
           'Content-Type': 'application/json',
         },
       });
-      if (response.status === 401) {
-        setModalContent('Invalid Credentials');
+
+      console.log(JSON.stringify(formData));
+
+      if (response.status === 404) {
+        setModalContent('Invalid E-mail');
         setShowModal(true);
         return;
       }
-      const Token = await response.json();
-      const accessToken = Token.access;
-      console.log(accessToken);
-      localStorage.setItem('accessToken', accessToken);
-      router.push('/dashboardPage');
+      else if(response.status === 200) {
+        setModalContent('password reset successfully')
+        setShowModal(true);
+      } 
     } catch (error) {
       console.log(error);
     }
-  };
-
-  const handleModalClose = () => {
-    setShowModal(false);
   };
 
   return (
@@ -54,8 +57,8 @@ const Login = () => {
         <Navbar />
       </div>
       <div className='relative bg-background pt-[100px]'>
-        <div className='bottom-[10px] left-5 p-10 text-center text-5xl lg:text-7xl'>
-          <span className='text-white select-none'>Login</span>
+        <div className='bottom-[10px] left-5 p-10 text-center text-3xl lg:text-5xl'>
+          <span className='text-white select-none'>Reset Password</span>
         </div>
       </div>
       <div className='self-center px-[50px] pb-[100px] lg:px-[100px] xl:px-[400px]'>
@@ -66,33 +69,37 @@ const Login = () => {
           >
             <div className='flex flex-col content-center gap-5 self-stretch lg:flex-row'>
               <Textbox
-                label='Username:'
-                placeholder='Enter Your Username'
-                name='username'
+                label='email:'
+                placeholder='Enter Your email id'
+                name='email'
                 type='text'
-                value={formData.username}
+                value={formData.email}
                 onChange={handleChange}
               />
               <Textbox
-                label='Password:'
+                label='Password*'
                 placeholder='Enter Your Password'
-                name='password'
+                name='password1'
                 type='password'
-                value={formData.password}
+                value={formData.password1}
                 onChange={handleChange}
+                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+              />
+              <Textbox
+                label='Confirm Password*'
+                placeholder='Confirm Your Password'
+                name='password2'
+                type='password'
+                value={formData.password2}
+                onChange={handleChange}
+                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
               />
             </div>
-            <Link href={'/register'} className='font-spline'>
-              Haven't Registered Yet? Sign Up
-            </Link>
-            <Link href={'/forgotpassword'} className='font-spline'>
-              Forgot password?
-            </Link>
             <button
               className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px]'
               type='submit'
             >
-              Login
+              Submit
             </button>
           </form>
           {showModal && (
@@ -117,4 +124,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

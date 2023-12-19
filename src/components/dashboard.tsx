@@ -9,6 +9,8 @@ const Dashboard = () => {
   const [tasksDone, setTasksDone] = useState('NaN');
   const [totalTasks, setTotalTasks] = useState('0');
   const [points, setPoints] = useState('NaN');
+  const [totalPayments, setTotalPayments] = useState('NaN');
+  const [totalRegistrations, setTotalRegistrations] = useState('NaN');
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -91,45 +93,67 @@ const Dashboard = () => {
                 <p className='text-white select-none self-center text-[20px]'>
                   Rank:{rank}
                 </p>
-                <p className='text-white select-none self-center text-[20px]'>
-                  CA Id:{caId}
+                <p className='text-white select-none self-center text-[15px]'>
+                  CA Id: {caId}
                 </p>
               </div>
             </div>
 
-            <div className='h-[2px] w-auto bg-red lg:h-[250px] lg:w-[2px]'></div>
-            <div className='lg: flex grow flex-col justify-center self-center px-[10px] py-[30px] sm:flex-row md:pb-[30px] md:pt-[30px] lg:pb-[100px] lg:pt-0'>
-              <div className='mr-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background md:h-[200px] md:w-[200px] md:rounded-[50px]'>
-                <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold md:mt-[30px] md:text-[20px]'>
+            <div className='h-[2px] w-auto bg-red lg:h-[200px] lg:w-[2px] cd:mr-4'></div>
+            <div className='flex grow flex-col justify-center self-center px-[10px] py-[30px] sm:flex-row md:pb-[30px] md:pt-[30px] lg:pb-[100px] lg:pt-0'>
+              <div className='mr-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background lg:h-[150px] lg:w-[140px] lg:rounded-[50px] xl:h-[200px] xl:w-[200px]'>
+                <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold lg:mt-[30px] lg:text-[15px] xl:text-[20px]'>
                   Tasks Done
                 </p>
                 <p
-                  className='text-white select-none self-center text-[40px] font-bold md:text-[80px]'
+                  className='text-white select-none self-center text-[40px] font-bold lg:text-[60px] xl:text-[80px]'
                   style={{ fontFamily: 'Sedgwick Ave' }}
                 >
                   {tasksDone}
                 </p>
               </div>
-              <div className='mr-[10px] mt-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background sm:mt-0 md:h-[200px] md:w-[200px] md:rounded-[50px]'>
-                <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold md:mt-[30px] md:text-[20px]'>
+              <div className='mr-[10px] mt-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background sm:mt-0 lg:h-[150px] lg:w-[140px] lg:rounded-[50px] xl:h-[200px] xl:w-[200px]'>
+                <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold lg:mt-[30px] lg:text-[15px] xl:text-[20px]'>
                   Total Tasks
                 </p>
                 <p
-                  className='text-white select-none self-center text-[40px] font-bold md:text-[80px]'
+                  className='text-white select-none self-center text-[40px] font-bold lg:text-[60px] xl:text-[80px]'
                   style={{ fontFamily: 'Sedgwick Ave' }}
                 >
                   {totalTasks}
                 </p>
               </div>
-              <div className='mr-[10px] mt-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background sm:mt-0 md:h-[200px] md:w-[200px] md:rounded-[50px]'>
-                <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold md:mt-[30px] md:text-[20px]'>
+              <div className='mr-[10px] mt-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background sm:mt-0 lg:h-[150px] lg:w-[140px] lg:rounded-[50px] xl:h-[200px] xl:w-[200px]'>
+                <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold lg:mt-[30px] lg:text-[15px] xl:text-[20px]'>
                   Points
                 </p>
                 <p
-                  className='text-white select-none self-center text-[40px] font-bold md:text-[80px]'
+                  className='text-white select-none self-center text-[40px] font-bold lg:text-[60px] xl:text-[80px]'
                   style={{ fontFamily: 'Sedgwick Ave' }}
                 >
                   {points}
+                </p>
+              </div>
+              <div className='mr-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background lg:h-[150px] lg:w-[140px] lg:rounded-[50px] mt-2 sm:mt-0 xl:h-[200px] xl:w-[200px]'>
+                <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold lg:mt-[30px] lg:text-[15px] xl:text-[20px]'>
+                  Total Payments
+                </p>
+                <p
+                  className='text-white select-none self-center text-[40px] font-bold lg:text-[60px] xl:text-[80px]'
+                  style={{ fontFamily: 'Sedgwick Ave' }}
+                >
+                  NaN
+                </p>
+              </div>
+              <div className='mr-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background lg:h-[150px] lg:w-[140px] lg:rounded-[50px] mt-2 sm:mt-0 xl:h-[200px] xl:w-[200px]'>
+                <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold lg:mt-[30px] lg:text-[15px] xl:text-[20px]'>
+                  Total Registrations
+                </p>
+                <p
+                  className='text-white select-none self-center text-[40px] font-bold lg:text-[60px] xl:text-[80px]'
+                  style={{ fontFamily: 'Sedgwick Ave' }}
+                >
+                  NaN
                 </p>
               </div>
             </div>
