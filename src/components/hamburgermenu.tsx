@@ -168,7 +168,7 @@ const Hamburger = () => {
               >
                 <motion.div variants={mobileLinkVars}>
                   <Link href={'/'} className={`text-4xl text-${aboutColor}`}>
-                    ABOUT
+                    About
                   </Link>
                 </motion.div>
                 {navLinks.map((link, index) => {
