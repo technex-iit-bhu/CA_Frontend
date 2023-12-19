@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/navbar';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Profile() {
 
@@ -10,6 +11,9 @@ export default function Profile() {
   const [Phone, setPhone] = useState('');
   const [College, setCollege] = useState('');
   const [whyca, setWhyca] = useState('');
+  const [modalContent, setModalContent] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -32,7 +36,13 @@ export default function Profile() {
           setAddress(fetchedDetails.userprofile.postal_address);
           setPhone(fetchedDetails.userprofile.phone_no);
           setWhyca(fetchedDetails.userprofile.why_choose);
-        } else {
+        }
+        else  if (response.status === 401) {
+          setModalContent('Login Again');
+          setShowModal(true);
+          return;
+        }
+        else {
           console.error('Failed to fetch profile');
         }
       } catch (error) {
@@ -45,6 +55,12 @@ export default function Profile() {
 
   const handleDashboard = () => {
     window.location.href = '/dashboardPage';
+  };
+  const handleModalClose = () => {
+    setShowModal(false);
+    // window.location.href = '/';
+    localStorage.removeItem('accessToken');
+    router.push('/');
   };
 
   return (
@@ -136,6 +152,22 @@ export default function Profile() {
           Dashboard
         </button>
       </div>
+      {showModal && (
+            <div
+              className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'
+              onClick={() => setShowModal(false)}
+            >
+              <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>
+                <p className='self-center'>{modalContent}</p>
+                <button
+                  onClick={handleModalClose}
+                  className='text-white m-4 self-center rounded-full bg-red px-4 py-2 lg:w-[50%]'
+                >
+                  Okay
+                </button>
+              </div>
+            </div>
+          )}
     </div>
   );
 }
