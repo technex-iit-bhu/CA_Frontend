@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/navbar';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Profile() {
 
@@ -12,6 +13,7 @@ export default function Profile() {
   const [whyca, setWhyca] = useState('');
   const [modalContent, setModalContent] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -56,7 +58,9 @@ export default function Profile() {
   };
   const handleModalClose = () => {
     setShowModal(false);
-    window.location.href = '/';
+    // window.location.href = '/';
+    localStorage.removeItem('accessToken');
+    router.push('/');
   };
 
   return (
