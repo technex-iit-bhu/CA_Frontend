@@ -95,7 +95,7 @@ const ForgotPassword = () => {
       </div>
       <div className='relative bg-background pt-[100px]'>
         <div className='bottom-[10px] left-5 p-10 text-center text-3xl lg:text-5xl'>
-          <span className='text-white select-none'>verify email</span>
+          <span className='text-white select-none'>Verify Email</span>
         </div>
       </div>
       <div className='self-center px-[50px] pb-[100px] lg:px-[100px] xl:px-[400px]'>
@@ -106,7 +106,7 @@ const ForgotPassword = () => {
           >
             <div className='flex flex-col content-center gap-5 self-stretch lg:flex-row'>
               <Textbox
-                label='email:'
+                label='Email:'
                 placeholder='Enter Your email id'
                 name='email'
                 type='text'
