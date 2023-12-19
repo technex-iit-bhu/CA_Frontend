@@ -12,19 +12,16 @@ export default function Profile() {
   const [whyca, setWhyca] = useState('');
 
   useEffect(() => {
-    const fetchDetails = async () => {
+    const fetchProfile = async () => {
       try {
         const accessToken = localStorage.getItem('accessToken');
-        const response = await fetch(
-          'https://ca-backend-qknd.onrender.com/auth/user/profile',
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await fetch('api/getProfile', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         if (response.status === 200) {
           const fetchedDetails = await response.json();
           setName(
@@ -42,7 +39,8 @@ export default function Profile() {
         console.error('Server error', error);
       }
     };
-    fetchDetails();
+
+    fetchProfile();
   }, []);
 
   const handleDashboard = () => {
