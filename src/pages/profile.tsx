@@ -9,7 +9,7 @@ export default function Profile() {
   const [Phone, setPhone] = useState('');
   const [College, setCollege] = useState('');
   const [whyca, setWhyca] = useState('');
-  const [CaId, setCaId] = useState('XXXXXXXXXX')
+  const [RefID, setRefID] = useState('XXXXXXXXXX')
   useEffect(() => {
     const fetchDetails = async () => {
       try {
@@ -34,7 +34,7 @@ export default function Profile() {
           setAddress(fetchedDetails.userprofile.postal_address);
           setPhone(fetchedDetails.userprofile.phone_no);
           setWhyca(fetchedDetails.userprofile.why_choose);
-          setCaId(fetchedDetails.userprofile.id);
+          setRefID(fetchedDetails.referral_code);
         } else {
           console.error('Failed to fetch profile');
         }
@@ -83,10 +83,10 @@ export default function Profile() {
                 </p>
                 {/* <p className='text-white flex select-none flex-wrap self-center font-spline text-[15px] lg:self-start lg:text-[20px]'>
                   {whyca}
-                </p>
-                <p className='text-white flex select-none flex-wrap self-center font-spline text-[15px] lg:self-start lg:text-[20px]'>
-                  CA ID :{CaId}
                 </p> */}
+                <p className='text-white flex select-none flex-wrap self-center font-spline text-[15px] lg:self-start lg:text-[20px]'>
+                  Referral Code : {RefID}
+                </p>
               </div>
             </div>
             <div className='m-6 h-[2px] w-auto bg-red lg:h-[400px] lg:w-[2px] lg:self-center '></div>
