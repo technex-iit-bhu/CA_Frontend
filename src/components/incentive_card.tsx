@@ -20,8 +20,8 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
     <main>
       <div
         style={{
-          // width: 'max(10px, 20vw)',
-          // height: "max(150px, 10vh)",
+          //width: 'max(10px, 20vw)',
+          height: "max(250px, 10vh)",
           display: 'flex',
           border: '3px solid black',
           borderColor: 'black',
@@ -32,7 +32,7 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
           backgroundColor: '#272727',
           margin: '10px',
 
-          // boxShadow: '0px 0px 2px 2px rgba(0, 0, 0, 0.5)',
+          boxShadow: '0px 0px 2px 2px rgba(0, 0, 0, 0.5)',
           overflow: 'hidden',
         }}
       >
