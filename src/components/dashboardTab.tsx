@@ -36,14 +36,7 @@ const DashboardTab = () => {
         });
         if (response.status === 200) {
           const fetchedTasks = await response.json();
-
-          // Map through each task and assign an expiry time.
-          // Backend peeps need to add this to user schema too to remove this hard coding
-          const finalTasks = fetchedTasks.map((task: any) => ({
-            ...task,
-            expiryDate: '06/01/2004',
-          }));
-          setTasks(finalTasks);
+          setTasks(fetchedTasks);
         } else {
           console.error('Failed to fetch tasks');
         }
@@ -61,19 +54,19 @@ const DashboardTab = () => {
   const renderCards = () => {
     const now = new Date();
     // Render the cards for live tasks
-    // return tasks.map(
-    //   ({ id, expiryDate, points, title, description }, index) => (
-    //     <Cards
-    //       key={id}
-    //       date={expiryDate}
-    //       points={points}
-    //       title={title}
-    //       description={description}
-    //       taskNumber={`${index + 1}`}
-    //       month={`${monthNames[now.getMonth() + 1]}`}
-    //     />
-    //   )
-    // );
+    return tasks.map(
+      ({ id, expiryDate, points, title, description }, index) => (
+        <Cards
+          key={id}
+          date={expiryDate}
+          points={points}
+          title={title}
+          description={description}
+          taskNumber={`${index + 1}`}
+          month={`${monthNames[now.getMonth() + 1]}`}
+        />
+      )
+    );
     return (
       <h1 className='cs flex h-[100%] w-[100%] items-center justify-center py-6 text-center text-3xl sm:text-5xl md:text-7xl lg:text-9xl'>
         {' '}
