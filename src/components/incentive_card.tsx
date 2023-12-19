@@ -36,7 +36,7 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
           overflow: 'hidden',
         }}
       >
-        <div style={{ margin: '10px' }} className='space-y-3'>
+        <div style={{ margin: '10px', padding:'20px' }} className='space-y-3 w-full'>
           <div className='flex items-center justify-center p-1'>
             <Image
               alt='companylogo'
@@ -50,8 +50,9 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
             style={{
               // marginLeft: '5px',
               fontSize: '15px',
+              padding: '10px',
               color: 'white',
-              padding: '',
+              
             }}
           >
             {showFullDescription ? `${description}` : `${description}...`}
