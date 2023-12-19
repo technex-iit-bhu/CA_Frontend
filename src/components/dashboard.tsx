@@ -13,19 +13,16 @@ const Dashboard = () => {
   const [totalRegistrations, setTotalRegistrations] = useState('NaN');
 
   useEffect(() => {
-    const fetchDetails = async () => {
+    const fetchProfile = async () => {
       try {
         const accessToken = localStorage.getItem('accessToken');
-        const response = await fetch(
-          'https://ca-backend-qknd.onrender.com/auth/user/profile',
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await fetch('api/getProfile', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         if (response.status === 200) {
           const fetchedDetails = await response.json();
           setName(
@@ -40,25 +37,28 @@ const Dashboard = () => {
         console.error('Server error', error);
       }
     };
-    const getTasks = async () => {
-      const response = await fetch(
-        'https://ca-backend-qknd.onrender.com/tasks/',
-        {
+
+    const fetchTasks = async () => {
+      try {
+        const response = await fetch('api/getTasks', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
+        });
+        if (response.status === 200) {
+          const fetchedTasks = await response.json();
+          setTotalTasks(fetchedTasks.length);
+        } else {
+          console.error('Failed to fetch tasks');
         }
-      );
-      if (response.status === 200) {
-        const fetchedTasks = await response.json();
-        setTotalTasks(fetchedTasks.length);
-      } else {
-        console.error('Failed to fetch tasks');
+      } catch (error) {
+        console.error('Server error', error);
       }
     };
-    fetchDetails();
-    getTasks();
+
+    fetchProfile();
+    fetchTasks();
   }, []);
 
   return (
