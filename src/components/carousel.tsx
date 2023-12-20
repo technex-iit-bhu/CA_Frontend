@@ -23,7 +23,8 @@ const incentiveLogoPaths: [string, string][] = [
   ['/Languify.png', 'Coming soon'],
   [
     'TechnexLogo.svg',
-    `Lead CAs to get a rank based Social Media Marketing Internship Certificate from Technex IIT BHU \n\,
+    `Lead CAs to get a rank based Social Media Marketing Internship Certificate from Technex IIT BHU,
+    
      Exclusively Top Performers will have Letter of Recommendation signed by Chairman, 
      Technex IIT BHU Goodies and Merchandise Discounts on Tickets and 
      Accomodation for Top Performers Linkedin Endorsement Weekly Instagram Shoutout On Technex\'s Social Media Platforms`
