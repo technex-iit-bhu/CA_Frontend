@@ -41,6 +41,7 @@ const ResponsibilityCard_Symbol_Bottom: FC<CardProps> = ({
           borderRadius: '30px',
           borderWidth: '3px',
           backgroundColor: '#272727',
+          marginLeft: '10px',
 
           overflow: 'hidden',
           zIndex: -1,

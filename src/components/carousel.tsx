@@ -16,17 +16,19 @@ const titletext = [
   </span>,
   ' Hoga',
 ];
+const text1="⚪Lead CAs to get a rank based Social Media Marketing Internship Certificate from Technex IIT BHU";
+const text2="⚪Exclusively Top Performers will have Letter of Recommendation signed by Chairman";
+const text3="⚪Technex IIT BHU Goodies and Merchandise Discounts on Tickets and Accomodation for Top Performers";
+const text4="⚪Linkedin Endorsement & Weekly Instagram Shoutout On Technex's Social Media Platforms"
+const textt = text1 + '\n\n' + text2 + '\n\n'+ text3 + '\n\n'+ text4;
+
 
 const incentiveLogoPaths: [string, string][] = [
   ['/SE.svg', 'Coming soon'],
   ['/EaseMyTripLogo.svg', 'Coming soon'],
   ['/Languify.png', 'Coming soon'],
   [
-    'TechnexLogo.svg',
-    `Lead CAs to get a rank based Social Media Marketing Internship Certificate from Technex IIT BHU \n\,
-     Exclusively Top Performers will have Letter of Recommendation signed by Chairman, 
-     Technex IIT BHU Goodies and Merchandise Discounts on Tickets and 
-     Accomodation for Top Performers Linkedin Endorsement Weekly Instagram Shoutout On Technex\'s Social Media Platforms`
+    'TechnexLogo.svg',textt
     
         
       
@@ -304,11 +306,12 @@ const IncentivesCarousel = () => {
           </div>
         </div>
       )}
-      <div className='fixed left-0 top-1/4 z-30 flex items-center justify-center md:left-1/4 lg:left-[28%]'>
+      <p className='fixed left-0 top-1/4 z-30 flex items-center justify-center md:left-1/4 lg:left-[28%]'>
         <CardPopup
           logo={(fullLogoText && fullLogoText[0]) || '/logoipsum-284.svg'}
           text={(fullLogoText && fullLogoText[1]) || 'BUG!!!'}
           trigger={showFull}
+         
         >
           <button
             className='relative px-3 py-1 pb-2 font-semibold text-red'
@@ -317,7 +320,7 @@ const IncentivesCarousel = () => {
             Show {showFull ? 'Less' : 'More'}
           </button>
         </CardPopup>
-      </div>
+      </p>
     </div>
   );
 };
