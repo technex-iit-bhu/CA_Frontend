@@ -61,7 +61,7 @@ const DashboardTab = () => {
       if(filteredTasks.length===0)
       {
         return (
-          <h1 className='cs flex h-[100%] w-[100%] items-center justify-center py-6 text-center text-2xl sm:text-4xl md:text-6xl lg:text-8xl'>
+          <h1 className='cs flex h-[100%] w-[100%] items-center justify-center py-6 text-center text-1xl sm:text-2xl md:text-3xl lg:text-4xl'>
             {' '}
             No expired tasks!
           </h1>
