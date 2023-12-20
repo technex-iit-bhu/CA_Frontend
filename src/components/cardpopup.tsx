@@ -35,7 +35,7 @@ const CardPopup = (props: CardPopupProps) => {
               height={100}
             />
           </CardHeader>
-          <CardBody className='pb-2 text-center text-base' style={{
+          <CardBody className='pb-2 text-base' style={{
             overflowY: 'scroll',
           }}>
             {props.text}

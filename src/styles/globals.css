@@ -55,6 +55,9 @@ body {
   animation: indeterminateAnimation 1s infinite;
   transform-origin: 0% 50%;
 }
+p{
+  white-space: pre-wrap;
+}
 
 @keyframes indeterminateAnimation {
   0% {
