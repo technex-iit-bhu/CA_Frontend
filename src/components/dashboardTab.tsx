@@ -58,6 +58,16 @@ const DashboardTab = () => {
       filteredTasks = tasks.filter(({ deadline }) => new Date(deadline) > now);
     } else if (activeTab === 'expired') {
       filteredTasks = tasks.filter(({ deadline }) => new Date(deadline) <= now);
+      if(filteredTasks.length===0)
+      {
+        return (
+          <h1 className='cs flex h-[100%] w-[100%] items-center justify-center py-6 text-center text-2xl sm:text-4xl md:text-6xl lg:text-8xl'>
+            {' '}
+            No expired tasks!
+          </h1>
+        );
+      }
+      
     } else if (activeTab === 'completed') {
       return (
         //completed functionality yet to be implemented in the backend ig
