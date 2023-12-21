@@ -38,7 +38,9 @@ const CardPopup = (props: CardPopupProps) => {
           <CardBody className='pb-2 text-center text-base' style={{
             overflowY: 'scroll',
           }}>
-            {props.text}
+            {props.text.split("\n").map((line,index)=>{
+              return <p key={index}>{line}</p>
+            })}
           </CardBody>
         </Card>
         {props.children}
