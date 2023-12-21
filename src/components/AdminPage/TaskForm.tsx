@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../../styles/adminPage.module.css';
 
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8000/';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000/';
 function TaskForm({ token }: { token: string | null }) {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');

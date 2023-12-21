@@ -18,7 +18,7 @@ type User = {
   user: string;
   email_token: string;
 };
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8000/';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000/';
 
 const UserTable = ({ token }: { token: string | null }) => {
   const [users, setUsers] = useState<User[]>([]);
