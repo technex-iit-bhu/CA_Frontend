@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../../styles/adminPage.module.css';
 
-const BACKEND_URL = 'https://ca-backend-467n.onrender.com/'; //TODO: move to .env
+const BACKEND_URL = 'https://ca-backend-qknd.onrender.com/'; //TODO: move to .env
 function TaskForm({ token }: { token: string | null }) {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
@@ -24,8 +24,7 @@ function TaskForm({ token }: { token: string | null }) {
     })
       .then((res) => res.json())
       .then((data) => {
-
-        if(data.id === undefined) throw new Error(JSON.stringify(data));
+        if (data.id === undefined) throw new Error(JSON.stringify(data));
 
         setTitle('');
         setDescription('');

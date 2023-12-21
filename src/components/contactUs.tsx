@@ -17,9 +17,9 @@ const ContactUs = () => {
       <br></br>
       <br />
       <br />
-      <div className='flex flex-col items-center gap-5 md:flex-row md:justify-evenly lg:flex-row lg:justify-evenly lg:gap-0'>
-        <div className='flex items-center'>
-          <div className='flex items-center justify-center gap-1 lg:gap-6'>
+      <div className='flex flex-wrap items-center justify-center gap-12'>
+        <div className='flex  pb-5 '>
+          <div className='flex items-center justify-center gap-1 lg:gap-2'>
             <div className=''>
               <Image
                 src={'/phone-call.webp'}
@@ -30,12 +30,102 @@ const ContactUs = () => {
               />
             </div>
             <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
-              <h2 className='font-bold text-red'>Rhythm</h2>
-              <div className=''>+91 0000000000</div>
+              <h2 className='font-bold text-red'>Rhythm S. Rajpurohit</h2>
+              <div>+918955879550</div>
+            </div>
+          </div>
+          <div className=''>
+            <div className='flex items-center justify-center gap-1 lg:gap-6'>
+              <div>
+                <Image
+                  src={'/phone-call.webp'}
+                  alt='phone logo'
+                  width={30}
+                  height={30}
+                  className=''
+                />
+              </div>
+              <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
+                <h2 className='font-bold text-red'>Vinamrah Nemani</h2>
+                <div>+917870355406</div>
+              </div>
             </div>
           </div>
         </div>
-        <div>
+        <div className='flex gap-20 pb-5'>
+          <div className='flex items-center'>
+            <div className='flex items-center justify-center gap-1 lg:gap-6'>
+              <div className=''>
+                <Image
+                  src={'/phone-call.webp'}
+                  alt='phone logo'
+                  width={30}
+                  height={30}
+                  className=''
+                />
+              </div>
+              <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
+                <h2 className='font-bold text-red'>Ridhima Singh</h2>
+                <div>+919473288435</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='flex items-center justify-center gap-1 lg:gap-6'>
+              <div>
+                <Image
+                  src={'/phone-call.webp'}
+                  alt='phone logo'
+                  width={30}
+                  height={30}
+                  className=''
+                />
+              </div>
+              <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
+                <h2 className='font-bold text-red'>Niladri Mondal</h2>
+                <div>+917602440074</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='flex gap-20 pb-5'>
+          <div className='flex items-center'>
+            <div className='flex items-center justify-center gap-1 lg:gap-6'>
+              <div className=''>
+                <Image
+                  src={'/phone-call.webp'}
+                  alt='phone logo'
+                  width={30}
+                  height={30}
+                  className=''
+                />
+              </div>
+              <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
+                <h2 className='font-bold text-red'>Khushi Jain</h2>
+                <div>+917415153669</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='flex items-center justify-center gap-1 lg:gap-6'>
+              <div>
+                <Image
+                  src={'/phone-call.webp'}
+                  alt='phone logo'
+                  width={30}
+                  height={30}
+                  className=''
+                />
+              </div>
+              <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
+                <h2 className='font-bold text-red'>Saransh Mishra</h2>
+                <div>+919039913393</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className='flex pb-5'>
           <div className='flex items-center justify-center gap-1 lg:gap-6'>
             <div>
               <Image
@@ -47,8 +137,8 @@ const ContactUs = () => {
               />
             </div>
             <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
-              <h2 className='font-bold text-red'>Rhythm</h2>
-              <div>+91 0000000000</div>
+              <h2 className='font-bold text-red'>Yashvardhan S. Chauhan</h2>
+              <div>+917692980743</div>
             </div>
           </div>
         </div>

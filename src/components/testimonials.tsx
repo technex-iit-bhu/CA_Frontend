@@ -10,43 +10,40 @@ interface CarouselData {
 
 const carouselData: CarouselData[] = [
   {
-    title: 'Ellen Verma',
+    title: 'Eleen Verma',
     description:
-      "My journey as a Campus Ambassador for TECHNEX'23 at IIT BHU was an incredible experience that allowed me to grow both personally and professionally. This experience will always hold a special place in my heart, and I am grateful for this.",
-    imageSrc:
-      'cutie_t1.webp', // URL for the image
+      "My journey as a Campus Ambassador for TECHNEX'23 at IIT BHU was not only incredible but also instrumental in my personal and professional growth. This experience holds a special place in my heart, and I am grateful for the opportunity.  Stay TECHNEXED!",
+    imageSrc: 'cutie_t1.webp', // URL for the image
   },
   {
     title: 'Neha Upadhyay',
     description:
-      "This year I got an opportunity to became CA of Technex'23. My convincing skill changed after becoming CA and the way Technex team help me is really appreciable. At last I will finish this with one word Technex  is enjoyable nd knowledgeable.",
-    imageSrc:
-      'notcutie_t2.webp', // URL for the image
+      "As the CA for TECHNEX'23, I honed my persuasive skills, and the remarkable support from the Technex team was truly commendable. In essence, Technex is both enjoyable and enlightening.  Stay TECHNEXED!",
+    imageSrc: 'notcutie_t2.webp', // URL for the image
   },
   {
     title: 'Shakti Nandan',
     description:
-      "Hi, I am Shakti Nandan, very happy and proud to be a part of TECHNEX'23 as CAMPUS AMBASSADOR in such a Greenish and Vedic culture campus. I got very valuable experience and  I heartly thankful to TECHNEX team to provide me that opportunity.",
-    imageSrc:
-      't3.webp', // URL for the image
+      "Proudly serving as a Campus Ambassador for TECHNEX'23 in the vibrant and culturally rich campus of IIT BHU has been a highly enriching experience. Grateful to the TECHNEX team for providing such a valuable opportunity. Stay TECHNEXED!",
+    imageSrc: 't3.webp', // URL for the image
   },
   {
     title: 'Manish Gupta',
-    description: 
-    "I had the opportunity to represent my college as a campus ambassador for Technex, IIT BHU and I would like to say that it has been a wonderful experience for me being a campus ambassador of this prestigious technical fest. STAY TECHNEXED!",
-    imageSrc: "t4.webp",
+    description:
+      'As a Campus Ambassador for TECHNEX, IIT BHU, the experience has been nothing short of wonderful. Representing my college at this prestigious technical fest has been a privilege. Stay TECHNEXED!',
+    imageSrc: 't4.webp',
   },
   {
-    title: "Krishna Raj",
+    title: 'Krishna Raj',
     description:
-    "An absolute fantastic experience, from the food to the security arrangements. The variety & quality of cuisines  left us spoilt for choice It was evident that the organizers went above and beyond to create a memorable experience for all.",
-    imageSrc: "t5 (2).png",
+      'An exceptionally delightful experience, spanning from the culinary diversity to meticulous security arrangements. The organisers demonstrated an unwavering commitment, surpassing expectations to craft a truly memorable event for all attendees.  Stay TECHNEXED!',
+    imageSrc: 't5 (2).png',
   },
   {
-    title: "Umesh Verma",
+    title: 'Umesh Verma',
     description:
-    "Being a campus ambassador of technex iit 2k23 was an enriching experience where I represented my university at events, workshops, orientations. I had the chance to interact with prospective students & share my insights about campus life.",
-    imageSrc: "t6.webp",
+      'Serving as a Campus Ambassador for TECHNEX\'23 was a transformative experience, offering opportunities to engage with prospective students, represent my university, and share valuable insights about campus life.  Stay TECHNEXED!',
+    imageSrc: 't6.webp',
   },
 ];
 
@@ -67,7 +64,6 @@ const Testimonials: React.FC = () => {
   }, [currentIndex]);
 
   return (
-    <>
     <div>
       <Center h={height3} className='mb-5'>
         {/* Center the content vertically */}
@@ -130,8 +126,6 @@ const Testimonials: React.FC = () => {
         </div>
       </Center>
     </div>
-    
-    </>
   );
 };
 

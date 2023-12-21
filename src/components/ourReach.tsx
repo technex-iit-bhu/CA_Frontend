@@ -166,11 +166,7 @@ const EllipseSection = () => (
       />
     </div>
     <div>
-      <CircularProgressWithText
-        percent={52}
-        value={'750+'}
-        text='Colleges'
-      />
+      <CircularProgressWithText percent={52} value={'750+'} text='Colleges' />
     </div>
     <div>
       <CircularProgressWithText percent={77} value={'50k+'} text='Foot fall' />
@@ -258,34 +254,28 @@ const LowerSection = () => (
       fontSize={pxToRem(15)}
       className='font-spline'
     >
-      The Campus Ambassador Program for Technex'23 offers an exciting chance to
-      become an essential part of the organizing team behind India's premier
-      technical and innovation fest. As a Campus Ambassador,{' '}
+      Embark on an exhilarating journey with the Campus Ambassador Program for
+      Technex, where you'll be an integral part of shaping India's foremost
+      technical and innovation festival. As a Campus Ambassador,
       <span className='text-red'>
-        you'll lead your college's contingent at Technex
-      </span>
-      ,&nbsp; promoting the event within your institution. This role allows you
-      to{' '}
+        you take the reins to lead your college's charge at Technex,
+        spearheading the promotion of this grand event within your institution.
+      </span>{' '}
+      This dynamic role is your ticket to honing communication and managerial
+      skills, engaging with a diverse student body.{' '}
       <span className='text-red'>
-        develop communication and managerial skills by interacting with students
-        from diverse backgrounds
-      </span>
-      .&nbsp; You'll also showcase your{' '}
+        Showcase your leadership prowess by inspiring and motivating your peers
+        to actively participate, all while gaining hands-on experience in event
+        planning through workshops and events.
+      </span>{' '}
+      As the face of Technex in your college, you'll be a source of information,
+      motivation, and a vital connector. Seize this incredible opportunity to
+      grow both personally and professionally, playing a pivotal role in
+      fostering technology and innovation at your college, and{' '}
       <span className='text-red'>
-        leadership abilities, inspiring and motivating your peers
+        emerge as a leader and influencer in your college's journey
+        towards Technex.
       </span>
-      &nbsp; to participate. As a Campus Ambassador, you can{' '}
-      <span className='text-red'>
-        organize workshops and events, gaining hands-on experience in event
-        planning
-      </span>
-      .&nbsp; You'll be the face of Technex'23 in your college, serving as a
-      source of information, motivation, and a connector. This program is an
-      incredible opportunity to
-      <span className='text-red'>grow both personally and professionally</span>
-      &nbsp; while playing a pivotal role in promoting technology and innovation
-      at your college. Seize this chance to be a leader and influencer in your
-      college's journey towards Technex'23.
     </Text>
   </Box>
 );

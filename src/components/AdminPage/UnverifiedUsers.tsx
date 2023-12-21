@@ -18,7 +18,7 @@ type User = {
   user: string;
   email_token: string;
 };
-const BACKEND_URL = 'https://ca-backend-467n.onrender.com/'; //TODO: move to .env
+const BACKEND_URL = 'https://ca-backend-qknd.onrender.com/'; //TODO: move to .env
 
 const UserTable = ({ token }: { token: string | null }) => {
   const [users, setUsers] = useState<User[]>([]);
@@ -45,7 +45,7 @@ const UserTable = ({ token }: { token: string | null }) => {
   }, []);
 
   function handleVerify(email_token: string) {
-    setErrorMessage("loading...")
+    setErrorMessage('loading...');
     fetch(BACKEND_URL + 'auth/verifyaccount/', {
       method: 'POST',
       headers: {
