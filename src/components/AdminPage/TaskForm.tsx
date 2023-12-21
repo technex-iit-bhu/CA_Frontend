@@ -75,7 +75,7 @@ function TaskForm({ token }: { token: string | null }) {
         <label>
           Deadline:
           <input
-            type='date'
+            type='datetime-local'
             className={styles.input}
             value={deadline}
             onChange={(e) => setDeadline(e.target.value)}
