@@ -117,7 +117,7 @@ function TaskItem({
   let edited =
     title !== task.title ||
     description !== task.description ||
-    points !== task.points;
+    points !== task.points ||
     deadline.getTime() !== task.deadline.getTime();
 
   async function handleDeleteTask() {
@@ -150,6 +150,7 @@ function TaskItem({
           title,
           description,
           points,
+          deadline,
         }),
       });
 
