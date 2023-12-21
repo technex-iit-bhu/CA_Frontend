@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useRef } from 'react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
+import { Menu, MenuButton, MenuList, MenuItem, Button, Input } from '@chakra-ui/react';
 
 interface Props {
   date: string;
@@ -9,6 +9,7 @@ interface Props {
   description: string;
   title: string;
   taskNumber: string;
+  taskID: string;
   month: string;
 }
 
@@ -18,26 +19,57 @@ const Cards: React.FC<Props> = ({
   description,
   title,
   taskNumber,
+  taskID,
   month,
 }) => {
   const [isUploaded, setIsUploaded] = useState(false);
   const [buttonText, setButtonText] = useState('Upload');
   const fileInputRef = useRef<HTMLInputElement>(null!);
+  const [dropdown, setDropdown] = useState(false);
+  const [gdriveLink, setGdriveLink] = useState('');
 
-  const onFileSelect = (file: File) => {
-    console.log('Selected File:', file);
-    console.log('Selected File Name:', file.name);
-    setTimeout(() => {
-      setIsUploaded(true);
-      setButtonText('Uploaded');
-    }, 2000);
+  const handleSubmit = async () => {
+    // console.log('Selected File:', file);
+    // console.log('Selected File Name:', file.name);
+    // setTimeout(() => {
+    //   setIsUploaded(true);
+    //   setButtonText('Uploaded');
+    // }, 2000);
+
+    try {
+      const response = await fetch(`https://ca-backend-qknd.onrender.com/tasks/submit/${taskID}/`, {
+        method: 'post',
+        body: JSON.stringify({ link: gdriveLink }),
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      });
+      if (response.status === 201) {
+        console.log('Uploaded');
+        setIsUploaded(true);
+        setButtonText('Uploaded');
+        setDropdown(false);
+      }
+      else if (response.status === 400) {
+        console.log('Task already submitted');
+        setDropdown(false);
+      }
+      else if (response.status === 401) {
+        console.log('Unauthorized');
+        setDropdown(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files && event.target.files[0];
-    if (file) {
-      onFileSelect(file);
-    }
+  const handleUpload = () => {
+    setDropdown(true);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setGdriveLink(e.target.value);
   };
 
   return (
@@ -95,14 +127,8 @@ const Cards: React.FC<Props> = ({
                 </a>
               </div>
               <div>
-                <input
-                  type='file'
-                  ref={fileInputRef}
-                  className='hidden'
-                  onChange={handleFileSelect}
-                />
                 <button
-                  onClick={() => fileInputRef.current?.click()}
+                  onClick={handleUpload}
                   className={`text-white h-6 w-20 rounded-full bg-red ${
                     isUploaded ? 'bg-green-500' : 'bg-red-500'
                   }`}
@@ -113,6 +139,10 @@ const Cards: React.FC<Props> = ({
             </div>
           </div>
         </div>
+        {dropdown && <form className='py-5 flex flex-col items-center'>
+          <Input placeholder='Your Google Drive Link Here' className='w-full bg-[#191919] h-10 px-5 rounded-[50px]' value={gdriveLink} onChange={handleChange}/>
+          <Button className='w-[30%] bg-[#A81F25] h-10 rounded-[50px] mt-2' onClick={handleSubmit}>Submit</Button>
+        </form>}
         <Menu>
           <MenuButton
             as={Button}
