@@ -45,11 +45,13 @@ const Cards: React.FC<Props> = ({
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
       });
+      if (response.status === 201) {
         console.log('Uploaded');
         setIsUploaded(true);
         setButtonText('Uploaded');
         setDropdown(false);
-      if (response.status === 400) {
+      }
+      else if (response.status === 400) {
         console.log('Task already submitted');
         setDropdown(false);
       }
