@@ -9,6 +9,7 @@ interface Props {
   description: string;
   title: string;
   taskNumber: string;
+  taskID: string;
   month: string;
 }
 
@@ -18,6 +19,7 @@ const Cards: React.FC<Props> = ({
   description,
   title,
   taskNumber,
+  taskID,
   month,
 }) => {
   const [isUploaded, setIsUploaded] = useState(false);
@@ -35,7 +37,7 @@ const Cards: React.FC<Props> = ({
     // }, 2000);
 
     try {
-      const response = await fetch(`https://ca-backend-qknd.onrender.com/tasks/submit/${taskNumber}/`, {
+      const response = await fetch(`https://ca-backend-qknd.onrender.com/tasks/submit/${taskID}/`, {
         method: 'post',
         body: JSON.stringify({ link: gdriveLink }),
         headers: {
@@ -43,10 +45,16 @@ const Cards: React.FC<Props> = ({
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
       });
-      if (response.status === 201) {
         console.log('Uploaded');
         setIsUploaded(true);
         setButtonText('Uploaded');
+        setDropdown(false);
+      if (response.status === 400) {
+        console.log('Task already submitted');
+        setDropdown(false);
+      }
+      else if (response.status === 401) {
+        console.log('Unauthorized');
         setDropdown(false);
       }
     } catch (error) {
