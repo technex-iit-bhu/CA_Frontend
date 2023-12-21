@@ -20,6 +20,7 @@ const monthNames = [
 const DashboardTab = () => {
   // State to hold the tasks
   const [tasks, setTasks] = useState([]);
+  const [submittedTasks, setSubmittedTasks] = useState([]);
   const [activeTab, setActiveTab] = useState('live'); // This has be simplified since there's only one type of task now.
   // We need to replace this with actual live, expired and completed tasks
   const [isLargerThan700] = useMediaQuery('(min-width: 700px)');
@@ -28,10 +29,12 @@ const DashboardTab = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
+        
         const response = await fetch('api/getTasks', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
+            
           },
         });
         if (response.status === 200) {
@@ -44,16 +47,36 @@ const DashboardTab = () => {
         console.error('Server error', error);
       }
     };
-
+    const fetchSubmittedTasks = async () => {
+      try {
+        const accessToken = localStorage.getItem('accessToken');
+        const response = await fetch('api/getSubmittedTasks', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        if (response.status === 200) {
+          const fetchedTasks = await response.json();
+          setSubmittedTasks(fetchedTasks);
+        } else {
+          console.error('Failed to fetch submitted tasks');
+        }
+      } catch (error) {
+        console.error('Server error', error);
+      }
+    };
     fetchTasks();
+    fetchSubmittedTasks();
   }, []);
-
   const fontSize = isLargerThan700 ? '20px' : '3.57vw';
   const width = isLargerThan700 ? '200px' : '28.5vw';
 
   const renderCards = (activeTab: string) => {
     const now = new Date();
     let filteredTasks = tasks;
+    let verifiedTasks = submittedTasks.filter(({ verified }) => verified === true).map(({ task }) => task);
     if (activeTab === 'live') {
       filteredTasks = tasks.filter(({ deadline }) => new Date(deadline) > now);
     } else if (activeTab === 'expired') {
@@ -69,13 +92,7 @@ const DashboardTab = () => {
       }
       
     } else if (activeTab === 'completed') {
-      return (
-        //completed functionality yet to be implemented in the backend ig
-        <h1 className='cs flex h-[100%] w-[100%] items-center justify-center py-6 text-center text-3xl sm:text-5xl md:text-7xl lg:text-9xl'>
-          {' '}
-          Coming soon
-        </h1>
-      );
+      filteredTasks=verifiedTasks;
     }
 
     return filteredTasks.map(
