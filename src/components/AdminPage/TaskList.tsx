@@ -6,7 +6,7 @@ type Task = {
   description: string;
   points: number;
 };
-const BACKEND_URL = process.env.BACKEND_URL; // http://localhost:8000/
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL|| "http://localhost:8000/"
 function TaskList({ token }: { token: string | null }) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
