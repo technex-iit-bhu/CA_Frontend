@@ -42,8 +42,8 @@ const Footer: FC = () => {
             <Link href={'https://x.com/technexiitbhu?s=20'}>
               <Image src={'/X.webp'} alt='X' width={35} height={35} />
             </Link>
-            <Link href={'https://www.youtube.com/@TechnexIITBHU'}>
-              <Image src={'/youtube.webp'} alt='YT' width={45} height={40} />
+            <Link href=' '>
+              
             </Link>
           </div>
           <div className='flex pl-2 pt-4 font-spline text-sm'>
@@ -91,7 +91,7 @@ const Footer: FC = () => {
                 <Image src={'/X.webp'} alt='X' width={35} height={35} />
               </Link>
               <Link href={''}>
-                <Image src={'/youtube.webp'} alt='YT' width={45} height={40} />
+                
               </Link>
             </div>
             <div className='flex items-center justify-center pl-1 pt-4 text-center font-spline text-sm'>

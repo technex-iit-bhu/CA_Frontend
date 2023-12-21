@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styles from '../../styles/adminPage.module.css';
 
-const BACKEND_URL = 'https://ca-backend-qknd.onrender.com/'; //TODO: move to .env
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+console.log(BACKEND_URL);
 function TaskForm({ token }: { token: string | null }) {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [points, setPoints] = useState<number>(0);
+  const [deadline, setDeadline] = useState<string>('');
   const [message, setMessage] = useState<string>('');
 
   function handleSubmit() {
@@ -20,6 +22,7 @@ function TaskForm({ token }: { token: string | null }) {
         title,
         description,
         points,
+        deadline,
       }),
     })
       .then((res) => res.json())
@@ -29,6 +32,7 @@ function TaskForm({ token }: { token: string | null }) {
         setTitle('');
         setDescription('');
         setPoints(0);
+        setDeadline('');
       })
       .catch((err) => {
         console.log(err);
@@ -68,6 +72,15 @@ function TaskForm({ token }: { token: string | null }) {
           />
         </label>
         <br />
+        <label>
+          Deadline:
+          <input
+            type='datetime-local'
+            className={styles.input}
+            value={deadline}
+            onChange={(e) => setDeadline(e.target.value)}
+          />
+        </label>
         <p
           style={{
             color: 'red',

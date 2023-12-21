@@ -24,7 +24,8 @@ function AdminPage() {
     </div>
   );
 }
-const BACKEND_URL = 'https://ca-backend-qknd.onrender.com/'; //TODO: move to .env :(
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+console.log(BACKEND_URL+"admin")
 function Login({
   token,
   setToken,

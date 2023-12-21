@@ -20,8 +20,8 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
     <main>
       <div
         style={{
-          // width: 'max(10px, 20vw)',
-          // height: "max(150px, 10vh)",
+          //width: 'max(10px, 20vw)',
+          height: "max(250px, 10vh)",
           display: 'flex',
           border: '3px solid black',
           borderColor: 'black',
@@ -32,11 +32,11 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
           backgroundColor: '#272727',
           margin: '10px',
 
-          // boxShadow: '0px 0px 2px 2px rgba(0, 0, 0, 0.5)',
+          boxShadow: '0px 0px 2px 2px rgba(0, 0, 0, 0.5)',
           overflow: 'hidden',
         }}
       >
-        <div style={{ margin: '10px' }} className='space-y-3'>
+        <div style={{ margin: '10px', padding:'20px' }} className='space-y-3 w-full'>
           <div className='flex items-center justify-center p-1'>
             <Image
               alt='companylogo'
@@ -50,8 +50,9 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
             style={{
               // marginLeft: '5px',
               fontSize: '15px',
+              padding: '10px',
               color: 'white',
-              padding: '',
+              
             }}
           >
             {showFullDescription ? `${description}` : `${description}...`}

@@ -7,6 +7,10 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 
 import ResponsibilityCard_Symbol from './responsibility_card_symbol';
 import ResponsibilityCard_Symbol_Bottom from './responsibility_card_Symbol_Bottom';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+
 
 // const titletext = ["Paisa Hi ",  <span key={uuidv4()} style={{color: "#C70039"}}>Paisa</span>, " Hoga"];
 // const lor = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque animi nihil deleniti modi hic voluptatibus dolorem. Ea eaque repellendus odio rem illo perferendis eveniet? Molestias doloremque id pariatur reiciendis iste!`
@@ -44,8 +48,10 @@ const ResponsibilityCarousel = () => {
     autoplaySpeed: 5000,
     float: 'left',
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: 5.5,
     slidesToScroll: 1,
+    centerMode: true, 
+    centerPadding: '20px', 
     prevArrow: <ArrowLeft />,
     nextArrow: <ArrowRight />,
 
@@ -60,7 +66,16 @@ const ResponsibilityCarousel = () => {
         },
       },
       {
-        breakpoint: 1098,
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4.5,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 5000,
+        },
+      },
+      {
+        breakpoint: 1080,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
@@ -69,7 +84,7 @@ const ResponsibilityCarousel = () => {
         },
       },
       {
-        breakpoint: 884,
+        breakpoint: 970,
         settings: {
           infinite: true,
           slidesToShow: 3,
@@ -82,7 +97,20 @@ const ResponsibilityCarousel = () => {
         },
       },
       {
-        breakpoint: 670,
+        breakpoint: 760,
+        settings: {
+          infinite: true,
+          slidesToShow: 2.5,
+          slidesToScroll: 1,
+          autoplay: true,
+          //   mobileFirst: true,
+          //   adaptiveHeight: true,
+
+          autoplaySpeed: 5000,
+        },
+      },
+      {
+        breakpoint: 640,
         settings: {
           infinite: true,
           slidesToShow: 2,
@@ -95,7 +123,7 @@ const ResponsibilityCarousel = () => {
         },
       },
       {
-        breakpoint: 520,
+        breakpoint: 540,
         settings: {
           infinite: true,
           slidesToShow: 1,
@@ -109,6 +137,8 @@ const ResponsibilityCarousel = () => {
       },
     ],
   };
+ 
+
 
   return (
     <div style={{ justifyContent: 'center', margin: '30px' }}>
@@ -125,12 +155,15 @@ const ResponsibilityCarousel = () => {
           href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
         />
       </Head>
-
+      
       <Slider {...settings} ref={sliderRef}>
+       
+       
         <ResponsibilityCard_Symbol
           logo='/publicise.png'
           text='Promoting various events and activites around the campus'
           heading='PUBLICISE'
+          
         />
         {/* <ResponsibilityCard></ResponsibilityCard> */}
         <ResponsibilityCard_Symbol_Bottom
@@ -176,6 +209,7 @@ const ResponsibilityCarousel = () => {
           heading='TASKS'
         />
       </Slider>
+  
     </div>
   );
 };
