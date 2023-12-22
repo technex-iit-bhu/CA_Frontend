@@ -16,17 +16,36 @@ const titletext = [
   </span>,
   ' Hoga',
 ];
+
 const text1="⚪Lead CAs to get a rank based Social Media Marketing Internship Certificate from Technex IIT BHU";
 const text2="⚪Exclusively Top Performers will have Letter of Recommendation signed by Chairman";
 const text3="⚪Technex IIT BHU Goodies and Merchandise Discounts on Tickets and Accomodation for Top Performers";
 const text4="⚪Linkedin Endorsement & Weekly Instagram Shoutout On Technex's Social Media Platforms"
 const textt = text1 + '\n\n' + text2 + '\n\n'+ text3 + '\n\n'+ text4;
 
+const text5="⚪Exclusive internship opportunities for top performing Campus Ambassadors.";
+const text6="⚪Amazing opportunities to access exclusive career resources, product suite and exciting freebies.";
+const txtl=text5+ '\n\n' + text6;
+
+const text7="⚪Free courses to top performing Campus Ambassadors.";
+const text8="⚪Course discounts hinge on the exemplary achievements of our Campus Ambassadors.";
+const txtw=text7+ '\n\n' + text8;
+
+const text9="⚪Exceptional campus ambassadors receive enticing travel vouchers valued at around Rs. 3,000 for flights, buses, and hotels !";
+const txtease=text9;
+
+const text10="⚪Free course of ‘Stock Market Made Easy’ for all registering Campus Ambassadors";
+const text11="⚪All registering Campus Ambassadors will receive a complimentary one-month subscription to 'StockEdge Premium’.";
+const text12="⚪Top-performing Campus Ambassadors receive an exclusive 'Stock Market All-in-One Course Combo.";
+const txtse=text10+ '\n\n' + text11 + '\n\n' + text12;
+
+
 
 const incentiveLogoPaths: [string, string][] = [
-  ['/SE.svg', 'Coming soon'],
-  ['/EaseMyTripLogo.svg', 'Coming soon'],
-  ['/Languify.png', 'Coming soon'],
+  ['/SE.svg', txtse],
+  ['/EaseMyTripLogo.svg', txtease],
+  ['/Languify.png', txtl],
+  ['/wayspire.png',txtw],
   [
     'TechnexLogo.svg',textt
     
