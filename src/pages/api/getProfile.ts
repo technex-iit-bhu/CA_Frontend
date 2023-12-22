@@ -5,17 +5,19 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
-    try { 
-    const response = await fetch(
+    try {
+      const response = await fetch(
         'https://ca-backend-qknd.onrender.com/auth/user/profile/',
         {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: req.headers.authorization?req.headers.authorization:'',
-            },
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: req.headers.authorization
+              ? req.headers.authorization
+              : '',
+          },
         }
-    );
+      );
 
       if (response.ok) {
         const profile = await response.json();
@@ -24,7 +26,9 @@ export default async function handler(
         res.status(200).json(profile); // Forward the response from the API
       } else {
         console.log('Failed to fetch');
-        res.status(response.status).json({ message: 'Failed to fetch Profile' });
+        res
+          .status(response.status)
+          .json({ message: 'Failed to fetch Profile' });
       }
     } catch (error) {
       console.error(error);

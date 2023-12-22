@@ -55,7 +55,7 @@ body {
   animation: indeterminateAnimation 1s infinite;
   transform-origin: 0% 50%;
 }
-p{
+p {
   white-space: pre-wrap;
 }
 

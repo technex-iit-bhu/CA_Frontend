@@ -8,7 +8,6 @@ type Task = {
   deadline: Date;
 };
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-console.log(BACKEND_URL+"task")
 function TaskList({ token }: { token: string | null }) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -34,7 +33,9 @@ function TaskList({ token }: { token: string | null }) {
           deadline: new Date(task.deadline),
         }));
 
-        dataWithDeadline.sort((a: Task, b: Task) => (a.id > b.id ? 1 : b.id > a.id ? -1 : 0));
+        dataWithDeadline.sort((a: Task, b: Task) =>
+          a.id > b.id ? 1 : b.id > a.id ? -1 : 0
+        );
         setTasks([...dataWithDeadline]); //handles the case when data is null
         setMessage(data.length + ' tasks found.');
       }
@@ -130,8 +131,10 @@ function TaskItem({
           Authorization: `Bearer ${token}`,
         },
       });
-      if (response.ok) {handleRefresh()
-      console.log(response)};
+      if (response.ok) {
+        handleRefresh();
+        console.log(response);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -183,10 +186,10 @@ function TaskItem({
         value={points}
         onChange={(e) => setPoints(Number(e.target.value))}
       ></input>
-       <td className={styles.td}>
+      <td className={styles.td}>
         <input
-          type="date"
-          value={deadline.toISOString().split('T')[0]} // Format the date for input type date
+          type='date'
+          value={deadline.toISOString().split('T')[0]}
           onChange={(e) => setDeadline(new Date(e.target.value))}
         ></input>
       </td>

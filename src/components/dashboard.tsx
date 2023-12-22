@@ -33,13 +33,11 @@ const Dashboard = () => {
           );
           setPoints(fetchedDetails.userprofile.points);
           setCaId(fetchedDetails.userprofile.unique_id.slice(-8));
-        }
-        else  if (response.status === 401) {
+        } else if (response.status === 401) {
           setModalContent('Login Again');
           setShowModal(true);
           return;
-        }
-        else {
+        } else {
           console.error('Failed to fetch profile');
         }
       } catch (error) {
@@ -150,7 +148,7 @@ const Dashboard = () => {
                   {points}
                 </p>
               </div>
-              <div className='mr-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background lg:h-[150px] lg:w-[140px] lg:rounded-[50px] mt-2 sm:mt-0 xl:h-[200px] xl:w-[200px]'>
+              <div className='mr-[10px] mt-2 flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background sm:mt-0 lg:h-[150px] lg:w-[140px] lg:rounded-[50px] xl:h-[200px] xl:w-[200px]'>
                 <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold lg:mt-[30px] lg:text-[15px] xl:text-[20px]'>
                   Total Payments
                 </p>
@@ -161,7 +159,7 @@ const Dashboard = () => {
                   NaN
                 </p>
               </div>
-              <div className='mr-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background lg:h-[150px] lg:w-[140px] lg:rounded-[50px] mt-2 sm:mt-0 xl:h-[200px] xl:w-[200px]'>
+              <div className='mr-[10px] mt-2 flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background sm:mt-0 lg:h-[150px] lg:w-[140px] lg:rounded-[50px] xl:h-[200px] xl:w-[200px]'>
                 <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold lg:mt-[30px] lg:text-[15px] xl:text-[20px]'>
                   Total Registrations
                 </p>
@@ -182,21 +180,21 @@ const Dashboard = () => {
         </div>
       </div>
       {showModal && (
-            <div
-              className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'
-              onClick={() => setShowModal(false)}
+        <div
+          className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'
+          onClick={() => setShowModal(false)}
+        >
+          <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>
+            <p className='self-center'>{modalContent}</p>
+            <button
+              onClick={handleModalClose}
+              className='text-white m-4 self-center rounded-full bg-red px-4 py-2 lg:w-[50%]'
             >
-              <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>
-                <p className='self-center'>{modalContent}</p>
-                <button
-                  onClick={handleModalClose}
-                  className='text-white m-4 self-center rounded-full bg-red px-4 py-2 lg:w-[50%]'
-                >
-                  Okay
-                </button>
-              </div>
-            </div>
-          )}
+              Okay
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

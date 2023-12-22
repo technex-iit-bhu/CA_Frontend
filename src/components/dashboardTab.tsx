@@ -28,12 +28,10 @@ const DashboardTab = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        
         const response = await fetch('api/getTasks', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            
           },
         });
         if (response.status === 200) {
@@ -75,27 +73,29 @@ const DashboardTab = () => {
   const renderCards = (activeTab: string) => {
     const now = new Date();
     let filteredTasks = tasks;
-    let verifiedTasks = submittedTasks.filter(({ verified }) => verified === true).map(({ task }) => task);
-    let pendingTasks = submittedTasks.filter(({ verified }) => verified === false).map(({ task }) => task);
+    let verifiedTasks = submittedTasks
+      .filter(({ verified }) => verified === true)
+      .map(({ task }) => task);
+    let pendingTasks = submittedTasks
+      .filter(({ verified }) => verified === false)
+      .map(({ task }) => task);
     if (activeTab === 'live') {
       filteredTasks = tasks.filter(({ deadline }) => new Date(deadline) > now);
     } else if (activeTab === 'expired') {
       filteredTasks = tasks.filter(({ deadline }) => new Date(deadline) <= now);
-      if(filteredTasks.length===0)
-      {
+      if (filteredTasks.length === 0) {
         return (
-          <h1 className='cs flex h-[100%] w-[100%] items-center justify-center py-6 text-center text-1xl sm:text-2xl md:text-3xl lg:text-4xl'>
+          <h1 className='cs text-1xl flex h-[100%] w-[100%] items-center justify-center py-6 text-center sm:text-2xl md:text-3xl lg:text-4xl'>
             {' '}
             No expired tasks!
           </h1>
         );
       }
-      
     } else if (activeTab === 'completed') {
-      filteredTasks=verifiedTasks;
+      filteredTasks = verifiedTasks;
     } else if (activeTab === 'submitted') {
-      filteredTasks = pendingTasks
-    } 
+      filteredTasks = pendingTasks;
+    }
     return filteredTasks.map(
       ({ id, deadline, points, title, description }, index) => (
         <Cards
@@ -107,7 +107,7 @@ const DashboardTab = () => {
           taskNumber={`${index + 1}`}
           taskID={id}
           month={`${monthNames[now.getMonth()]}`}
-          activeTab = {activeTab}
+          activeTab={activeTab}
         />
       )
     );
