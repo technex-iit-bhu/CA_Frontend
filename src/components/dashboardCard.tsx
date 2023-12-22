@@ -48,6 +48,7 @@ const Cards: React.FC<Props> = ({
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
       });
+      console.log(gdriveLink);
       if (response.status === 201) {
         console.log('Uploaded');
         setIsUploaded(true);
@@ -55,7 +56,7 @@ const Cards: React.FC<Props> = ({
         setDropdown(false);
       }
       else if (response.status === 400) {
-        console.log('Task already submitted');
+        console.log('Invalid Link or Task Already Submitted');
         setDropdown(false);
       }
       else if (response.status === 401) {
@@ -82,7 +83,7 @@ const Cards: React.FC<Props> = ({
           <div className='h-1/3 w-1/3 rounded-xl bg-black'>
             {activeTab === 'live' && <Image src='/tasks/2155223-removebg-preview.png' alt='Live Task' width={120} height={120}/>}
             {activeTab === 'submitted' && <Image src='/tasks/3255337-removebg-preview.png' alt='Submitted Task' width={120} height={120}/>}
-            {activeTab === 'completed' && <Image src='/tasks/5995357-removebg-preview.png' alt='Completed Task' width={50} height={120}/>}
+            {activeTab === 'completed' && <Image src='/tasks/5995357-removebg-preview.png' alt='Completed Task' width={120} height={120}/>}
             {activeTab === 'expired' && <Image src='/tasks/8356278-removebg-preview.png' alt='Expired Task' width={120} height={120}/>}
           </div>
           <div className='w-2/3'>
