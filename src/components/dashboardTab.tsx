@@ -21,10 +21,9 @@ const DashboardTab = () => {
   // State to hold the tasks
   const [tasks, setTasks] = useState([]);
   const [submittedTasks, setSubmittedTasks] = useState([]);
-  const [activeTab, setActiveTab] = useState('live'); // This has be simplified since there's only one type of task now.
   // We need to replace this with actual live, expired and completed tasks
   const [isLargerThan700] = useMediaQuery('(min-width: 700px)');
-
+  const [activeTab, setActiveTab] = useState('live');
   // Fetch tasks from the API when the component mounts
   useEffect(() => {
     const fetchTasks = async () => {
@@ -77,6 +76,7 @@ const DashboardTab = () => {
     const now = new Date();
     let filteredTasks = tasks;
     let verifiedTasks = submittedTasks.filter(({ verified }) => verified === true).map(({ task }) => task);
+    let pendingTasks = submittedTasks.filter(({ verified }) => verified === false).map(({ task }) => task);
     if (activeTab === 'live') {
       filteredTasks = tasks.filter(({ deadline }) => new Date(deadline) > now);
     } else if (activeTab === 'expired') {
@@ -93,8 +93,9 @@ const DashboardTab = () => {
       
     } else if (activeTab === 'completed') {
       filteredTasks=verifiedTasks;
-    }
-
+    } else if (activeTab === 'submitted') {
+      filteredTasks = pendingTasks
+    } 
     return filteredTasks.map(
       ({ id, deadline, points, title, description }, index) => (
         <Cards
@@ -106,6 +107,7 @@ const DashboardTab = () => {
           taskNumber={`${index + 1}`}
           taskID={id}
           month={`${monthNames[now.getMonth()]}`}
+          isUploadable={activeTab === 'live'}
         />
       )
     );
@@ -123,6 +125,16 @@ const DashboardTab = () => {
           onClick={() => setActiveTab('live')}
         >
           Live Tasks
+        </Button>
+        <Button
+          style={
+            activeTab === 'submitted'
+              ? { borderBottom: '0.5vh solid #A81F25', fontSize, width }
+              : { fontSize, width }
+          }
+          onClick={() => setActiveTab('submitted')}
+        >
+          Submitted
         </Button>
         {/* The other buttons can remain for future functionality */}
         <Button
@@ -146,7 +158,7 @@ const DashboardTab = () => {
           Expired
         </Button>
       </Box>
-      <Box>{renderCards(activeTab)}</Box> {/* Updated call */}
+      <Box>{renderCards(activeTab)}</Box>
     </Box>
   );
 };

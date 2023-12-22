@@ -11,6 +11,7 @@ interface Props {
   taskNumber: string;
   taskID: string;
   month: string;
+  isUploadable: boolean;
 }
 
 const Cards: React.FC<Props> = ({
@@ -21,6 +22,7 @@ const Cards: React.FC<Props> = ({
   taskNumber,
   taskID,
   month,
+  isUploadable,
 }) => {
   const [isUploaded, setIsUploaded] = useState(false);
   const [buttonText, setButtonText] = useState('Upload');
@@ -74,7 +76,7 @@ const Cards: React.FC<Props> = ({
 
   return (
     <div className='relative mb-5 flex items-center justify-center'>
-      <div className='from-gray-400 to-gray-200 relative mb-8 w-full content-center rounded-xl bg-grey bg-gradient-to-b p-6 md:w-1/2 lg:w-1/3'>
+      <div className='from-gray-400 to-gray-200 relative mb-8 w-full content-center rounded-xl bg-grey bg-gradient-to-b p-6  md:w-1/2 lg:w-1/3'>
         <div className='flex h-full'>
           <div className='h-1/3 w-1/3 rounded-xl bg-black'>
             <img src='' alt='' />
@@ -127,14 +129,14 @@ const Cards: React.FC<Props> = ({
                 </a>
               </div>
               <div>
-                <button
+                {isUploadable && <button
                   onClick={handleUpload}
                   className={`text-white h-6 w-20 rounded-full bg-red ${
                     isUploaded ? 'bg-green-500' : 'bg-red-500'
                   }`}
                 >
                   {buttonText}
-                </button>
+                </button>}
               </div>
             </div>
           </div>
