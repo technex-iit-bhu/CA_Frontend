@@ -42,7 +42,7 @@ const carouselData: CarouselData[] = [
   {
     title: 'Umesh Verma',
     description:
-      'Serving as a Campus Ambassador for TECHNEX\'23 was a transformative experience, offering opportunities to engage with prospective students, represent my university, and share valuable insights about campus life.  Stay TECHNEXED!',
+      "Serving as a Campus Ambassador for TECHNEX'23 was a transformative experience, offering opportunities to engage with prospective students, represent my university, and share valuable insights about campus life.  Stay TECHNEXED!",
     imageSrc: 't6.webp',
   },
 ];

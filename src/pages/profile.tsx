@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 export default function Profile() {
-
   const [Name, setName] = useState('');
   const [Address, setAddress] = useState('');
   const [Email, setEmail] = useState('');
@@ -36,13 +35,11 @@ export default function Profile() {
           setAddress(fetchedDetails.userprofile.postal_address);
           setPhone(fetchedDetails.userprofile.phone_no);
           setWhyca(fetchedDetails.userprofile.why_choose);
-        }
-        else  if (response.status === 401) {
+        } else if (response.status === 401) {
           setModalContent('Login Again');
           setShowModal(true);
           return;
-        }
-        else {
+        } else {
           console.error('Failed to fetch profile');
         }
       } catch (error) {
@@ -74,7 +71,7 @@ export default function Profile() {
         </div>
       </div> */}
       <div className='z-10 pb-[110px] '>
-          <Navbar />
+        <Navbar />
       </div>
       <div className='relative  mb-[160px] flex flex-col bg-background pl-[50px] pt-[120px] ef:mb-[170px] ef:pt-[130px] sm:mb-[150px] sm:pt-[120px] md:mb-[180px] md:pb-0 md:pt-[190px] lg:pb-[100px] lg:pt-[150px]'>
         <div className=' absolute bottom-3 flex flex-col -space-y-14 ef:-space-y-16 sm:text-left md:-space-y-32 '>
@@ -148,26 +145,29 @@ export default function Profile() {
         </div>
       </div>
       <div className='mx-auto mb-[100px] flex w-[100px] items-center justify-center rounded-full bg-red p-6 md:w-[200px] md:p-6 lg:w-[393px] lg:p-6 '>
-        <button className='font-spline sm:text-xl lg:text-4xl' onClick={handleDashboard}>
+        <button
+          className='font-spline sm:text-xl lg:text-4xl'
+          onClick={handleDashboard}
+        >
           Dashboard
         </button>
       </div>
       {showModal && (
-            <div
-              className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'
-              onClick={() => setShowModal(false)}
+        <div
+          className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'
+          onClick={() => setShowModal(false)}
+        >
+          <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>
+            <p className='self-center'>{modalContent}</p>
+            <button
+              onClick={handleModalClose}
+              className='text-white m-4 self-center rounded-full bg-red px-4 py-2 lg:w-[50%]'
             >
-              <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>
-                <p className='self-center'>{modalContent}</p>
-                <button
-                  onClick={handleModalClose}
-                  className='text-white m-4 self-center rounded-full bg-red px-4 py-2 lg:w-[50%]'
-                >
-                  Okay
-                </button>
-              </div>
-            </div>
-          )}
+              Okay
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

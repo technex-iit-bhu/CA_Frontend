@@ -8,7 +8,7 @@ const contactUsPage = () => {
   return (
     <div>
       <div className='z-10 pb-[110px] '>
-          <Navbar />
+        <Navbar />
       </div>
       <ContactUs></ContactUs>
       <Box

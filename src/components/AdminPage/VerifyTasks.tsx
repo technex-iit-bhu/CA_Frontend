@@ -28,7 +28,9 @@ function VerifyTasks({ token }: { token: string | null }) {
   const [submissions, setSubmissions] = useState<TaskSubmission[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
-  const [adminComments, setAdminComments] = useState<{ [key: number]: string }>({});
+  const [adminComments, setAdminComments] = useState<{ [key: number]: string }>(
+    {}
+  );
 
   const fetchSubmissions = async () => {
     setLoading(true);
@@ -73,7 +75,7 @@ function VerifyTasks({ token }: { token: string | null }) {
   };
 
   const handleCommentChange = (id: number, comment: string) => {
-    setAdminComments(prevComments => ({
+    setAdminComments((prevComments) => ({
       ...prevComments,
       [id]: comment,
     }));
@@ -92,7 +94,8 @@ function VerifyTasks({ token }: { token: string | null }) {
       });
       if (!response.ok) throw new Error('Failed to add admin comment');
       setMessage('Admin comment added successfully');
-      setAdminComments(prevComments => ({ // Clear the comment for this task
+      setAdminComments((prevComments) => ({
+        // Clear the comment for this task
         ...prevComments,
         [id]: '',
       }));
@@ -119,21 +122,31 @@ function VerifyTasks({ token }: { token: string | null }) {
           </tr>
         </thead>
         <tbody>
-          {submissions.map(submission => (
+          {submissions.map((submission) => (
             <tr key={submission.id}>
               <td className={styles.td}>{submission.id}</td>
               <td className={styles.td}>{submission.user.user_name}</td>
               <td className={styles.td}>{submission.task.title}</td>
-              <td className={styles.td}>{new Date(submission.timestamp).toLocaleString()}</td>
               <td className={styles.td}>
-                <a href={submission.link} target="_blank" rel="noopener noreferrer">View Submission</a>
+                {new Date(submission.timestamp).toLocaleString()}
+              </td>
+              <td className={styles.td}>
+                <a
+                  href={submission.link}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  View Submission
+                </a>
               </td>
               <td className={styles.td}>
                 <input
-                  type="text"
+                  type='text'
                   value={adminComments[submission.id] || ''}
-                  onChange={(e) => handleCommentChange(submission.id, e.target.value)}
-                  placeholder="Enter admin comment"
+                  onChange={(e) =>
+                    handleCommentChange(submission.id, e.target.value)
+                  }
+                  placeholder='Enter admin comment'
                 />
                 <button
                   className={styles.button}
