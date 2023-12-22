@@ -2,6 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Menu, MenuButton, MenuList, MenuItem, Button, Input } from '@chakra-ui/react';
+import Image from 'next/image';
 
 interface Props {
   date: string;
@@ -11,7 +12,7 @@ interface Props {
   taskNumber: string;
   taskID: string;
   month: string;
-  isUploadable: boolean;
+  activeTab: string;
 }
 
 const Cards: React.FC<Props> = ({
@@ -22,7 +23,7 @@ const Cards: React.FC<Props> = ({
   taskNumber,
   taskID,
   month,
-  isUploadable,
+  activeTab
 }) => {
   const [isUploaded, setIsUploaded] = useState(false);
   const [buttonText, setButtonText] = useState('Upload');
@@ -77,9 +78,12 @@ const Cards: React.FC<Props> = ({
   return (
     <div className='relative mb-5 flex items-center justify-center'>
       <div className='from-gray-400 to-gray-200 relative mb-8 w-full content-center rounded-xl bg-grey bg-gradient-to-b p-6  md:w-1/2 lg:w-1/3'>
-        <div className='flex h-full'>
+        <div className='flex h-full items-center'>
           <div className='h-1/3 w-1/3 rounded-xl bg-black'>
-            <img src='' alt='' />
+            {activeTab === 'live' && <Image src='/tasks/2155223-removebg-preview.png' alt='Live Task' width={120} height={120}/>}
+            {activeTab === 'submitted' && <Image src='/tasks/3255337-removebg-preview.png' alt='Submitted Task' width={120} height={120}/>}
+            {activeTab === 'completed' && <Image src='/tasks/5995357-removebg-preview.png' alt='Completed Task' width={50} height={120}/>}
+            {activeTab === 'expired' && <Image src='/tasks/8356278-removebg-preview.png' alt='Expired Task' width={120} height={120}/>}
           </div>
           <div className='w-2/3'>
             <p className='mt-2 text-left text-xs md:text-sm'>
@@ -129,7 +133,7 @@ const Cards: React.FC<Props> = ({
                 </a>
               </div>
               <div>
-                {isUploadable && <button
+                {activeTab === "live" && <button
                   onClick={handleUpload}
                   className={`text-white h-6 w-20 rounded-full bg-red ${
                     isUploaded ? 'bg-green-500' : 'bg-red-500'

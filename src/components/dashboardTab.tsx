@@ -107,7 +107,7 @@ const DashboardTab = () => {
           taskNumber={`${index + 1}`}
           taskID={id}
           month={`${monthNames[now.getMonth()]}`}
-          isUploadable={activeTab === 'live'}
+          activeTab = {activeTab}
         />
       )
     );
