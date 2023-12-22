@@ -3,6 +3,7 @@ import styles from '../styles/adminPage.module.css';
 import TaskList from '@/components/AdminPage/TaskList';
 import TaskForm from '@/components/AdminPage/TaskForm';
 import UnverifiedUsers from '@/components/AdminPage/UnverifiedUsers';
+import VerifyTasks from '@/components/AdminPage/VerifyTasks';
 function AdminPage() {
   const [token, setToken] = useState<string | null>(null);
   const [selected, setSelected] = useState<string>('login');
@@ -11,6 +12,7 @@ function AdminPage() {
     'All Tasks': <TaskList token={token}></TaskList>,
     'Add Task': <TaskForm token={token}></TaskForm>,
     'verify CAs': <UnverifiedUsers token={token}></UnverifiedUsers>,
+    'Verify Tasks': <VerifyTasks token={token} />,
   };
 
   return (
