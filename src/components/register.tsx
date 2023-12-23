@@ -12,7 +12,7 @@ const Register = () => {
     first_name: '',
     last_name: '',
     college: '',
-    year: 1,
+    year: 0,
     phone_no: '',
     whatsapp_no: '',
     postal_address: '',
@@ -146,7 +146,6 @@ const Register = () => {
                 </span>
                 <select
                   className='h-[50px] grow self-stretch  rounded-[10px] bg-background px-[10px] text-center text-black lg:text-left'
-                  value={formData.year}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
