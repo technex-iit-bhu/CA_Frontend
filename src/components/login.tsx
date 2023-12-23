@@ -29,8 +29,8 @@ const Login = () => {
           'Content-Type': 'application/json',
         },
       });
-      if (response.status === 401) {
-        setModalContent('Invalid Credentials');
+      if (response.status === 400) {
+        setModalContent('Invalid Credentials, Contact Us if already registered');
         setShowModal(true);
         return;
       }
