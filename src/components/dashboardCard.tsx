@@ -1,7 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useRef } from 'react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Menu, MenuButton, MenuList, MenuItem, Button, Input } from '@chakra-ui/react';
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Button,
+  Input,
+} from '@chakra-ui/react';
 import Image from 'next/image';
 
 interface Props {
@@ -23,7 +30,7 @@ const Cards: React.FC<Props> = ({
   taskNumber,
   taskID,
   month,
-  activeTab
+  activeTab,
 }) => {
   const [isUploaded, setIsUploaded] = useState(false);
   const [buttonText, setButtonText] = useState('Upload');
@@ -40,26 +47,26 @@ const Cards: React.FC<Props> = ({
     // }, 2000);
 
     try {
-      const response = await fetch(`https://ca-backend-qknd.onrender.com/tasks/submit/${taskID}/`, {
-        method: 'post',
-        body: JSON.stringify({ link: gdriveLink }),
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        },
-      });
-      console.log(gdriveLink);
+      const response = await fetch(
+        `https://ca-backend-qknd.onrender.com/tasks/submit/${taskID}/`,
+        {
+          method: 'post',
+          body: JSON.stringify({ link: gdriveLink }),
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
+        }
+      );
       if (response.status === 201) {
         console.log('Uploaded');
         setIsUploaded(true);
         setButtonText('Uploaded');
         setDropdown(false);
-      }
-      else if (response.status === 400) {
-        console.log('Invalid Link or Task Already Submitted');
+      } else if (response.status === 400) {
+        console.log('Task already submitted');
         setDropdown(false);
-      }
-      else if (response.status === 401) {
+      } else if (response.status === 401) {
         console.log('Unauthorized');
         setDropdown(false);
       }
@@ -81,10 +88,38 @@ const Cards: React.FC<Props> = ({
       <div className='from-gray-400 to-gray-200 relative mb-8 w-full content-center rounded-xl bg-grey bg-gradient-to-b p-6  md:w-1/2 lg:w-1/3'>
         <div className='flex h-full items-center'>
           <div className='h-1/3 w-1/3 rounded-xl bg-black'>
-            {activeTab === 'live' && <Image src='/tasks/2155223-removebg-preview.png' alt='Live Task' width={120} height={120}/>}
-            {activeTab === 'submitted' && <Image src='/tasks/3255337-removebg-preview.png' alt='Submitted Task' width={120} height={120}/>}
-            {activeTab === 'completed' && <Image src='/tasks/5995357-removebg-preview.png' alt='Completed Task' width={120} height={120}/>}
-            {activeTab === 'expired' && <Image src='/tasks/8356278-removebg-preview.png' alt='Expired Task' width={120} height={120}/>}
+            {activeTab === 'live' && (
+              <Image
+                src='/tasks/2155223-removebg-preview.png'
+                alt='Live Task'
+                width={120}
+                height={120}
+              />
+            )}
+            {activeTab === 'submitted' && (
+              <Image
+                src='/tasks/3255337-removebg-preview.png'
+                alt='Submitted Task'
+                width={120}
+                height={120}
+              />
+            )}
+            {activeTab === 'completed' && (
+              <Image
+                src='/tasks/5995357-removebg-preview.png'
+                alt='Completed Task'
+                width={50}
+                height={120}
+              />
+            )}
+            {activeTab === 'expired' && (
+              <Image
+                src='/tasks/8356278-removebg-preview.png'
+                alt='Expired Task'
+                width={120}
+                height={120}
+              />
+            )}
           </div>
           <div className='w-2/3'>
             <p className='mt-2 text-left text-xs md:text-sm'>
@@ -134,22 +169,36 @@ const Cards: React.FC<Props> = ({
                 </a>
               </div>
               <div>
-                {activeTab === "live" && <button
-                  onClick={handleUpload}
-                  className={`text-white h-6 w-20 rounded-full bg-red ${
-                    isUploaded ? 'bg-green-500' : 'bg-red-500'
-                  }`}
-                >
-                  {buttonText}
-                </button>}
+                {activeTab === 'live' && (
+                  <button
+                    onClick={handleUpload}
+                    className={`text-white h-6 w-20 rounded-full bg-red ${
+                      isUploaded ? 'bg-green-500' : 'bg-red-500'
+                    }`}
+                  >
+                    {buttonText}
+                  </button>
+                )}
               </div>
             </div>
           </div>
         </div>
-        {dropdown && <form className='py-5 flex flex-col items-center'>
-          <Input placeholder='Your Google Drive Link Here' className='w-full bg-[#191919] h-10 px-5 rounded-[50px]' value={gdriveLink} onChange={handleChange}/>
-          <Button className='w-[30%] bg-[#A81F25] h-10 rounded-[50px] mt-2' onClick={handleSubmit}>Submit</Button>
-        </form>}
+        {dropdown && (
+          <form className='flex flex-col items-center py-5'>
+            <Input
+              placeholder='Your Google Drive Link Here'
+              className='h-10 w-full rounded-[50px] bg-[#191919] px-5'
+              value={gdriveLink}
+              onChange={handleChange}
+            />
+            <Button
+              className='mt-2 h-10 w-[30%] rounded-[50px] bg-[#A81F25]'
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
+          </form>
+        )}
         <Menu>
           <MenuButton
             as={Button}

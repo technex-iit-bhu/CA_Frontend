@@ -36,8 +36,8 @@ const CardPopup = (props: CardPopupProps) => {
             />
           </CardHeader>
           <CardBody className='text pb-2 text-sm'>
-            {props.text.split("\n\r").map((line,index)=>{
-              return <p key={index}>{line}</p>
+            {props.text.split('\n\r').map((line, index) => {
+              return <p key={index}>{line}</p>;
             })}
           </CardBody>
         </Card>

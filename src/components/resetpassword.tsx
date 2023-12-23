@@ -41,11 +41,10 @@ const ForgotPassword = () => {
         setModalContent('Invalid E-mail');
         setShowModal(true);
         return;
-      }
-      else if(response.status === 200) {
-        setModalContent('password reset successfully')
+      } else if (response.status === 200) {
+        setModalContent('password reset successfully');
         setShowModal(true);
-      } 
+      }
     } catch (error) {
       console.log(error);
     }
