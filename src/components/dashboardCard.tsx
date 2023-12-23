@@ -37,6 +37,12 @@ const Cards: React.FC<Props> = ({
   const fileInputRef = useRef<HTMLInputElement>(null!);
   const [dropdown, setDropdown] = useState(false);
   const [gdriveLink, setGdriveLink] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState('');
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
 
   const handleSubmit = async () => {
     // console.log('Selected File:', file);
@@ -59,14 +65,20 @@ const Cards: React.FC<Props> = ({
         }
       );
       if (response.status === 201) {
+        setModalContent('Task Submitted Successfully');
+        setShowModal(true);
         console.log('Uploaded');
         setIsUploaded(true);
         setButtonText('Uploaded');
         setDropdown(false);
       } else if (response.status === 400) {
+        setModalContent('Invalid Link or Task Already Submitted');
+        setShowModal(true);
         console.log('Task already submitted');
         setDropdown(false);
       } else if (response.status === 401) {
+        setModalContent('Unauthorized');
+        setShowModal(true);
         console.log('Unauthorized');
         setDropdown(false);
       }
@@ -108,7 +120,7 @@ const Cards: React.FC<Props> = ({
               <Image
                 src='/tasks/5995357-removebg-preview.png'
                 alt='Completed Task'
-                width={50}
+                width={120}
                 height={120}
               />
             )}
@@ -215,6 +227,22 @@ const Cards: React.FC<Props> = ({
             </MenuItem>
           </MenuList>
         </Menu>
+        {showModal && (
+            <div
+              className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'
+              onClick={() => setShowModal(false)}
+            >
+              <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>
+                <p className='self-center'>{modalContent}</p>
+                <button
+                  onClick={handleModalClose}
+                  className='text-white m-4 self-center rounded-full bg-red px-4 py-2 lg:w-[50%]'
+                >
+                  Okay
+                </button>
+              </div>
+            </div>
+          )}
       </div>
     </div>
   );
