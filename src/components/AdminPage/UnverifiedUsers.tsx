@@ -72,7 +72,7 @@ const UserTable = ({ token }: { token: string | null }) => {
   }
 
   return (
-    <>
+    <div className='h-[60%] overflow-x-hidden'>
       <table>
         <thead>
           <tr>
@@ -123,7 +123,7 @@ const UserTable = ({ token }: { token: string | null }) => {
         </tbody>
       </table>
       <p style={{ color: 'red' }}>{errorMessage}</p>
-    </>
+    </div>
   );
 };
 
