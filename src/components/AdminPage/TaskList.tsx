@@ -56,7 +56,7 @@ function TaskList({ token }: { token: string | null }) {
   };
 
   return (
-    <div>
+    <div  className='h-[60%] overflow-x-hidden'>
       <h2>Click on update button after making changes to a task.</h2>
       <table>
         <thead>

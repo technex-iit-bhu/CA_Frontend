@@ -93,8 +93,24 @@ const DashboardTab = () => {
       }
     } else if (activeTab === 'completed') {
       filteredTasks = verifiedTasks;
+      if (filteredTasks.length === 0) {
+        return (
+          <h1 className='cs text-1xl flex h-[100%] w-[100%] items-center justify-center py-6 text-center sm:text-2xl md:text-3xl lg:text-4xl'>
+            {' '}
+            No Completed tasks!
+          </h1>
+        );
+      }
     } else if (activeTab === 'submitted') {
       filteredTasks = pendingTasks;
+      if (filteredTasks.length === 0) {
+        return (
+          <h1 className='cs text-1xl flex h-[100%] w-[100%] items-center justify-center py-6 text-center sm:text-2xl md:text-3xl lg:text-4xl'>
+            {' '}
+            No Submitted tasks!
+          </h1>
+        );
+      }
     }
     return filteredTasks.map(
       ({ id, deadline, points, title, description }, index) => (
