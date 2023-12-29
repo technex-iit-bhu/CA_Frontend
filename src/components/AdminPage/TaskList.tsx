@@ -6,7 +6,7 @@ type Task = {
   description: string;
   incentives: string;
   points: number;
-  deadline: Date;
+  deadline: string;
 };
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 function TaskList({ token }: { token: string | null }) {
@@ -31,8 +31,9 @@ function TaskList({ token }: { token: string | null }) {
         // sort data by dataelement.id
         const dataWithDeadline = data.map((task: Task) => ({
           ...task,
-          deadline: new Date(task.deadline),
+          deadline: new Date(task.deadline).toISOString(),
         }));
+        
 
         dataWithDeadline.sort((a: Task, b: Task) =>
           a.id > b.id ? 1 : b.id > a.id ? -1 : 0
@@ -122,7 +123,7 @@ function TaskItem({
 
   let edited = (Object.keys(task) as Array<keyof Task>).reduce((acc, key) => {
     if (key == 'deadline')
-      return acc || task[key].getTime() != displayedTask[key].getTime();
+      return acc || task[key] != displayedTask[key];
     return acc || task[key] != displayedTask[key];
   }, false);
 
@@ -146,15 +147,18 @@ function TaskItem({
   }
 
   async function handleUpdateTask() {
+    let fd = new FormData();
+    for (let entry of Object.entries(displayedTask)) {
+      if (entry[0] == 'image') continue; // TODO: handle image
+      fd.append(entry[0], ""+entry[1]);// ""+entry[1] converts number|string to string
+    }
     try {
       const response = await fetch(BACKEND_URL + 'tasks/' + task.id + '/', {
         method: 'PATCH',
         headers: {
-          'content-type': 'application/json',
-          'content-length': '0',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(displayedTask),
+        body: fd,
       });
 
       if (response.ok) handleRefresh();
@@ -198,7 +202,7 @@ function TaskItem({
         <input
           type='date'
           value={new Date(displayedTask.deadline).toISOString().split('T')[0]}
-          onChange={(e) => dispatch({ deadline: new Date(e.target.value) })}
+          onChange={(e) => dispatch({ deadline: new Date(e.target.value).toISOString() })}
         ></input>
       </td>
       <td className={styles.td}>

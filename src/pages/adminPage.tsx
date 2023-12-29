@@ -50,7 +50,10 @@ function Login({
         password,
       }),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status !== 200) throw new Error('Invalid credentials');
+        return res.json();
+      })
       .then((data) => {
         setToken(data.access);
         setMessage('');
