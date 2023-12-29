@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-const Dashboard = () => {
+interface Props {
+  completedTasks: number;
+}
+
+const Dashboard: React.FC<Props> = ({completedTasks}) => {
   const [name, setName] = useState('');
   const [rank, setRank] = useState('NaN');
   const [caId, setCaId] = useState('XXXXXXXXXX');
@@ -123,7 +127,7 @@ const Dashboard = () => {
                   className='text-white select-none self-center text-[40px] font-bold lg:text-[60px] xl:text-[80px]'
                   style={{ fontFamily: 'Sedgwick Ave' }}
                 >
-                  {tasksDone}
+                  {completedTasks}
                 </p>
               </div>
               <div className='mr-[10px] mt-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background sm:mt-0 lg:h-[150px] lg:w-[140px] lg:rounded-[50px] xl:h-[200px] xl:w-[200px]'>

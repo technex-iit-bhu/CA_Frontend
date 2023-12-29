@@ -17,9 +17,11 @@ interface Props {
   description: string;
   title: string;
   taskNumber: string;
-  taskID: string;
+  taskID: number;
   month: string;
   activeTab: string;
+  comment: string;
+  incentives: string;
 }
 
 const Cards: React.FC<Props> = ({
@@ -31,6 +33,8 @@ const Cards: React.FC<Props> = ({
   taskID,
   month,
   activeTab,
+  comment,
+  incentives
 }) => {
   const [isUploaded, setIsUploaded] = useState(false);
   const [buttonText, setButtonText] = useState('Upload');
@@ -214,16 +218,20 @@ const Cards: React.FC<Props> = ({
         <Menu>
           <MenuButton
             as={Button}
-            leftIcon={<ChevronDownIcon />}
-            className='absolute bottom-0 right-0'
-          ></MenuButton>
+            rightIcon={<ChevronDownIcon />}
+            className='absolute bottom-0 left-0'
+          > {activeTab === 'live' ? 'Incentives' : 'Comments'} </MenuButton>
           <MenuList className='z-10'>
             <MenuItem
               minH='48px'
               maxW='350px'
               className='menuItem flex-shrink-1 flex bg-[#A81F25] p-[10px] md:w-1/2 lg:w-1/3'
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+              {
+                activeTab === 'live' ? 
+                (incentives ? incentives : 'No Incentives') :
+                (comment ? comment : 'No Comments') 
+              }
             </MenuItem>
           </MenuList>
         </Menu>
