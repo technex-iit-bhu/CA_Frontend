@@ -134,9 +134,6 @@ const Cards: React.FC<Props> = ({
             )}
           </div>
           <div className='w-2/3'>
-            <p className='mt-2 text-left text-xs md:text-sm'>
-              Month:{month} | Task:{taskNumber}
-            </p>
             <p className='text-left font-bold md:text-xl lg:text-2xl'>
               {title}
             </p>
