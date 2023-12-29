@@ -142,7 +142,7 @@ const Cards: React.FC<Props> = ({
             </p>
             <p className='text-left text-xs md:text-sm'>{description}</p>
             <div className='flex justify-between'>
-              <p className='text-left text-xs md:text-sm'>Expires on: {new Date(date).toDateString()}</p>
+              <p className='text-left text-xs md:text-sm'>Expires on: {DDMMYYYY(date)}</p>
               <p className='text-left text-xs md:text-sm'>Points: {points}</p>
             </div>
             <div className='flex items-center justify-between'>
@@ -247,5 +247,13 @@ const Cards: React.FC<Props> = ({
     </div>
   );
 };
+
+function DDMMYYYY(date: string) {
+  const d = new Date(date);
+  const day = d.getDate();
+  const month = d.getMonth() + 1;
+  const year = d.getFullYear();
+  return `${day}/${month}/${year}`;
+}
 
 export default Cards;
