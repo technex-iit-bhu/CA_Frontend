@@ -8,8 +8,7 @@ type Task = {
   points: number;
   deadline: Date;
 };
-const BACKEND_URL =
-  process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000/';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 function TaskList({ token }: { token: string | null }) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -24,12 +23,12 @@ function TaskList({ token }: { token: string | null }) {
       });
       const data = await response.json();
       console.log(data);
-      if (data.splice === undefined) {
+      if (!data || !data.sort) {
         //there has been an error as data is not an array
         setMessage(data.detail);
         setTasks([]);
       } else {
-        //sort data by dataelement.id
+        // sort data by dataelement.id
         const dataWithDeadline = data.map((task: Task) => ({
           ...task,
           deadline: new Date(task.deadline),
@@ -38,7 +37,7 @@ function TaskList({ token }: { token: string | null }) {
         dataWithDeadline.sort((a: Task, b: Task) =>
           a.id > b.id ? 1 : b.id > a.id ? -1 : 0
         );
-        setTasks([...dataWithDeadline]); //handles the case when data is null
+        setTasks([...dataWithDeadline]);
         setMessage(data.length + ' tasks found.');
       }
     } catch (error) {
@@ -58,7 +57,7 @@ function TaskList({ token }: { token: string | null }) {
   };
 
   return (
-    <div  className='h-[60%] overflow-x-hidden'>
+    <div className='h-[60%] overflow-x-hidden'>
       <h2>Click on update button after making changes to a task.</h2>
       <table>
         <thead>
@@ -122,7 +121,12 @@ function TaskItem({
   >(taskUpdateReducer, task);
 
   let edited = (Object.keys(task) as Array<keyof Task>).reduce((acc, key) => {
-    return acc || task[key] !== displayedTask[key];
+    if (key == 'deadline')
+      return acc || task[key].getTime() != displayedTask[key].getTime();
+    task[key] != displayedTask[key]
+      ? console.log(key, task[key], displayedTask[key])
+      : null;
+    return acc || task[key] != displayedTask[key];
   }, false);
 
   async function handleDeleteTask() {
@@ -165,7 +169,7 @@ function TaskItem({
   return (
     <tr key={task.id}>
       <td className={styles.td}>{task.id}</td>
-      <td>
+      <td className={styles.td}>
         <input
           className={styles.textarea}
           value={displayedTask.title}
@@ -186,17 +190,18 @@ function TaskItem({
           onChange={(e) => dispatch({ incentives: e.target.value })}
         ></textarea>
       </td>
-      <input
-        className={styles.td}
-        type='number'
-        value={displayedTask.points}
-        onChange={(e) => dispatch({ points: parseInt(e.target.value) })}
-      ></input>
+      <td className={styles.td}>
+        <input
+          type='number'
+          value={displayedTask.points}
+          onChange={(e) => dispatch({ points: +e.target.value })}
+        ></input>
+      </td>
       <td className={styles.td}>
         <input
           type='date'
-          value={deadline.toISOString().split('T')[0]}
-          onChange={(e) => setDeadline(new Date(e.target.value))}
+          value={new Date(displayedTask.deadline).toISOString().split('T')[0]}
+          onChange={(e) => dispatch({ deadline: new Date(e.target.value) })}
         ></input>
       </td>
       <td className={styles.td}>

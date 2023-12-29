@@ -27,7 +27,6 @@ function AdminPage() {
   );
 }
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-console.log(BACKEND_URL + 'admin');
 function Login({
   token,
   setToken,
