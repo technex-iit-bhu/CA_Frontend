@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import styles from './TaskList.module.css';
 type Task = {
   id: number;
   title: string;
   description: string;
+  incentives: string;
   points: number;
 };
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL|| "http://localhost:8000/"
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000/';
 function TaskList({ token }: { token: string | null }) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -58,6 +60,7 @@ function TaskList({ token }: { token: string | null }) {
             <th className={styles.th}>ID</th>
             <th className={styles.th}>Title</th>
             <th className={styles.th}>Description</th>
+            <th className={styles.th}>Incentives</th>
             <th className={styles.th}>Points</th>
             <th className={styles.th}>Update</th>
             <th className={styles.th}>Delete</th>
@@ -94,6 +97,10 @@ function TaskList({ token }: { token: string | null }) {
   );
 }
 
+function taskUpdateReducer(state: Task, action: Partial<Task>): Task {
+  return { ...state, ...action };
+}
+
 function TaskItem({
   task,
   handleRefresh,
@@ -103,14 +110,13 @@ function TaskItem({
   handleRefresh: Function;
   token: string | null;
 }) {
-  const [title, setTitle] = useState<string>(task.title);
-  const [description, setDescription] = useState<string>(task.description);
-  const [points, setPoints] = useState<number>(task.points);
+  const [displayedTask, dispatch] = useReducer<
+    React.Reducer<Task, Partial<Task>>
+  >(taskUpdateReducer, task);
 
-  let edited =
-    title !== task.title ||
-    description !== task.description ||
-    points !== task.points;
+  let edited = (Object.keys(task) as Array<keyof Task>).reduce((acc, key) => {
+    return acc || task[key] !== displayedTask[key];
+  }, false);
 
   async function handleDeleteTask() {
     try {
@@ -137,11 +143,7 @@ function TaskItem({
           'content-length': '0',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({
-          title,
-          description,
-          points,
-        }),
+        body: JSON.stringify(displayedTask),
       });
 
       if (response.ok) handleRefresh();
@@ -156,22 +158,29 @@ function TaskItem({
       <td>
         <input
           className={styles.textarea}
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={displayedTask.title}
+          onChange={(e) => dispatch({ title: e.target.value })}
         ></input>
       </td>
       <td className={styles.td}>
         <textarea
           className={styles.textarea}
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={displayedTask.description}
+          onChange={(e) => dispatch({ description: e.target.value })}
+        ></textarea>
+      </td>
+      <td className={styles.td}>
+        <textarea
+          className={styles.textarea}
+          value={displayedTask.incentives}
+          onChange={(e) => dispatch({ incentives: e.target.value })}
         ></textarea>
       </td>
       <input
         className={styles.td}
         type='number'
-        value={points}
-        onChange={(e) => setPoints(Number(e.target.value))}
+        value={displayedTask.points}
+        onChange={(e) => dispatch({ points: parseInt(e.target.value) })}
       ></input>
       <td className={styles.td}>
         <button
