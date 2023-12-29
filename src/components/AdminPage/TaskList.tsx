@@ -6,6 +6,7 @@ type Task = {
   description: string;
   incentives: string;
   points: number;
+  deadline: Date;
 };
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000/';
@@ -29,10 +30,15 @@ function TaskList({ token }: { token: string | null }) {
         setTasks([]);
       } else {
         //sort data by dataelement.id
-        data.sort((a: Task, b: Task) =>
+        const dataWithDeadline = data.map((task: Task) => ({
+          ...task,
+          deadline: new Date(task.deadline),
+        }));
+
+        dataWithDeadline.sort((a: Task, b: Task) =>
           a.id > b.id ? 1 : b.id > a.id ? -1 : 0
         );
-        setTasks([...data]); //handles the case when data is null
+        setTasks([...dataWithDeadline]); //handles the case when data is null
         setMessage(data.length + ' tasks found.');
       }
     } catch (error) {
@@ -52,7 +58,7 @@ function TaskList({ token }: { token: string | null }) {
   };
 
   return (
-    <div>
+    <div  className='h-[60%] overflow-x-hidden'>
       <h2>Click on update button after making changes to a task.</h2>
       <table>
         <thead>
@@ -62,6 +68,7 @@ function TaskList({ token }: { token: string | null }) {
             <th className={styles.th}>Description</th>
             <th className={styles.th}>Incentives</th>
             <th className={styles.th}>Points</th>
+            <th className={styles.th}>Deadline</th>
             <th className={styles.th}>Update</th>
             <th className={styles.th}>Delete</th>
           </tr>
@@ -128,7 +135,10 @@ function TaskItem({
           Authorization: `Bearer ${token}`,
         },
       });
-      if (response.ok) handleRefresh();
+      if (response.ok) {
+        handleRefresh();
+        console.log(response);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -182,6 +192,13 @@ function TaskItem({
         value={displayedTask.points}
         onChange={(e) => dispatch({ points: parseInt(e.target.value) })}
       ></input>
+      <td className={styles.td}>
+        <input
+          type='date'
+          value={deadline.toISOString().split('T')[0]}
+          onChange={(e) => setDeadline(new Date(e.target.value))}
+        ></input>
+      </td>
       <td className={styles.td}>
         <button
           className={styles.button}

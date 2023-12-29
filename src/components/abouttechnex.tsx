@@ -3,18 +3,30 @@ import { HeadingTexts } from './ourReach';
 import { ArrowRightIcon } from '../../node_modules/@chakra-ui/icons/dist/ArrowRight';
 import ImageTrackComponent from './sexyGallery';
 import Gallery from './gallery';
+import { Box } from '@chakra-ui/react';
 
 const AboutTechnex: FC = () => {
+  const pxToRem = (px: number) => `${px / 16}rem`;
   return (
     <div className='bg-[#191919]' id='aboutUs'>
       <div className='md:ml-22 ml-1'>
         <div className='flex flex-col -space-y-9 sm:-space-y-16 sm:pb-10 md:-space-y-16 lg:-space-y-20 xl:-space-y-24'>
-          <span className='font-spline text-6xl font-bold text-[#A81F25] opacity-20 sm:text-[10rem] lg:text-[14rem] xl:text-[19rem]'>
-            Technex
-          </span>
-          <span className='text-white z-10 ml-4 transform select-none text-2xl transition duration-700 hover:scale-110 sm:ml-8 sm:pl-1 sm:text-[60px] lg:pl-5 lg:text-[82px] xl:pl-9'>
-            About <span className='text-red'>Technex</span>
-          </span>
+          <Box
+            mt={pxToRem(16)}
+            textAlign='left'
+            width={['100%', '80%', '100%']}
+            display='flex'
+            flexDirection='column'
+            alignItems={'flex-start'}
+            className='-space-y-8 pb-10 ef:-space-y-20 sm:-space-y-32 lg:-space-y-36'
+          >
+            <HeadingTexts
+              whiteText='About'
+              bgText='Technex'
+              redText='Technex'
+              align='left'
+            />
+          </Box>
         </div>
 
         <div className='z-0 mx-3 pb-10 font-spline sm:mx-8 lg:mx-12 xl:mx-14'>

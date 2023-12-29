@@ -27,10 +27,25 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
   const [isLargerThan375] = useMediaQuery('(min-width: 375px)');
   const cardWidth = isLargerThan900 ? '630px' : '80vw';
   const padding = isLargerThan900 ? '10px 40px 15px 15px' : '2.5vw';
-  const cardHeight = (isLargerThan900 ? '315px' :(isLargerThan640 ? '40vh' : (isLargerThan490 ? '40vh' : (isLargerThan375 ?'30vh' : '25vh'))));
-  const fontSize =
-  (isLargerThan900 ? '19px' :(isLargerThan700 ? '15px' : (isLargerThan490 ? '12px' : (isLargerThan375 ?'10px' : '8px'))));
-    
+  const cardHeight = isLargerThan900
+    ? '315px'
+    : isLargerThan640
+      ? '40vh'
+      : isLargerThan490
+        ? '40vh'
+        : isLargerThan375
+          ? '30vh'
+          : '25vh';
+  const fontSize = isLargerThan900
+    ? '19px'
+    : isLargerThan700
+      ? '15px'
+      : isLargerThan490
+        ? '12px'
+        : isLargerThan375
+          ? '10px'
+          : '8px';
+
   const fontSize1 = isLargerThan900 ? '44px' : '4vw';
   const padding1 = isLargerThan900 ? '15px 0px' : '3vw 0';
   const margin = isLargerThan900 ? '80px 50px 50px 50px' : '8vw';
@@ -89,14 +104,9 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
                 fontSize={fontSize}
                 style={{ fontFamily: "'Spline Sans', sans-serif" }}
               >
-                
-                  " &nbsp;
-               
+                " &nbsp;
                 {description}
-                
-                
-                &nbsp;  " 
-                
+                &nbsp; "
               </Text>
             </Box>
           </Stack>

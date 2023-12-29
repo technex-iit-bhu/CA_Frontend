@@ -6,12 +6,12 @@ export default async function handler(
 ) {
   if (req.method === 'POST') {
     try {
-        console.log(JSON.stringify(req.body));
+      console.log(JSON.stringify(req.body));
       const response = await fetch(
         'https://ca-backend-qknd.onrender.com/auth/login/forgot_password/verify/',
         {
           method: 'POST',
-          body: JSON.stringify(req.body),   // Pass the request body as-is
+          body: JSON.stringify(req.body), // Pass the request body as-is
           headers: {
             'Content-Type': 'application/json',
           },
@@ -20,7 +20,7 @@ export default async function handler(
 
       if (response.ok) {
         const data = await response.json();
-        res.status(200).json(data);         // Forward the response from the external API
+        res.status(200).json(data); // Forward the response from the external API
       } else {
         res.status(response.status).end();
       }

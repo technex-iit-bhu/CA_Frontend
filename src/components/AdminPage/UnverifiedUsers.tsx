@@ -18,7 +18,8 @@ type User = {
   user: string;
   email_token: string;
 };
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000/';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+console.log('unvu' + BACKEND_URL);
 
 const UserTable = ({ token }: { token: string | null }) => {
   const [users, setUsers] = useState<User[]>([]);
@@ -71,7 +72,7 @@ const UserTable = ({ token }: { token: string | null }) => {
   }
 
   return (
-    <>
+    <div className='h-[60%] overflow-x-hidden'>
       <table>
         <thead>
           <tr>
@@ -122,7 +123,7 @@ const UserTable = ({ token }: { token: string | null }) => {
         </tbody>
       </table>
       <p style={{ color: 'red' }}>{errorMessage}</p>
-    </>
+    </div>
   );
 };
 

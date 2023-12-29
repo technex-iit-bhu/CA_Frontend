@@ -7,7 +7,7 @@ export default function DashboardPage() {
   return (
     <>
       <div className='z-10 pb-[110px] '>
-          <Navbar />
+        <Navbar />
       </div>
       <Dashboard />
       <DashboardTab />

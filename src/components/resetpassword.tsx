@@ -41,11 +41,10 @@ const ForgotPassword = () => {
         setModalContent('Invalid E-mail');
         setShowModal(true);
         return;
-      }
-      else if(response.status === 200) {
-        setModalContent('password reset successfully')
+      } else if (response.status === 200) {
+        setModalContent('password reset successfully');
         setShowModal(true);
-      } 
+      }
     } catch (error) {
       console.log(error);
     }
@@ -101,6 +100,11 @@ const ForgotPassword = () => {
             >
               Submit
             </button>
+            <p>Password Criteria:<span className='text-[#F42C2C]'>*</span></p>
+            <p className='text-xs'>
+            [A LowerCase Letter, An UpperCase Letter, A
+              Number, Minimum 8 Characters]
+            </p>
           </form>
           {showModal && (
             <div

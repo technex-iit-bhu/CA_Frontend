@@ -4,7 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 import Hamburger from './hamburgermenu';
-import { Menu, MenuButton, MenuList, MenuItem, Avatar, Button } from '@chakra-ui/react';
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Avatar,
+  Button,
+} from '@chakra-ui/react';
 
 const Navbar: FC = () => {
   const [aboutColor, setAboutColor] = useState('red');
@@ -28,7 +35,7 @@ const Navbar: FC = () => {
 
   const handleLeaderboard = () => {
     router.push('/leaderboard');
-  }
+  };
 
   useEffect(() => {
     // Check if access token exists in localStorage
@@ -175,18 +182,26 @@ const Navbar: FC = () => {
           <Menu>
             {({ isOpen }) => (
               <>
-                <MenuButton isActive={isOpen} as={Button} >
-                  <Avatar name='Dan Abrahmov' src='https://play-lh.googleusercontent.com/Oriscl3_nvmDPncct6gStmNuQW_4tqHVozy1skG0vd8Jk22KYNMYYJfKq0vcyU-NKdw' className='h-[50px] w-[50px] rounded-full' />
+                <MenuButton isActive={isOpen} as={Button}>
+                  <Avatar
+                    name='Dan Abrahmov'
+                    src='https://play-lh.googleusercontent.com/Oriscl3_nvmDPncct6gStmNuQW_4tqHVozy1skG0vd8Jk22KYNMYYJfKq0vcyU-NKdw'
+                    className='h-[50px] w-[50px] rounded-full'
+                  />
                 </MenuButton>
                 <MenuList>
                   <MenuItem onClick={handleProfile}>Profile</MenuItem>
                   <MenuItem onClick={handleDashboard}>Dashboard</MenuItem>
-                  <MenuItem onClick={handleLeaderboard}>Leaderboard</MenuItem>
-                  <MenuItem onClick={() => {
-                    setIsLoggedIn(false);
-                    localStorage.removeItem('accessToken');
-                    router.push('/');
-                    }}>Logout</MenuItem>                 
+                  {/* <MenuItem onClick={handleLeaderboard}>Leaderboard</MenuItem> */}
+                  <MenuItem
+                    onClick={() => {
+                      setIsLoggedIn(false);
+                      localStorage.removeItem('accessToken');
+                      router.push('/');
+                    }}
+                  >
+                    Logout
+                  </MenuItem>
                 </MenuList>
               </>
             )}

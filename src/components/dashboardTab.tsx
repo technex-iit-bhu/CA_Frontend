@@ -20,10 +20,10 @@ const monthNames = [
 const DashboardTab = () => {
   // State to hold the tasks
   const [tasks, setTasks] = useState([]);
-  const [activeTab, setActiveTab] = useState('live'); // This has be simplified since there's only one type of task now.
-  // We need to replqace this with actual live, expired and completed tasks
+  const [submittedTasks, setSubmittedTasks] = useState([]);
+  // We need to replace this with actual live, expired and completed tasks
   const [isLargerThan700] = useMediaQuery('(min-width: 700px)');
-
+  const [activeTab, setActiveTab] = useState('live');
   // Fetch tasks from the API when the component mounts
   useEffect(() => {
     const fetchTasks = async () => {
@@ -36,14 +36,7 @@ const DashboardTab = () => {
         });
         if (response.status === 200) {
           const fetchedTasks = await response.json();
-
-          // Map through each task and assign an expiry time.
-          // Backend peeps need to add this to user schema too to remove this hard coding
-          const finalTasks = fetchedTasks.map((task: any) => ({
-            ...task,
-            expiryDate: '06/01/2004',
-          }));
-          setTasks(finalTasks);
+          setTasks(fetchedTasks);
         } else {
           console.error('Failed to fetch tasks');
         }
@@ -51,34 +44,88 @@ const DashboardTab = () => {
         console.error('Server error', error);
       }
     };
-
+    const fetchSubmittedTasks = async () => {
+      try {
+        const accessToken = localStorage.getItem('accessToken');
+        const response = await fetch('api/getSubmittedTasks', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        if (response.status === 200) {
+          const fetchedTasks = await response.json();
+          setSubmittedTasks(fetchedTasks);
+        } else {
+          console.error('Failed to fetch submitted tasks');
+        }
+      } catch (error) {
+        console.error('Server error', error);
+      }
+    };
     fetchTasks();
+    fetchSubmittedTasks();
   }, []);
-
   const fontSize = isLargerThan700 ? '20px' : '3.57vw';
   const width = isLargerThan700 ? '200px' : '28.5vw';
 
-  const renderCards = () => {
+  const renderCards = (activeTab: string) => {
     const now = new Date();
-    // Render the cards for live tasks
-    // return tasks.map(
-    //   ({ id, expiryDate, points, title, description }, index) => (
-    //     <Cards
-    //       key={id}
-    //       date={expiryDate}
-    //       points={points}
-    //       title={title}
-    //       description={description}
-    //       taskNumber={`${index + 1}`}
-    //       month={`${monthNames[now.getMonth() + 1]}`}
-    //     />
-    //   )
-    // );
-    return (
-      <h1 className='cs flex h-[100%] w-[100%] items-center justify-center py-6 text-center text-3xl sm:text-5xl md:text-7xl lg:text-9xl'>
-        {' '}
-        Coming soon
-      </h1>
+    let filteredTasks = tasks;
+    let verifiedTasks = submittedTasks
+      .filter(({ verified }) => verified === true)
+      .map(({ task }) => task);
+    let pendingTasks = submittedTasks
+      .filter(({ verified }) => verified === false)
+      .map(({ task }) => task);
+    if (activeTab === 'live') {
+      filteredTasks = tasks.filter(({ deadline }) => new Date(deadline) > now);
+    } else if (activeTab === 'expired') {
+      filteredTasks = tasks.filter(({ deadline }) => new Date(deadline) <= now);
+      if (filteredTasks.length === 0) {
+        return (
+          <h1 className='cs text-1xl flex h-[100%] w-[100%] items-center justify-center py-6 text-center sm:text-2xl md:text-3xl lg:text-4xl'>
+            {' '}
+            No expired tasks!
+          </h1>
+        );
+      }
+    } else if (activeTab === 'completed') {
+      filteredTasks = verifiedTasks;
+      if (filteredTasks.length === 0) {
+        return (
+          <h1 className='cs text-1xl flex h-[100%] w-[100%] items-center justify-center py-6 text-center sm:text-2xl md:text-3xl lg:text-4xl'>
+            {' '}
+            No Completed tasks!
+          </h1>
+        );
+      }
+    } else if (activeTab === 'submitted') {
+      filteredTasks = pendingTasks;
+      if (filteredTasks.length === 0) {
+        return (
+          <h1 className='cs text-1xl flex h-[100%] w-[100%] items-center justify-center py-6 text-center sm:text-2xl md:text-3xl lg:text-4xl'>
+            {' '}
+            No Submitted tasks!
+          </h1>
+        );
+      }
+    }
+    return filteredTasks.map(
+      ({ id, deadline, points, title, description }, index) => (
+        <Cards
+          key={id}
+          date={new Date(deadline).toLocaleDateString()}
+          points={points}
+          title={title}
+          description={description}
+          taskNumber={`${index + 1}`}
+          taskID={id}
+          month={`${monthNames[now.getMonth()]}`}
+          activeTab={activeTab}
+        />
+      )
     );
   };
 
@@ -95,6 +142,16 @@ const DashboardTab = () => {
         >
           Live Tasks
         </Button>
+        <Button
+          style={
+            activeTab === 'submitted'
+              ? { borderBottom: '0.5vh solid #A81F25', fontSize, width }
+              : { fontSize, width }
+          }
+          onClick={() => setActiveTab('submitted')}
+        >
+          Submitted
+        </Button>
         {/* The other buttons can remain for future functionality */}
         <Button
           style={
@@ -103,7 +160,6 @@ const DashboardTab = () => {
               : { fontSize, width }
           }
           onClick={() => setActiveTab('completed')}
-          disabled // Disable the button since the functionality is not implemented yet
         >
           Completed
         </Button>
@@ -114,12 +170,11 @@ const DashboardTab = () => {
               : { fontSize, width }
           }
           onClick={() => setActiveTab('expired')}
-          disabled // Disable the button since the functionality is not implemented yet
         >
           Expired
         </Button>
       </Box>
-      <Box>{renderCards()}</Box> {/* Updated call */}
+      <Box>{renderCards(activeTab)}</Box>
     </Box>
   );
 };

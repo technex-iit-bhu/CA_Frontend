@@ -31,7 +31,11 @@ const Footer: FC = () => {
             <Link href={'https://www.instagram.com/technexiitbhu/'}>
               <Image src={'/insta.webp'} alt='Insta' width={33} height={35} />
             </Link>
-            <Link href={'https://www.linkedin.com/company/technex-iit-bhu-varanasi/mycompany/'}>
+            <Link
+              href={
+                'https://www.linkedin.com/company/technex-iit-bhu-varanasi/mycompany/'
+              }
+            >
               <Image
                 src={'/linkedin.webp'}
                 alt='Linkedin'
@@ -42,9 +46,7 @@ const Footer: FC = () => {
             <Link href={'https://x.com/technexiitbhu?s=20'}>
               <Image src={'/X.webp'} alt='X' width={35} height={35} />
             </Link>
-            <Link href=' '>
-              
-            </Link>
+            <Link href=' '></Link>
           </div>
           <div className='flex pl-2 pt-4 font-spline text-sm'>
             For more queries:
@@ -79,7 +81,11 @@ const Footer: FC = () => {
               <Link href={'https://www.instagram.com/technexiitbhu/'}>
                 <Image src={'/insta.webp'} alt='Insta' width={33} height={35} />
               </Link>
-              <Link href={'https://www.linkedin.com/company/technex-iit-bhu-varanasi/mycompany/'}>
+              <Link
+                href={
+                  'https://www.linkedin.com/company/technex-iit-bhu-varanasi/mycompany/'
+                }
+              >
                 <Image
                   src={'/linkedin.webp'}
                   alt='Linkedin'
@@ -90,9 +96,7 @@ const Footer: FC = () => {
               <Link href={'https://x.com/technexiitbhu?s=20'}>
                 <Image src={'/X.webp'} alt='X' width={35} height={35} />
               </Link>
-              <Link href={''}>
-                
-              </Link>
+              <Link href={''}></Link>
             </div>
             <div className='flex items-center justify-center pl-1 pt-4 text-center font-spline text-sm'>
               For more queries:

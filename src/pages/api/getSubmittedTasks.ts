@@ -7,7 +7,7 @@ export default async function handler(
   if (req.method === 'GET') {
     try {
       const response = await fetch(
-        'https://ca-backend-qknd.onrender.com/auth/user/profile/',
+        'https://ca-backend-qknd.onrender.com/tasks/submitted',
         {
           method: 'GET',
           headers: {
@@ -20,15 +20,14 @@ export default async function handler(
       );
 
       if (response.ok) {
-        const profile = await response.json();
-        console.log('Profile recieved');
-        console.log(profile);
-        res.status(200).json(profile); // Forward the response from the API
+        const submittedTasks = await response.json();
+        console.log(' Submitted Tasks recieved');
+        console.log(submittedTasks);
+        res.status(200).json(submittedTasks); // Forward the response from the API
       } else {
-        console.log('Failed to fetch');
         res
           .status(response.status)
-          .json({ message: 'Failed to fetch Profile' });
+          .json({ message: 'Failed to fetch submitted tasks' });
       }
     } catch (error) {
       console.error(error);
