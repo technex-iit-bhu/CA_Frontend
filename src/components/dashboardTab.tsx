@@ -17,10 +17,52 @@ const monthNames = [
   'December',
 ];
 
-const DashboardTab = () => {
+interface Task {
+  id: number;
+  points: string;
+  description: string;
+  title: string;
+  deadline: string;
+  admin_comment: string;
+  incentives: string;
+}
+
+interface User {
+  id: number;
+  user_name: string;
+  first_name: string;
+  last_name: string;
+  college: string;
+  year: number;
+  phone_no: string;
+  whatsapp_no: string;
+  postal_address: string;
+  pin_code: number;
+  why_choose: string;
+  where_you_ca: string;
+  points: number;
+  avatar_id: number;
+  date_joined: string;
+  user: number;
+}
+interface submittedTask {
+  id: number;
+  verified: boolean;
+  timestamp: string;
+  user: User;
+  task: Task;
+  link: string;
+  admin_comment: string;
+}
+
+interface Props {
+  setCompletedTasks: React.Dispatch<React.SetStateAction<number>>
+}
+
+const DashboardTab: React.FC<Props> = ({setCompletedTasks}) => {
   // State to hold the tasks
-  const [tasks, setTasks] = useState([]);
-  const [submittedTasks, setSubmittedTasks] = useState([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [submittedTasks, setSubmittedTasks] = useState<submittedTask[]>([]);
   // We need to replace this with actual live, expired and completed tasks
   const [isLargerThan700] = useMediaQuery('(min-width: 700px)');
   const [activeTab, setActiveTab] = useState('live');
@@ -75,12 +117,24 @@ const DashboardTab = () => {
     let filteredTasks = tasks;
     let verifiedTasks = submittedTasks
       .filter(({ verified }) => verified === true)
-      .map(({ task }) => task);
+      .map(submittedTask => {
+        let task = submittedTask.task;
+        task.admin_comment = submittedTask.admin_comment
+        return task
+      });
+    setCompletedTasks(verifiedTasks.length)
     let pendingTasks = submittedTasks
       .filter(({ verified }) => verified === false)
-      .map(({ task }) => task);
+      .map(submittedTask => {
+        let task = submittedTask.task;
+        task.admin_comment = submittedTask.admin_comment
+        return task
+      })
     if (activeTab === 'live') {
-      filteredTasks = tasks.filter(({ deadline }) => new Date(deadline) > now);
+      const submittedTaskIds = submittedTasks.map(({task}) => task.id);
+      filteredTasks = tasks.filter(({ deadline, id }) => {
+        return ((new Date(deadline) > now) && !submittedTaskIds.includes(id))
+      });
     } else if (activeTab === 'expired') {
       filteredTasks = tasks.filter(({ deadline }) => new Date(deadline) <= now);
       if (filteredTasks.length === 0) {
@@ -112,21 +166,24 @@ const DashboardTab = () => {
         );
       }
     }
-    return filteredTasks.map(
-      ({ id, deadline, points, title, description }, index) => (
-        <Cards
-          key={id}
-          date={new Date(deadline).toLocaleDateString()}
-          points={points}
-          title={title}
-          description={description}
-          taskNumber={`${index + 1}`}
-          taskID={id}
-          month={`${monthNames[now.getMonth()]}`}
-          activeTab={activeTab}
-        />
-      )
-    );
+      return filteredTasks.map(
+        ({ id, deadline, points, title, description, admin_comment, incentives }, index) => {
+          console.log(admin_comment)
+          return <Cards
+            key={id}
+            date={new Date(deadline).toLocaleDateString()}
+            points={points}
+            title={title}
+            description={description}
+            taskNumber={`${index + 1}`}
+            taskID={id}
+            month={`${monthNames[now.getMonth()]}`}
+            activeTab={activeTab}
+            comment={admin_comment}
+            incentives={incentives}
+          />
+        }
+      );
   };
 
   return (
