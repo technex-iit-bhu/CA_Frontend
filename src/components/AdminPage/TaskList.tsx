@@ -22,7 +22,7 @@ function TaskList({ token }: { token: string | null }) {
         },
       });
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       if (!data || !data.sort) {
         //there has been an error as data is not an array
         setMessage(data.detail);
@@ -123,9 +123,6 @@ function TaskItem({
   let edited = (Object.keys(task) as Array<keyof Task>).reduce((acc, key) => {
     if (key == 'deadline')
       return acc || task[key].getTime() != displayedTask[key].getTime();
-    task[key] != displayedTask[key]
-      ? console.log(key, task[key], displayedTask[key])
-      : null;
     return acc || task[key] != displayedTask[key];
   }, false);
 
