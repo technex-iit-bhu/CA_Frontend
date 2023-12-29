@@ -142,7 +142,7 @@ const Cards: React.FC<Props> = ({
             </p>
             <p className='text-left text-xs md:text-sm'>{description}</p>
             <div className='flex justify-between'>
-              <p className='text-left text-xs md:text-sm'>Expires on: {date}</p>
+              <p className='text-left text-xs md:text-sm'>Expires on: {new Date(date).toDateString()}</p>
               <p className='text-left text-xs md:text-sm'>Points: {points}</p>
             </div>
             <div className='flex items-center justify-between'>
