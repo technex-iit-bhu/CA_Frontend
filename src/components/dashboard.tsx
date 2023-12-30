@@ -19,7 +19,7 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 
-  const fetchedTasks = useFetchTasks(); 
+  const fetchedTasks = useFetchTasks();
   // Made a custom hook to restrict multiple calls of api to one
 
   useEffect(() => {

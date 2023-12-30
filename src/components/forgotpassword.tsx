@@ -62,7 +62,6 @@ const ForgotPassword = () => {
         },
       });
 
-
       if (response.status === 404) {
         setModalContent('Invalid E-mail');
         setShowModal(true);

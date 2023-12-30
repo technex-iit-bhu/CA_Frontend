@@ -32,7 +32,6 @@ function TaskList({ token }: { token: string | null }) {
           ...task,
           deadline: new Date(task.deadline).toISOString(),
         }));
-        
 
         dataWithDeadline.sort((a: Task, b: Task) =>
           a.id > b.id ? 1 : b.id > a.id ? -1 : 0
@@ -121,8 +120,7 @@ function TaskItem({
   >(taskUpdateReducer, task);
 
   let edited = (Object.keys(task) as Array<keyof Task>).reduce((acc, key) => {
-    if (key == 'deadline')
-      return acc || task[key] != displayedTask[key];
+    if (key == 'deadline') return acc || task[key] != displayedTask[key];
     return acc || task[key] != displayedTask[key];
   }, false);
 
@@ -148,7 +146,7 @@ function TaskItem({
     let fd = new FormData();
     for (let entry of Object.entries(displayedTask)) {
       if (entry[0] == 'image') continue; // TODO: handle image
-      fd.append(entry[0], ""+entry[1]);// ""+entry[1] converts number|string to string
+      fd.append(entry[0], '' + entry[1]); // ""+entry[1] converts number|string to string
     }
     try {
       const response = await fetch(BACKEND_URL + 'tasks/' + task.id + '/', {
@@ -200,7 +198,9 @@ function TaskItem({
         <input
           type='date'
           value={new Date(displayedTask.deadline).toISOString().split('T')[0]}
-          onChange={(e) => dispatch({ deadline: new Date(e.target.value).toISOString() })}
+          onChange={(e) =>
+            dispatch({ deadline: new Date(e.target.value).toISOString() })
+          }
         ></input>
       </td>
       <td className={styles.td}>
