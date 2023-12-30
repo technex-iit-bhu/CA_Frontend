@@ -70,7 +70,7 @@ const UserTable = ({ token }: { token: string | null }) => {
   }
 
   return (
-    <div className='h-[60%] overflow-x-hidden'>
+    <div className='h-[60%] w-[80%] overflow-auto'>
       <table>
         <thead>
           <tr>
