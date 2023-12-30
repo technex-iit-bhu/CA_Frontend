@@ -34,7 +34,7 @@ const Cards: React.FC<Props> = ({
   month,
   activeTab,
   comment,
-  incentives
+  incentives,
 }) => {
   const [isUploaded, setIsUploaded] = useState(false);
   const [buttonText, setButtonText] = useState('Upload');
@@ -49,13 +49,6 @@ const Cards: React.FC<Props> = ({
   };
 
   const handleSubmit = async () => {
-    // console.log('Selected File:', file);
-    // console.log('Selected File Name:', file.name);
-    // setTimeout(() => {
-    //   setIsUploaded(true);
-    //   setButtonText('Uploaded');
-    // }, 2000);
-
     try {
       const response = await fetch(
         `https://ca-backend-qknd.onrender.com/tasks/submit/${taskID}/`,
@@ -71,19 +64,16 @@ const Cards: React.FC<Props> = ({
       if (response.status === 201) {
         setModalContent('Task Submitted Successfully');
         setShowModal(true);
-        console.log('Uploaded');
         setIsUploaded(true);
         setButtonText('Uploaded');
         setDropdown(false);
       } else if (response.status === 400) {
         setModalContent('Invalid Link or Task Already Submitted');
         setShowModal(true);
-        console.log('Task already submitted');
         setDropdown(false);
       } else if (response.status === 401) {
         setModalContent('Unauthorized');
         setShowModal(true);
-        console.log('Unauthorized');
         setDropdown(false);
       }
     } catch (error) {
@@ -143,7 +133,9 @@ const Cards: React.FC<Props> = ({
             </p>
             <p className='text-left text-xs md:text-sm'>{description}</p>
             <div className='flex justify-between'>
-              <p className='text-left text-xs md:text-sm'>Expires on: {DDMMYYYY(date)}</p>
+              <p className='text-left text-xs md:text-sm'>
+                Expires on: {DDMMYYYY(date)}
+              </p>
               <p className='text-left text-xs md:text-sm'>Points: {points}</p>
             </div>
             <div className='flex items-center justify-between'>
@@ -217,37 +209,42 @@ const Cards: React.FC<Props> = ({
             as={Button}
             rightIcon={<ChevronDownIcon />}
             className='absolute bottom-0 left-0'
-          > {activeTab === 'live' ? 'Incentives' : 'Comments'} </MenuButton>
+          >
+            {' '}
+            {activeTab === 'live' ? 'Incentives' : 'Comments'}{' '}
+          </MenuButton>
           <MenuList className='z-10'>
             <MenuItem
               minH='48px'
               maxW='350px'
               className='menuItem flex-shrink-1 flex bg-[#A81F25] p-[10px] md:w-1/2 lg:w-1/3'
             >
-              {
-                activeTab === 'live' ? 
-                (incentives ? incentives : 'No Incentives') :
-                (comment ? comment : 'No Comments') 
-              }
+              {activeTab === 'live'
+                ? incentives
+                  ? incentives
+                  : 'No Incentives'
+                : comment
+                  ? comment
+                  : 'No Comments'}
             </MenuItem>
           </MenuList>
         </Menu>
         {showModal && (
-            <div
-              className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'
-              onClick={() => setShowModal(false)}
-            >
-              <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>
-                <p className='self-center'>{modalContent}</p>
-                <button
-                  onClick={handleModalClose}
-                  className='text-white m-4 self-center rounded-full bg-red px-4 py-2 lg:w-[50%]'
-                >
-                  Okay
-                </button>
-              </div>
+          <div
+            className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'
+            onClick={() => setShowModal(false)}
+          >
+            <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>
+              <p className='self-center'>{modalContent}</p>
+              <button
+                onClick={handleModalClose}
+                className='text-white m-4 self-center rounded-full bg-red px-4 py-2 lg:w-[50%]'
+              >
+                Okay
+              </button>
             </div>
-          )}
+          </div>
+        )}
       </div>
     </div>
   );

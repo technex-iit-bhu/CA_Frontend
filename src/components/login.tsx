@@ -30,7 +30,9 @@ const Login = () => {
         },
       });
       if (response.status === 400) {
-        setModalContent('Invalid Credentials, Contact Us if already registered');
+        setModalContent(
+          'Invalid Credentials, Contact Us if already registered'
+        );
         setShowModal(true);
         return;
       }

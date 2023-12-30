@@ -32,7 +32,6 @@ const UserTable = ({ token }: { token: string | null }) => {
     })
       .then((k) => k.json())
       .then((data) => {
-        console.log(data);
         if (data.splice === undefined)
           //there has been an error as data is not an array
           throw new Error(data.detail);
