@@ -168,7 +168,6 @@ const DashboardTab: React.FC<Props> = ({setCompletedTasks}) => {
     }
       return filteredTasks.map(
         ({ id, deadline, points, title, description, admin_comment, incentives }, index) => {
-          console.log(admin_comment)
           return <Cards
             key={id}
             date={new Date(deadline).toLocaleDateString()}

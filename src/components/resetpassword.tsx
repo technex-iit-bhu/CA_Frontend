@@ -35,7 +35,6 @@ const ForgotPassword = () => {
         },
       });
 
-      console.log(JSON.stringify(formData));
 
       if (response.status === 404) {
         setModalContent('Invalid E-mail');

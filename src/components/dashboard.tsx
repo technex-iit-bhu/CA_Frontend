@@ -6,14 +6,14 @@ interface Props {
   completedTasks: number;
 }
 
-const Dashboard: React.FC<Props> = ({completedTasks}) => {
+const Dashboard: React.FC<Props> = ({ completedTasks }) => {
   const [name, setName] = useState('');
   const [rank, setRank] = useState('NaN');
   const [caId, setCaId] = useState('XXXXXXXXXX');
   const [tasksDone, setTasksDone] = useState('NaN');
   const [totalTasks, setTotalTasks] = useState('0');
   const [points, setPoints] = useState('NaN');
-  const [totalPayments, setTotalPayments] = useState('NaN');
+  const [totalIncentives, setTotalIncentives] = useState(0);
   const [totalRegistrations, setTotalRegistrations] = useState('NaN');
   const [modalContent, setModalContent] = useState('');
   const [showModal, setShowModal] = useState(false);
@@ -58,19 +58,33 @@ const Dashboard: React.FC<Props> = ({completedTasks}) => {
           },
         });
         if (response.status === 200) {
+    
           const fetchedTasks = await response.json();
           setTotalTasks(fetchedTasks.length);
+          setTotalIncentives(setIncentiveHelper(fetchedTasks))
+          
         } else {
           console.error('Failed to fetch tasks');
         }
       } catch (error) {
         console.error('Server error', error);
       }
-    };
+    }
 
     fetchProfile();
     fetchTasks();
   }, []);
+
+  const setIncentiveHelper = (tasks: { incentives: string }[]) => {
+    let sum = 0;
+    tasks.forEach((task: { incentives: string }) => {
+      const incentiveValue = parseInt(task.incentives);
+      if (!isNaN(incentiveValue)) {
+        sum += incentiveValue;
+      }
+    });
+    return sum
+  }
 
   const handleModalClose = () => {
     setShowModal(false);

@@ -22,7 +22,6 @@ function TaskList({ token }: { token: string | null }) {
         },
       });
       const data = await response.json();
-      // console.log(data);
       if (!data || !data.sort) {
         //there has been an error as data is not an array
         setMessage(data.detail);
@@ -139,7 +138,6 @@ function TaskItem({
       });
       if (response.ok) {
         handleRefresh();
-        console.log(response);
       }
     } catch (err) {
       console.log(err);

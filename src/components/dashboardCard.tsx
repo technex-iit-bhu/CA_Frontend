@@ -49,12 +49,6 @@ const Cards: React.FC<Props> = ({
   };
 
   const handleSubmit = async () => {
-    // console.log('Selected File:', file);
-    // console.log('Selected File Name:', file.name);
-    // setTimeout(() => {
-    //   setIsUploaded(true);
-    //   setButtonText('Uploaded');
-    // }, 2000);
 
     try {
       const response = await fetch(
@@ -71,19 +65,16 @@ const Cards: React.FC<Props> = ({
       if (response.status === 201) {
         setModalContent('Task Submitted Successfully');
         setShowModal(true);
-        console.log('Uploaded');
         setIsUploaded(true);
         setButtonText('Uploaded');
         setDropdown(false);
       } else if (response.status === 400) {
         setModalContent('Invalid Link or Task Already Submitted');
         setShowModal(true);
-        console.log('Task already submitted');
         setDropdown(false);
       } else if (response.status === 401) {
         setModalContent('Unauthorized');
         setShowModal(true);
-        console.log('Unauthorized');
         setDropdown(false);
       }
     } catch (error) {

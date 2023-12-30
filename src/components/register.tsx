@@ -31,7 +31,6 @@ const Register = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log('Form Submitted');
 
     if (formData.password !== formData.confirmPassword) {
       setModalContent('Passwords do not match!');
@@ -49,7 +48,6 @@ const Register = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log('Success', data);
         setModalContent('Verification link has been sent by email!');
         setShowModal(true);
       } else {
