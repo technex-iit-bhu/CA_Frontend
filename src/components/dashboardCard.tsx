@@ -209,18 +209,25 @@ const Cards: React.FC<Props> = ({
             as={Button}
             rightIcon={<ChevronDownIcon />}
             className='absolute bottom-0 left-0'
-          > {activeTab === 'live' || activeTab === 'completed' ? 'Incentives' : 'Comments'} </MenuButton>
+          >
+            {' '}
+            {activeTab === 'live' || activeTab === 'completed'
+              ? 'Incentives'
+              : 'Comments'}{' '}
+          </MenuButton>
           <MenuList className='z-10'>
             <MenuItem
               minH='48px'
               maxW='350px'
               className='menuItem flex-shrink-1 flex bg-[#A81F25] p-[10px] md:w-1/2 lg:w-1/3'
             >
-              {
-                activeTab === 'live' || activeTab === 'completed' ? 
-                (incentives ? incentives : 'No Incentives') :
-                (comment ? comment : 'No Comments') 
-              }
+              {activeTab === 'live' || activeTab === 'completed'
+                ? incentives
+                  ? incentives
+                  : 'No Incentives'
+                : comment
+                  ? comment
+                  : 'No Comments'}
             </MenuItem>
           </MenuList>
         </Menu>
