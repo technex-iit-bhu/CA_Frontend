@@ -1,23 +1,68 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import useFetchTasks from './useFetchTasks'; // Assuming FetchedTasks is now a hook
 import { useRouter } from 'next/router';
 
 interface Props {
   completedTasks: number;
 }
 
-const Dashboard: React.FC<Props> = ({completedTasks}) => {
+
+interface Task {
+  id: number;
+  points: string;
+  description: string;
+  title: string;
+  deadline: string;
+  admin_comment: string;
+  incentives: string;
+}
+
+interface User {
+  id: number;
+  user_name: string;
+  first_name: string;
+  last_name: string;
+  college: string;
+  year: number;
+  phone_no: string;
+  whatsapp_no: string;
+  postal_address: string;
+  pin_code: number;
+  why_choose: string;
+  where_you_ca: string;
+  points: number;
+  avatar_id: number;
+  date_joined: string;
+  user: number;
+}
+interface submittedTask {
+  id: number;
+  verified: boolean;
+  timestamp: string;
+  user: User;
+  task: Task;
+  link: string;
+  admin_comment: string;
+}
+
+
+
+const Dashboard: React.FC<Props> = ({ completedTasks }) => {
   const [name, setName] = useState('');
   const [rank, setRank] = useState('NaN');
   const [caId, setCaId] = useState('XXXXXXXXXX');
   const [tasksDone, setTasksDone] = useState('NaN');
   const [totalTasks, setTotalTasks] = useState('0');
   const [points, setPoints] = useState('NaN');
-  const [totalPayments, setTotalPayments] = useState('NaN');
+  const [totalIncentives, setTotalIncentives] = useState(0);
   const [totalRegistrations, setTotalRegistrations] = useState('NaN');
   const [modalContent, setModalContent] = useState('');
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
+  const [submittedTasks, setSubmittedTasks] = useState<submittedTask[]>([]);
+
+  // const fetchedTasks = useFetchTasks();
+  // Made a custom hook to restrict multiple calls of api to one
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -49,34 +94,70 @@ const Dashboard: React.FC<Props> = ({completedTasks}) => {
       }
     };
 
-    const fetchTasks = async () => {
+    const fetchSubmittedTasks = async () => {
       try {
-        const response = await fetch('api/getTasks', {
+        const accessToken = localStorage.getItem('accessToken');
+        const response = await fetch('api/getSubmittedTasks', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`,
           },
         });
         if (response.status === 200) {
           const fetchedTasks = await response.json();
-          setTotalTasks(fetchedTasks.length);
+          setTotalIncentives(fetchedTasks.length);
+          setSubmittedTasks(fetchedTasks);
         } else {
-          console.error('Failed to fetch tasks');
+          console.error('Failed to fetch submitted tasks');
         }
       } catch (error) {
         console.error('Server error', error);
       }
     };
 
+    fetchSubmittedTasks();
     fetchProfile();
-    fetchTasks();
+
+    // if (fetchedTasks.length > 0) {
+    //   setTotalIncentives(setIncentiveHelper(fetchedTasks));
+    // }
+
   }, []);
+
+  // const setIncentiveHelper = (tasks: { incentives: string }[]) => {
+  //   let sum = 0;
+  //   tasks.forEach((task: { incentives: string }) => {
+  //     const incentiveValue = parseInt(task.incentives);
+  //     if (!isNaN(incentiveValue)) {
+  //       sum += incentiveValue;
+  //     }
+  //   });
+  //   return sum;
+  // };
 
   const handleModalClose = () => {
     setShowModal(false);
     // window.location.href = '/';
+    if (modalContent === 'Login Again') {
     localStorage.removeItem('accessToken');
-    router.push('/');
+    router.push('/');}
+  };
+
+  const handleAwards = () => {
+    const incentives = submittedTasks
+    .filter(({ verified }) => verified === true)
+    .map((submittedTask) => {
+      let incentive = submittedTask.task.incentives;
+      return incentive;
+    });
+    if (incentives.length === 0) {
+      setModalContent('No Awards Yet');
+      setShowModal(true);
+      return;
+    }
+    setModalContent(incentives.toString());
+    setShowModal(true);
   };
 
   return (
@@ -176,8 +257,11 @@ const Dashboard: React.FC<Props> = ({completedTasks}) => {
               </div>
             </div>
           </div>
-          <div className='z-10 mb-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
-            <button className='text-white my-[10px] h-[40px] w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] md:self-end'>
+          <div className='z-10 mb-[20px] flex h-auto flex-col content-center rounded-[50px] bg-background p-[20px] px-[30px]'>
+            <div className='text-white self-left inline select-none content-center justify-start font-spline text-[20px] font-bold'>
+              Incentives earned till date : {totalIncentives}
+            </div>
+            <button className='text-white h-[40px] w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] md:self-end' onClick={handleAwards}>
               Awards
             </button>
           </div>
@@ -185,7 +269,7 @@ const Dashboard: React.FC<Props> = ({completedTasks}) => {
       </div>
       {showModal && (
         <div
-          className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'
+          className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50 z-50'
           onClick={() => setShowModal(false)}
         >
           <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>

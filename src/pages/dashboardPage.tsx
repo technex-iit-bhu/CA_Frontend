@@ -4,7 +4,7 @@ import DashboardTab from '@/components/dashboardTab';
 import Navbar from '../components/navbar';
 
 export default function DashboardPage() {
-  const [completedTasks, setCompletedTasks] = useState(0)
+  const [completedTasks, setCompletedTasks] = useState(0);
   return (
     <>
       <div className='z-10 pb-[110px] '>

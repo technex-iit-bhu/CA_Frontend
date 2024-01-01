@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, useMediaQuery } from '@chakra-ui/react';
 import Cards from './dashboardCard';
+import useFetchTasks from './useFetchTasks';
 
 const monthNames = [
   'January',
@@ -56,10 +57,10 @@ interface submittedTask {
 }
 
 interface Props {
-  setCompletedTasks: React.Dispatch<React.SetStateAction<number>>
+  setCompletedTasks: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const DashboardTab: React.FC<Props> = ({setCompletedTasks}) => {
+const DashboardTab: React.FC<Props> = ({ setCompletedTasks }) => {
   // State to hold the tasks
   const [tasks, setTasks] = useState<Task[]>([]);
   const [submittedTasks, setSubmittedTasks] = useState<submittedTask[]>([]);
@@ -67,25 +68,9 @@ const DashboardTab: React.FC<Props> = ({setCompletedTasks}) => {
   const [isLargerThan700] = useMediaQuery('(min-width: 700px)');
   const [activeTab, setActiveTab] = useState('live');
   // Fetch tasks from the API when the component mounts
+  const fetchedTasks = useFetchTasks();
   useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const response = await fetch('api/getTasks', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        if (response.status === 200) {
-          const fetchedTasks = await response.json();
-          setTasks(fetchedTasks);
-        } else {
-          console.error('Failed to fetch tasks');
-        }
-      } catch (error) {
-        console.error('Server error', error);
-      }
-    };
+    setTasks(fetchedTasks);
     const fetchSubmittedTasks = async () => {
       try {
         const accessToken = localStorage.getItem('accessToken');
@@ -106,9 +91,8 @@ const DashboardTab: React.FC<Props> = ({setCompletedTasks}) => {
         console.error('Server error', error);
       }
     };
-    fetchTasks();
     fetchSubmittedTasks();
-  }, []);
+  }, [fetchedTasks]);
   const fontSize = isLargerThan700 ? '20px' : '3.57vw';
   const width = isLargerThan700 ? '200px' : '28.5vw';
 
@@ -117,23 +101,23 @@ const DashboardTab: React.FC<Props> = ({setCompletedTasks}) => {
     let filteredTasks = tasks;
     let verifiedTasks = submittedTasks
       .filter(({ verified }) => verified === true)
-      .map(submittedTask => {
+      .map((submittedTask) => {
         let task = submittedTask.task;
-        task.admin_comment = submittedTask.admin_comment
-        return task
+        task.admin_comment = submittedTask.admin_comment;
+        return task;
       });
-    setCompletedTasks(verifiedTasks.length)
+    setCompletedTasks(verifiedTasks.length);
     let pendingTasks = submittedTasks
       .filter(({ verified }) => verified === false)
-      .map(submittedTask => {
+      .map((submittedTask) => {
         let task = submittedTask.task;
-        task.admin_comment = submittedTask.admin_comment
-        return task
-      })
+        task.admin_comment = submittedTask.admin_comment;
+        return task;
+      });
     if (activeTab === 'live') {
-      const submittedTaskIds = submittedTasks.map(({task}) => task.id);
+      const submittedTaskIds = submittedTasks.map(({ task }) => task.id);
       filteredTasks = tasks.filter(({ deadline, id }) => {
-        return ((new Date(deadline) > now) && !submittedTaskIds.includes(id))
+        return new Date(deadline) > now && !submittedTaskIds.includes(id);
       });
     } else if (activeTab === 'expired') {
       filteredTasks = tasks.filter(({ deadline }) => new Date(deadline) <= now);
@@ -166,10 +150,13 @@ const DashboardTab: React.FC<Props> = ({setCompletedTasks}) => {
         );
       }
     }
-      return filteredTasks.map(
-        ({ id, deadline, points, title, description, admin_comment, incentives }, index) => {
-          console.log(admin_comment)
-          return <Cards
+    return filteredTasks.map(
+      (
+        { id, deadline, points, title, description, admin_comment, incentives },
+        index
+      ) => {
+        return (
+          <Cards
             key={id}
             date={new Date(deadline).toLocaleDateString()}
             points={points}
@@ -182,8 +169,9 @@ const DashboardTab: React.FC<Props> = ({setCompletedTasks}) => {
             comment={admin_comment}
             incentives={incentives}
           />
-        }
-      );
+        );
+      }
+    );
   };
 
   return (
