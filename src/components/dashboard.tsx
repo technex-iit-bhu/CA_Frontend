@@ -6,7 +6,6 @@ interface Props {
   completedTasks: number;
 }
 
-
 interface Task {
   id: number;
   points: string;
@@ -45,14 +44,13 @@ interface submittedTask {
   admin_comment: string;
 }
 
-
-
 const Dashboard: React.FC<Props> = ({ completedTasks }) => {
   const [name, setName] = useState('');
   const [rank, setRank] = useState('NaN');
   const [caId, setCaId] = useState('XXXXXXXXXX');
   const [tasksDone, setTasksDone] = useState('NaN');
   const [totalTasks, setTotalTasks] = useState('0');
+  const [allTasks, setAllTasks] = useState([]);
   const [points, setPoints] = useState('NaN');
   const [totalIncentives, setTotalIncentives] = useState(0);
   const [totalRegistrations, setTotalRegistrations] = useState('NaN');
@@ -115,14 +113,36 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
         console.error('Server error', error);
       }
     };
+    const fetchAllTasks = async () => {
+      try {
+        const accessToken = localStorage.getItem('accessToken');
+        const response = await fetch('api/getTasks', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        if (response.status === 200) {
+          const aT = await response.json();
+          console.log(aT.length);
+          setAllTasks(aT);
+          setTotalTasks(aT.length);
+        } else {
+          console.error('Failed to fetch submitted tasks');
+        }
+      } catch (error) {
+        console.error('Server error', error);
+      }
+    };
 
     fetchSubmittedTasks();
     fetchProfile();
+    fetchAllTasks();
 
     // if (fetchedTasks.length > 0) {
     //   setTotalIncentives(setIncentiveHelper(fetchedTasks));
     // }
-
   }, []);
 
   // const setIncentiveHelper = (tasks: { incentives: string }[]) => {
@@ -140,17 +160,18 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
     setShowModal(false);
     // window.location.href = '/';
     if (modalContent === 'Login Again') {
-    localStorage.removeItem('accessToken');
-    router.push('/');}
+      localStorage.removeItem('accessToken');
+      router.push('/');
+    }
   };
 
   const handleAwards = () => {
     const incentives = submittedTasks
-    .filter(({ verified }) => verified === true)
-    .map((submittedTask) => {
-      let incentive = submittedTask.task.incentives;
-      return incentive;
-    });
+      .filter(({ verified }) => verified === true)
+      .map((submittedTask) => {
+        let incentive = submittedTask.task.incentives;
+        return incentive;
+      });
     if (incentives.length === 0) {
       setModalContent('No Awards Yet');
       setShowModal(true);
@@ -261,7 +282,10 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
             <div className='text-white self-left inline select-none content-center justify-start font-spline text-[20px] font-bold'>
               Incentives earned till date : {totalIncentives}
             </div>
-            <button className='text-white h-[40px] w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] md:self-end' onClick={handleAwards}>
+            <button
+              className='text-white h-[40px] w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] md:self-end'
+              onClick={handleAwards}
+            >
               Awards
             </button>
           </div>
@@ -269,7 +293,7 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
       </div>
       {showModal && (
         <div
-          className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50 z-50'
+          className='fixed inset-0 z-50 flex items-center justify-center bg-grey bg-opacity-50'
           onClick={() => setShowModal(false)}
         >
           <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>
