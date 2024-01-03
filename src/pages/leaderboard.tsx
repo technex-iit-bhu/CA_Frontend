@@ -2,11 +2,13 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Navbar from '../components/navbar';
 
 export default function LeaderboardPage() {
   return (
     <>
       {/* <Leaderboard /> */}
+      <Navbar />
       <div className='z-10 flex items-center justify-between'>
         <Link href={'/'}>
           <div className='-space-y-3 sm:-space-y-6'>
