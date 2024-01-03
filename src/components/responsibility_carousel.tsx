@@ -19,17 +19,11 @@ const ResponsibilityCarousel = () => {
   };
 
   const ArrowLeft = () => (
-    <ArrowLeftIcon
-      onClick={previous}
-      className={'arrow prev'}
-    ></ArrowLeftIcon>
+    <ArrowLeftIcon onClick={previous} className={'arrow prev'}></ArrowLeftIcon>
   );
 
   const ArrowRight = () => (
-    <ArrowRightIcon
-      onClick={next}
-      className={'arrow next'}
-    ></ArrowRightIcon>
+    <ArrowRightIcon onClick={next} className={'arrow next'}></ArrowRightIcon>
   );
 
   const settings = {
