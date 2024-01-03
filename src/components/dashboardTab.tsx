@@ -71,6 +71,7 @@ const DashboardTab: React.FC<Props> = ({ setCompletedTasks }) => {
   const fetchedTasks = useFetchTasks();
   useEffect(() => {
     setTasks(fetchedTasks);
+    
     const fetchSubmittedTasks = async () => {
       try {
         const accessToken = localStorage.getItem('accessToken');
