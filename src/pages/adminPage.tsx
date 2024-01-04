@@ -34,8 +34,8 @@ function Login({
   token: string | null;
   setToken: Function;
 }) {
-  const [username, setUsername] = useState<string>('ADMIN');
-  const [password, setPassword] = useState<string>('strong__password_123');
+  const [username, setUsername] = useState<string>('testaccount23');
+  const [password, setPassword] = useState<string>('testaccount123@');
   const [message, setMessage] = useState<string>('');
 
   function handleClick() {
