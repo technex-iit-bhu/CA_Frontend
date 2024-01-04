@@ -93,52 +93,21 @@ const Cards: React.FC<Props> = ({
     <div className='relative mb-5 flex items-center justify-center'>
       <div className='from-gray-400 to-gray-200 relative mb-8 w-full content-center rounded-xl bg-grey bg-gradient-to-b p-6  md:w-1/2 lg:w-1/3'>
         <div className='flex h-full items-center'>
-          <div className='h-1/3 w-1/3 rounded-xl bg-black'>
-            {activeTab === 'live' && (
-              <Image
-                src='/tasks/2155223-removebg-preview.png'
-                alt='Live Task'
-                width={120}
-                height={120}
-              />
-            )}
-            {activeTab === 'submitted' && (
-              <Image
-                src='/tasks/3255337-removebg-preview.png'
-                alt='Submitted Task'
-                width={120}
-                height={120}
-              />
-            )}
-            {activeTab === 'completed' && (
-              <Image
-                src='/tasks/5995357-removebg-preview.png'
-                alt='Completed Task'
-                width={120}
-                height={120}
-              />
-            )}
-            {activeTab === 'expired' && (
-              <Image
-                src='/tasks/8356278-removebg-preview.png'
-                alt='Expired Task'
-                width={120}
-                height={120}
-              />
-            )}
-          </div>
-          <div className='w-2/3'>
-            <p className='text-left font-bold md:text-xl lg:text-2xl'>
-              {title}
-            </p>
-            <p className='text-left text-xs md:text-sm'>{description}</p>
-            <div className='flex justify-between'>
-              <p className='text-left text-xs md:text-sm'>
-                Expires on: {DDMMYYYY(date)}
+          <div className='w-full'>
+            {/* First  */}
+            <div className='content-start'>
+              <p className='text-left font-bold md:text-xl lg:text-2xl'>
+                {title}
               </p>
-              <p className='text-left text-xs md:text-sm'>Points: {points}</p>
+              <p className='text-left text-xs md:text-sm'>{description}</p>
+              <div className='flex justify-between'>
+                <p className='text-left text-xs md:text-sm'>
+                  Expires on: {DDMMYYYY(date)}
+                </p>
+                <p className='text-left text-xs md:text-sm'>Points: {points}</p>
+              </div>
             </div>
-            <div className='flex items-center justify-between'>
+            <div className='flex content-end items-center justify-between'>
               <div className='flex items-center'>
                 <a
                   href='https://www.instagram.com/technexiitbhu/'
@@ -173,6 +142,7 @@ const Cards: React.FC<Props> = ({
                   <img src='/X.webp' alt='twitter' className='mr-1 h-5 w-5' />
                 </a>
               </div>
+              {/* Second */}
               <div>
                 {activeTab === 'live' && (
                   <button
@@ -208,14 +178,14 @@ const Cards: React.FC<Props> = ({
           <MenuButton
             as={Button}
             rightIcon={<ChevronDownIcon />}
-            className='absolute bottom-0 left-0'
+            className='absolute bottom-0 left-0 mt-1'
           >
             {' '}
             {activeTab === 'live' || activeTab === 'completed'
               ? 'Incentives'
               : 'Comments'}{' '}
           </MenuButton>
-          <MenuList className='z-10'>
+          <MenuList className='z-10 mt-1'>
             <MenuItem
               minH='48px'
               maxW='350px'
