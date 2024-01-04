@@ -172,21 +172,26 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
     }
   };
 
-  const handleAwards = () => {
-    const incentives = submittedTasks
-      .filter(({ verified }) => verified === true)
-      .map((submittedTask) => {
-        let incentive = submittedTask.task.incentives;
-        return incentive;
-      });
-    if (incentives.length === 0) {
-      setModalContent('No Awards Yet');
+  useEffect(() => {
+    const handleAwards = () => {
+      const incentives = submittedTasks
+        .filter(({ verified }) => verified === true)
+        .map((submittedTask) => {
+          let incentive = submittedTask.task.incentives;
+          return incentive;
+        });
+      if (incentives.length === 0) {
+        setModalContent('No Awards Yet');
+        setShowModal(true);
+        return;
+      }
+      setModalContent(incentives.toString());
       setShowModal(true);
-      return;
-    }
-    setModalContent(incentives.toString());
-    setShowModal(true);
-  };
+    };
+
+    handleAwards();
+  }, [submittedTasks])
+
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -303,16 +308,35 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
             <div className='text-white self-left inline select-none content-center justify-start font-spline text-[20px] font-bold'>
               Incentives earned till date : {totalIncentives}
             </div>
-            <button
+            <div className='h-50 flex w-[110%] ef:w-[80%] sm:w-[60%] flex-col rounded-2xl bg-grey p-5 mt-2 shadow-lg self-center overflow-scroll overflow-y-auto max-h-32'>
+            <div className='sm:text-3xl text-white h-[40px] w-[100px] sm:w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] text-center'>
+              Awards
+            </div>
+            <div className='p-3 self-center'>
+              <ul className='list-disc'>
+                <li className=''>
+                {modalContent}
+                </li>
+                {/* <li>
+                  hello
+                </li>
+                <li>
+                  woohooooooo
+                </li>
+                <li>free netflix</li> */}
+              </ul>
+            </div>
+            </div>
+            {/* <button
               className='text-white h-[40px] w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] md:self-end'
               onClick={handleAwards}
             >
               Awards
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
-      {showModal && (
+      {/* {showModal && (
         <div
           className='fixed inset-0 z-50 flex items-center justify-center bg-grey bg-opacity-50'
           onClick={() => setShowModal(false)}
@@ -326,8 +350,8 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
               Okay
             </button>
           </div>
-        </div>
-      )}
+        </div> 
+      )} */}
     </div>
   );
 };
