@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import useFetchTasks from './useFetchTasks'; // Assuming FetchedTasks is now a hook
 import { useRouter } from 'next/router';
+// import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+// import { ChevronDownIcon } from '@chakra-ui/icons';
+import copy from "copy-to-clipboard"
+import { CheckIcon, CopyIcon } from '@chakra-ui/icons';
 
 interface Props {
   completedTasks: number;
@@ -58,6 +62,8 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
   const [submittedTasks, setSubmittedTasks] = useState<submittedTask[]>([]);
+  const [isHovered, setIsHovered] = useState(false);
+  const [icon, setIcon] = useState('copy');
 
   // const fetchedTasks = useFetchTasks();
   // Made a custom hook to restrict multiple calls of api to one
@@ -75,11 +81,12 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
         });
         if (response.status === 200) {
           const fetchedDetails = await response.json();
+          console.log(fetchedDetails);
           setName(
             `${fetchedDetails.userprofile.first_name} ${fetchedDetails.userprofile.last_name}`
           );
           setPoints(fetchedDetails.userprofile.points);
-          setCaId(fetchedDetails.userprofile.unique_id.slice(-8));
+          setCaId(fetchedDetails.referral_code);
         } else if (response.status === 401) {
           setModalContent('Login Again');
           setShowModal(true);
@@ -186,6 +193,19 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
   }, [submittedTasks])
 
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handleCopy = () => {
+    setIcon('copied');
+    copy(caId)
+  }
+
   return (
     <div className=''>
       <div className='relative mb-[100px] flex flex-col bg-background pl-[0px] sm:pl-[40px] md:mb-[50px]'>
@@ -215,16 +235,10 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
                 <p className='text-white select-none self-center text-center text-[30px] font-bold'>
                   {name}
                 </p>
-                <p className='text-white select-none self-center text-[20px]'>
-                  Rank:{rank}
-                </p>
-                <p className='text-white select-none self-center text-[15px]'>
-                  CA Id: {caId}
-                </p>
               </div>
             </div>
 
-            <div className='h-[2px] w-auto bg-red lg:h-[200px] lg:w-[2px] cd:mr-4'></div>
+            {/* <div className='h-[2px] w-auto bg-red lg:h-[200px] lg:w-[2px] cd:mr-4'></div> */}
             <div className='flex grow flex-col justify-center self-center px-[10px] py-[30px] sm:flex-row md:pb-[30px] md:pt-[30px] lg:pb-[100px] lg:pt-0'>
               <div className='mr-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background lg:h-[150px] lg:w-[140px] lg:rounded-[50px] xl:h-[200px] xl:w-[200px]'>
                 <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold lg:mt-[30px] lg:text-[15px] xl:text-[20px]'>
@@ -282,6 +296,13 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
                 </p>
               </div>
             </div>
+          </div>
+          <div className='text-white select-none self-center text-[20px] px-[30px]'>
+          <span className='font-bold'>Rank</span> : {rank}
+          </div>
+          <div className='text-white select-none self-center text-[20px] pb-5 px-[30px]' onClick={handleCopy} >
+          <span className='font-bold'>CA_Id</span> : {caId}
+                  {icon === 'copy' ? (<CopyIcon />) : (<CheckIcon />)}
           </div>
           <div className='z-10 mb-[20px] flex h-auto flex-col content-center rounded-[50px] bg-background p-[20px] px-[30px]'>
             <div className='text-white self-left inline select-none content-center justify-start font-spline text-[20px] font-bold'>
