@@ -2,7 +2,6 @@ import React, { useState, useRef, MutableRefObject } from 'react';
 import Slider from 'react-slick';
 import Head from 'next/head';
 import IncentiveCard from './incentive_card';
-import { v4 as uuidv4 } from 'uuid';
 import 'src/styles/Incentive.module.css';
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import 'slick-carousel/slick/slick.css';
@@ -54,7 +53,7 @@ const incentiveLogoPaths: [string, string][] = [
   ['/EaseMyTripLogo.svg', Text_EaseMyTrip],
   ['/Languify.webp', Text_Languify],
   ['/wayspire.webp', Text_Wayspire],
-  ['/TechnexLogo.svg', Text_Technex],
+  ['Asset_1.svg', Text_Technex],
   ['/quillBot.png',Text_QuillBot],
   ['/symboLab.png',Text_SymbolLab],
   ['/skolar.png',Text_Skolar]
