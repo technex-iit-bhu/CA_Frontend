@@ -13,6 +13,8 @@ import {
   Button,
 } from '@chakra-ui/react';
 
+
+
 const Navbar: FC = () => {
   const [aboutColor, setAboutColor] = useState('red');
   const [incentivesColor, setIncentivesColor] = useState('white');
@@ -22,6 +24,7 @@ const Navbar: FC = () => {
   const [dashboardPageColor, setDashboardPageColor] = useState('white');
   const [profileColor, setProfileColor] = useState('white');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [name, setName] = useState('Tech Team');
 
   const router = useRouter();
 
@@ -105,6 +108,34 @@ const Navbar: FC = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const accessToken = localStorage.getItem('accessToken');
+        const response = await fetch('api/getProfile', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        if (response.status === 200) {
+          const fetchedDetails = await response.json();
+          console.log(fetchedDetails);
+          setName(
+            `${fetchedDetails.userprofile.first_name} ${fetchedDetails.userprofile.last_name}`
+          );}
+          else {
+          console.error('Failed to fetch profile');
+        }
+      } catch (error) {
+        console.error('Server error', error);
+      }
+    };
+    fetchProfile();
+  }
+  , []);
+
   return (
     <div className='z-100 flex items-center justify-between'>
       <Link href={'/'}>
@@ -184,7 +215,7 @@ const Navbar: FC = () => {
               <>
                 <MenuButton isActive={isOpen} as={Button}>
                   <Avatar
-                    name='Dan Abrahmov'
+                    name={name}
                     src='https://play-lh.googleusercontent.com/Oriscl3_nvmDPncct6gStmNuQW_4tqHVozy1skG0vd8Jk22KYNMYYJfKq0vcyU-NKdw'
                     className='h-[50px] w-[50px] rounded-full'
                   />

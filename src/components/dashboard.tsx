@@ -219,7 +219,7 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
         </div>
       </div>
       <div className='px-[30px] md:px-[50px]'>
-        <div className='z-0 rounded-[50px] bg-custom-gradient px-[50px] py-[30px] md:px-[30px]'>
+        <div className='z-0 rounded-[50px] bg-custom-gradient px-[10px] py-[30px] md:px-[30px]'>
           <div className='flex flex-col lg:flex-row'>
             <div className='mt-[-80px] flex flex-col lg:w-1/3'>
               <div className='h-[150px] w-[150px] select-none self-center rounded-full border-4 border-red bg-background'>
@@ -298,10 +298,10 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
             </div>
           </div>
           <div className='text-white select-none self-center text-[20px] px-[30px]'>
-          <span className='font-bold'>Rank</span> : {rank}
+          <span className='font-bold text-[#A81725]'>Rank</span> : {rank}
           </div>
-          <div className='text-white select-none self-center text-[20px] pb-5 px-[30px]' onClick={handleCopy} >
-          <span className='font-bold'>CA_Id</span> : {caId}
+          <div className='select-none self-center pb-5 px-[30px]' onClick={handleCopy} >
+          <span className='font-bold text-[#A81725]'>CA_Id</span> : <span className='sm:text-[20px] text-[0px]' >{caId}</span>
                   {icon === 'copy' ? (<CopyIcon />) : (<CheckIcon />)}
           </div>
           <div className='z-10 mb-[20px] flex h-auto flex-col content-center rounded-[50px] bg-background p-[20px] px-[30px]'>
