@@ -3,7 +3,7 @@ import useFetchTasks from './useFetchTasks'; // Assuming FetchedTasks is now a h
 import { useRouter } from 'next/router';
 // import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
-import copy from "copy-to-clipboard"
+import copy from 'copy-to-clipboard';
 import { CheckIcon, CopyIcon } from '@chakra-ui/icons';
 
 interface Props {
@@ -190,8 +190,7 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
     };
 
     handleAwards();
-  }, [submittedTasks])
-
+  }, [submittedTasks]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -203,8 +202,8 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
 
   const handleCopy = () => {
     setIcon('copied');
-    copy(caId)
-  }
+    copy(caId);
+  };
 
   return (
     <div className=''>
@@ -297,35 +296,37 @@ const Dashboard: React.FC<Props> = ({ completedTasks }) => {
               </div>
             </div>
           </div>
-          <div className='text-white select-none self-center text-[20px] px-[30px]'>
-          <span className='font-bold text-[#A81725]'>Rank</span> : {rank}
+          <div className='text-white select-none self-center px-[30px] text-[20px]'>
+            <span className='font-bold text-[#A81725]'>Rank</span> : {rank}
           </div>
-          <div className='select-none self-center pb-5 px-[30px]' onClick={handleCopy} >
-          <span className='font-bold text-[#A81725]'>CA_Id</span> : <span className='sm:text-[20px] text-[0px]' >{caId}</span>
-                  {icon === 'copy' ? (<CopyIcon />) : (<CheckIcon />)}
+          <div
+            className='select-none self-center px-[30px] pb-5'
+            onClick={handleCopy}
+          >
+            <span className='font-bold text-[#A81725]'>CA_Id</span> :{' '}
+            <span className='text-[0px] sm:text-[20px]'>{caId}</span>
+            {icon === 'copy' ? <CopyIcon /> : <CheckIcon />}
           </div>
           <div className='z-10 mb-[20px] flex h-auto flex-col content-center rounded-[50px] bg-background p-[20px] px-[30px]'>
             <div className='text-white self-left inline select-none content-center justify-start font-spline text-[20px] font-bold'>
               Incentives earned till date : {totalIncentives}
             </div>
-            <div className='h-50 flex w-[110%] ef:w-[80%] sm:w-[60%] flex-col rounded-2xl bg-grey p-5 mt-2 shadow-lg self-center overflow-scroll overflow-y-auto max-h-32'>
-            <div className='sm:text-3xl text-white h-[40px] w-[100px] sm:w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] text-center'>
-              Awards
-            </div>
-            <div className='p-3 self-center'>
-              <ul className='list-disc'>
-                <li className=''>
-                {modalContent}
-                </li>
-                {/* <li>
+            <div className='h-50 mt-2 flex max-h-32 w-[110%] flex-col self-center overflow-scroll overflow-y-auto rounded-2xl bg-grey p-5 shadow-lg ef:w-[80%] sm:w-[60%]'>
+              <div className='text-white h-[40px] w-[100px] select-none self-center rounded-[50px] bg-red text-center font-spline text-[20px] font-bold sm:w-[150px] sm:text-3xl md:w-[200px]'>
+                Awards
+              </div>
+              <div className='self-center p-3'>
+                <ul className='list-disc'>
+                  <li className=''>{modalContent}</li>
+                  {/* <li>
                   hello
                 </li>
                 <li>
                   woohooooooo
                 </li>
                 <li>free netflix</li> */}
-              </ul>
-            </div>
+                </ul>
+              </div>
             </div>
             {/* <button
               className='text-white h-[40px] w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] md:self-end'
