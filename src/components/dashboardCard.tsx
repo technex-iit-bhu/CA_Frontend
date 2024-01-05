@@ -153,7 +153,7 @@ const Cards: React.FC<Props> = ({
               </div>
               {/* Second */}
               <div>
-                {activeTab === 'live' && (
+                {((activeTab === 'live') || (activeTab === 'submitted' && comment)) && (
                   <button
                     onClick={handleUpload}
                     className={`text-white h-6 w-20 rounded-full bg-red ${
