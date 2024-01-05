@@ -51,7 +51,7 @@ function VerifyTasks({ token }: { token: string | null }) {
       });
       if (!response.ok) throw new Error('Failed to fetch submissions');
       const data = await response.json();
-      // setSubmissions(data);
+      setSubmissions(data);
       setMessage(
         `${data.reduce((acc: number, k: UserWiseTaskSubmission) => {
           return (k.submissions?.length ?? 0) + acc;

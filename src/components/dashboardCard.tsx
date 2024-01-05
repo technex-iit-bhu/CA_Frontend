@@ -56,6 +56,9 @@ const Cards: React.FC<Props> = ({
   };
 
   const handleSubmit = async () => {
+    const fd = new FormData();
+    if (gdriveLink.length > 0) fd.append('link', gdriveLink);
+    if (submissionImg != null) fd.append('image', submissionImg as Blob);
     try {
       const response = await fetch(
         `https://ca-backend-qknd.onrender.com/tasks/submit/${taskID}/`,
