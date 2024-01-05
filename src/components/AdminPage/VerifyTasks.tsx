@@ -18,10 +18,10 @@ type TaskSubmission = {
     points: number;
     deadline: string;
   };
-  link: string; // The GDrive link uploaded by the user
+  link: string | null;
+  image: string | null;
   admin_comment: string;
 };
-
 
 type UserWiseTaskSubmission = {
   user: string;
@@ -33,8 +33,7 @@ const BACKEND_URL =
   'https://ca-backend-qknd.onrender.com/';
 
 function VerifyTasks({ token }: { token: string | null }) {
-  const [submissions, setSubmissions] =
-    useState<UserWiseTaskSubmission[]>([]);
+  const [submissions, setSubmissions] = useState<UserWiseTaskSubmission[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
   const [adminComments, setAdminComments] = useState<{ [key: number]: string }>(
@@ -52,6 +51,7 @@ function VerifyTasks({ token }: { token: string | null }) {
       if (!response.ok) throw new Error('Failed to fetch submissions');
       const data = await response.json();
       setSubmissions(data);
+      console.log(data);
       setMessage(
         `${data.reduce((acc: number, k: UserWiseTaskSubmission) => {
           return (k.submissions?.length ?? 0) + acc;
@@ -120,14 +120,14 @@ function VerifyTasks({ token }: { token: string | null }) {
   };
 
   return (
-    <div>
+    <div className='overflow-y-scroll'>
       <h2>Submissions awaiting verification</h2>
       {submissions.map(({ user, submissions }) => {
         return (
           <>
             <table>
               <thead>
-              <h1>{user}</h1>
+                <h1 className={styles.header}>{'Username: ' + user}</h1>
                 <tr>
                   <th className={styles.th}>ID</th>
                   <th className={styles.th}>User</th>
@@ -149,11 +149,24 @@ function VerifyTasks({ token }: { token: string | null }) {
                     </td>
                     <td className={styles.td}>
                       <a
-                        href={submission.link}
+                        href={submission.link || ''}
                         target='_blank'
                         rel='noopener noreferrer'
+                        className={
+                          !submission.link ? styles.disabledlink : styles.link
+                        }
                       >
                         View Submission
+                      </a>
+                      <a
+                        href={submission.image || ''}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className={
+                          !submission.image ? styles.disabledlink : styles.link
+                        }
+                      >
+                        View Image
                       </a>
                     </td>
                     <td className={styles.td}>
