@@ -17,9 +17,11 @@ interface Props {
   description: string;
   title: string;
   taskNumber: string;
-  taskID: string;
+  taskID: number;
   month: string;
   activeTab: string;
+  comment: string;
+  incentives: string;
 }
 
 const Cards: React.FC<Props> = ({
@@ -31,6 +33,8 @@ const Cards: React.FC<Props> = ({
   taskID,
   month,
   activeTab,
+  comment,
+  incentives,
 }) => {
   const [isUploaded, setIsUploaded] = useState(false);
   const [buttonText, setButtonText] = useState('Upload');
@@ -50,16 +54,7 @@ const Cards: React.FC<Props> = ({
   };
 
   const handleSubmit = async () => {
-    // console.log('Selected File:', file);
-    // console.log('Selected File Name:', file.name);
-    // setTimeout(() => {
-    //   setIsUploaded(true);
-    //   setButtonText('Uploaded');
-    // }, 2000);
-    const fd=new FormData();
-    fd.append('image', submissionImg as Blob);
-    if(gdriveLink.length>0)
-    fd.append('link', gdriveLink);
+
     try {
       const response = await fetch(
         `https://ca-backend-qknd.onrender.com/tasks/submit/${taskID}/`,
@@ -74,19 +69,16 @@ const Cards: React.FC<Props> = ({
       if (response.status === 201) {
         setModalContent('Task Submitted Successfully');
         setShowModal(true);
-        console.log('Uploaded');
         setIsUploaded(true);
         setButtonText('Uploaded');
         setDropdown(false);
       } else if (response.status === 400) {
         setModalContent('Invalid Link or Task Already Submitted');
         setShowModal(true);
-        console.log('Task already submitted');
         setDropdown(false);
       } else if (response.status === 401) {
         setModalContent('Unauthorized');
         setShowModal(true);
-        console.log('Unauthorized');
         setDropdown(false);
       }
     } catch (error) {
@@ -106,52 +98,22 @@ const Cards: React.FC<Props> = ({
     <div className='relative mb-5 flex items-center justify-center'>
       <div className='from-gray-400 to-gray-200 relative mb-8 w-full content-center rounded-xl bg-grey bg-gradient-to-b p-6  md:w-1/2 lg:w-1/3'>
         <div className='flex h-full items-center'>
-          <div className='h-1/3 w-1/3 rounded-xl bg-black'>
-            {activeTab === 'live' && (
-              <Image
-                src='/tasks/2155223-removebg-preview.png'
-                alt='Live Task'
-                width={120}
-                height={120}
-              />
-            )}
-            {activeTab === 'submitted' && (
-              <Image
-                src='/tasks/3255337-removebg-preview.png'
-                alt='Submitted Task'
-                width={120}
-                height={120}
-              />
-            )}
-            {activeTab === 'completed' && (
-              <Image
-                src='/tasks/5995357-removebg-preview.png'
-                alt='Completed Task'
-                width={120}
-                height={120}
-              />
-            )}
-            {activeTab === 'expired' && (
-              <Image
-                src='/tasks/8356278-removebg-preview.png'
-                alt='Expired Task'
-                width={120}
-                height={120}
-              />
-            )}
-          </div>
-          <div className='w-2/3'>
-            <p className='text-left font-bold md:text-xl lg:text-2xl'>
-              {title}
-            </p>
-            <p className='text-left text-xs md:text-sm'>{description}</p>
-            <div className='flex justify-between'>
-              <p className='text-left text-xs md:text-sm'>
-                Expires on: {DDMMYYYY(date)}
+          <div className='w-full'>
+            {/* First  */}
+            <div className='content-start'>
+              <p className='text-left font-bold md:text-xl lg:text-2xl'>
+                {title}
               </p>
-              <p className='text-left text-xs md:text-sm'>Points: {points}</p>
+              <p className='text-left text-xs md:text-sm'>{description}</p>
+              <div className='flex justify-between'>
+                <p className='text-left text-xs md:text-sm'>
+                  Expires on: {DDMMYYYY(date)}
+                </p>
+                <p className='text-left text-xs md:text-sm'>Points: {points}</p>
+              </div>
+
             </div>
-            <div className='flex items-center justify-between'>
+            <div className='flex content-end items-center justify-between'>
               <div className='flex items-center'>
                 <a
                   href='https://www.instagram.com/technexiitbhu/'
@@ -186,6 +148,7 @@ const Cards: React.FC<Props> = ({
                   <img src='/X.webp' alt='twitter' className='mr-1 h-5 w-5' />
                 </a>
               </div>
+              {/* Second */}
               <div>
                 {activeTab === 'live' && (
                   <button
@@ -226,16 +189,27 @@ const Cards: React.FC<Props> = ({
         <Menu>
           <MenuButton
             as={Button}
-            leftIcon={<ChevronDownIcon />}
-            className='absolute bottom-0 right-0'
-          ></MenuButton>
-          <MenuList className='z-10'>
+            rightIcon={<ChevronDownIcon />}
+            className='absolute bottom-0 left-0 mt-1'
+          >
+            {' '}
+            {activeTab === 'live' || activeTab === 'completed'
+              ? 'Incentives'
+              : 'Comments'}{' '}
+          </MenuButton>
+          <MenuList className='z-10 mt-1'>
             <MenuItem
               minH='48px'
               maxW='350px'
               className='menuItem flex-shrink-1 flex bg-[#A81F25] p-[10px] md:w-1/2 lg:w-1/3'
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+              {activeTab === 'live' || activeTab === 'completed'
+                ? incentives
+                  ? incentives
+                  : 'No Incentives'
+                : comment
+                  ? comment
+                  : 'No Comments'}
             </MenuItem>
           </MenuList>
         </Menu>

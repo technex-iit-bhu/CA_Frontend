@@ -14,13 +14,12 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
   const [showFullDescription, setFullDescription] = useState(false);
 
   const description = showFullDescription
-    ? 'Card me dikhega'
+    ? 'Card Description'
     : text.slice(0, 150);
   return (
     <main>
       <div
         style={{
-          //width: 'max(10px, 20vw)',
           height: 'max(250px, 10vh)',
           display: 'flex',
           border: '3px solid black',
@@ -40,7 +39,7 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
           style={{ margin: '10px', padding: '20px' }}
           className='w-full space-y-3'
         >
-          <div className='flex items-center justify-center p-1'>
+          <div className='flex items-center justify-center p-1 h-1/4'>
             <Image alt='companylogo' src={logo} width={100} height={100} />
           </div>
           <p

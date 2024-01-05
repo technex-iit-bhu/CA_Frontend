@@ -1,19 +1,72 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import useFetchTasks from './useFetchTasks'; // Assuming FetchedTasks is now a hook
 import { useRouter } from 'next/router';
+// import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+// import { ChevronDownIcon } from '@chakra-ui/icons';
+import copy from "copy-to-clipboard"
+import { CheckIcon, CopyIcon } from '@chakra-ui/icons';
 
-const Dashboard = () => {
+interface Props {
+  completedTasks: number;
+}
+
+interface Task {
+  id: number;
+  points: string;
+  description: string;
+  title: string;
+  deadline: string;
+  admin_comment: string;
+  incentives: string;
+}
+
+interface User {
+  id: number;
+  user_name: string;
+  first_name: string;
+  last_name: string;
+  college: string;
+  year: number;
+  phone_no: string;
+  whatsapp_no: string;
+  postal_address: string;
+  pin_code: number;
+  why_choose: string;
+  where_you_ca: string;
+  points: number;
+  avatar_id: number;
+  date_joined: string;
+  user: number;
+}
+interface submittedTask {
+  id: number;
+  verified: boolean;
+  timestamp: string;
+  user: User;
+  task: Task;
+  link: string;
+  admin_comment: string;
+}
+
+const Dashboard: React.FC<Props> = ({ completedTasks }) => {
   const [name, setName] = useState('');
   const [rank, setRank] = useState('NaN');
   const [caId, setCaId] = useState('XXXXXXXXXX');
   const [tasksDone, setTasksDone] = useState('NaN');
   const [totalTasks, setTotalTasks] = useState('0');
+  const [allTasks, setAllTasks] = useState([]);
   const [points, setPoints] = useState('NaN');
-  const [totalPayments, setTotalPayments] = useState('NaN');
+  const [totalIncentives, setTotalIncentives] = useState(0);
   const [totalRegistrations, setTotalRegistrations] = useState('NaN');
   const [modalContent, setModalContent] = useState('');
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
+  const [submittedTasks, setSubmittedTasks] = useState<submittedTask[]>([]);
+  const [isHovered, setIsHovered] = useState(false);
+  const [icon, setIcon] = useState('copy');
+
+  // const fetchedTasks = useFetchTasks();
+  // Made a custom hook to restrict multiple calls of api to one
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -28,11 +81,12 @@ const Dashboard = () => {
         });
         if (response.status === 200) {
           const fetchedDetails = await response.json();
+          console.log(fetchedDetails);
           setName(
             `${fetchedDetails.userprofile.first_name} ${fetchedDetails.userprofile.last_name}`
           );
           setPoints(fetchedDetails.userprofile.points);
-          setCaId(fetchedDetails.userprofile.unique_id.slice(-8));
+          setCaId(fetchedDetails.referral_code);
         } else if (response.status === 401) {
           setModalContent('Login Again');
           setShowModal(true);
@@ -45,35 +99,112 @@ const Dashboard = () => {
       }
     };
 
-    const fetchTasks = async () => {
+    const fetchSubmittedTasks = async () => {
       try {
-        const response = await fetch('api/getTasks', {
+        const accessToken = localStorage.getItem('accessToken');
+        const response = await fetch('api/getSubmittedTasks', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`,
           },
         });
         if (response.status === 200) {
           const fetchedTasks = await response.json();
-          setTotalTasks(fetchedTasks.length);
+          setTotalIncentives(fetchedTasks.length);
+          setSubmittedTasks(fetchedTasks);
         } else {
-          console.error('Failed to fetch tasks');
+          console.error('Failed to fetch submitted tasks');
+        }
+      } catch (error) {
+        console.error('Server error', error);
+      }
+    };
+    const fetchAllTasks = async () => {
+      try {
+        const accessToken = localStorage.getItem('accessToken');
+        const response = await fetch('api/getTasks', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        if (response.status === 200) {
+          const aT = await response.json();
+          console.log(aT.length);
+          setAllTasks(aT);
+          setTotalTasks(aT.length);
+        } else {
+          console.error('Failed to fetch submitted tasks');
         }
       } catch (error) {
         console.error('Server error', error);
       }
     };
 
+    fetchSubmittedTasks();
     fetchProfile();
-    fetchTasks();
+    fetchAllTasks();
+
+    // if (fetchedTasks.length > 0) {
+    //   setTotalIncentives(setIncentiveHelper(fetchedTasks));
+    // }
   }, []);
+
+  // const setIncentiveHelper = (tasks: { incentives: string }[]) => {
+  //   let sum = 0;
+  //   tasks.forEach((task: { incentives: string }) => {
+  //     const incentiveValue = parseInt(task.incentives);
+  //     if (!isNaN(incentiveValue)) {
+  //       sum += incentiveValue;
+  //     }
+  //   });
+  //   return sum;
+  // };
 
   const handleModalClose = () => {
     setShowModal(false);
     // window.location.href = '/';
-    localStorage.removeItem('accessToken');
-    router.push('/');
+    if (modalContent === 'Login Again') {
+      localStorage.removeItem('accessToken');
+      router.push('/');
+    }
   };
+
+  useEffect(() => {
+    const handleAwards = () => {
+      const incentives = submittedTasks
+        .filter(({ verified }) => verified === true)
+        .map((submittedTask) => {
+          let incentive = submittedTask.task.incentives;
+          return incentive;
+        });
+      if (incentives.length === 0) {
+        setModalContent('No Awards Yet');
+        setShowModal(true);
+        return;
+      }
+      setModalContent(incentives.toString());
+      setShowModal(true);
+    };
+
+    handleAwards();
+  }, [submittedTasks])
+
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handleCopy = () => {
+    setIcon('copied');
+    copy(caId)
+  }
 
   return (
     <div className=''>
@@ -88,7 +219,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className='px-[30px] md:px-[50px]'>
-        <div className='z-0 rounded-[50px] bg-custom-gradient px-[50px] py-[30px] md:px-[30px]'>
+        <div className='z-0 rounded-[50px] bg-custom-gradient px-[10px] py-[30px] md:px-[30px]'>
           <div className='flex flex-col lg:flex-row'>
             <div className='mt-[-80px] flex flex-col lg:w-1/3'>
               <div className='h-[150px] w-[150px] select-none self-center rounded-full border-4 border-red bg-background'>
@@ -104,16 +235,10 @@ const Dashboard = () => {
                 <p className='text-white select-none self-center text-center text-[30px] font-bold'>
                   {name}
                 </p>
-                <p className='text-white select-none self-center text-[20px]'>
-                  Rank:{rank}
-                </p>
-                <p className='text-white select-none self-center text-[15px]'>
-                  CA Id: {caId}
-                </p>
               </div>
             </div>
 
-            <div className='h-[2px] w-auto bg-red lg:h-[200px] lg:w-[2px] cd:mr-4'></div>
+            {/* <div className='h-[2px] w-auto bg-red lg:h-[200px] lg:w-[2px] cd:mr-4'></div> */}
             <div className='flex grow flex-col justify-center self-center px-[10px] py-[30px] sm:flex-row md:pb-[30px] md:pt-[30px] lg:pb-[100px] lg:pt-0'>
               <div className='mr-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background lg:h-[150px] lg:w-[140px] lg:rounded-[50px] xl:h-[200px] xl:w-[200px]'>
                 <p className='text-white mt-[15px] select-none self-center font-spline text-[10px] font-bold lg:mt-[30px] lg:text-[15px] xl:text-[20px]'>
@@ -123,7 +248,7 @@ const Dashboard = () => {
                   className='text-white select-none self-center text-[40px] font-bold lg:text-[60px] xl:text-[80px]'
                   style={{ fontFamily: 'Sedgwick Ave' }}
                 >
-                  {tasksDone}
+                  {completedTasks}
                 </p>
               </div>
               <div className='mr-[10px] mt-[10px] flex h-[100px] w-[100px] flex-col rounded-[25px] bg-background sm:mt-0 lg:h-[150px] lg:w-[140px] lg:rounded-[50px] xl:h-[200px] xl:w-[200px]'>
@@ -172,16 +297,48 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className='z-10 mb-[20px] flex h-auto flex-col rounded-[50px] bg-background p-[20px] px-[30px]'>
-            <button className='text-white my-[10px] h-[40px] w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] md:self-end'>
+          <div className='text-white select-none self-center text-[20px] px-[30px]'>
+          <span className='font-bold text-[#A81725]'>Rank</span> : {rank}
+          </div>
+          <div className='select-none self-center pb-5 px-[30px]' onClick={handleCopy} >
+          <span className='font-bold text-[#A81725]'>CA_Id</span> : <span className='sm:text-[20px] text-[0px]' >{caId}</span>
+                  {icon === 'copy' ? (<CopyIcon />) : (<CheckIcon />)}
+          </div>
+          <div className='z-10 mb-[20px] flex h-auto flex-col content-center rounded-[50px] bg-background p-[20px] px-[30px]'>
+            <div className='text-white self-left inline select-none content-center justify-start font-spline text-[20px] font-bold'>
+              Incentives earned till date : {totalIncentives}
+            </div>
+            <div className='h-50 flex w-[110%] ef:w-[80%] sm:w-[60%] flex-col rounded-2xl bg-grey p-5 mt-2 shadow-lg self-center overflow-scroll overflow-y-auto max-h-32'>
+            <div className='sm:text-3xl text-white h-[40px] w-[100px] sm:w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] text-center'>
               Awards
-            </button>
+            </div>
+            <div className='p-3 self-center'>
+              <ul className='list-disc'>
+                <li className=''>
+                {modalContent}
+                </li>
+                {/* <li>
+                  hello
+                </li>
+                <li>
+                  woohooooooo
+                </li>
+                <li>free netflix</li> */}
+              </ul>
+            </div>
+            </div>
+            {/* <button
+              className='text-white h-[40px] w-[150px] select-none self-center rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px] md:self-end'
+              onClick={handleAwards}
+            >
+              Awards
+            </button> */}
           </div>
         </div>
       </div>
-      {showModal && (
+      {/* {showModal && (
         <div
-          className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'
+          className='fixed inset-0 z-50 flex items-center justify-center bg-grey bg-opacity-50'
           onClick={() => setShowModal(false)}
         >
           <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>
@@ -193,8 +350,8 @@ const Dashboard = () => {
               Okay
             </button>
           </div>
-        </div>
-      )}
+        </div> 
+      )} */}
     </div>
   );
 };
