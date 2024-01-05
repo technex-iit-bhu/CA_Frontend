@@ -38,13 +38,15 @@ const Cards: React.FC<Props> = ({
 }) => {
   const [isUploaded, setIsUploaded] = useState(false);
   const [buttonText, setButtonText] = useState('Upload');
-  const [submissionImg, setSubmissionImg] = useState<File|null>(null);
+  const [submissionImg, setSubmissionImg] = useState<File | null>(null);
   const [dropdown, setDropdown] = useState(false);
   const [gdriveLink, setGdriveLink] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
 
-  const handleFileSelectionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelectionChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const file = event.target.files && event.target.files[0];
     setSubmissionImg(file);
   };
@@ -54,7 +56,6 @@ const Cards: React.FC<Props> = ({
   };
 
   const handleSubmit = async () => {
-
     try {
       const response = await fetch(
         `https://ca-backend-qknd.onrender.com/tasks/submit/${taskID}/`,
@@ -111,7 +112,6 @@ const Cards: React.FC<Props> = ({
                 </p>
                 <p className='text-left text-xs md:text-sm'>Points: {points}</p>
               </div>
-
             </div>
             <div className='flex content-end items-center justify-between'>
               <div className='flex items-center'>
@@ -174,7 +174,7 @@ const Cards: React.FC<Props> = ({
             />
             <Input
               type='file'
-              placeholder='Your Google Drive Link Here'
+              placeholder='Attach an image'
               className='h-10 w-full rounded-[50px] bg-[#191919] px-5'
               onChange={handleFileSelectionChange}
             />
@@ -208,8 +208,8 @@ const Cards: React.FC<Props> = ({
                   ? incentives
                   : 'No Incentives'
                 : comment
-                  ? comment
-                  : 'No Comments'}
+                ? comment
+                : 'No Comments'}
             </MenuItem>
           </MenuList>
         </Menu>

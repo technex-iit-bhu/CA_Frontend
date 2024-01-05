@@ -26,7 +26,9 @@ function AdminPage() {
     </div>
   );
 }
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL ||
+  'https://ca-backend-qknd.onrender.com/';
 function Login({
   token,
   setToken,
@@ -37,8 +39,10 @@ function Login({
   const [username, setUsername] = useState<string>('testaccount23');
   const [password, setPassword] = useState<string>('testaccount123@');
   const [message, setMessage] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   function handleClick() {
+    setLoading(true);
     fetch(BACKEND_URL + 'auth/login/', {
       method: 'POST',
       headers: {
@@ -58,7 +62,8 @@ function Login({
         setToken(data.access);
         setMessage('');
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }
   return (
     <div className={styles.loginContainer}>
@@ -97,8 +102,12 @@ function Login({
       >
         {message}
       </p>
-      <button className={styles.button} onClick={handleClick}>
-        Login
+      <button
+        className={styles.button}
+        onClick={handleClick}
+        disabled={loading}
+      >
+        {loading ? 'Logging in...' : 'Login'}
       </button>
     </div>
   );

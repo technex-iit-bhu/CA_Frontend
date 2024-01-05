@@ -8,7 +8,9 @@ type Task = {
   points: number;
   deadline: string;
 };
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL ||
+  'https://ca-backend-qknd.onrender.com/';
 function TaskList({ token }: { token: string | null }) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

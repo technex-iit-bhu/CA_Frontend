@@ -39,7 +39,7 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
           style={{ margin: '10px', padding: '20px' }}
           className='w-full space-y-3'
         >
-          <div className='flex items-center justify-center p-1 h-1/4'>
+          <div className='flex h-1/4 items-center justify-center p-1'>
             <Image alt='companylogo' src={logo} width={100} height={100} />
           </div>
           <p

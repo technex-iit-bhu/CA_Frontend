@@ -8,7 +8,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CardPopup from './cardpopup';
 
-
 const text1 =
   '⚪Lead CAs to get a rank based Social Media Marketing Internship Certificate from Technex IIT BHU';
 const text2 =
@@ -42,11 +41,18 @@ const text12 =
   "⚪Top-performing Campus Ambassadors receive an exclusive 'Stock Market All-in-One Course Combo.";
 const TextSE = text10 + '\n\n' + text11 + '\n\n' + text12;
 
-const Text_QuillBot = "⚪Top 10 Campus Ambassadors will get premium subscription of QuillBot" + '\n\n' + "⚪Good performers will have discount voucher of 80% on QuillBot";
+const Text_QuillBot =
+  '⚪Top 10 Campus Ambassadors will get premium subscription of QuillBot' +
+  '\n\n' +
+  '⚪Good performers will have discount voucher of 80% on QuillBot';
 
-const Text_SymbolLab = "⚪Symbolab : Premium subscriptions for enthusiasts in Maths for top performers";
+const Text_SymbolLab =
+  '⚪Symbolab : Premium subscriptions for enthusiasts in Maths for top performers';
 
-const Text_Skolar = "⚪50% Discount to All Campus Ambassadors in there all courses Worth 6500/- off in each course" + '\n\n' + "⚪Provide monetary internship Opportunities to top 20 Campus Ambassadors via an interview round (with Atleast 10 Hirings)"
+const Text_Skolar =
+  '⚪50% Discount to All Campus Ambassadors in there all courses Worth 6500/- off in each course' +
+  '\n\n' +
+  '⚪Provide monetary internship Opportunities to top 20 Campus Ambassadors via an interview round (with Atleast 10 Hirings)';
 
 const incentiveLogoPaths: [string, string][] = [
   ['/SE.svg', TextSE],
@@ -54,9 +60,9 @@ const incentiveLogoPaths: [string, string][] = [
   ['/Languify.webp', Text_Languify],
   ['/wayspire.webp', Text_Wayspire],
   ['Asset_1.svg', Text_Technex],
-  ['/quillBot.png',Text_QuillBot],
-  ['/symboLab.png',Text_SymbolLab],
-  ['/skolar.png',Text_Skolar]
+  ['/quillBot.png', Text_QuillBot],
+  ['/symboLab.png', Text_SymbolLab],
+  ['/skolar.png', Text_Skolar],
 ];
 
 const IncentivesCarousel = () => {
@@ -85,29 +91,17 @@ const IncentivesCarousel = () => {
   };
 
   const ArrowLeft1 = () => (
-    <ArrowLeftIcon
-      onClick={previous1}
-      className={'arrow prev'}
-    ></ArrowLeftIcon>
+    <ArrowLeftIcon onClick={previous1} className={'arrow prev'}></ArrowLeftIcon>
   );
   const ArrowRight1 = () => (
-    <ArrowRightIcon
-      onClick={next1}
-      className={'arrow next'}
-    ></ArrowRightIcon>
+    <ArrowRightIcon onClick={next1} className={'arrow next'}></ArrowRightIcon>
   );
   const ArrowLeft2 = () => (
-    <ArrowLeftIcon
-      onClick={previous2}
-      className={'arrow prev'}
-    ></ArrowLeftIcon>
+    <ArrowLeftIcon onClick={previous2} className={'arrow prev'}></ArrowLeftIcon>
   );
 
   const ArrowRight2 = () => (
-    <ArrowRightIcon
-      onClick={next2}
-      className={'arrow next'}
-    ></ArrowRightIcon>
+    <ArrowRightIcon onClick={next2} className={'arrow next'}></ArrowRightIcon>
   );
 
   const settings1 = {

@@ -22,15 +22,19 @@ type TaskSubmission = {
   admin_comment: string;
 };
 
+
 type UserWiseTaskSubmission = {
-  user:string;
+  user: string;
   submissions: TaskSubmission[];
 };
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL ||
+  'https://ca-backend-qknd.onrender.com/';
 
 function VerifyTasks({ token }: { token: string | null }) {
-  const [submissions, setSubmissions] = useState<UserWiseTaskSubmission[]>([]);
+  const [submissions, setSubmissions] =
+    useState<UserWiseTaskSubmission[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
   const [adminComments, setAdminComments] = useState<{ [key: number]: string }>(
@@ -47,8 +51,12 @@ function VerifyTasks({ token }: { token: string | null }) {
       });
       if (!response.ok) throw new Error('Failed to fetch submissions');
       const data = await response.json();
-      setSubmissions(data);
-      setMessage(`${data.length} submissions found.`);
+      // setSubmissions(data);
+      setMessage(
+        `${data.reduce((acc: number, k: UserWiseTaskSubmission) => {
+          return (k.submissions?.length ?? 0) + acc;
+        }, 0)} submissions found.`
+      );
     } catch (error) {
       console.error('Error fetching submissions:', error);
       setMessage('Error fetching submissions');
@@ -111,17 +119,15 @@ function VerifyTasks({ token }: { token: string | null }) {
     }
   };
 
-  
-
   return (
     <div>
       <h2>Submissions awaiting verification</h2>
-      {submissions.map(({user,submissions}) => {
+      {submissions.map(({ user, submissions }) => {
         return (
           <>
             <table>
-              <h1>{user}</h1>
               <thead>
+              <h1>{user}</h1>
                 <tr>
                   <th className={styles.th}>ID</th>
                   <th className={styles.th}>User</th>
