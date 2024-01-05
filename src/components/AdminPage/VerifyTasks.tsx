@@ -23,14 +23,14 @@ type TaskSubmission = {
 };
 
 type UserWiseTaskSubmission = {
-  [k: string]: TaskSubmission[] | null;
+  user:string;
+  submissions: TaskSubmission[];
 };
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 function VerifyTasks({ token }: { token: string | null }) {
-  const [submissions, setSubmissions] = useState<TaskSubmission[]>([]);
-  const [allUsernames, setAllUsernames] = useState<string[]>([]);
+  const [submissions, setSubmissions] = useState<UserWiseTaskSubmission[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
   const [adminComments, setAdminComments] = useState<{ [key: number]: string }>(
@@ -47,8 +47,7 @@ function VerifyTasks({ token }: { token: string | null }) {
       });
       if (!response.ok) throw new Error('Failed to fetch submissions');
       const data = await response.json();
-      setSubmissions(data.submissions);
-      setAllUsernames(data.users);
+      setSubmissions(data);
       setMessage(`${data.length} submissions found.`);
     } catch (error) {
       console.error('Error fetching submissions:', error);
@@ -112,29 +111,16 @@ function VerifyTasks({ token }: { token: string | null }) {
     }
   };
 
-  const userWiseTaskSubs: UserWiseTaskSubmission = {};
-  allUsernames.forEach((username) => {
-    userWiseTaskSubs[username] = [];
-  });
-  submissions.forEach((submission) => {
-    if (userWiseTaskSubs[submission.user.user_name] === undefined) {
-      userWiseTaskSubs[submission.user.user_name] = [];
-    }
-    const arr = userWiseTaskSubs[submission.user.user_name];
-    if (!arr) throw new Error("Logical error! This shouldn't happen");
-    arr.push(submission);
-  });
-  // console.log(userWiseTaskSubs);
+  
 
   return (
     <div>
       <h2>Submissions awaiting verification</h2>
-      {Object.entries(userWiseTaskSubs).map(([username, uws]) => {
-        const submissions = uws || [];
+      {submissions.map(({user,submissions}) => {
         return (
           <>
             <table>
-              <h1>{username}</h1>
+              <h1>{user}</h1>
               <thead>
                 <tr>
                   <th className={styles.th}>ID</th>
