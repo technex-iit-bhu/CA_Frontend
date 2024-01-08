@@ -54,23 +54,23 @@ const Text_Skolar =
   '\n\n' +
   '⚪Provide monetary internship Opportunities to top 20 Campus Ambassadors via an interview round (with Atleast 10 Hirings)';
 
-const incentiveLogoPaths: [string, string][] = [
-  ['/SE.svg', TextSE],
-  ['/EaseMyTripLogo.svg', Text_EaseMyTrip],
-  ['/Languify.webp', Text_Languify],
-  ['/wayspire.webp', Text_Wayspire],
-  ['Asset_1.svg', Text_Technex],
-  ['/quillBot.png', Text_QuillBot],
-  ['/symboLab.png', Text_SymbolLab],
-  ['/skolar.png', Text_Skolar],
+const incentiveLogoPaths: [string, string,string][] = [
+  ['/SE.svg', TextSE,'https://stockedge.com/premium?utm_source=google&utm_medium=cpc&utm_campaign=NPD_Stockedge_Premium_Brand_Search_Dec23&utm_term=stockedge&gad_source=1&gclid=Cj0KCQiAtOmsBhCnARIsAGPa5yZtbrB2tikTSHCdw4fCecS_uH34zDvuCIHjI4k8sWcGWKuztxlexd4aAvkLEALw_wcB'],
+  ['/EaseMyTripLogo.svg', Text_EaseMyTrip,''],
+  ['/Languify.webp', Text_Languify,'https://www.languify.in/'],
+  ['/wayspire.webp', Text_Wayspire,'https://wayspire.in/'],
+  ['Asset_1.svg', Text_Technex,''],
+  ['/quillBot.png', Text_QuillBot,'https://quillbot.com/'],
+  ['/symboLab.png', Text_SymbolLab,''],
+  ['/skolar.png', Text_Skolar,''],
 ];
 
 const IncentivesCarousel = () => {
   const [showFull, setShowFull] = useState(false);
-  const [fullLogoText, setFullLogoText] = useState<[string, string] | null>(
+  const [fullLogoText, setFullLogoText] = useState<[string, string,string] | null>(
     null
   );
-  const showFullHandler = (content: [string, string] | null) => {
+  const showFullHandler = (content: [string, string,string] | null) => {
     setShowFull(!showFull);
     setFullLogoText(content);
   };
@@ -268,7 +268,7 @@ const IncentivesCarousel = () => {
               {incentiveLogoPaths.map((logo_text, index) => {
                 return (
                   <div key={index}>
-                    <IncentiveCard logo={logo_text[0]} text={logo_text[1]} />
+                    <IncentiveCard logo={logo_text[0]} text={logo_text[1]} hyperlink={logo_text[2]} />
 
                     <button
                       className=' font-semibold text-red'
@@ -305,7 +305,7 @@ const IncentivesCarousel = () => {
               {incentiveLogoPaths.map((logo_text, index) => {
                 return (
                   <div key={index}>
-                    <IncentiveCard logo={logo_text[0]} text={logo_text[1]} />
+                    <IncentiveCard logo={logo_text[0]} text={logo_text[1]} hyperlink={logo_text[2]} />
 
                     <button
                       className=' font-semibold text-red'
@@ -324,6 +324,7 @@ const IncentivesCarousel = () => {
         <CardPopup
           logo={(fullLogoText && fullLogoText[0]) || '/logoipsum-284.svg'}
           text={(fullLogoText && fullLogoText[1]) || 'BUG!!!'}
+          hyperlink={(fullLogoText && fullLogoText[2]) || 'BUG!!!'}
           trigger={showFull}
         >
           <button
