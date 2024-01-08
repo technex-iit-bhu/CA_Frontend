@@ -2,28 +2,55 @@
   color: black;
 }
 
-.th{
-    border:1px solid rgb(224, 224, 224);
+.th {
+  border: 1px solid rgb(224, 224, 224);
 }
-.td{
-    padding: 10px;
-    border: 1px solid rgb(255, 255, 255);
-    text-align: center;
-    width: fit-content;
-    color:rgb(105, 50, 50);
+.td {
+  padding: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  text-align: center;
+  width: fit-content;
+  color: rgb(89, 89, 89);
 }
 
 .button {
-    background-color: rgb(89, 23, 16);
-    color: white;
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: none;
-    cursor: pointer;
-    margin:10px;
-}
-.button:disabled{
-    background-color: rgb(124, 124, 124);
+  background-color: rgb(89, 23, 16);
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
 }
 
+.button:hover,
+.link:hover {
+  background-color: rgb(68, 20, 20);
+}
+.button:disabled {
+  background-color: rgb(124, 124, 124);
+}
+
+.link,
+.disabledlink {
+  text-decoration: none;
+  display: block;
+  color: white;
+  padding: 5px;
+  margin-bottom: 2px;
+  background-color: rgb(89, 23, 16);
+  border-radius: 8px;
+}
+
+.disabledlink {
+  background-color: rgb(124, 124, 124);
+  cursor: not-allowed;
+}
+
+.header {
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid white;
+}

@@ -7,7 +7,7 @@ export default async function handler(
   if (req.method === 'GET') {
     try {
       const response = await fetch(
-        'https://ca-backend-467n.onrender.com/tasks/',
+        'https://ca-backend-qknd.onrender.com/tasks/',
         {
           method: 'GET',
           headers: {
@@ -18,9 +18,8 @@ export default async function handler(
 
       if (response.ok) {
         const tasks = await response.json();
-        console.log('Tasks recieved');
-        console.log(tasks);
-        res.status(200).json(tasks); // Forward the response from the API
+        res.status(200).json(tasks);
+        // Forward the response from the API
       } else {
         res.status(response.status).json({ message: 'Failed to fetch tasks' });
       }

@@ -18,7 +18,9 @@ type User = {
   user: string;
   email_token: string;
 };
-const BACKEND_URL = 'https://ca-backend-467n.onrender.com/'; //TODO: move to .env
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL ||
+  'https://ca-backend-qknd.onrender.com/';
 
 const UserTable = ({ token }: { token: string | null }) => {
   const [users, setUsers] = useState<User[]>([]);
@@ -32,7 +34,6 @@ const UserTable = ({ token }: { token: string | null }) => {
     })
       .then((k) => k.json())
       .then((data) => {
-        console.log(data);
         if (data.splice === undefined)
           //there has been an error as data is not an array
           throw new Error(data.detail);
@@ -45,7 +46,7 @@ const UserTable = ({ token }: { token: string | null }) => {
   }, []);
 
   function handleVerify(email_token: string) {
-    setErrorMessage("loading...")
+    setErrorMessage('loading...');
     fetch(BACKEND_URL + 'auth/verifyaccount/', {
       method: 'POST',
       headers: {
@@ -71,7 +72,7 @@ const UserTable = ({ token }: { token: string | null }) => {
   }
 
   return (
-    <>
+    <div className='h-[60%] w-[80%] overflow-auto'>
       <table>
         <thead>
           <tr>
@@ -122,7 +123,7 @@ const UserTable = ({ token }: { token: string | null }) => {
         </tbody>
       </table>
       <p style={{ color: 'red' }}>{errorMessage}</p>
-    </>
+    </div>
   );
 };
 

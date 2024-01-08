@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import Textbox from '../components/textbox';
 import Navbar from './navbar';
 
@@ -22,7 +22,6 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      console.log(formData);
       const response = await fetch('api/login', {
         method: 'post',
         body: JSON.stringify(formData),
@@ -30,6 +29,13 @@ const Login = () => {
           'Content-Type': 'application/json',
         },
       });
+      if (response.status === 400) {
+        setModalContent(
+          'Invalid Credentials, Contact Us if already registered'
+        );
+        setShowModal(true);
+        return;
+      }
       const Token = await response.json();
       const accessToken = Token.access;
       localStorage.setItem('accessToken', accessToken);
@@ -61,8 +67,8 @@ const Login = () => {
           >
             <div className='flex flex-col content-center gap-5 self-stretch lg:flex-row'>
               <Textbox
-                label='Username:'
-                placeholder='Enter Your Username'
+                label='Username&nbsp;/&nbsp;email:'
+                placeholder='Enter Username or email'
                 name='username'
                 type='text'
                 value={formData.username}
@@ -80,6 +86,9 @@ const Login = () => {
             <Link href={'/register'} className='font-spline'>
               Haven't Registered Yet? Sign Up
             </Link>
+            <Link href={'/forgotpassword'} className='font-spline'>
+              Forgot password?
+            </Link>
             <button
               className='text-white mb-[10px] mt-[10px] h-[40px] w-[150px] select-none rounded-[50px] bg-red font-spline text-[20px] font-bold md:w-[200px]'
               type='submit'
@@ -88,12 +97,15 @@ const Login = () => {
             </button>
           </form>
           {showModal && (
-            <div className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'>
-              <div className='rounded-lg bg-grey p-5 shadow-lg'>
-                <p>{modalContent}</p>
+            <div
+              className='fixed inset-0 flex items-center justify-center bg-grey bg-opacity-50'
+              onClick={() => setShowModal(false)}
+            >
+              <div className='h-50 flex w-[30%] flex-col rounded-lg bg-grey p-5 shadow-lg'>
+                <p className='self-center'>{modalContent}</p>
                 <button
                   onClick={handleModalClose}
-                  className='text-white m-4 rounded-full bg-red px-4 py-2'
+                  className='text-white m-4 self-center rounded-full bg-red px-4 py-2 lg:w-[50%]'
                 >
                   Okay
                 </button>

@@ -10,10 +10,6 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      {/* <div className='z-10 mb-96 lg:pb-64 xl:pb-96'>
-          <Navbar />
-        </div> */}
-
       <main>{children}</main>
       {/* <Navbar></Navbar> */}
       {/* <contactUs/> */}

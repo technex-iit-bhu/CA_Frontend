@@ -7,7 +7,9 @@ import { Box, Center, Text } from '@chakra-ui/react';
 const contactUsPage = () => {
   return (
     <div>
-      <Navbar></Navbar>
+      <div className='z-10 pb-[110px] '>
+        <Navbar />
+      </div>
       <ContactUs></ContactUs>
       <Box
         textAlign='center'

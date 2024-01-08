@@ -26,8 +26,61 @@
   border-radius: 5px 5px 20px 20px;
 }
 
+.carousel-container {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
 @media screen and (max-width: 768px) {
   .cs {
-      font-size: 3.4rem;
+    font-size: 3.4rem;
   }
+  .card {
+    position: absolute;
+    /* translate: -50%; */
+    transform: translateX(-50%) translateY(50%);
+    left: 50vw;
+    padding: 0 40px;
+    width: 500px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .text {
+    font-size: 0.7rem;
+    line-height: 1rem;
+  }
+  .card {
+    width: 290px;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.profileBoxes {
+  min-width: 10rem;
+  max-width: 100%;
+}
+
+.profileBoxes > .label {
+  flex-grow: 1;
+}
+
+.profileBoxes > .value {
+  flex-grow: 2;
 }

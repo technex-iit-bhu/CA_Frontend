@@ -12,7 +12,7 @@ const Register = () => {
     first_name: '',
     last_name: '',
     college: '',
-    year: 1,
+    year: 0,
     phone_no: '',
     whatsapp_no: '',
     postal_address: '',
@@ -27,12 +27,10 @@ const Register = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
   };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log('Form Submitted');
 
     if (formData.password !== formData.confirmPassword) {
       setModalContent('Passwords do not match!');
@@ -50,7 +48,6 @@ const Register = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log('Success', data);
         setModalContent('Verification link has been sent by email!');
         setShowModal(true);
       } else {
@@ -147,7 +144,6 @@ const Register = () => {
                 </span>
                 <select
                   className='h-[50px] grow self-stretch  rounded-[10px] bg-background px-[10px] text-center text-black lg:text-left'
-                  value={formData.year}
                   onChange={(e) =>
                     setFormData({
                       ...formData,

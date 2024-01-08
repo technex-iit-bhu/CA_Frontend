@@ -3,6 +3,7 @@ import styles from '../styles/adminPage.module.css';
 import TaskList from '@/components/AdminPage/TaskList';
 import TaskForm from '@/components/AdminPage/TaskForm';
 import UnverifiedUsers from '@/components/AdminPage/UnverifiedUsers';
+import VerifyTasks from '@/components/AdminPage/VerifyTasks';
 function AdminPage() {
   const [token, setToken] = useState<string | null>(null);
   const [selected, setSelected] = useState<string>('login');
@@ -11,6 +12,7 @@ function AdminPage() {
     'All Tasks': <TaskList token={token}></TaskList>,
     'Add Task': <TaskForm token={token}></TaskForm>,
     'verify CAs': <UnverifiedUsers token={token}></UnverifiedUsers>,
+    'Verify Tasks': <VerifyTasks token={token} />,
   };
 
   return (
@@ -24,7 +26,9 @@ function AdminPage() {
     </div>
   );
 }
-const BACKEND_URL = 'https://ca-backend-467n.onrender.com/'; //TODO: move to .env :( 
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL ||
+  'https://ca-backend-qknd.onrender.com/';
 function Login({
   token,
   setToken,
@@ -32,11 +36,13 @@ function Login({
   token: string | null;
   setToken: Function;
 }) {
-  const [username, setUsername] = useState<string>('ADMIN');
-  const [password, setPassword] = useState<string>('strong__password_123');
+  const [username, setUsername] = useState<string>('testaccount23');
+  const [password, setPassword] = useState<string>('testaccount123@');
   const [message, setMessage] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   function handleClick() {
+    setLoading(true);
     fetch(BACKEND_URL + 'auth/login/', {
       method: 'POST',
       headers: {
@@ -48,12 +54,16 @@ function Login({
         password,
       }),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status !== 200) throw new Error('Invalid credentials');
+        return res.json();
+      })
       .then((data) => {
         setToken(data.access);
         setMessage('');
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }
   return (
     <div className={styles.loginContainer}>
@@ -92,8 +102,12 @@ function Login({
       >
         {message}
       </p>
-      <button className={styles.button} onClick={handleClick}>
-        Login
+      <button
+        className={styles.button}
+        onClick={handleClick}
+        disabled={loading}
+      >
+        {loading ? 'Logging in...' : 'Login'}
       </button>
     </div>
   );

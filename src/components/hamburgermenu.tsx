@@ -50,6 +50,7 @@ const Hamburger = () => {
   const [faqColor, setFaqColor] = useState('white');
   const [leaderboardColor, setLeaderBoardColor] = useState('white');
   const [dashboardPageColor, setDashboardPageColor] = useState('white');
+  const [profileColor, setProfileColor] = useState('white');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -57,7 +58,7 @@ const Hamburger = () => {
     const token = localStorage.getItem('accessToken');
     if (token) {
       setIsLoggedIn(true);
-    } 
+    }
   }, []);
 
   useEffect(() => {
@@ -68,6 +69,7 @@ const Hamburger = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/incentivesPage') {
       setAboutColor('white');
       setIncentivesColor('red');
@@ -75,6 +77,7 @@ const Hamburger = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/contactUsPage') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -82,6 +85,7 @@ const Hamburger = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/faqPage') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -89,6 +93,7 @@ const Hamburger = () => {
       setFaqColor('red');
       setLeaderBoardColor('white');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/leaderboard') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -96,6 +101,7 @@ const Hamburger = () => {
       setFaqColor('white');
       setLeaderBoardColor('red');
       setDashboardPageColor('white');
+      setProfileColor('white');
     } else if (window.location.pathname === '/dashboardPage') {
       setAboutColor('white');
       setIncentivesColor('white');
@@ -103,6 +109,15 @@ const Hamburger = () => {
       setFaqColor('white');
       setLeaderBoardColor('white');
       setDashboardPageColor('red');
+      setProfileColor('white');
+    } else if (window.location.pathname === '/profile') {
+      setAboutColor('white');
+      setIncentivesColor('white');
+      setContactusColor('white');
+      setFaqColor('white');
+      setLeaderBoardColor('white');
+      setDashboardPageColor('white');
+      setProfileColor('red');
     }
   }, []);
 
@@ -114,7 +129,16 @@ const Hamburger = () => {
   ];
 
   if (isLoggedIn) {
-    navLinks.push({ color: dashboardPageColor, title: 'Dashboard', href: '/dashboardPage' });
+    navLinks.push({
+      color: dashboardPageColor,
+      title: 'Dashboard',
+      href: '/dashboardPage',
+    });
+    navLinks.push({
+      color: profileColor,
+      title: 'Profile',
+      href: '/profile',
+    });
   }
 
   return (
@@ -144,7 +168,7 @@ const Hamburger = () => {
               >
                 <motion.div variants={mobileLinkVars}>
                   <Link href={'/'} className={`text-4xl text-${aboutColor}`}>
-                    About
+                    ABOUT
                   </Link>
                 </motion.div>
                 {navLinks.map((link, index) => {
@@ -159,18 +183,25 @@ const Hamburger = () => {
                     </div>
                   );
                 })}
-                {isLoggedIn ? (<Link
-                  href={'/'}
-                  onClick={() => {setIsLoggedIn(false); localStorage.removeItem('accessToken');}}
-                  className='rounded-e-full rounded-s-full border-2 border-[#A81F25] px-5 py-1 text-3xl sm:px-7'
-                >
-                  Logout
-                </Link>) : (<Link
-                  href={'/login'}
-                  className='rounded-e-full rounded-s-full border-2 border-[#A81F25] px-5 py-1 text-3xl sm:px-7'
-                >
-                  Login
-                </Link>)}
+                {isLoggedIn ? (
+                  <Link
+                    href={'/'}
+                    onClick={() => {
+                      setIsLoggedIn(false);
+                      localStorage.removeItem('accessToken');
+                    }}
+                    className='rounded-e-full rounded-s-full border-2 border-[#A81F25] px-5 py-1 text-3xl sm:px-7'
+                  >
+                    Logout
+                  </Link>
+                ) : (
+                  <Link
+                    href={'/login'}
+                    className='rounded-e-full rounded-s-full border-2 border-[#A81F25] px-5 py-1 text-3xl sm:px-7'
+                  >
+                    Login
+                  </Link>
+                )}
               </motion.div>
             </div>
           </motion.div>

@@ -1,35 +1,39 @@
 import React, { useState } from 'react';
 import styles from '../../styles/adminPage.module.css';
 
-const BACKEND_URL = 'https://ca-backend-467n.onrender.com/'; //TODO: move to .env
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL ||
+  'https://ca-backend-qknd.onrender.com/';
 function TaskForm({ token }: { token: string | null }) {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [points, setPoints] = useState<number>(0);
+  const [deadline, setDeadline] = useState<string>('');
   const [message, setMessage] = useState<string>('');
 
   function handleSubmit() {
+    let fd = new FormData();
+    fd.append('title', title);
+    fd.append('description', description);
+    fd.append('points', points.toString());
+    fd.append('deadline', deadline);
+    setMessage('loading...');
     fetch(BACKEND_URL + 'tasks/', {
       method: 'POST',
       headers: {
-        'content-type': 'application/json',
-        'content-length': '0',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({
-        title,
-        description,
-        points,
-      }),
+      body: fd,
     })
       .then((res) => res.json())
       .then((data) => {
-
-        if(data.id === undefined) throw new Error(JSON.stringify(data));
+        if (data.id === undefined) throw new Error(JSON.stringify(data));
 
         setTitle('');
         setDescription('');
         setPoints(0);
+        setDeadline('');
+        setMessage('Task added successfully.');
       })
       .catch((err) => {
         console.log(err);
@@ -69,6 +73,17 @@ function TaskForm({ token }: { token: string | null }) {
           />
         </label>
         <br />
+        <label>
+          Deadline:
+          <input
+            type='date'
+            className={styles.input}
+            value={deadline.split('T')[0]}
+            onChange={(e) =>
+              setDeadline(new Date(e.target.value).toISOString())
+            }
+          />
+        </label>
         <p
           style={{
             color: 'red',
