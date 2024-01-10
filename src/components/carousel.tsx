@@ -48,23 +48,23 @@ const Text_SymbolLab = "⚪Symbolab : Premium subscriptions for enthusiasts in M
 
 const Text_Skolar = "⚪50% Discount to All Campus Ambassadors in there all courses Worth 6500/- off in each course" + '\n\n' + "⚪Provide monetary internship Opportunities to top 20 Campus Ambassadors via an interview round (with Atleast 10 Hirings)"
 
-const incentiveLogoPaths: [string, string][] = [
-  ['/SE.svg', TextSE],
-  ['/EaseMyTripLogo.svg', Text_EaseMyTrip],
-  ['/Languify.webp', Text_Languify],
-  ['/wayspire.webp', Text_Wayspire],
-  ['Asset_1.svg', Text_Technex],
-  ['/quillBot.png',Text_QuillBot],
-  ['/symboLab.png',Text_SymbolLab],
-  ['/skolar.png',Text_Skolar]
+const incentiveLogoPaths: [string, string, string][] = [
+  ['/SE.svg', TextSE, ''],
+  ['/EaseMyTripLogo.svg', Text_EaseMyTrip, ''],
+  ['/Languify.webp', Text_Languify, ''],
+  ['/wayspire.webp', Text_Wayspire, ''],
+  ['Asset_1.svg', Text_Technex, ''],
+  ['/quillBot.png',Text_QuillBot, ''],
+  ['/symboLab.png',Text_SymbolLab, 'https://www.symbolab.com/#'],
+  ['/skolar.png',Text_Skolar, '']
 ];
 
 const IncentivesCarousel = () => {
   const [showFull, setShowFull] = useState(false);
-  const [fullLogoText, setFullLogoText] = useState<[string, string] | null>(
+  const [fullLogoText, setFullLogoText] = useState<[string, string, string] | null>(
     null
   );
-  const showFullHandler = (content: [string, string] | null) => {
+  const showFullHandler = (content: [string, string, string] | null) => {
     setShowFull(!showFull);
     setFullLogoText(content);
   };
@@ -274,7 +274,7 @@ const IncentivesCarousel = () => {
               {incentiveLogoPaths.map((logo_text, index) => {
                 return (
                   <div key={index}>
-                    <IncentiveCard logo={logo_text[0]} text={logo_text[1]} />
+                    <IncentiveCard logo={logo_text[0]} text={logo_text[1]} link={logo_text[2]} />
 
                     <button
                       className=' font-semibold text-red'
@@ -311,7 +311,7 @@ const IncentivesCarousel = () => {
               {incentiveLogoPaths.map((logo_text, index) => {
                 return (
                   <div key={index}>
-                    <IncentiveCard logo={logo_text[0]} text={logo_text[1]} />
+                    <IncentiveCard logo={logo_text[0]} text={logo_text[1]} link={logo_text[2]} />
 
                     <button
                       className=' font-semibold text-red'
@@ -330,6 +330,7 @@ const IncentivesCarousel = () => {
         <CardPopup
           logo={(fullLogoText && fullLogoText[0]) || '/logoipsum-284.svg'}
           text={(fullLogoText && fullLogoText[1]) || 'BUG!!!'}
+          link={(fullLogoText && fullLogoText[2]) || ''}
           trigger={showFull}
         >
           <button
