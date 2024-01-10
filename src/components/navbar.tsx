@@ -13,8 +13,6 @@ import {
   Button,
 } from '@chakra-ui/react';
 
-
-
 const Navbar: FC = () => {
   const [aboutColor, setAboutColor] = useState('red');
   const [incentivesColor, setIncentivesColor] = useState('white');
@@ -124,8 +122,8 @@ const Navbar: FC = () => {
           console.log(fetchedDetails);
           setName(
             `${fetchedDetails.userprofile.first_name} ${fetchedDetails.userprofile.last_name}`
-          );}
-          else {
+          );
+        } else {
           console.error('Failed to fetch profile');
         }
       } catch (error) {
@@ -133,8 +131,7 @@ const Navbar: FC = () => {
       }
     };
     fetchProfile();
-  }
-  , []);
+  }, []);
 
   return (
     <div className='z-100 flex items-center justify-between'>

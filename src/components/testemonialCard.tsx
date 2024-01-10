@@ -30,21 +30,21 @@ const Testes: React.FC<CarouselProps> = ({ title, description, imageSrc }) => {
   const cardHeight = isLargerThan900
     ? '315px'
     : isLargerThan640
-      ? '40vh'
-      : isLargerThan490
-        ? '40vh'
-        : isLargerThan375
-          ? '30vh'
-          : '25vh';
+    ? '40vh'
+    : isLargerThan490
+    ? '40vh'
+    : isLargerThan375
+    ? '30vh'
+    : '25vh';
   const fontSize = isLargerThan900
     ? '19px'
     : isLargerThan700
-      ? '15px'
-      : isLargerThan490
-        ? '12px'
-        : isLargerThan375
-          ? '10px'
-          : '8px';
+    ? '15px'
+    : isLargerThan490
+    ? '12px'
+    : isLargerThan375
+    ? '10px'
+    : '8px';
 
   const fontSize1 = isLargerThan900 ? '44px' : '4vw';
   const padding1 = isLargerThan900 ? '15px 0px' : '3vw 0';

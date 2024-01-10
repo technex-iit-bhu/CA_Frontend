@@ -38,25 +38,34 @@ const Cards: React.FC<Props> = ({
 }) => {
   const [isUploaded, setIsUploaded] = useState(false);
   const [buttonText, setButtonText] = useState('Upload');
-  const fileInputRef = useRef<HTMLInputElement>(null!);
+  const [submissionImg, setSubmissionImg] = useState<File | null>(null);
   const [dropdown, setDropdown] = useState(false);
   const [gdriveLink, setGdriveLink] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
+
+  const handleFileSelectionChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = event.target.files && event.target.files[0];
+    setSubmissionImg(file);
+  };
 
   const handleModalClose = () => {
     setShowModal(false);
   };
 
   const handleSubmit = async () => {
+    const fd = new FormData();
+    if (gdriveLink.length > 0) fd.append('link', gdriveLink);
+    if (submissionImg != null) fd.append('image', submissionImg as Blob);
     try {
       const response = await fetch(
         `https://ca-backend-qknd.onrender.com/tasks/submit/${taskID}/`,
         {
           method: 'post',
-          body: JSON.stringify({ link: gdriveLink }),
+          body: fd,
           headers: {
-            'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
           },
         }
@@ -144,7 +153,7 @@ const Cards: React.FC<Props> = ({
               </div>
               {/* Second */}
               <div>
-                {activeTab === 'live' && (
+                {((activeTab === 'live') || (activeTab === 'submitted' && comment)) && (
                   <button
                     onClick={handleUpload}
                     className={`text-white h-6 w-20 rounded-full bg-red ${
@@ -165,6 +174,12 @@ const Cards: React.FC<Props> = ({
               className='h-10 w-full rounded-[50px] bg-[#191919] px-5'
               value={gdriveLink}
               onChange={handleChange}
+            />
+            <Input
+              type='file'
+              placeholder='Attach an image'
+              className='h-10 w-full rounded-[50px] bg-[#191919] px-5'
+              onChange={handleFileSelectionChange}
             />
             <Button
               className='mt-2 h-10 w-[30%] rounded-[50px] bg-[#A81F25]'
@@ -196,8 +211,8 @@ const Cards: React.FC<Props> = ({
                   ? incentives
                   : 'No Incentives'
                 : comment
-                  ? comment
-                  : 'No Comments'}
+                ? comment
+                : 'No Comments'}
             </MenuItem>
           </MenuList>
         </Menu>

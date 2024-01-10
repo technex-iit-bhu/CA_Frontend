@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom';
 interface CardProps {
   logo: string;
   text: string;
-  link: string;
+  hyperlink:string;
 }
 
-const IncentiveCard: FC<CardProps> = ({ logo, text, link }) => {
+const IncentiveCard: FC<CardProps> = ({ logo, text,hyperlink }) => {
   const [showFullDescription, setFullDescription] = useState(false);
 
   const description = showFullDescription
@@ -41,11 +41,9 @@ const IncentiveCard: FC<CardProps> = ({ logo, text, link }) => {
           style={{ margin: '10px', padding: '20px' }}
           className='w-full space-y-3'
         >
-          <div className='flex items-center justify-center p-1 h-1/4'>
-            <a href={link}>
-              <Image alt='companylogo' src={logo} width={100} height={100} />
-            </a>
-          </div>
+          <a href={hyperlink} className='flex h-1/4 items-center justify-center p-1'>
+            <Image alt='companylogo'  src={logo} width={100} height={100}></Image> 
+          </a>
           <p
             className='px-3 py-1 pb-2'
             style={{
