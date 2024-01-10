@@ -4,6 +4,7 @@ import { useState } from 'react';
 import 'src/styles/Incentive.module.css';
 import Image from 'next/image';
 import CardPopup from './cardpopup';
+import { Link } from 'react-router-dom';
 
 interface CardProps {
   logo: string;

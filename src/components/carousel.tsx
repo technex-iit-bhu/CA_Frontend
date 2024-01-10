@@ -61,7 +61,7 @@ const incentiveLogoPaths: [string, string,string][] = [
   ['/wayspire.webp', Text_Wayspire,'https://wayspire.in/'],
   ['Asset_1.svg', Text_Technex,''],
   ['/quillBot.png', Text_QuillBot,'https://quillbot.com/'],
-  ['/symboLab.png', Text_SymbolLab,''],
+  ['/symboLab.png', Text_SymbolLab,'https://www.symbolab.com/'],
   ['/skolar.png', Text_Skolar,''],
 ];
 
