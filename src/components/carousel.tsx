@@ -49,28 +49,38 @@ const Text_QuillBot =
 const Text_SymbolLab =
   '⚪Symbolab : Premium subscriptions for enthusiasts in Maths for top performers';
 
+const Text_Wayspire2 =
+  '⚪Free courses to top performing Campus Ambassadors.' +
+  '\n\n' +
+  '⚪Course discounts hinge on the exemplary achievements of our Campus Ambassadors';
+
 const Text_Skolar =
   '⚪50% Discount to All Campus Ambassadors in there all courses Worth 6500/- off in each course' +
   '\n\n' +
   '⚪Provide monetary internship Opportunities to top 20 Campus Ambassadors via an interview round (with Atleast 10 Hirings)';
 
-const incentiveLogoPaths: [string, string,string][] = [
-  ['/SE.svg', TextSE,'https://stockedge.com/premium?utm_source=google&utm_medium=cpc&utm_campaign=NPD_Stockedge_Premium_Brand_Search_Dec23&utm_term=stockedge&gad_source=1&gclid=Cj0KCQiAtOmsBhCnARIsAGPa5yZtbrB2tikTSHCdw4fCecS_uH34zDvuCIHjI4k8sWcGWKuztxlexd4aAvkLEALw_wcB'],
-  ['/EaseMyTripLogo.svg', Text_EaseMyTrip,''],
-  ['/Languify.webp', Text_Languify,'https://www.languify.in/'],
-  ['/wayspire.webp', Text_Wayspire,'https://wayspire.in/'],
-  ['Asset_1.svg', Text_Technex,''],
-  ['/quillBot.png', Text_QuillBot,'https://quillbot.com/'],
-  ['/symboLab.png', Text_SymbolLab,'https://www.symbolab.com/'],
-  ['/skolar.png', Text_Skolar,''],
+const incentiveLogoPaths: [string, string, string][] = [
+  [
+    '/SE.svg',
+    TextSE,
+    'https://stockedge.com/premium?utm_source=google&utm_medium=cpc&utm_campaign=NPD_Stockedge_Premium_Brand_Search_Dec23&utm_term=stockedge&gad_source=1&gclid=Cj0KCQiAtOmsBhCnARIsAGPa5yZtbrB2tikTSHCdw4fCecS_uH34zDvuCIHjI4k8sWcGWKuztxlexd4aAvkLEALw_wcB',
+  ],
+  ['/EaseMyTripLogo.svg', Text_EaseMyTrip, ''],
+  ['/Languify.webp', Text_Languify, 'https://www.languify.in/'],
+  ['/wayspire.webp', Text_Wayspire, 'https://wayspire.in/'],
+  ['Asset_1.svg', Text_Technex, ''],
+  ['/quillBot.png', Text_QuillBot, 'https://quillbot.com/'],
+  ['/symboLab.png', Text_SymbolLab, 'https://www.symbolab.com/'],
+  ['/skolar.png', Text_Skolar, ''],
+  ['/wayspire.jpg', Text_Wayspire2, ''],
 ];
 
 const IncentivesCarousel = () => {
   const [showFull, setShowFull] = useState(false);
-  const [fullLogoText, setFullLogoText] = useState<[string, string,string] | null>(
-    null
-  );
-  const showFullHandler = (content: [string, string,string] | null) => {
+  const [fullLogoText, setFullLogoText] = useState<
+    [string, string, string] | null
+  >(null);
+  const showFullHandler = (content: [string, string, string] | null) => {
     setShowFull(!showFull);
     setFullLogoText(content);
   };
@@ -268,7 +278,11 @@ const IncentivesCarousel = () => {
               {incentiveLogoPaths.map((logo_text, index) => {
                 return (
                   <div key={index}>
-                    <IncentiveCard logo={logo_text[0]} text={logo_text[1]} hyperlink={logo_text[2]} />
+                    <IncentiveCard
+                      logo={logo_text[0]}
+                      text={logo_text[1]}
+                      hyperlink={logo_text[2]}
+                    />
 
                     <button
                       className=' font-semibold text-red'
@@ -305,7 +319,11 @@ const IncentivesCarousel = () => {
               {incentiveLogoPaths.map((logo_text, index) => {
                 return (
                   <div key={index}>
-                    <IncentiveCard logo={logo_text[0]} text={logo_text[1]} hyperlink={logo_text[2]} />
+                    <IncentiveCard
+                      logo={logo_text[0]}
+                      text={logo_text[1]}
+                      hyperlink={logo_text[2]}
+                    />
 
                     <button
                       className=' font-semibold text-red'
