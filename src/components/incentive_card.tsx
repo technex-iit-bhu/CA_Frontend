@@ -3,7 +3,6 @@ import React, { FC } from 'react';
 import { useState } from 'react';
 import 'src/styles/Incentive.module.css';
 import Image from 'next/image';
-import CardPopup from './cardpopup';
 
 interface CardProps {
   logo: string;
