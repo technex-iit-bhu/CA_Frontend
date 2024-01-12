@@ -47,7 +47,7 @@ const Register = () => {
         },
       });
       if (response.ok) {
-        const data = await response.json();
+        // const data = await response.json();
         setModalContent('Verification link has been sent by email!');
         setShowModal(true);
       } else {
@@ -56,7 +56,7 @@ const Register = () => {
           const errorData = await response.json();
           if (errorData.username && errorData.email) {
             setModalContent(
-              'Both username and email already exist. Please login.'
+              'Both username and email already exist! Please login!'
             );
           } else if (errorData.username) {
             // Only username conflict
@@ -64,7 +64,11 @@ const Register = () => {
           } else if (errorData.email) {
             // Only email conflict
             setModalContent(errorData.email);
+          } else {
+            setModalContent(errorData.error)
           }
+        } else if (response.status == 226) {
+          setModalContent('User with same credentials already exists!');
         } else {
           setModalContent('An error occurred during registration!');
         }
