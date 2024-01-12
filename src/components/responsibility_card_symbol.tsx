@@ -24,7 +24,7 @@ const ResponsibilityCard_Symbol: FC<CardProps> = ({ logo, text, heading }) => {
     <div>
       <div
         style={{
-          height: 'calc(20vh + 100px)',
+          height: 'calc(25vh + 100px)',
           //   width: '200px',
           position: 'relative',
           border: '3px solid black',
@@ -70,7 +70,9 @@ const ResponsibilityCard_Symbol: FC<CardProps> = ({ logo, text, heading }) => {
             textAlign: 'center',
           }}
         >
-          <p style={{ margin: '15px', marginBottom: '1.5vh' }}>{text}</p>
+
+            <p style={{ margin:"1vh", marginBottom:"1vh"}}>{text}</p>
+
 
           <h1>
             <b>{heading} </b>

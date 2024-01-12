@@ -3,13 +3,16 @@ import React, { FC } from 'react';
 import { useState } from 'react';
 import 'src/styles/Incentive.module.css';
 import Image from 'next/image';
+import CardPopup from './cardpopup';
+import { Link } from 'react-router-dom';
 
 interface CardProps {
   logo: string;
   text: string;
+  hyperlink:string;
 }
 
-const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
+const IncentiveCard: FC<CardProps> = ({ logo, text,hyperlink }) => {
   const [showFullDescription, setFullDescription] = useState(false);
 
   const description = showFullDescription
@@ -38,9 +41,9 @@ const IncentiveCard: FC<CardProps> = ({ logo, text }) => {
           style={{ margin: '10px', padding: '20px' }}
           className='w-full space-y-3'
         >
-          <div className='flex items-center justify-center p-1 h-1/4'>
-            <Image alt='companylogo' src={logo} width={100} height={100} />
-          </div>
+          <a href={hyperlink} className='flex h-1/4 items-center justify-center p-1'>
+            <Image alt='companylogo'  src={logo} width={100} height={100}></Image> 
+          </a>
           <p
             className='px-3 py-1 pb-2'
             style={{

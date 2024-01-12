@@ -34,23 +34,6 @@ const ContactUs = () => {
               <div>+918955879550</div>
             </div>
           </div>
-          <div className=''>
-            <div className='flex items-center justify-center gap-1 lg:gap-6'>
-              <div>
-                <Image
-                  src={'/phone-call.webp'}
-                  alt='phone logo'
-                  width={30}
-                  height={30}
-                  className=''
-                />
-              </div>
-              <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
-                <h2 className='font-bold text-red'>Vinamrah Nemani</h2>
-                <div>+917870355406</div>
-              </div>
-            </div>
-          </div>
         </div>
         <div className='flex gap-20 pb-5'>
           <div className='flex items-center'>
@@ -65,8 +48,8 @@ const ContactUs = () => {
                 />
               </div>
               <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
-                <h2 className='font-bold text-red'>Ridhima Singh</h2>
-                <div>+919473288435</div>
+                <h2 className='font-bold text-red'>Vinamrah Nemani</h2>
+                <div>+917870355406</div>
               </div>
             </div>
           </div>
@@ -89,23 +72,6 @@ const ContactUs = () => {
           </div>
         </div>
         <div className='flex gap-20 pb-5'>
-          <div className='flex items-center'>
-            <div className='flex items-center justify-center gap-1 lg:gap-6'>
-              <div className=''>
-                <Image
-                  src={'/phone-call.webp'}
-                  alt='phone logo'
-                  width={30}
-                  height={30}
-                  className=''
-                />
-              </div>
-              <div className='flex flex-col justify-center text-xs md:text-xl lg:text-3xl '>
-                <h2 className='font-bold text-red'>Khushi Jain</h2>
-                <div>+917415153669</div>
-              </div>
-            </div>
-          </div>
           <div>
             <div className='flex items-center justify-center gap-1 lg:gap-6'>
               <div>
