@@ -17,6 +17,7 @@ type User = {
   date_joined: string;
   user: string;
   email_token: string;
+  is_verified: boolean;
 };
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ||
@@ -38,6 +39,7 @@ const UserTable = ({ token }: { token: string | null }) => {
           //there has been an error as data is not an array
           throw new Error(data.detail);
         setUsers(data);
+        console.log(data);
       })
       .catch((err) => setErrorMessage('' + err));
   }
@@ -94,7 +96,7 @@ const UserTable = ({ token }: { token: string | null }) => {
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr key={user.id}>
+            (!user.is_verified && (<tr key={user.id}>
               <td className={styles.td}>{user.user_name}</td>
               <td className={styles.td}>{user.first_name}</td>
               <td className={styles.td}>{user.last_name}</td>
@@ -118,7 +120,29 @@ const UserTable = ({ token }: { token: string | null }) => {
                   Mark verified
                 </button>
               </td>
-            </tr>
+            </tr>))
+          ))}
+          {users.map((user) => (
+            (user.is_verified && (<tr key={user.id}>
+              <td className={styles.td}>{user.user_name}</td>
+              <td className={styles.td}>{user.first_name}</td>
+              <td className={styles.td}>{user.last_name}</td>
+              <td className={styles.td}>{user.college}</td>
+              <td className={styles.td}>{user.year}</td>
+              <td className={styles.td}>{user.phone_no}</td>
+              <td className={styles.td}>{user.whatsapp_no}</td>
+              <td className={styles.td}>{user.postal_address}</td>
+              <td className={styles.td}>{user.pin_code}</td>
+              <td className={styles.td}>{user.why_choose}</td>
+              <td className={styles.td}>{user.were_you_ca ? 'Yes' : 'No'}</td>
+              <td className={styles.td}>{user.points}</td>
+              <td className={styles.td}>
+                {new Date(user.date_joined).toLocaleDateString()}
+              </td>
+              <td className={styles.td}>
+                <p>Verified</p>
+              </td>
+            </tr>))
           ))}
         </tbody>
       </table>
