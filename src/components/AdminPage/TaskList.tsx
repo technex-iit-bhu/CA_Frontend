@@ -10,7 +10,7 @@ type Task = {
 };
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ||
-  'https://ca-backend-qknd.onrender.com/';
+  'https://ca-backend-production-e0c6.up.railway.app/';
 function TaskList({ token }: { token: string | null }) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

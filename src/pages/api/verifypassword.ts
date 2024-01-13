@@ -7,7 +7,7 @@ export default async function handler(
   if (req.method === 'POST') {
     try {
       const response = await fetch(
-        'https://ca-backend-qknd.onrender.com/auth/login/forgot_password/verify/',
+        'https://ca-backend-production-e0c6.up.railway.app/auth/login/forgot_password/verify/',
         {
           method: 'POST',
           body: JSON.stringify(req.body), // Pass the request body as-is

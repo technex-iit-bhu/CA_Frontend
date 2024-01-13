@@ -26,7 +26,7 @@ const Leaderboard = () => {
       }
 
       const response = await fetch(
-        'https://ca-backend-qknd.onrender.com/tasks/leaderboard/',
+        'https://ca-backend-production-e0c6.up.railway.app/tasks/leaderboard/',
         {
           method: 'GET',
           headers: {

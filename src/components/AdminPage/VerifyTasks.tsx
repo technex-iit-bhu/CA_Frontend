@@ -30,7 +30,7 @@ type UserWiseTaskSubmission = {
 
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ||
-  'https://ca-backend-qknd.onrender.com/';
+  'https://ca-backend-production-e0c6.up.railway.app/';
 
 function VerifyTasks({ token }: { token: string | null }) {
   const [submissions, setSubmissions] = useState<UserWiseTaskSubmission[]>([]);
