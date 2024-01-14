@@ -24,9 +24,9 @@ const text6 =
   '⚪Amazing opportunities to access exclusive career resources, product suite and exciting freebies.';
 const Text_Languify = text5 + '\n\n' + text6;
 
-const text7 = '⚪Free courses to top performing Campus Ambassadors.';
+const text7 = '⚪Special Discount on courses of Programming Pathshala for top performing Campus Ambassadors.';
 const text8 =
-  '⚪Course discounts hinge on the exemplary achievements of our Campus Ambassadors.';
+  '⚪Merchandise and Goodies for top performing Campus Ambassadors.';
 const Text_Wayspire = text7 + '\n\n' + text8;
 
 const text9 =
@@ -42,12 +42,12 @@ const text12 =
 const TextSE = text10 + '\n\n' + text11 + '\n\n' + text12;
 
 const Text_QuillBot =
-  '⚪Top 10 Campus Ambassadors will get premium subscription of QuillBot' +
+  '⚪Top performing Campus Ambassadors will get premium subscription of QuillBot' +
   '\n\n' +
-  '⚪Good performers will have discount voucher of 80% on QuillBot';
+  '⚪Top performers will get discount voucher of 80% on Quillbot.';
 
 const Text_SymbolLab =
-  '⚪Symbolab : Premium subscriptions for enthusiasts in Maths for top performers';
+  '⚪Premium subscriptions for enthusiasts in Maths for top performing Campus Ambassadors';
 
 const Text_Wayspire2 =
   '⚪Free courses to top performing Campus Ambassadors.' +
@@ -55,9 +55,9 @@ const Text_Wayspire2 =
   '⚪Course discounts hinge on the exemplary achievements of our Campus Ambassadors';
 
 const Text_Skolar =
-  '⚪50% Discount to All Campus Ambassadors in there all courses Worth 6500/- off in each course' +
+  '⚪50% Discount to all campus ambassadors in all courses worth 6500/- off in each courses' +
   '\n\n' +
-  '⚪Provide monetary internship Opportunities to top 20 Campus Ambassadors via an interview round (with Atleast 10 Hirings)';
+  '⚪Monetary Internship opportunities to top 20 Campus Ambassadors via an interview round';
 
 const incentiveLogoPaths: [string, string, string][] = [
   [
@@ -65,14 +65,14 @@ const incentiveLogoPaths: [string, string, string][] = [
     TextSE,
     'https://stockedge.com/premium?utm_source=google&utm_medium=cpc&utm_campaign=NPD_Stockedge_Premium_Brand_Search_Dec23&utm_term=stockedge&gad_source=1&gclid=Cj0KCQiAtOmsBhCnARIsAGPa5yZtbrB2tikTSHCdw4fCecS_uH34zDvuCIHjI4k8sWcGWKuztxlexd4aAvkLEALw_wcB',
   ],
-  ['/EaseMyTripLogo.svg', Text_EaseMyTrip, ''],
+  ['/EaseMyTripLogo.svg', Text_EaseMyTrip, 'https://www.easemytrip.com/'],
   ['/Languify.webp', Text_Languify, 'https://www.languify.in/'],
-  ['/wayspire.webp', Text_Wayspire, 'https://wayspire.in/'],
+  ['/wayspire.webp', Text_Wayspire, 'https://programmingpathshala.com/'],
   ['Asset_1.svg', Text_Technex, ''],
   ['/quillBot.png', Text_QuillBot, 'https://quillbot.com/'],
   ['/symboLab.png', Text_SymbolLab, 'https://www.symbolab.com/'],
-  ['/skolar.png', Text_Skolar, ''],
-  ['/wayspire.jpg', Text_Wayspire2, ''],
+  ['/skolar.png', Text_Skolar, 'https://www.skolar.in/'],
+  ['/wayspire.jpg', Text_Wayspire2, 'https://wayspire.in/'],
 ];
 
 const IncentivesCarousel = () => {

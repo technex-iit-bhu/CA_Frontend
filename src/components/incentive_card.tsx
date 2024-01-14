@@ -41,7 +41,7 @@ const IncentiveCard: FC<CardProps> = ({ logo, text,hyperlink }) => {
           style={{ margin: '10px', padding: '20px' }}
           className='w-full space-y-3'
         >
-          <a href={hyperlink} className='flex h-1/4 items-center justify-center p-1'>
+          <a target="_blank" href={hyperlink} rel="noopener noreferrer" className='flex h-1/4 items-center justify-center p-1'>
             <Image alt='companylogo'  src={logo} width={100} height={100}></Image> 
           </a>
           <p
