@@ -61,7 +61,7 @@ const Cards: React.FC<Props> = ({
     if (submissionImg != null) fd.append('image', submissionImg as Blob);
     try {
       const response = await fetch(
-        `https://ca-backend-qknd.onrender.com/tasks/submit/${taskID}/`,
+        `https://ca-backend-production-e0c6.up.railway.app/tasks/submit/${taskID}/`,
         {
           method: 'post',
           body: fd,
