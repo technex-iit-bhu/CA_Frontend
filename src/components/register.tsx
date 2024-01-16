@@ -61,7 +61,6 @@ const Register = () => {
           } else if (errorData.username) {
             // Only username conflict
             setModalContent(errorData.username);
-            console.log(errorData.username);
           } else if (errorData.email) {
             // Only email conflict
             setModalContent(errorData.email);
