@@ -61,6 +61,7 @@ const Register = () => {
           } else if (errorData.username) {
             // Only username conflict
             setModalContent(errorData.username);
+            console.log(errorData.username);
           } else if (errorData.email) {
             // Only email conflict
             setModalContent(errorData.email);
@@ -84,7 +85,7 @@ const Register = () => {
   const handleModalClose = () => {
     setShowModal(false);
     if (modalContent === 'Verification link has been sent by email!') {
-      Router.push('https://ca-frontend-ebon.vercel.app/');
+      Router.push('/');
     }
   };
 
@@ -286,7 +287,7 @@ const Register = () => {
               <div className='rounded-lg bg-grey p-5 shadow-lg'>
                 <p>{modalContent}</p>
                 <button
-                  onClick={() => setShowModal(false)}
+                  onClick={handleModalClose}
                   className='text-white m-4 rounded-full bg-red px-4 py-2'
                 >
                   Okay
