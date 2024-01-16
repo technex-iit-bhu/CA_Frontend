@@ -65,7 +65,7 @@ const Register = () => {
             // Only email conflict
             setModalContent(errorData.email);
           } else {
-            setModalContent(errorData.error)
+            setModalContent(errorData.error || 'An error occurred!')
           }
         } else if (response.status == 226) {
           setModalContent('User with same credentials already exists!');
