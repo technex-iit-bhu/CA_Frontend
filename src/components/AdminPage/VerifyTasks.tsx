@@ -43,7 +43,7 @@ function VerifyTasks({ token }: { token: string | null }) {
   const fetchSubmissions = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${BACKEND_URL}tasks/verify/`, {
+      const response = await fetch(`${BACKEND_URL}/tasks/verify/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
