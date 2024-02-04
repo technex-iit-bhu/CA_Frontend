@@ -30,7 +30,7 @@ type UserWiseTaskSubmission = {
 
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ||
-  'https://ca-api.technex.co.in/';
+  'https://ca-api.technex.co.in';
 
 function VerifyTasks({ token }: { token: string | null }) {
   const [submissions, setSubmissions] = useState<UserWiseTaskSubmission[]>([]);
@@ -72,7 +72,7 @@ function VerifyTasks({ token }: { token: string | null }) {
 
   const handleVerify = async (id: number) => {
     try {
-      const response = await fetch(`${BACKEND_URL}tasks/verify/${id}/`, {
+      const response = await fetch(`${BACKEND_URL}/tasks/verify/${id}/`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,

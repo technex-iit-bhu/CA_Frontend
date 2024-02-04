@@ -10,7 +10,7 @@ type Task = {
 };
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ||
-  'https://ca-api.technex.co.in/';
+  'https://ca-api.technex.co.in';
 function TaskList({ token }: { token: string | null }) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -18,7 +18,7 @@ function TaskList({ token }: { token: string | null }) {
   const fetchTasks = async () => {
     try {
       setLoading(true);
-      const response = await fetch(BACKEND_URL + 'tasks/', {
+      const response = await fetch(BACKEND_URL + '/tasks/', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

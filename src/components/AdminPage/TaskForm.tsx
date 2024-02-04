@@ -3,7 +3,7 @@ import styles from '../../styles/adminPage.module.css';
 
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ||
-  'https://ca-api.technex.co.in/';
+  'https://ca-api.technex.co.in';
 function TaskForm({ token }: { token: string | null }) {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
@@ -18,7 +18,7 @@ function TaskForm({ token }: { token: string | null }) {
     fd.append('points', points.toString());
     fd.append('deadline', deadline);
     setMessage('loading...');
-    fetch(BACKEND_URL + 'tasks/', {
+    fetch(BACKEND_URL + '/tasks/', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,

@@ -21,14 +21,14 @@ type User = {
 };
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ||
-  'https://ca-api.technex.co.in/';
+  'https://ca-api.technex.co.in';
 
 const UserTable = ({ token }: { token: string | null }) => {
   const [users, setUsers] = useState<User[]>([]);
   const [errorMessage, setErrorMessage] = useState<string>('');
 
   function fetchUnverifiedUsers() {
-    fetch(BACKEND_URL + 'auth/verifyaccount/', {
+    fetch(BACKEND_URL + '/auth/verifyaccount/', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
