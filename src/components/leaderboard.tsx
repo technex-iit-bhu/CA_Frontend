@@ -26,7 +26,7 @@ const Leaderboard = () => {
       }
 
       const response = await fetch(
-        'https://ca-backend-production-e0c6.up.railway.app/tasks/leaderboard/',
+        'https://ca-api.technex.co.in/tasks/leaderboard/',
         {
           method: 'GET',
           headers: {

@@ -28,7 +28,7 @@ function AdminPage() {
 }
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ||
-  'https://ca-backend-production-e0c6.up.railway.app/';
+  'https://ca-api.technex.co.in/';
 function Login({
   token,
   setToken,
