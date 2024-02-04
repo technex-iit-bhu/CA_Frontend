@@ -65,7 +65,7 @@ const Register = () => {
             // Only email conflict
             setModalContent(errorData.email);
           } else {
-            setModalContent(errorData.error)
+            setModalContent(errorData.error || 'An error occurred!')
           }
         } else if (response.status == 226) {
           setModalContent('User with same credentials already exists!');
@@ -84,7 +84,7 @@ const Register = () => {
   const handleModalClose = () => {
     setShowModal(false);
     if (modalContent === 'Verification link has been sent by email!') {
-      Router.push('https://ca-frontend-ebon.vercel.app/');
+      Router.push('/');
     }
   };
 
@@ -286,7 +286,7 @@ const Register = () => {
               <div className='rounded-lg bg-grey p-5 shadow-lg'>
                 <p>{modalContent}</p>
                 <button
-                  onClick={() => setShowModal(false)}
+                  onClick={handleModalClose}
                   className='text-white m-4 rounded-full bg-red px-4 py-2'
                 >
                   Okay
