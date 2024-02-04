@@ -28,7 +28,7 @@ function AdminPage() {
 }
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ||
-  'https://ca-api.technex.co.in/';
+  'https://ca-api.technex.co.in';
 function Login({
   token,
   setToken,
@@ -43,7 +43,7 @@ function Login({
 
   function handleClick() {
     setLoading(true);
-    fetch(BACKEND_URL + 'auth/login/', {
+    fetch(BACKEND_URL + '/auth/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
