@@ -128,7 +128,7 @@ function TaskItem({
 
   async function handleDeleteTask() {
     try {
-      const response = await fetch(BACKEND_URL + 'tasks/' + task.id + '/', {
+      const response = await fetch(BACKEND_URL + '/tasks/' + task.id + '/', {
         method: 'DELETE',
         headers: {
           'content-type': 'application/json',
@@ -151,7 +151,7 @@ function TaskItem({
       fd.append(entry[0], '' + entry[1]); // ""+entry[1] converts number|string to string
     }
     try {
-      const response = await fetch(BACKEND_URL + 'tasks/' + task.id + '/', {
+      const response = await fetch(BACKEND_URL + '/tasks/' + task.id + '/', {
         method: 'PATCH',
         headers: {
           Authorization: `Bearer ${token}`,
