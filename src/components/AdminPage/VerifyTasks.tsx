@@ -97,7 +97,7 @@ function VerifyTasks({ token }: { token: string | null }) {
   const handleAdminComment = async (id: number) => {
     const comment = adminComments[id] || '';
     try {
-      const response = await fetch(`${BACKEND_URL}tasks/verify/${id}/`, {
+      const response = await fetch(`${BACKEND_URL}/tasks/verify/${id}/`, {
         method: 'PATCH',
         headers: {
           Authorization: `Bearer ${token}`,
