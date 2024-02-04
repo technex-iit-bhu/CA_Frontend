@@ -7,7 +7,7 @@ export default async function handler(
   if (req.method === 'POST') {
     try {
       const response = await fetch(
-        'https://ca-backend-production-e0c6.up.railway.app/auth/login/forgot_password/',
+        'https://ca-api.technex.co.in/auth/login/forgot_password/',
         {
           method: 'POST',
           body: JSON.stringify(req.body), // Pass the request body as-is

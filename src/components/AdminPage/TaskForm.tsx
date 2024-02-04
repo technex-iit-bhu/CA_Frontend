@@ -3,7 +3,7 @@ import styles from '../../styles/adminPage.module.css';
 
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ||
-  'https://ca-backend-production-e0c6.up.railway.app/';
+  'https://ca-api.technex.co.in/';
 function TaskForm({ token }: { token: string | null }) {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');

@@ -21,7 +21,7 @@ type User = {
 };
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ||
-  'https://ca-backend-production-e0c6.up.railway.app/';
+  'https://ca-api.technex.co.in/';
 
 const UserTable = ({ token }: { token: string | null }) => {
   const [users, setUsers] = useState<User[]>([]);

@@ -7,7 +7,7 @@ export default async function handler(
   if (req.method === 'GET') {
     try {
       const response = await fetch(
-        'https://ca-backend-production-e0c6.up.railway.app/tasks/submitted',
+        'https://ca-api.technex.co.in/tasks/submitted',
         {
           method: 'GET',
           headers: {
